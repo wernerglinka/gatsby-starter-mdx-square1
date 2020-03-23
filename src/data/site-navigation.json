@@ -1,0 +1,20 @@
+{
+  "main": [
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "About",
+      "url": "/page2"
+    },
+    {
+      "label": "Projects",
+      "url": "/page3"
+    },
+    {
+      "label": "Sample Text",
+      "url": "/page4"
+    }
+  ]
+}

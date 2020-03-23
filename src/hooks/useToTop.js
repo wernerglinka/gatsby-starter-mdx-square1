@@ -9,11 +9,7 @@ const useToTop = () => {
   function handleScroll() {
     // Safari reports 0 for document.documentElement.scrollTop. This fix
     // will use the right scrollTop for all browsers
-    const scrollTop = Math.max(
-      window.pageYOffset,
-      document.documentElement.scrollTop,
-      document.body.scrollTop
-    );
+    const scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
 
     if (scrollTop > 150) {
       setToTop(true);
@@ -24,8 +20,7 @@ const useToTop = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", debounce(handleScroll, 100));
-    return () =>
-      window.removeEventListener("scroll", debounce(handleScroll, 100, true));
+    return () => window.removeEventListener("scroll", debounce(handleScroll, 100, true));
   }, []);
 
   useEffect(() => {

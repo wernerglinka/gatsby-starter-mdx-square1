@@ -22,7 +22,7 @@ const InlineMsg = ({ text }) => {
 };
 
 InlineMsg.propTypes = {
-  text: PropTypes.shape(),
+  text: PropTypes.string,
 };
 
 InlineMsg.defaultProps = {

@@ -4,16 +4,17 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
-    // {
-    //  resolve: `gatsby-plugin-page-transitions`,
-    //  options: {
-    //    transitionTime: 500,
-    //  },
-    // },
+    "gatsby-transformer-json",
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: { default: `${__dirname}/src/components/layout/index.js` },
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src/data`,
       },
     },
     {

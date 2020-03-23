@@ -1,5 +1,20 @@
 # Gatsby Starter Square1
 
+## Dev setup
+
+Using ESLint with Prettier plugin and Airbnb config
+
+Install:
+
+- eslint
+- eslint-config-airbnb
+- eslint-config-prettier
+- eslint-plugin-import
+- eslint-plugin-jsx-a11y
+- eslint-plugin-prettier
+- eslint-plugin-react
+- prettier
+
 ## Styling
 
 ### Global styles are defined in SCSS.
