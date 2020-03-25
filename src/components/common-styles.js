@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div`
-  max-width: 1000px;
+  max-width: 960px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
 `;
 
 export const Hamburger = styled.button`
@@ -15,6 +14,10 @@ export const Hamburger = styled.button`
   background: none;
   border: none;
   margin-left: auto;
+
+  @media (min-width: 767px) {
+    display: none;
+  }
 
   &:focus {
     outline: 0;

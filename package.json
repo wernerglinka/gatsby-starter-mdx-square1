@@ -44,6 +44,7 @@
     "remark": "^11.0.2",
     "remark-html": "^10.0.0",
     "remark-preset-lint-recommended": "^3.0.3",
+    "smooth-scroll": "^16.1.2",
     "typography": "^0.16.19",
     "typography-theme-moraga": "^0.16.19"
   },

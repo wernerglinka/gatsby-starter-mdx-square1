@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
 import React from "react";
 import mdStringToHTML from "../utilities/md-to-html";
+import { Container } from "./common-styles";
 
 const Component2 = ({ info }) => (
-  <div>
+  <Container>
     <h2>{info.title}</h2>
     <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(info.content) }} />
-  </div>
+  </Container>
 );
 
 Component2.propTypes = {

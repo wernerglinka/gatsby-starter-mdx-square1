@@ -5,7 +5,9 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import styled from "@emotion/styled";
+import { ThemeProvider } from "emotion-theming";
 import { FiArrowUp } from "react-icons/fi";
+import theme from "./theme";
 
 import Head from "../head";
 import Header from "../header";
@@ -20,12 +22,9 @@ import useSiteMetadata from "../../hooks/useSiteMetadata";
 import InlineMessage from "../shortcodes/inline-message";
 const shortcodes = { InlineMessage };
 
-const Page = styled.div`
-  max-width: 960px;
-  margin: 0 auto;
-`;
+const Page = styled.div``;
 
-const ToTop = styled(Link)`
+const ToTop = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,6 +63,9 @@ const ToTop = styled(Link)`
 
 /** ***************************************************************************
  *  Default Page Layout
+ *
+ * - uses ThemeProvider from emotion-theming
+ * - uses MDXProvider to allow injection of shortcodes without importing them
  *************************************************************************** */
 
 const Layout = ({ children }) => {
@@ -71,19 +73,20 @@ const Layout = ({ children }) => {
   const siteMetadata = useSiteMetadata();
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Head metaData={siteMetadata} />
-      <Header id="pageTop" siteTitle={siteMetadata.title} />
+      <Header siteTitle={siteMetadata.title} />
 
       <MDXProvider components={shortcodes}>
         <Page className="hasTransition">{children}</Page>
       </MDXProvider>
+
       <footer>© {new Date().getFullYear()}</footer>
 
-      <ToTop to="#pageTop" className={toTopIsVisible ? "isVisible" : null}>
+      <ToTop href="#pageTop" className={toTopIsVisible ? "isVisible" : null}>
         <FiArrowUp />
       </ToTop>
-    </>
+    </ThemeProvider>
   );
 };
 

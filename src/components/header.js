@@ -1,4 +1,4 @@
-/* global window */
+/* global window, document */
 
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
@@ -16,6 +16,8 @@ const HeaderWrapper = styled.header`
   left: 0;
   right: 0;
   height: 80px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 0 20px;
 `;
 
 const NavBar = styled.div`
@@ -42,6 +44,29 @@ const MainMenu = styled.ul`
       font-size: 14px;
     }
   }
+
+  @media (max-width: ${props => props.theme.tabletBreakpoint}) {
+    position: fixed;
+    top: 80px;
+    right: -330px;
+    width: 320px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: all 0.5s ease-in;
+
+    li {
+      display: block;
+      padding-bottom: 30px;
+
+      > a {
+        font-size: 16px;
+      }
+    }
+
+    &.active {
+      transform: translate(-330px);
+    }
+  }
 `;
 
 /** ***************************************************************************
@@ -55,9 +80,7 @@ const Header = () => {
 
   const handleResize = () => {
     const windowWidth = window.innerWidth;
-    if (windowWidth <= MOBILE_BP) {
-      setMobileMenu(true);
-    } else {
+    if (windowWidth >= MOBILE_BP) {
       setMobileMenu(false);
     }
   };
@@ -73,19 +96,28 @@ const Header = () => {
     handleResize();
   }, []);
 
+  // prevent scrolling when mobile menu is active
+  useEffect(() => {
+    if (showMobileMenu) {
+      document.body.classList.add("noScroll");
+    } else {
+      document.body.classList.remove("noScroll");
+    }
+  }, [showMobileMenu]);
+
   const toggleMobileMenu = () => {
     setMobileMenu(!showMobileMenu);
   };
 
   return (
-    <HeaderWrapper>
+    <HeaderWrapper id="pageTop">
       <Container>
         <NavBar>
           <Link to="/">
             <Logo src={mainLogo} alt="" />
           </Link>
 
-          <MainMenu>
+          <MainMenu className={showMobileMenu ? "active" : ""}>
             {mainNavLinks.map(link => (
               <li key={link.url}>
                 <Link to={link.url}>{link.label}</Link>

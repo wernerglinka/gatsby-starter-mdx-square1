@@ -43,6 +43,9 @@ function whichAnimationEvent() {
 
 // fade in the new page
 exports.onRouteUpdate = () => {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]');
+
   const transitionElement = document.querySelector(".hasTransition");
   if (transitionElement) {
     transitionElement.classList.add("transitionIn");

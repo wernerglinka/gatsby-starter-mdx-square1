@@ -4,7 +4,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
-    "gatsby-transformer-json",
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
