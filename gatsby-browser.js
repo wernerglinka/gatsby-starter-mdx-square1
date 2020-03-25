@@ -41,11 +41,12 @@ function whichAnimationEvent() {
   return supportedAnimation;
 }
 
-// fade in the new page
 exports.onRouteUpdate = () => {
+  // attach scroll library to any anchor link on the page
   // eslint-disable-next-line global-require
   require("smooth-scroll")('a[href*="#"]');
 
+  // fade in the new page
   const transitionElement = document.querySelector(".hasTransition");
   if (transitionElement) {
     transitionElement.classList.add("transitionIn");

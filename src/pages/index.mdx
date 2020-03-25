@@ -5,10 +5,10 @@ prose: |
 sections:
   - type: Block1
     template: blocktemplate
-    has_background: true
-    in_container: true
+    hasBackground: true
+    inContainer: true
     title: I am component1 of the home page.
-    section_id: home_page_block1
+    sectionID: home_page_block1
     component: Component1
     content: |-
       Curabitur blandit [tempus porttitor](http://google.com). Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere _velit aliquet_. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -16,10 +16,10 @@ sections:
       Maecenas faucibus mollis interdum. **Vivamus sagittis lacus vel augue** laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
   - type: Block2
     template: blocktemplate
-    has_background: true
-    in_container: false
+    hasBackground: true
+    inContainer: false
     title: I am component2 of the home page.
-    section_id: home_page_block2
+    sectionID: home_page_block2
     component: Component2
     content: |-
       1. List item 1
@@ -29,10 +29,10 @@ sections:
       5. List item 5
   - type: Block3
     template: blocktemplate
-    has_background: false
-    in_container: true
+    hasBackground: false
+    inContainer: true
     title: I am component3 of the home page.
-    section_id: home_page_block3
+    sectionID: home_page_block3
     component: Component3
     content: >-
       Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. [Integer posuere erat](http://apple.com) a ante venenatis dapibus posuere _velit aliquet_. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -52,4 +52,3 @@ sections:
 import Page from "../templates/page";
 
 <Page fields={props.pageContext.frontmatter} />
-<Test text={`Hello beautiful world`} />

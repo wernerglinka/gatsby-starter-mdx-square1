@@ -54,3 +54,11 @@ Generally, component content is accessed with hooks (using static graphql querie
 ## Page Transitions
 
 Using CSS and a couple of router events in gatsby-browser.js.
+
+## Smooth scroll to anchor links
+
+source: https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc445299558
+
+Install:
+
+- smooth-scroll
