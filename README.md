@@ -51,7 +51,23 @@ Generally, page content is accessed with graphql in the page template.
 Content for components is stored in json files and located in the src/data directory.
 Generally, component content is accessed with hooks (using static graphql queries).
 
-## Content in Frontmatter fields
+### Titles in title case
+
+Install:
+
+- ap-style-title-case
+
+Use:
+
+```
+import titleCase from "ap-style-title-case";
+...
+<h2>{titleCase(item.title)}</h2>
+...
+
+```
+
+### Content in Frontmatter fields
 
 Install:
 
