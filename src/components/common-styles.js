@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "gatsby";
 
 export const Container = styled.div`
   max-width: 960px;
@@ -71,6 +72,62 @@ export const Hamburger = styled.button`
       span:after {
         background-color: #000;
       }
+    }
+  }
+`;
+
+export const InternalCTA = styled(Link)`
+  &:hover {
+    text-decoration: none;
+
+    &:after {
+      content: ">>>";
+      color: inherit;
+      padding-left: 10px;
+      opacity: 0;
+      animation: in 1s ease-out forwards;
+    }
+  }
+  @keyframes in {
+    0% {
+      letter-spacing: -10px;
+      opacity: 0;
+    }
+    50% {
+      letter-spacing: 8px;
+      opacity: 1;
+    }
+    100% {
+      letter-spacing: 4px;
+      opacity: 1;
+    }
+  }
+`;
+
+export const ExternalCTA = styled(Link)`
+  &:hover {
+    text-decoration: none;
+
+    &:after {
+      content: ">>>";
+      color: inherit;
+      padding-left: 10px;
+      opacity: 0;
+      animation: in 1s ease-out forwards;
+    }
+  }
+  @keyframes in {
+    0% {
+      letter-spacing: -10px;
+      opacity: 0;
+    }
+    30% {
+      letter-spacing: 4px;
+      opacity: 1;
+    }
+    100% {
+      letter-spacing: 4px;
+      opacity: 1;
     }
   }
 `;
