@@ -51,6 +51,23 @@ Generally, page content is accessed with graphql in the page template.
 Content for components is stored in json files and located in the src/data directory.
 Generally, component content is accessed with hooks (using static graphql queries).
 
+## Content in Frontmatter fields
+
+Install:
+
+- remark
+- remark-preset-lint-recommended
+- remark-html
+
+Use:
+
+```
+import mdStringToHTML from "../utilities/md-to-html";
+...
+<div dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntro) }} />
+...
+```
+
 ## Page Transitions
 
 Using CSS and a couple of router events in gatsby-browser.js.
