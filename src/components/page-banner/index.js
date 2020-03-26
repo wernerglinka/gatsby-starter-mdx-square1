@@ -12,6 +12,10 @@ const Banner = styled(BackgroundImage)`
   margin: ${props => props.theme.headerHeight} -${props => props.theme.bodySidePadding} ${props => props.theme.sectionClearance};
   background-attachment: fixed;
   background-position: center top -80px;
+
+  @media (max-width: 600px) {
+    padding-bottom: 180px;
+  }
 `;
 
 const BannerContent = styled(Container)`
@@ -20,6 +24,10 @@ const BannerContent = styled(Container)`
   justify-content: center;
   align-items: center;
   height: 25vw;
+
+  @media (max-width: 600px) {
+    height: 180px;
+  }
 
   h1 {
     margin: 0;
