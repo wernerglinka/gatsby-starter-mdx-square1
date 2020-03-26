@@ -95,3 +95,13 @@ source: https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc
 Install:
 
 - smooth-scroll
+
+## Components
+
+### Media Component
+
+presents a combination of an image and text
+
+- order of representation is determined by the boolean `imageLeft`
+- the text may consist of a title, sub title, body text and a CTA
+- the CTA may be internal or external, which is determined by the boolean `isExternal`

@@ -6,16 +6,18 @@ import mdStringToHTML from "../../utilities/md-to-html";
 
 import useSiteImage from "../../hooks/useSiteImage";
 import { TextWrapper, ImageWrapper, SectionWrapper } from "./media-component-styles";
-import { InternalCTA } from "../common-styles";
+import { InternalCTA, ExternalCTA } from "../common-styles";
 
 /** ***************************************************************************
  *  Media component
  *  - presents a combination of an image and text
  *  - order of representation is determined by the boolean imageLeft
  *  - the text may consist of a title, sub title, body text and a CTA
+ *  - the CTA may be internal or external, which is determined by the
+ *    boolean isExternal
  *************************************************************************** */
 const MediaComponent = ({ info }) => {
-  const { title, subtitle, content, linkURL, linkText, image, imageLeft, targetID } = info;
+  const { title, subtitle, content, linkURL, linkText, image, imageLeft, isExternal, targetID } = info;
   const thisImage = useSiteImage(image);
 
   return (
@@ -25,7 +27,8 @@ const MediaComponent = ({ info }) => {
           {title && <h2>{title}</h2>}
           {subtitle && <p>{subtitle}</p>}
           {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
-          {linkURL && <InternalCTA to={linkURL}>{linkText}</InternalCTA>}
+          {linkURL && !isExternal && <InternalCTA to={linkURL}>{linkText}</InternalCTA>}
+          {linkURL && isExternal && <ExternalCTA to={linkURL}>{linkText}</ExternalCTA>}
         </TextWrapper>
         <ImageWrapper>
           <Img fluid={thisImage} />
