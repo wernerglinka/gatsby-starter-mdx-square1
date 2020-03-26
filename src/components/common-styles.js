@@ -104,7 +104,7 @@ export const InternalCTA = styled(Link)`
   }
 `;
 
-export const ExternalCTA = styled(Link)`
+export const ExternalCTA = styled.a`
   &:hover {
     text-decoration: none;
 

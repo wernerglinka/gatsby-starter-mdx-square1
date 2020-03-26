@@ -28,7 +28,11 @@ const MediaComponent = ({ info }) => {
           {subtitle && <p>{subtitle}</p>}
           {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
           {linkURL && !isExternal && <InternalCTA to={linkURL}>{linkText}</InternalCTA>}
-          {linkURL && isExternal && <ExternalCTA to={linkURL}>{linkText}</ExternalCTA>}
+          {linkURL && isExternal && (
+            <ExternalCTA href={linkURL} target="_blank" rel="noopener noreferrer">
+              {linkText}
+            </ExternalCTA>
+          )}
         </TextWrapper>
         <ImageWrapper>
           <Img fluid={thisImage} />

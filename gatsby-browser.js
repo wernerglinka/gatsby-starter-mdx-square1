@@ -43,6 +43,7 @@ function whichAnimationEvent() {
 
 exports.onRouteUpdate = () => {
   // attach scroll library to any anchor link on the page
+  // source: https://github.com/cferdinandi/smooth-scroll
   // eslint-disable-next-line global-require
   require("smooth-scroll")('a[href*="#"]', {
     speed: 500,
