@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Link } from "gatsby";
 import Img from "gatsby-image";
 import mdStringToHTML from "../../utilities/md-to-html";
 
@@ -17,7 +16,18 @@ import { InternalCTA, ExternalCTA } from "../common-styles";
  *    boolean isExternal
  *************************************************************************** */
 const MediaComponent = ({ info }) => {
-  const { title, subtitle, content, linkURL, linkText, image, imageLeft, isExternal, targetID } = info;
+  const {
+    title, // the optional title of the text section
+    subtitle, // the optional subtitle of the text section
+    content, // the optional content of the text section
+    linkURL, // the CTA link of the text section
+    linkText, // the CTA text of the text section
+    image, // the mandatory image... after all this is a media component
+    imageLeft, // determines whether image is positioned left or right of the text
+    isExternal, // determines if the CTA links to an internal/external target
+    targetID, // add an ID attribute to the section so links can target it
+  } = info;
+
   const thisImage = useSiteImage(image);
 
   return (
@@ -43,11 +53,30 @@ const MediaComponent = ({ info }) => {
 };
 
 MediaComponent.propTypes = {
-  info: PropTypes.shape(),
+  info: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    content: PropTypes.string,
+    linkURL: PropTypes.string,
+    linkText: PropTypes.string,
+    image: PropTypes.string.isRequired,
+    imageLeft: PropTypes.string,
+    isExternal: PropTypes.string,
+    targetID: PropTypes.string,
+  }),
 };
 
 MediaComponent.defaultProps = {
-  info: {},
+  info: {
+    title: null,
+    subtitle: null,
+    content: null,
+    linkURL: null,
+    linkText: null,
+    imageLeft: false,
+    isExternal: false,
+    targetID: null,
+  },
 };
 
 export default MediaComponent;
