@@ -14,6 +14,8 @@ const Theme = {
   bodyTopPadding: "80px",
   bodyBottomPadding: "50px",
   bodySidePadding: "20px",
+  // sections
+  sectionClearance: "70px",
 };
 
 export default Theme;

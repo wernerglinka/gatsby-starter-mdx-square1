@@ -9,7 +9,7 @@ import { Container } from "../common-styles";
 const Banner = styled(BackgroundImage)`
   height: 0;
   padding-bottom: 25%;
-  margin: ${props => props.theme.headerHeight} -${props => props.theme.bodySidePadding} 0;
+  margin: ${props => props.theme.headerHeight} -${props => props.theme.bodySidePadding} ${props => props.theme.sectionClearance};
   background-attachment: fixed;
   background-position: center top -80px;
 `;

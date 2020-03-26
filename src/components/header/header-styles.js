@@ -9,6 +9,7 @@ export const HeaderWrapper = styled.header`
   height: 80px;
   background-color: rgba(255, 255, 255, 0.95);
   padding: 0 20px;
+  box-shadow: ${props => props.theme.defaultBoxShadow};
 `;
 
 export const NavBar = styled.div`

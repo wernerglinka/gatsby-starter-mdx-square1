@@ -16,6 +16,10 @@ const PageContent = styled.div`
   }
 `;
 
+const PageIntro = styled.div`
+  font-size: 1.125rem;
+`;
+
 /** ***************************************************************************
  *  Home page
  *************************************************************************** */
@@ -28,7 +32,7 @@ const Page = ({ fields }) => {
 
       <Container>
         {!fields.hasBanner && <h1>{fields.pageTitle}</h1>}
-        <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntro) }} />
+        <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntro) }} />
       </Container>
 
       {pageSections.map(section => {
