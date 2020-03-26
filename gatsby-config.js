@@ -34,6 +34,7 @@ module.exports = {
         name: "pages",
       },
     },
+    `gatsby-background-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

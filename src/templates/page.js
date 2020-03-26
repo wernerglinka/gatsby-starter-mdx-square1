@@ -5,9 +5,16 @@ import mdStringToHTML from "../utilities/md-to-html";
 
 import components from "../components/index";
 import { Container } from "../components/common-styles";
+import PageBanner from "../components/page-banner";
 import SectionWrapper from "../components/section-wrapper";
 
-const PageContent = styled.div``;
+const PageContent = styled.div`
+  padding-top: 120px;
+
+  &.hasBanner {
+    padding-top: 0;
+  }
+`;
 
 /** ***************************************************************************
  *  Home page
@@ -16,10 +23,12 @@ const PageContent = styled.div``;
 const Page = ({ fields }) => {
   const pageSections = fields.sections;
   return (
-    <PageContent>
+    <PageContent className={fields.hasBanner ? "hasBanner" : null}>
+      {fields.hasBanner && <PageBanner properties={fields.banner} title={fields.pageTitle} />}
+
       <Container>
-        <h1>{fields.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.prose) }} />
+        {!fields.hasBanner && <h1>{fields.pageTitle}</h1>}
+        <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntro) }} />
       </Container>
 
       {pageSections.map(section => {
