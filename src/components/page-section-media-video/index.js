@@ -5,7 +5,7 @@ import mdStringToHTML from "../../utilities/md-to-html";
 
 import VideoPlayer from "../video-player";
 
-import { TextWrapper, SectionWrapper } from "./page-section-media-inline-video-styles";
+import { TextWrapper, SectionWrapper } from "./page-section-media-video-styles";
 import { InternalCTA, ExternalCTA } from "../common-styles";
 
 /** ***************************************************************************
@@ -29,6 +29,8 @@ const MediaInlineVideoComponent = ({ info }) => {
     isExternal, // determines if the CTA links to an internal/external target
     targetID, // add an ID attribute to the section so links can target it
   } = info;
+
+  console.log(imageLeft);
 
   return (
     <section id={targetID}>
