@@ -1,39 +1,8 @@
 import styled from "@emotion/styled";
 
-export const SectionWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+export const SectionWrapper = styled.div``;
 
-  &.image-left {
-    flex-direction: row-reverse;
-  }
-
-  > * {
-    flex: 0 0 50%;
-  }
-`;
-
-export const TextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  h2 {
-    margin-bottom: 1rem;
-
-    & + p {
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-  }
-`;
-
-export const ImageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 50px;
-`;
+export const ImageWrapper = styled.div``;
 
 export const Inner = styled.div`
   position: relative;
@@ -52,6 +21,17 @@ export const Inner = styled.div`
     & + div {
       position: abolute;
       z-index: 2;
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: -30px;
+    right: 0;
+
+    &:hover {
+      cursor: pointer;
+      color: #ff0000;
     }
   }
 `;
@@ -85,38 +65,10 @@ export const PlayButton = styled.div`
 `;
 
 export const VideoWrapper = styled.div`
-  position: abolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-
-  video {
+  .react-player {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     margin: 0;
-  }
-
-  svg {
-    position: absolute;
-    top: -30px;
-    right: 0;
-
-    &:hover {
-      cursor: pointer;
-      color: #ff0000;
-    }
   }
 `;

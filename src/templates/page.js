@@ -39,6 +39,7 @@ const Page = ({ fields }) => {
 
       {pageSections.map(section => {
         const SectionComponent = components[section.component];
+
         return (
           <SectionWrapper key={section.sectionID}>
             <SectionComponent info={section} />

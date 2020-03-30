@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import BackgroundImage from "gatsby-background-image";
 import styled from "@emotion/styled";
+import titleCase from "ap-style-title-case";
 import useBgImage from "../../hooks/useBgImage";
 
 import { Container } from "../common-styles";
@@ -44,7 +45,7 @@ const PageBanner = ({ properties, title }) => {
   return (
     <Banner fluid={bgImage}>
       <BannerContent>
-        <h1>{title}</h1>
+        <h1>{titleCase(title)}</h1>
       </BannerContent>
     </Banner>
   );

@@ -25,7 +25,7 @@ const SectionWrapper = ({ children }) => {
   }
 
   if (!hasBackground && inContainer) {
-    return <WithContainer className="section-container  in-container">{children}</WithContainer>;
+    return <WithContainer>{children}</WithContainer>;
   }
 
   return <FullWidth>{children}</FullWidth>;

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import Img from "gatsby-image";
+import titleCase from "ap-style-title-case";
 import mdStringToHTML from "../../utilities/md-to-html";
 
 import useSiteImage from "../../hooks/useSiteImage";
@@ -34,7 +35,7 @@ const MediaComponent = ({ info }) => {
     <section id={targetID}>
       <SectionWrapper className={imageLeft ? "image-left" : null}>
         <TextWrapper>
-          {title && <h2>{title}</h2>}
+          {title && <h2>{titleCase(title)}</h2>}
           {subtitle && <p>{subtitle}</p>}
           {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
           {linkURL && !isExternal && <InternalCTA to={linkURL}>{linkText}</InternalCTA>}

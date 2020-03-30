@@ -1,19 +1,21 @@
-import Component1 from "./component1";
-import Component2 from "./component2";
-import Component3 from "./component3";
-import MediaComponent from "./media-component";
-import MediaInlineVideoComponent from "./media-inline-video-component";
+import Section1 from "./page-section1";
+import Section2 from "./page-section2";
+import Section3 from "./page-section3";
+import SectionMedia from "./page-section-media";
+import SectionMediaInlineVideo from "./page-section-media-inline-video";
 import Header from "./header";
 import Layout from "./layout";
+import SectionInlineVideo from "./page-section-inline-video";
 
-export { Component1, Component2, Component3, MediaComponent, MediaInlineVideoComponent, Header, Layout };
+export { Section1, Section2, Section3, SectionMedia, SectionMediaInlineVideo, SectionInlineVideo, Header, Layout };
 
 export default {
-  Component1,
-  Component2,
-  Component3,
-  MediaComponent,
-  MediaInlineVideoComponent,
+  Section1,
+  Section2,
+  Section3,
+  SectionMedia,
+  SectionMediaInlineVideo,
+  SectionInlineVideo,
   Header,
   Layout,
 };

@@ -1,21 +1,20 @@
 import PropTypes from "prop-types";
 import React from "react";
 import mdStringToHTML from "../utilities/md-to-html";
-import { Container } from "./common-styles";
 
-const Component2 = ({ info }) => (
-  <Container>
+const Section1 = ({ info }) => (
+  <div>
     <h2>{info.title}</h2>
     <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(info.content) }} />
-  </Container>
+  </div>
 );
 
-Component2.propTypes = {
+Section1.propTypes = {
   info: PropTypes.shape(),
 };
 
-Component2.defaultProps = {
+Section1.defaultProps = {
   info: {},
 };
 
-export default Component2;
+export default Section1;

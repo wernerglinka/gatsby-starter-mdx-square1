@@ -10,12 +10,12 @@ banner:
   bgImage: home.jpg
 
 sections:
-  - type: BlockMediaComponent
-    template: mediaComponentTemplate
+  - type: BlockMediaSection
+    template: mediaSectionTemplate
     hasBackground: false
     inContainer: true
-    sectionID: mediaComponentBlock1
-    component: MediaComponent
+    sectionID: mediaBlock1
+    component: SectionMedia
     targetID: elitPorta
     title: Elit Porta Mollis Cursus Parturient
     subtitle: Nullam id dolor id nibh ultricies vehicula ut id elit.
@@ -26,12 +26,13 @@ sections:
     linkText: Try it out
     imageLeft: false
     image: sample5.jpg
-  - type: BlockMediaComponent
-    template: mediaComponentTemplate
+
+  - type: BlockMediaSection
+    template: mediaSectionTemplate
     hasBackground: false
     inContainer: true
-    sectionID: mediaComponentBlock2
-    component: MediaComponent
+    sectionID: mediaBlock2
+    component: SectionMedia
     targetID:
     title: Elit Dolor Sit
     subtitle: Etiam porta sem malesuada magna mollis euismod. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
@@ -42,12 +43,13 @@ sections:
     linkText: Check it out
     imageLeft: true
     image: sample3.jpg
-  - type: BlockMediaComponent
-    template: mediaComponentTemplate
+
+  - type: BlockMediaSection
+    template: mediaSectionTemplate
     hasBackground: false
     inContainer: true
-    sectionID: mediaComponentBlock3
-    component: MediaComponent
+    sectionID: mediaBlock3
+    component: SectionMedia
     targetID:
     title: Consectetur Ultricies Curabitur blandit tempus porttitor
     subtitle: Vestibulum Dolor Cras Elit
@@ -57,37 +59,40 @@ sections:
     linkText: Go External
     imageLeft: false
     image: sample11.jpg
+
   - type: Block1
     template: blocktemplate
     hasBackground: true
     inContainer: true
     title: I am component1 of the home page.
     sectionID: home_page_block1
-    component: Component1
+    component: Section1
     content: |-
       Curabitur blandit [tempus porttitor](http://google.com). Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere _velit aliquet_. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
       Maecenas faucibus mollis interdum. **Vivamus sagittis lacus vel augue** laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+
   - type: Block2
     template: blocktemplate
     hasBackground: true
     inContainer: false
     title: I am component2 of the home page.
     sectionID: home_page_block2
-    component: Component2
+    component: Section2
     content: |-
       1. List item 1
       2. List item 2
       3. List item 3
       4. List item 4
       5. List item 5
+
   - type: Block3
     template: blocktemplate
     hasBackground: false
     inContainer: true
     title: I am component3 of the home page.
     sectionID: home_page_block3
-    component: Component3
+    component: Section3
     content: >-
       Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. [Integer posuere erat](http://apple.com) a ante venenatis dapibus posuere _velit aliquet_. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
       Maecenas faucibus mollis interdum. Laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros **Vivamus sagittis lacus vel augue**.
