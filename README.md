@@ -112,13 +112,13 @@ Renders a combination of an image and text in a page section
 
 ### Media Component with Video
 
-Renders a combination of an videoThumbnail and text in a page section. Upon clicking the thumbnail the video is played either in situ or in a modal.
+Renders a combination of a video thumbnail and text in a page section. Upon clicking the thumbnail the video is played either in situ or in a modal.
 
 - video playback type is determined by the boolean `isModal`
 - otherwise same as media component
 
 ### Video Component
 
-Renders a video in a page section.
+Renders a video in a page section. Upon clicking the thumbnail the video is played either in situ or in a modal.
 
 - video playback type is determined by the boolean `isModal`
