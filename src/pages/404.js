@@ -17,7 +17,7 @@ const Message404 = styled.section`
 const NotFoundPage = () => (
   <Message404>
     <h1>
-      Sorry Mon.<span>The Page You're Looking For Can't be Found</span>
+      Sorry Mon.<span>What you are looking for ain't here</span>
     </h1>
   </Message404>
 );
