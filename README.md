@@ -100,7 +100,7 @@ Install:
 
 ### Section Wrapper
 
-Renders a page section with a background color, in a container, both or full page width depending on two booleans 'hasBackground`and`inContainer`.
+Renders a page section with a background color, in a container, both or full page width depending on two booleans `hasBackground`and`inContainer`.
 
 ### Media Component
 
