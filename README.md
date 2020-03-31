@@ -98,10 +98,27 @@ Install:
 
 ## Components
 
+### Section Wrapper
+
+Renders a page section with a background color, in a container, both or full page width depending on two booleans 'hasBackground`and`inContainer`.
+
 ### Media Component
 
-presents a combination of an image and text
+Renders a combination of an image and text in a page section
 
 - order of representation is determined by the boolean `imageLeft`
 - the text may consist of a title, sub title, body text and a CTA
 - the CTA may be internal or external, which is determined by the boolean `isExternal`
+
+### Media Component with Video
+
+Renders a combination of an videoThumbnail and text in a page section. Upon clicking the thumbnail the video is played either in situ or in a modal.
+
+- video playback type is determined by the boolean `isModal`
+- otherwise same as media component
+
+### Video Component
+
+Renders a video in a page section.
+
+- video playback type is determined by the boolean `isModal`
