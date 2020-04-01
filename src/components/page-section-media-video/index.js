@@ -30,8 +30,6 @@ const MediaInlineVideoComponent = ({ info }) => {
     targetID, // add an ID attribute to the section so links can target it
   } = info;
 
-  console.log(imageLeft);
-
   return (
     <section id={targetID}>
       <SectionWrapper className={imageLeft ? "image-left" : null}>

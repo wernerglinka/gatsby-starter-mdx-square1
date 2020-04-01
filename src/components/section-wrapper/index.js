@@ -14,14 +14,24 @@ import { BackgroundColorAndContainer, WithContainer, BackgroundColorAndFullWidth
 
 const SectionWrapper = ({ children }) => {
   const { info } = children.props;
-  const { hasBackground, inContainer } = info;
+  const { hasBackground, inContainer, bgColor, bgIsDark } = info;
+
+  console.log(info);
 
   if (hasBackground && inContainer) {
-    return <BackgroundColorAndContainer>{children}</BackgroundColorAndContainer>;
+    return (
+      <BackgroundColorAndContainer backgroundColor={bgColor} bgIsDark={bgIsDark}>
+        {children}
+      </BackgroundColorAndContainer>
+    );
   }
 
   if (hasBackground && !inContainer) {
-    return <BackgroundColorAndFullWidth>{children}</BackgroundColorAndFullWidth>;
+    return (
+      <BackgroundColorAndFullWidth backgroundColor={bgColor} bgIsDark={bgIsDark}>
+        {children}
+      </BackgroundColorAndFullWidth>
+    );
   }
 
   if (!hasBackground && inContainer) {
