@@ -1,13 +1,12 @@
 /* global window */
 
 import React from "react";
-import PropType from "prop-types";
-import { Link, graphql } from "gatsby";
+import PropTypes from "prop-types";
+import { Link } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
 import { FiArrowUp } from "react-icons/fi";
-import titleCase from "ap-style-title-case";
 import theme from "./theme";
 
 import Head from "../head";
@@ -21,13 +20,6 @@ import useSiteMetadata from "../../hooks/useSiteMetadata";
 
 // get shortcodes
 import InlineMessage from "../shortcodes/inline-message";
-
-import mdStringToHTML from "../../utilities/md-to-html";
-
-import components from "../index";
-import { Container } from "../common-styles";
-import PageBanner from "../page-banner";
-import SectionWrapper from "../section-wrapper";
 const shortcodes = { InlineMessage };
 
 const Page = styled.div``;
@@ -69,18 +61,6 @@ const ToTop = styled.a`
   }
 `;
 
-const PageContent = styled.div`
-  padding-top: 120px;
-
-  &.hasBanner {
-    padding-top: 0;
-  }
-`;
-
-const PageIntro = styled.div`
-  font-size: 1.125rem;
-`;
-
 /** ***************************************************************************
  *  Default Page Layout
  *
@@ -88,11 +68,9 @@ const PageIntro = styled.div`
  * - uses MDXProvider to allow injection of shortcodes without importing them
  *************************************************************************** */
 
-const StandardPage = ({ children, pageContext }) => {
+const Layout = ({ children }) => {
   const toTopIsVisible = useToTop();
   const siteMetadata = useSiteMetadata();
-  const fields = pageContext.frontmatter;
-  const pageSections = fields.sections;
 
   return (
     <ThemeProvider theme={theme}>
@@ -100,28 +78,7 @@ const StandardPage = ({ children, pageContext }) => {
       <Header siteTitle={siteMetadata.title} />
 
       <MDXProvider components={shortcodes}>
-        <Page className="hasTransition">
-          <PageContent className={fields.hasBanner ? "hasBanner" : null}>
-            {fields.hasBanner && <PageBanner properties={fields.banner} title={fields.pageTitle} />}
-
-            <Container>
-              {!fields.hasBanner && <h1>{titleCase(fields.pageTitle)}</h1>}
-              <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntro) }} />
-            </Container>
-
-            {pageSections &&
-              pageSections.map(section => {
-                const SectionComponent = components[section.component];
-
-                return (
-                  <SectionWrapper key={section.sectionID}>
-                    <SectionComponent info={section} />
-                  </SectionWrapper>
-                );
-              })}
-          </PageContent>
-          <Container>{children}</Container>
-        </Page>
+        <Page className="hasTransition">{children}</Page>
       </MDXProvider>
 
       <footer>© {new Date().getFullYear()}</footer>
@@ -133,18 +90,8 @@ const StandardPage = ({ children, pageContext }) => {
   );
 };
 
-StandardPage.propTypes = {
-  children: PropType.array.isRequired,
-  pageContext: PropType.shape().isRequired,
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-export default StandardPage;
-
-export const pageQuery = graphql`
-  query StandardPageQuery($id: String) {
-    mdx(id: { eq: $id }) {
-      id
-      body
-    }
-  }
-`;
+export default Layout;

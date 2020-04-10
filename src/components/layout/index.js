@@ -1,16 +1,18 @@
 /* global window */
 
 import React from "react";
-import PropTypes from "prop-types";
+import PropType from "prop-types";
 import { Link } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
 import { FiArrowUp } from "react-icons/fi";
+import titleCase from "ap-style-title-case";
 import theme from "./theme";
 
 import Head from "../head";
 import Header from "../header";
+import Footer from "../footer";
 import useToTop from "../../hooks/useToTop";
 
 import "normalize-scss";
@@ -20,9 +22,20 @@ import useSiteMetadata from "../../hooks/useSiteMetadata";
 
 // get shortcodes
 import InlineMessage from "../shortcodes/inline-message";
+
+import mdStringToHTML from "../../utilities/md-to-html";
+
+import allComponents from "../index";
+import { Container } from "../common-styles";
+import PageBanner from "../page-banner";
+import SectionWrapper from "../section-wrapper";
 const shortcodes = { InlineMessage };
 
-const Page = styled.div``;
+const Page = styled.div`
+  background-color: #fff;
+  padding: 0 20px 50px;
+  margin-bottom: 300px;
+`;
 
 const ToTop = styled.a`
   display: flex;
@@ -61,16 +74,38 @@ const ToTop = styled.a`
   }
 `;
 
+const PageContent = styled.div`
+  padding-top: 120px;
+
+  &.hasBanner {
+    padding-top: 0;
+  }
+`;
+
+const PageIntro = styled.div`
+  font-size: 1.125rem;
+`;
+
+const PageBg = styled.div`
+  background-color: #fff;
+`;
+
 /** ***************************************************************************
  *  Default Page Layout
  *
  * - uses ThemeProvider from emotion-theming
  * - uses MDXProvider to allow injection of shortcodes without importing them
+ *
+ *  Notice the PageBg component. This is necessary so the footer is not
+ *  shinning through when the page is faded-in
  *************************************************************************** */
 
-const Layout = ({ children }) => {
+const StandardPage = props => {
+  const { children, pageContext } = props;
   const toTopIsVisible = useToTop();
   const siteMetadata = useSiteMetadata();
+  const fields = pageContext.frontmatter;
+  const pageSections = fields.sections;
 
   return (
     <ThemeProvider theme={theme}>
@@ -78,10 +113,33 @@ const Layout = ({ children }) => {
       <Header siteTitle={siteMetadata.title} />
 
       <MDXProvider components={shortcodes}>
-        <Page className="hasTransition">{children}</Page>
+        <PageBg>
+          <Page className="hasTransition">
+            <PageContent className={fields.hasBanner ? "hasBanner" : null}>
+              {fields.hasBanner && <PageBanner properties={fields.banner} title={fields.pageTitle} />}
+
+              <Container>
+                {!fields.hasBanner && <h1>{titleCase(fields.pageTitle)}</h1>}
+                <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntro) }} />
+              </Container>
+
+              {pageSections &&
+                pageSections.map(section => {
+                  const SectionComponent = allComponents[section.component];
+
+                  return (
+                    <SectionWrapper key={section.sectionID}>
+                      <SectionComponent info={section} />
+                    </SectionWrapper>
+                  );
+                })}
+            </PageContent>
+            <Container>{children}</Container>
+          </Page>
+        </PageBg>
       </MDXProvider>
 
-      <footer>© {new Date().getFullYear()}</footer>
+      <Footer />
 
       <ToTop href="#pageTop" className={toTopIsVisible ? "isVisible" : null}>
         <FiArrowUp />
@@ -90,8 +148,9 @@ const Layout = ({ children }) => {
   );
 };
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+StandardPage.propTypes = {
+  children: PropType.array.isRequired,
+  pageContext: PropType.shape().isRequired,
 };
 
-export default Layout;
+export default StandardPage;

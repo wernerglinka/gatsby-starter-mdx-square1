@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { Container } from "../common-styles";
 import { BackgroundColorAndContainer, WithContainer, BackgroundColorAndFullWidth, FullWidth } from "./wrapper-styles";
 
 /** ***************************************************************************
@@ -14,22 +15,16 @@ import { BackgroundColorAndContainer, WithContainer, BackgroundColorAndFullWidth
 
 const SectionWrapper = ({ children }) => {
   const { info } = children.props;
-  const { hasBackground, inContainer, bgColor, bgIsDark } = info;
-
-  console.log(info);
+  const { hasBackground, inContainer, bgColor } = info;
 
   if (hasBackground && inContainer) {
-    return (
-      <BackgroundColorAndContainer backgroundColor={bgColor} bgIsDark={bgIsDark}>
-        {children}
-      </BackgroundColorAndContainer>
-    );
+    return <BackgroundColorAndContainer backgroundColor={bgColor}>{children}</BackgroundColorAndContainer>;
   }
 
   if (hasBackground && !inContainer) {
     return (
-      <BackgroundColorAndFullWidth backgroundColor={bgColor} bgIsDark={bgIsDark}>
-        {children}
+      <BackgroundColorAndFullWidth backgroundColor={bgColor}>
+        <Container>{children}</Container>
       </BackgroundColorAndFullWidth>
     );
   }

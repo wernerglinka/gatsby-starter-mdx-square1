@@ -1,5 +1,6 @@
 const Theme = {
   // color palette
+  textColor: "#0000b3",
   primaryColor: "#02b2e2",
   secondaryColor: "#02b2e2",
   tertiaryColor: "#02b2e2",
@@ -10,6 +11,7 @@ const Theme = {
   tabletBreakpoint: "767px",
   // header
   headerHeight: "80px",
+  headerDefaultColor: "#0000d9",
   // body padding
   bodyTopPadding: "80px",
   bodyBottomPadding: "50px",

@@ -4,7 +4,7 @@ metaDescription: Home page specific meta description. Cras justo odio, dapibus a
 metaImage:
 pageTitle: Home
 pageIntro: |
-  Vivamus **sagittis lacus vel augue** laoreet rutrum faucibus dolor auctor. [In-page link to anchor below](#testTarget). Smooth scrolling is implemented with css `scroll-behavior: smooth;`. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, _eget lacinia odio sem nec elit_. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+  This is a Gatsby starter for a typical marketing/corporate website. Content is created with [MDX](https://www.gatsbyjs.org/docs/mdx/). It lets you write JSX embedded inside Markdown. It’s a great combination because it allows you to use Markdown’s terse syntax (such as # Heading) for your content and JSX for more advanced, or reusable components. I took images during my walks around Lake of the Isles (if you are from Minneapolis you know where that is) to use them to provide some visual interest. This home page features a simple banner and startes with an introduction that features a somewhat larger font size, well, it is an intro after all. Inside this intro you'll find an [in-page link to a section below. Please click it.](#testTarget). Throughout the site smooth scrolling is implemented with [smooth-scroll](https://github.com/cferdinandi/smooth-scroll) a plugin by _cferdinandi_. Once you start scrolling a back-to-top link will appear in the lower right corner of the page, which will scroll the page back to... wait for it... the top of the page.
 hasBanner: true
 banner:
   bgImage: home.jpg
@@ -20,15 +20,15 @@ sections:
     sectionID: mediaBlock1
     component: SectionMedia
     targetID: elitPorta
-    title: Elit Porta Mollis Cursus Parturient
-    subtitle: Nullam id dolor id nibh ultricies vehicula ut id elit.
+    title: The sorry remains of a pedestrian crossing
+    subtitle: Found right on Franklin and Oliver Avenue
     content: |-
-      Curabitur blandit [tempus porttitor](http://google.com). Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere _velit aliquet_. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      Often you want to list stuff to show your visitors why you and your products make a difference. A pattern that is often used is the media object pattern. This name was coined by Nicole Sullivan in her Stubbornella blogpost [THE MEDIA OBJECT SAVES HUNDREDS OF LINES OF CODE](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/). This section has a h2 header, some prose and a call to action. And, of course, an image on the right side. Note that all section header conform to AP Style Capitalization Rules. I am using the [ap-style-title-case plugin](https://www.npmjs.com/package/ap-style-title-case) by _wooorm_ for that.
     isExternal: false
     linkURL: /page3
     linkText: Try it out
     imageLeft: false
-    image: sample5.jpg
+    image: sample7.jpg
 
   - type: BlockMediaSection
     template: mediaSectionTemplate
@@ -40,15 +40,15 @@ sections:
     sectionID: mediaBlock2
     component: SectionMedia
     targetID:
-    title: Elit Dolor Sit
-    subtitle: Etiam porta sem malesuada magna mollis euismod. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+    title: Markings on the sidewalk
+    subtitle: This shurly looks like... what. I have no idea.
     content: |-
-      Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. [Scroll to section above](#elitPorta) Maecenas sed diam eget risus varius blandit sit amet non magna. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+      This section has the image on the left side. Images may be placed on either side of the section. Here we use an altenating arrangement to arrive at a ZigZag pattern. I coined this name all by myself ;-) And to make it interesting there is an other page link to [scroll to the section above](#elitPorta).
     isExternal: false
-    linkURL: /page2
+    linkURL: /page9
     linkText: Check it out
     imageLeft: true
-    image: sample3.jpg
+    image: sample4.jpg
 
   - type: BlockMediaSection
     template: mediaSectionTemplate
@@ -60,14 +60,14 @@ sections:
     sectionID: mediaBlock3
     component: SectionMedia
     targetID:
-    title: Consectetur Ultricies Curabitur blandit tempus porttitor
-    subtitle: Vestibulum Dolor Cras Elit
+    title: Alle guten dinge sind drei
+    subtitle: Well yeah I do speak German. Bin ja schließlich im Ruhrgebiet geboren.
     content:
     isExternal: true
-    linkURL: https://www.apple.com
-    linkText: Go External
+    linkURL: https://de.wikipedia.org/wiki/Ruhrgebiet
+    linkText: What is that?
     imageLeft: false
-    image: sample11.jpg
+    image: sample6.jpg
 
   - type: Block1
     template: blocktemplate
@@ -76,13 +76,13 @@ sections:
     bgIsDark: false
     bgImage:
     inContainer: true
-    title: I am component1 of the home page.
+    title: Text block with background
     sectionID: home_page_block1
     component: Section1
     content: |-
-      Curabitur blandit [tempus porttitor](http://google.com). Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere _velit aliquet_. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      Here we have a simple text container with background. A component-only background. Since we are using MDX to author content, this content may also include react components. In this website I am using this capability like Wordpress uses Shortcodes. An example is used down a couple of sections.
 
-      Maecenas faucibus mollis interdum. **Vivamus sagittis lacus vel augue** laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      **Donec id elit non mi porta gravida** at eget metus. _Maecenas faucibus mollis interdum_. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Duis mollis, **est non commodo luctus**, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
 
   - type: Block2
     template: blocktemplate
@@ -91,15 +91,13 @@ sections:
     bgIsDark: true
     bgImage:
     inContainer: false
-    title: I am component2 of the home page.
+    title: I am a Call To Action
     sectionID: home_page_block2
-    component: Section2
+    component: CTABanner
     content: |-
-      1. List item 1
-      2. List item 2
-      3. List item 3
-      4. List item 4
-      5. List item 5
+      This is a staple of all marketing sites. It yells at you Click, click, click ME. Can't miss this. _This is also an example of a full-width background._
+
+      [Get a haircut](/get-a-haircut)
 
   - type: Block3
     template: blocktemplate
@@ -108,14 +106,11 @@ sections:
     bgIsDark: false
     bgImage:
     inContainer: true
-    title: I am component3 of the home page.
+    title: We are getting close to the bottom of thbis page
     sectionID: home_page_block3
     component: Section3
     content: >-
-      Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. [Integer posuere erat](http://apple.com) a ante venenatis dapibus posuere _velit aliquet_. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-      Maecenas faucibus mollis interdum. Laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros **Vivamus sagittis lacus vel augue**.
-
-      <div>How is this</div>
+      All sections above are React components. Their props are defiined in the Frontmatter of this page. This section is the last one of these. Nothing special here, just a text-based section.
 
       Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 
@@ -125,9 +120,6 @@ sections:
       <div id="testTarget">
       Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo.
 ---
-
-import StandardPage from "../components/layout/standard-page";
-export default StandardPage;
 
 ## This is MDX content
 
