@@ -8,15 +8,6 @@
 // here we just apply lifecycle classes on an element with class "hasTransition"
 // the fade in/out is done via CSS in src/components/layout.scss
 
-// fade out the previous page
-exports.onPreRouteUpdate = ({ location, prevLocation }) => {
-  const transitionElement = document.querySelector(".hasTransition");
-  if (transitionElement) {
-    transitionElement.classList.add("transitionOut");
-    window.setTimeout(() => transitionElement.classList.remove("transitionOut"), 500);
-  }
-};
-
 // from Modernizer
 // source: https://davidwalsh.name/css-animation-callback
 function whichAnimationEvent() {
@@ -41,7 +32,7 @@ function whichAnimationEvent() {
   return supportedAnimation;
 }
 
-exports.onRouteUpdate = ({ location, prevLocation }) => {
+export const onRouteUpdate = ({ location, prevLocation }) => {
   // attach scroll library to any anchor link on the page
   // source: https://github.com/cferdinandi/smooth-scroll
   // eslint-disable-next-line global-require

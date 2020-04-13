@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: require("./src/settings/site-metadata.json"),
   plugins: [
     `gatsby-plugin-sass`,
+    `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     `gatsby-transformer-json`,

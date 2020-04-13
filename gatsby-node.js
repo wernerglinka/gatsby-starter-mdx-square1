@@ -49,14 +49,12 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
     // EXPERIMENTAL what are the implications?
     const nodeContent = getNode(node.id);
 
-    // console.log(node);
-
     createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
       path: node.fields.slug,
       // This component will wrap our MDX content
-      component: path.resolve(`./src/components/layout/main.js`),
+      component: path.resolve(`./src/layouts/${String(nodeContent.frontmatter.template)}.js`),
       // You can use the values in this context in
       // our page layout component
       context: {

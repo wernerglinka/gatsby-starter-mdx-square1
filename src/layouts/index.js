@@ -2,36 +2,24 @@
 
 import React from "react";
 import PropType from "prop-types";
-import { Link, graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
 import { FiArrowUp } from "react-icons/fi";
-import titleCase from "ap-style-title-case";
 import theme from "./theme";
 
-import Head from "../head";
-import Header from "../header";
-import Footer from "../footer";
-import useToTop from "../../hooks/useToTop";
+import Head from "../components/head";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import useToTop from "../hooks/useToTop";
 
 import "normalize-scss";
 import "./layout.scss";
 
-import useSiteMetadata from "../../hooks/useSiteMetadata";
+import useSiteMetadata from "../hooks/useSiteMetadata";
 
 // get shortcodes
-import InlineMessage from "../shortcodes/inline-message";
-
-import mdStringToHTML from "../../utilities/md-to-html";
-
-import allComponents from "../index";
-import { Container } from "../common-styles";
-import PageBanner from "../page-banner";
-import SectionWrapper from "../section-wrapper";
-
-import { mediaSection, pageMetadata, pageHeader } from "../graphql-fragments/page-sections";
+import InlineMessage from "../components/shortcodes/inline-message";
 
 const shortcodes = { InlineMessage };
 
@@ -78,18 +66,6 @@ const ToTop = styled.a`
   }
 `;
 
-const PageContent = styled.div`
-  padding-top: 120px;
-
-  &.hasBanner {
-    padding-top: 0;
-  }
-`;
-
-const PageIntro = styled.div`
-  font-size: 1.125rem;
-`;
-
 const PageBg = styled.div`
   background-color: #fff;
 `;
@@ -104,12 +80,9 @@ const PageBg = styled.div`
  *  shinning through when the page is faded-in
  *************************************************************************** */
 
-const StandardPage = ({ pageContext }) => {
+const StandardPage = ({ children }) => {
   const toTopIsVisible = useToTop();
   const siteMetadata = useSiteMetadata();
-  const fields = pageContext.fields;
-  const pageSections = fields.sections;
-  const pageBody = pageContext.body;
 
   return (
     <ThemeProvider theme={theme}>
@@ -118,30 +91,7 @@ const StandardPage = ({ pageContext }) => {
 
       <MDXProvider components={shortcodes}>
         <PageBg>
-          <Page className="hasTransition">
-            <PageContent className={fields.hasBanner ? "hasBanner" : null}>
-              {fields.hasBanner && <PageBanner properties={fields.banner} title={fields.pageTitle} />}
-
-              <Container>
-                {!fields.hasBanner && <h1>{titleCase(fields.pageTitle)}</h1>}
-                <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntro) }} />
-              </Container>
-
-              {pageSections &&
-                pageSections.map(section => {
-                  const SectionComponent = allComponents[section.component];
-
-                  return (
-                    <SectionWrapper key={section.sectionID}>
-                      <SectionComponent info={section} />
-                    </SectionWrapper>
-                  );
-                })}
-            </PageContent>
-            <Container>
-              <MDXRenderer>{pageBody}</MDXRenderer>
-            </Container>
-          </Page>
+          <Page className="hasTransition">{children}</Page>
         </PageBg>
       </MDXProvider>
 
@@ -155,7 +105,7 @@ const StandardPage = ({ pageContext }) => {
 };
 
 StandardPage.propTypes = {
-  pageContext: PropType.shape().isRequired,
+  children: PropType.shape().isRequired,
 };
 
 export default StandardPage;
