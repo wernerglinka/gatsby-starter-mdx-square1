@@ -3,7 +3,7 @@
 import { Link } from "gatsby";
 import React, { useState, useEffect } from "react";
 
-import mainLogo from "../../images/page-logo.svg";
+import mainLogo from "../../../content/images/page-logo.svg";
 import debounce from "../../utilities/debounce";
 import useMainNav from "../../hooks/useSiteNav";
 

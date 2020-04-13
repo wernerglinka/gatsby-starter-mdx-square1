@@ -47,7 +47,7 @@ exports.onRouteUpdate = ({ location, prevLocation }) => {
   // eslint-disable-next-line global-require
   require("smooth-scroll")('a[href*="#"]', {
     speed: 500,
-    offset: 80,
+    offset: 100,
     easing: "easeInOutCubic",
   });
 

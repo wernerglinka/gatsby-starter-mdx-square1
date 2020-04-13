@@ -2,8 +2,9 @@
 
 import React from "react";
 import PropType from "prop-types";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
 import { FiArrowUp } from "react-icons/fi";
@@ -101,7 +102,9 @@ const PageBg = styled.div`
  *************************************************************************** */
 
 const StandardPage = props => {
-  const { children, pageContext } = props;
+  console.log(props);
+
+  const { pageContext } = props;
   const toTopIsVisible = useToTop();
   const siteMetadata = useSiteMetadata();
   const fields = pageContext.frontmatter;
@@ -134,7 +137,9 @@ const StandardPage = props => {
                   );
                 })}
             </PageContent>
-            <Container>{children}</Container>
+            <Container>
+              <MDXRenderer>{mdx.body}</MDXRenderer>
+            </Container>
           </Page>
         </PageBg>
       </MDXProvider>
@@ -149,8 +154,29 @@ const StandardPage = props => {
 };
 
 StandardPage.propTypes = {
-  children: PropType.array.isRequired,
   pageContext: PropType.shape().isRequired,
 };
 
 export default StandardPage;
+
+export const pageQuery = graphql`
+  query pagesQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      id
+      body
+      frontmatter {
+        metaTitle
+        metaDescription
+        pageTitle
+        pageIntro
+        hasBanner
+        banner {
+          bgImage
+        }
+        sections {
+          title
+        }
+      }
+    }
+  }
+`;

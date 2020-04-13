@@ -1,27 +1,22 @@
 module.exports = {
-  siteMetadata: require("./src/data/site-metadata.json"),
+  siteMetadata: require("./src/settings/site-metadata.json"),
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
     `gatsby-transformer-json`,
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        defaultLayouts: { default: `${__dirname}/src/components/layout/index.js` },
-      },
-    },
+    `gatsby-plugin-mdx`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/data`,
+        path: `${__dirname}/content/data`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content/images`,
       },
     },
     {
@@ -30,7 +25,7 @@ module.exports = {
       // //////////////////////////////////////////////////////////////////////////////////
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/content/pages`,
         name: "pages",
       },
     },
@@ -49,7 +44,7 @@ module.exports = {
         name: `gatsby-starter-square1-mdx`,
         short_name: `square1`,
         start_url: `/`,
-        icon: `src/images/logo.png`,
+        icon: `content/images/logo.png`,
       },
     },
   ],

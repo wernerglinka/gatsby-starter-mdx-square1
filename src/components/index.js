@@ -4,7 +4,7 @@ import Section3 from "./page-section3";
 import SectionMedia from "./page-section-media";
 import SectionMediaVideo from "./page-section-media-video";
 import Header from "./header";
-import Layout from "./layout";
+import Layout from "./layout/main";
 import SectionVideo from "./page-section-video";
 
 export { Section1, CTABanner, Section3, SectionMedia, SectionMediaVideo, SectionVideo, Header, Layout };
