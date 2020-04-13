@@ -19,7 +19,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
   // Destructure the createPage function from the actions object
   const { createPage } = actions;
   const result = await graphql(`
@@ -28,6 +28,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         edges {
           node {
             id
+            body
             fields {
               slug
             }
@@ -43,7 +44,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const pages = result.data.allMdx.edges;
   // you'll call `createPage` for each result
   pages.forEach(({ node }, index) => {
-    console.log(node.id);
+    // deliver frontmatter fields via the page context
+    // will save long repetitive graphql queries in page tmeplates
+    // EXPERIMENTAL what are the implications?
+    const nodeContent = getNode(node.id);
+
+    // console.log(node);
+
     createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
@@ -52,7 +59,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: path.resolve(`./src/components/layout/main.js`),
       // You can use the values in this context in
       // our page layout component
-      context: { id: node.id },
+      context: {
+        id: node.id,
+        fields: nodeContent.frontmatter,
+        body: node.body,
+      },
     });
   });
 };

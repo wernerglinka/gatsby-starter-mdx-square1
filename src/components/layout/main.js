@@ -104,13 +104,12 @@ const PageBg = styled.div`
  *  shinning through when the page is faded-in
  *************************************************************************** */
 
-const StandardPage = ({ data: { mdx } }) => {
-  console.log(mdx);
-
+const StandardPage = ({ pageContext }) => {
   const toTopIsVisible = useToTop();
   const siteMetadata = useSiteMetadata();
-  const fields = mdx.frontmatter;
+  const fields = pageContext.fields;
   const pageSections = fields.sections;
+  const pageBody = pageContext.body;
 
   return (
     <ThemeProvider theme={theme}>
@@ -140,7 +139,7 @@ const StandardPage = ({ data: { mdx } }) => {
                 })}
             </PageContent>
             <Container>
-              <MDXRenderer>{mdx.body}</MDXRenderer>
+              <MDXRenderer>{pageBody}</MDXRenderer>
             </Container>
           </Page>
         </PageBg>
@@ -156,23 +155,7 @@ const StandardPage = ({ data: { mdx } }) => {
 };
 
 StandardPage.propTypes = {
-  data: PropType.shape().isRequired,
+  pageContext: PropType.shape().isRequired,
 };
 
 export default StandardPage;
-
-export const pageQuery = graphql`
-  query pagesQuery($id: String) {
-    mdx(id: { eq: $id }) {
-      id
-      body
-      frontmatter {
-        ...pageMetadata
-        ...pageHeader
-        sections {
-          ...mediaSection
-        }
-      }
-    }
-  }
-`;
