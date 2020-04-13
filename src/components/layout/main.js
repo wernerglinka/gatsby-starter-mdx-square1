@@ -30,6 +30,9 @@ import allComponents from "../index";
 import { Container } from "../common-styles";
 import PageBanner from "../page-banner";
 import SectionWrapper from "../section-wrapper";
+
+import { mediaSection, pageMetadata, pageHeader } from "../graphql-fragments/page-sections";
+
 const shortcodes = { InlineMessage };
 
 const Page = styled.div`
@@ -101,13 +104,12 @@ const PageBg = styled.div`
  *  shinning through when the page is faded-in
  *************************************************************************** */
 
-const StandardPage = props => {
-  console.log(props);
+const StandardPage = ({ data: { mdx } }) => {
+  console.log(mdx);
 
-  const { pageContext } = props;
   const toTopIsVisible = useToTop();
   const siteMetadata = useSiteMetadata();
-  const fields = pageContext.frontmatter;
+  const fields = mdx.frontmatter;
   const pageSections = fields.sections;
 
   return (
@@ -154,7 +156,7 @@ const StandardPage = props => {
 };
 
 StandardPage.propTypes = {
-  pageContext: PropType.shape().isRequired,
+  data: PropType.shape().isRequired,
 };
 
 export default StandardPage;
@@ -165,16 +167,10 @@ export const pageQuery = graphql`
       id
       body
       frontmatter {
-        metaTitle
-        metaDescription
-        pageTitle
-        pageIntro
-        hasBanner
-        banner {
-          bgImage
-        }
+        ...pageMetadata
+        ...pageHeader
         sections {
-          title
+          ...mediaSection
         }
       }
     }
