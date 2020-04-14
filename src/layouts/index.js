@@ -7,6 +7,7 @@ import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
 import { FiArrowUp } from "react-icons/fi";
 import theme from "./theme";
+import Transition from "../components/transition";
 
 import Head from "../components/head";
 import Header from "../components/header";
@@ -22,12 +23,6 @@ import useSiteMetadata from "../hooks/useSiteMetadata";
 import InlineMessage from "../components/shortcodes/inline-message";
 
 const shortcodes = { InlineMessage };
-
-const Page = styled.div`
-  background-color: #fff;
-  padding: 0 20px 50px;
-  margin-bottom: 300px;
-`;
 
 const ToTop = styled.a`
   display: flex;
@@ -68,6 +63,8 @@ const ToTop = styled.a`
 
 const PageBg = styled.div`
   background-color: #fff;
+  padding: 0 20px 50px;
+  margin-bottom: 300px;
 `;
 
 /** ***************************************************************************
@@ -80,7 +77,7 @@ const PageBg = styled.div`
  *  shinning through when the page is faded-in
  *************************************************************************** */
 
-const StandardPage = ({ children }) => {
+const StandardPage = ({ children, location }) => {
   const toTopIsVisible = useToTop();
   const siteMetadata = useSiteMetadata();
 
@@ -91,7 +88,7 @@ const StandardPage = ({ children }) => {
 
       <MDXProvider components={shortcodes}>
         <PageBg>
-          <Page className="hasTransition">{children}</Page>
+          <Transition location={location}>{children}</Transition>
         </PageBg>
       </MDXProvider>
 
@@ -105,7 +102,8 @@ const StandardPage = ({ children }) => {
 };
 
 StandardPage.propTypes = {
-  children: PropType.shape().isRequired,
+  children: PropType.node.isRequired,
+  location: PropType.shape().isRequired,
 };
 
 export default StandardPage;

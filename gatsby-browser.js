@@ -10,6 +10,7 @@
 
 // from Modernizer
 // source: https://davidwalsh.name/css-animation-callback
+
 function whichAnimationEvent() {
   let animation;
   const element = document.createElement("fakeelement");
@@ -42,6 +43,7 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
     easing: "easeInOutCubic",
   });
 
+  /*
   // fade in the new page
   const transitionElement = document.querySelector(".hasTransition");
   if (transitionElement) {
@@ -53,6 +55,7 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
       transitionElement.classList.remove("transitionIn");
     });
   }
+  */
 
   // check for links that point to perimeterx.com and convert them to relative
   // links. Otherwise they will force a page reload.
