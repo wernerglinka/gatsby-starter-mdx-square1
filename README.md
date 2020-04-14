@@ -2,8 +2,6 @@
 
 ## Dev setup
 
----
-
 Using ESLint with Prettier plugin and Airbnb config
 
 Install:
@@ -18,8 +16,6 @@ Install:
 - prettier
 
 ## Styling
-
----
 
 ### Global styles are defined in SCSS.
 
@@ -48,8 +44,6 @@ Using [typography.js](http://kyleamathews.github.io/typography.js/) with Moraga 
 - gatsby-plugin-prefetch-google-fonts
 
 ## Content
-
----
 
 Content is written in MDX, pages are located in the content/pages directory.
 Generally, page content is accessed via the page context in the page template.
@@ -98,8 +92,6 @@ import mdStringToHTML from "../utilities/md-to-html";
 
 ## Page Transitions
 
----
-
 Using the react transition group node module.
 Source: https://github.com/christiannwamba/Gatsby-page-transitions/blob/master/package.json
 
@@ -116,8 +108,6 @@ Install:
 - smooth-scroll
 
 ## Components
-
----
 
 ### Section Wrapper
 
