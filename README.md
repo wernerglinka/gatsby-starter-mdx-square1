@@ -93,6 +93,7 @@ import mdStringToHTML from "../utilities/md-to-html";
 ## Page Transitions
 
 Using the react transition group node module.
+
 Source: https://github.com/christiannwamba/Gatsby-page-transitions/blob/master/package.json
 
 Install:
