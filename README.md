@@ -2,6 +2,8 @@
 
 ## Dev setup
 
+---
+
 Using ESLint with Prettier plugin and Airbnb config
 
 Install:
@@ -16,6 +18,8 @@ Install:
 - prettier
 
 ## Styling
+
+---
 
 ### Global styles are defined in SCSS.
 
@@ -45,11 +49,19 @@ Using [typography.js](http://kyleamathews.github.io/typography.js/) with Moraga 
 
 ## Content
 
-Content is written in MDX, pages are located in the scr/pages directory.
-Generally, page content is accessed with graphql in the page template.
+---
 
-Content for components is stored in json files and located in the src/data directory.
+Content is written in MDX, pages are located in the content/pages directory.
+Generally, page content is accessed via the page context in the page template.
+
+Content for components is stored in json files and located in the content/data directory.
 Generally, component content is accessed with hooks (using static graphql queries).
+
+Install:
+
+- gatsby-plugin-mdx
+- @mdx-js/mdx
+- @mdx-js/react
 
 ### Titles in title case
 
@@ -86,7 +98,14 @@ import mdStringToHTML from "../utilities/md-to-html";
 
 ## Page Transitions
 
-Using CSS and a couple of router events in gatsby-browser.js.
+---
+
+Using the react transition group node module.
+Source: https://github.com/christiannwamba/Gatsby-page-transitions/blob/master/package.json
+
+Install:
+
+- react-transition-group
 
 ## Smooth scroll to anchor links
 
@@ -97,6 +116,8 @@ Install:
 - smooth-scroll
 
 ## Components
+
+---
 
 ### Section Wrapper
 
