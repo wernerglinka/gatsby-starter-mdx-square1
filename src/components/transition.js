@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { TransitionGroup, Transition as ReactTransition } from "react-transition-group";
 
 const timeout = 500;
@@ -17,6 +18,10 @@ const getTransitionStyles = {
   },
 };
 
+/** ***************************************************************************
+ * Transition component
+ * Source: https://github.com/christiannwamba/Gatsby-page-transitions
+ **************************************************************************** */
 class Transition extends React.PureComponent {
   render() {
     const { children, location } = this.props;
@@ -43,5 +48,10 @@ class Transition extends React.PureComponent {
     );
   }
 }
+
+Transition.propTypes = {
+  children: PropTypes.node.isRequired,
+  location: PropTypes.shape().isRequired,
+};
 
 export default Transition;

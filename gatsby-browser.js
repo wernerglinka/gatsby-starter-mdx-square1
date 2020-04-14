@@ -4,35 +4,6 @@
  * Gatsby's Browser APIs
  */
 
-// a simple page fade in/out transition
-// here we just apply lifecycle classes on an element with class "hasTransition"
-// the fade in/out is done via CSS in src/components/layout.scss
-
-// from Modernizer
-// source: https://davidwalsh.name/css-animation-callback
-
-function whichAnimationEvent() {
-  let animation;
-  const element = document.createElement("fakeelement");
-  let supportedAnimation;
-
-  const animations = {
-    animation: "animationend",
-    OAnimation: "oAnimationEnd",
-    MozAnimation: "animationend",
-    WebkitAnimation: "webkitAnimationEnd",
-  };
-
-  // get the animation that the browser supports
-  for (animation in animations) {
-    if (element.style[animation] !== undefined) {
-      supportedAnimation = animations[animation];
-    }
-  }
-
-  return supportedAnimation;
-}
-
 export const onRouteUpdate = ({ location, prevLocation }) => {
   // attach scroll library to any anchor link on the page
   // source: https://github.com/cferdinandi/smooth-scroll
@@ -42,20 +13,6 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
     offset: 100,
     easing: "easeInOutCubic",
   });
-
-  /*
-  // fade in the new page
-  const transitionElement = document.querySelector(".hasTransition");
-  if (transitionElement) {
-    transitionElement.classList.add("transitionIn");
-
-    const animationEvent = whichAnimationEvent();
-
-    transitionElement.addEventListener(animationEvent, function(e) {
-      transitionElement.classList.remove("transitionIn");
-    });
-  }
-  */
 
   // check for links that point to perimeterx.com and convert them to relative
   // links. Otherwise they will force a page reload.
