@@ -1,5 +1,7 @@
 # Gatsby Starter Square1
 
+live site here: https://gatsby-square1.netlify.app/
+
 ## Dev setup
 
 Using ESLint with Prettier plugin and Airbnb config
