@@ -1,9 +1,10 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
+// Gatsby graphql doesn't accept variables, so get all images in folder banner
+// and then match the file name.
+// path to folder is determined by gatsby-plugin-filesystem
 const useBgImage = thisImage => {
-  // const relativePath = "banners/home.jpg";
-
   const data = useStaticQuery(graphql`
     query getBgImage {
       allFile(filter: { relativeDirectory: { eq: "banners" } }) {
@@ -20,18 +21,8 @@ const useBgImage = thisImage => {
       }
     }
   `);
-
-  // Gatsby graphql doesn't accept variables, ergo we get all images in folder banner
-  // and then match the file name.
-  // path to folder is determined by gatsby-plugin-filesystem
-  let bgImage;
-  data.allFile.edges.map(edge => {
-    if (edge.node.childImageSharp.fluid.originalName === thisImage) {
-      bgImage = edge.node.childImageSharp.fluid;
-    }
-  });
-
-  return bgImage;
+  const temp = data.allFile.edges.filter(edge => edge.node.childImageSharp.fluid.originalName === thisImage);
+  return temp[0].node.childImageSharp.fluid;
 };
 
 export default useBgImage;

@@ -10,11 +10,13 @@ import { InternalCTA, ExternalCTA } from "../common-styles";
 
 /** ***************************************************************************
  *  Media component
- *  - presents a combination of an image and text
+ *  - presents a combination of image and text
  *  - order of representation is determined by the boolean imageLeft
  *  - the text may consist of a title, sub title, body text and a CTA
  *  - the CTA may be internal or external, which is determined by the
  *    boolean isExternal
+ *  - if targetID is present an ID is added to the section to be used for
+ *    in-page navigation
  *************************************************************************** */
 const MediaComponent = ({ info }) => {
   const {
