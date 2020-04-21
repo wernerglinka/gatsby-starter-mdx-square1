@@ -1,0 +1,49 @@
+{
+  "customers": [
+    {
+      "name": "The Boston Museum",
+      "url": "http://bostonmuseum.org/",
+      "logo": "bomu.jpg"
+    },
+    {
+      "name": "De Young Museum",
+      "url": "https://deyoung.famsf.org/",
+      "logo": "deyoung.jpg"
+    },
+    {
+      "name": "The Met",
+      "url": "https://www.metmuseum.org/",
+      "logo": "met.jpg"
+    },
+    {
+      "name": "Museum of Contemporary Art",
+      "url": "https://www.moca.org/",
+      "logo": "moca.jpg"
+    },
+    {
+      "name": "Museum of Modern Art",
+      "url": "https://www.moma.org/",
+      "logo": "moma.jpg"
+    },
+    {
+      "name": "Seattle Art Museum",
+      "url": "http://seattleartmuseum.org/",
+      "logo": "sam.jpg"
+    },
+    {
+      "name": "San Francisco Museum of Modern Art",
+      "url": "https://www.sfmoma.org/",
+      "logo": "sfmoma.jpg"
+    },
+    {
+      "name": "Tate Modern",
+      "url": "https://www.tate.org.uk/visit/tate-modern",
+      "logo": "tate.jpg"
+    },
+    {
+      "name": "Victoria and Albert Museum",
+      "url": "https://www.vam.ac.uk/",
+      "logo": "va.jpg"
+    }
+  ]
+}
