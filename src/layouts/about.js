@@ -36,9 +36,6 @@ const PageIntro = styled.div`
 const StandardPage = ({ pageContext }) => {
   const fields = pageContext.fields;
   const pageSections = fields.sections;
-  const pageBody = pageContext.body;
-
-  console.log(pageContext);
 
   return (
     <>
@@ -53,8 +50,6 @@ const StandardPage = ({ pageContext }) => {
         {pageSections &&
           pageSections.map(section => {
             const SectionComponent = allComponents[section.component];
-
-            console.log(SectionComponent);
 
             return (
               <SectionWrapper key={section.sectionID}>

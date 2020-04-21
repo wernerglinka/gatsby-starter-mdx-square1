@@ -14,15 +14,13 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import useToTop from "../hooks/useToTop";
 
+// import shortcodes
+import InlineMessage from "../components/shortcodes/inline-message";
+
 import "normalize-scss";
 import "./layout.scss";
 
 import useSiteMetadata from "../hooks/useSiteMetadata";
-
-// get shortcodes
-import InlineMessage from "../components/shortcodes/inline-message";
-
-const shortcodes = { InlineMessage };
 
 const ToTop = styled.a`
   display: flex;
@@ -80,6 +78,8 @@ const PageBg = styled.div`
 const StandardPage = ({ children, location }) => {
   const toTopIsVisible = useToTop();
   const siteMetadata = useSiteMetadata();
+
+  const shortcodes = { InlineMessage };
 
   return (
     <ThemeProvider theme={theme}>

@@ -53,11 +53,16 @@ Generally, page content is accessed via the page context in the page template.
 Content for components is stored in json files and located in the content/data directory.
 Generally, component content is accessed with hooks (using static graphql queries).
 
+Shortcodes may be inserted in MDX content
+
+Syntax Highlighting is available
+
 Install:
 
 - gatsby-plugin-mdx
 - @mdx-js/mdx
 - @mdx-js/react
+- prism-react-renderer
 
 ### Titles in title case
 
@@ -136,3 +141,7 @@ Renders a combination of a video thumbnail and text in a page section. Upon clic
 Renders a video in a page section. Upon clicking the thumbnail the video is played either in situ or in a modal.
 
 - video playback type is determined by the boolean `isModal`
+
+### CTA Banner
+
+Renders a full width banner with a single Call-to-Action. Includes a header, sub title and a link button
