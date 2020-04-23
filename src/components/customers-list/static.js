@@ -4,6 +4,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import titleCase from "ap-style-title-case";
+import mdStringToHTML from "../../utilities/md-to-html";
 
 import useCustomers from "../../hooks/useCustomers";
 
@@ -23,7 +24,7 @@ const CustomerList = ({ info }) => {
     <SectionWrapper>
       <Container>
         {title && <h2>{titleCase(title)}</h2>}
-        {prose && <p>{prose}</p>}
+        {prose && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(prose) }} />}
       </Container>
 
       <List>
