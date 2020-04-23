@@ -61,7 +61,9 @@ const Header = () => {
           <MainMenu className={showMobileMenu ? "active" : ""}>
             {mainNavLinks.map(link => (
               <li key={link.url}>
-                <Link to={link.url}>{link.label}</Link>
+                <Link to={link.url} onClick={toggleMobileMenu}>
+                  {link.label}
+                </Link>
               </li>
             ))}
           </MainMenu>

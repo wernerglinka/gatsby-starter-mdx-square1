@@ -21,5 +21,9 @@ export const BackgroundColorAndFullWidth = styled.div`
 
 export const FullWidth = styled.div`
   margin: ${props => props.theme.sectionClearance} -${props => props.theme.bodySidePadding};
-  padding: 20px;
+  padding: 20px 0;
+
+  ${Container} {
+    padding: 0 20px;
+  }
 `;

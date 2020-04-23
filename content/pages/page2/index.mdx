@@ -15,8 +15,23 @@ sections:
     bgImage:
     inContainer: false
     sectionID: customerlistBlock1
-    component: CustomerList
+    component: CustomerListStatic
     targetID: OraEtLabora
+    title: Example of a static customer list
+    prose: Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+
+  - type: BlockCustomerList
+    template: customerListTemplate
+    hasBackground: false
+    bgColor:
+    bgIsDark: false
+    bgImage:
+    inContainer: true
+    sectionID: customerlistBlock2
+    component: CustomerListSlider
+    targetID: OraBenLabora
+    title: Example of a sliding customer list
+    prose: Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
   - type: BlockMediaSectionVideo
     template: mediaSectionVideoTemplate

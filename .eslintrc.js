@@ -12,6 +12,7 @@ module.exports = {
     "no-restricted-syntax": 0,
     "react/no-array-index-key": 0,
     "react/destructuring-assignment": 0,
+    "no-param-reassign": 0
   },
 };
 

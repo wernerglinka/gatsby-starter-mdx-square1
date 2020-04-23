@@ -6,9 +6,21 @@ import SectionMediaVideo from "./page-section-media-video";
 import Header from "./header";
 import Layout from "../layouts";
 import SectionVideo from "./page-section-video";
-import CustomerList from "./customers-list";
+import CustomerListStatic from "./customers-list/static";
+import CustomerListSlider from "./customers-list/slider";
 
-export { Section1, CTABanner, Section3, SectionMedia, SectionMediaVideo, SectionVideo, CustomerList, Header, Layout };
+export {
+  Section1,
+  CTABanner,
+  Section3,
+  SectionMedia,
+  SectionMediaVideo,
+  SectionVideo,
+  CustomerListStatic,
+  CustomerListSlider,
+  Header,
+  Layout,
+};
 
 export default {
   Section1,
@@ -17,7 +29,8 @@ export default {
   SectionMedia,
   SectionMediaVideo,
   SectionVideo,
-  CustomerList,
+  CustomerListStatic,
+  CustomerListSlider,
   Header,
   Layout,
 };
