@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { FiX } from "react-icons/fi";
 import Img from "gatsby-image";
 import { Overlay, ModalContent, CloseModal } from "./team-list-styles";
-// import SocialLinkList from "../../../components/social-links";
+import SocialLinks from "../social-links";
 
 /** *******************************************************************************
  * Modal box for team members
@@ -51,6 +51,7 @@ const ModalTeam = ({ info, closeModal, overlayRef }) => {
           <div className="prose">
             <h2>{name}</h2>
             <p>{title}</p>
+            <SocialLinks social={info.socialLinks} />
           </div>
         </div>
 
@@ -60,17 +61,13 @@ const ModalTeam = ({ info, closeModal, overlayRef }) => {
   );
 };
 
-ModalTeam.defaultProps = {
-  // social: null,
-};
-
 ModalTeam.propTypes = {
   info: PropTypes.shape({
     name: PropTypes.string.isRequired,
     image: PropTypes.object.isRequired,
     title: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
-    // social: PropTypes.object,
+    socialLinks: PropTypes.object,
   }).isRequired,
   closeModal: PropTypes.func.isRequired,
   overlayRef: PropTypes.object.isRequired,

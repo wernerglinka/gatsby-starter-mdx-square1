@@ -24,6 +24,11 @@ const useTeam = () => {
               avatar
               bio
               weight
+              socialLinks {
+                twitter
+                facebook
+                linkedIn
+              }
             }
           }
         }

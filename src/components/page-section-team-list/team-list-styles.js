@@ -25,7 +25,13 @@ export const TeamCard = styled.li`
       font-size: 1.2rem;
     }
 
-    a {
+    h3 + p + ul {
+      position: absolute;
+      left: 5px;
+      bottom: 30px;
+    }
+
+    .read-more {
       position: absolute;
       left: 10px;
       bottom: 10px;

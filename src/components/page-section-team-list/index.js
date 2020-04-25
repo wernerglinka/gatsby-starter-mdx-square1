@@ -20,6 +20,8 @@ import { SectionWrapper, List } from "./team-list-styles";
 const TeamList = ({ info }) => {
   const teamMembers = useTeam();
 
+  console.log(teamMembers);
+
   const { title, prose } = info;
 
   return (

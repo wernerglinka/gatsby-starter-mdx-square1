@@ -13,7 +13,7 @@ import mdStringToHTML from "../utilities/md-to-html";
 import allComponents from "../components/index";
 import { Container } from "../components/common-styles";
 import PageBanner from "../components/page-banner";
-import SectionWrapper from "../components/section-wrapper";
+import SectionWrapper from "../components/page-section-wrapper";
 
 const PageContent = styled.div`
   padding-top: 120px;

@@ -10,8 +10,8 @@ import theme from "./theme";
 import Transition from "../components/transition";
 
 import Head from "../components/head";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../components/page-header";
+import Footer from "../components/page-footer";
 import useToTop from "../hooks/useToTop";
 
 // import shortcodes

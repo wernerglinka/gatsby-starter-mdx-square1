@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import Modal from "./modal";
+import SocialLinks from "../social-links";
 import { ExternalCTA } from "../common-styles";
 
 import { TeamCard } from "./team-list-styles";
@@ -17,7 +18,7 @@ const TeamMember = ({ info }) => {
   const [thisModal, toggleThisModal] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const overlayRef = useRef(null);
-  const { image, name, title } = info;
+  const { image, name, title, social } = info;
 
   const openModal = () => {
     toggleThisModal(true);
@@ -36,7 +37,6 @@ const TeamMember = ({ info }) => {
       setIsClosing(false);
       toggleThisModal(false);
     }
-    console.log(`isClosing has changed to: ${isClosing}`);
     if (overlayRef.current) {
       overlayRef.current.classList.add("isClosing");
       overlayRef.current.addEventListener("animationend", closeIt);
@@ -49,8 +49,9 @@ const TeamMember = ({ info }) => {
       <div className="prose">
         <h3>{name}</h3>
         <p>{title}</p>
+        <SocialLinks social={info.socialLinks} />
 
-        <ExternalCTA onClick={openModal} onKeyDown={openModal} onTouchStart={openModal}>
+        <ExternalCTA className="read-more" onClick={openModal} onKeyDown={openModal} onTouchStart={openModal}>
           Read More
         </ExternalCTA>
 

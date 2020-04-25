@@ -3,5 +3,10 @@
   "title": "U.S. Representative for New York's 14th congressional district",
   "avatar": "alexandria-ocasio-cortez.jpg",
   "bio": "Alexandria Ocasio-Cortez (born October 13, 1989) is an American politician, activist, and community organizer. A member of the Democratic Party, she has been the U.S. Representative for New York's 14th congressional district since January 3, 2019.",
-  "weight": 4
+  "weight": 4,
+  "socialLinks": {
+    "twitter": "AOC",
+    "facebook": "OcasioCortez/",
+    "linkedIn": ""
+  }
 }
