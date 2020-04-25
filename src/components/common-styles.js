@@ -77,6 +77,8 @@ export const Hamburger = styled.button`
 `;
 
 export const InternalCTA = styled(Link)`
+  font-size: 0.875rem;
+
   &:hover {
     text-decoration: none;
 
@@ -105,6 +107,8 @@ export const InternalCTA = styled(Link)`
 `;
 
 export const ExternalCTA = styled.a`
+  font-size: 0.875rem;
+
   &:hover {
     text-decoration: none;
 

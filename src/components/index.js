@@ -8,6 +8,7 @@ import Layout from "../layouts";
 import SectionVideo from "./page-section-video";
 import CustomerListStatic from "./customers-list/static";
 import CustomerListSlider from "./customers-list/slider";
+import TeamList from "./team-list";
 
 export {
   Section1,
@@ -18,6 +19,7 @@ export {
   SectionVideo,
   CustomerListStatic,
   CustomerListSlider,
+  TeamList,
   Header,
   Layout,
 };
@@ -31,6 +33,7 @@ export default {
   SectionVideo,
   CustomerListStatic,
   CustomerListSlider,
+  TeamList,
   Header,
   Layout,
 };

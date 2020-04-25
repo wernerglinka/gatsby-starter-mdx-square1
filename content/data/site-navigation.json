@@ -6,7 +6,11 @@
     },
     {
       "label": "About",
-      "url": "/page2"
+      "url": "/about"
+    },
+    {
+      "label": "Team",
+      "url": "/about/team"
     },
     {
       "label": "Projects",

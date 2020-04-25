@@ -30,7 +30,11 @@ const PageIntro = styled.div`
 
 /** ***************************************************************************
  *  Home Page Template
- *
+ *  This page layout renders:
+ *  - banner
+ *  - header/intro
+ *  - sections of components that are defined in the frontmatter
+ *  - the page body
  *************************************************************************** */
 
 const StandardPage = ({ pageContext }) => {

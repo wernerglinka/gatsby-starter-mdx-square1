@@ -2,7 +2,6 @@
 
 import React from "react";
 import PropType from "prop-types";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "@emotion/styled";
 import titleCase from "ap-style-title-case";
 
@@ -29,8 +28,11 @@ const PageIntro = styled.div`
 `;
 
 /** ***************************************************************************
- *  About Page Template
- *
+ *  Standard Page Template
+ *  This page layout renders:
+ *  - banner
+ *  - header/intro
+ *  - sections of components that are defined in the frontmatter
  *************************************************************************** */
 
 const StandardPage = ({ pageContext }) => {
