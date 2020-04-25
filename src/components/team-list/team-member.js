@@ -30,25 +30,13 @@ const TeamMember = ({ info }) => {
     setIsClosing(true);
   };
 
-  // close modal with ESC key
-  useEffect(() => {
-    function escFunction(event) {
-      if (event.keyCode === 27) {
-        closeModal();
-      }
-    }
-    document.addEventListener("keydown", escFunction);
-    return () => {
-      document.removeEventListener("keydown", escFunction);
-    };
-  }, []);
-
   useEffect(() => {
     function closeIt() {
       overlayRef.current.classList.remove("isClosing");
       setIsClosing(false);
       toggleThisModal(false);
     }
+    console.log(`isClosing has changed to: ${isClosing}`);
     if (overlayRef.current) {
       overlayRef.current.classList.add("isClosing");
       overlayRef.current.addEventListener("animationend", closeIt);

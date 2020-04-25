@@ -1,4 +1,6 @@
-import React from "react";
+/* global document */
+
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { FiX } from "react-icons/fi";
 import Img from "gatsby-image";
@@ -21,6 +23,20 @@ const ModalTeam = ({ info, closeModal, overlayRef }) => {
       closeModal();
     }
   };
+
+  const escFunction = e => {
+    if (e.keyCode === 27) {
+      closeModal();
+    }
+  };
+
+  // close modal with ESC key
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction);
+    return () => {
+      document.removeEventListener("keydown", escFunction);
+    };
+  }, []);
 
   return (
     <Overlay onClick={handleClick} ref={overlayRef}>
