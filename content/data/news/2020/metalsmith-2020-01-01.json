@@ -1,0 +1,9 @@
+{
+  "org": "Metalsmith IO",
+  "logo": "metalsmith.jpg",
+  "logo_wide": false,
+  "title": "METALSMITH - An extremely simple, pluggable static site generator.",
+  "url": "https://metalsmith.io/",
+  "date": "2020-01-01",
+  "type": "article"
+}
