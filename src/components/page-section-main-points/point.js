@@ -3,17 +3,20 @@ import PropTypes from "prop-types";
 import mdStringToHTML from "../../utilities/md-to-html";
 import CTA from "../cta";
 import useSVG from "../../hooks/useSVG";
+import { PointWrapper } from "./main-points-styles";
 
 /** ***************************************************************************
  *  Single Point Component
  *************************************************************************** */
 const Point = ({ info }) => (
-  <li>
-    {info.icon && <img src={useSVG(info.icon)} alt="" />}
-    {info.title && <h2>{info.title}</h2>}
-    {info.content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(info.content) }} />}
-    {info.cta && <CTA cta={info.cta} />}
-  </li>
+  <PointWrapper>
+    <div>
+      {info.icon && <img src={useSVG(info.icon)} alt="" />}
+      {info.title && <h3>{info.title}</h3>}
+      {info.content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(info.content) }} />}
+      {info.cta && <CTA cta={info.cta} />}
+    </div>
+  </PointWrapper>
 );
 
 Point.propTypes = {
