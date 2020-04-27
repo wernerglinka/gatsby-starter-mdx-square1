@@ -9,6 +9,7 @@ import SectionVideo from "./page-section-video";
 import CustomerListStatic from "./page-section-customers-list/static";
 import CustomerListSlider from "./page-section-customers-list/slider";
 import TeamList from "./page-section-team-list";
+import MainPoints from "./page-section-main-points";
 
 export {
   Section1,
@@ -20,6 +21,7 @@ export {
   CustomerListStatic,
   CustomerListSlider,
   TeamList,
+  MainPoints,
   Header,
   Layout,
 };
@@ -34,6 +36,7 @@ export default {
   CustomerListStatic,
   CustomerListSlider,
   TeamList,
+  MainPoints,
   Header,
   Layout,
 };

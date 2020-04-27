@@ -8,13 +8,13 @@ import debounce from "../../utilities/debounce";
 import useMainNav from "../../hooks/useSiteNav";
 
 import { Container, Hamburger } from "../common-styles";
-import { HeaderWrapper, NavBar, Logo, MainMenu } from "./header-styles";
+import { HeaderInner, HeaderWrapper, NavBar, Logo, MainMenu } from "./header-styles";
 
 /** ***************************************************************************
  *  Header Component
  *************************************************************************** */
 
-const Header = () => {
+const Header = ({ isSticky }) => {
   const [showMobileMenu, setMobileMenu] = useState(false);
   const mainNavLinks = useMainNav();
   const MOBILE_BP = 767;
@@ -51,28 +51,30 @@ const Header = () => {
   };
 
   return (
-    <HeaderWrapper id="pageTop">
-      <Container>
-        <NavBar>
-          <Link to="/">
-            <Logo src={mainLogo} alt="" />
-          </Link>
+    <HeaderWrapper isFixed={isSticky}>
+      <HeaderInner id="pageTop">
+        <Container>
+          <NavBar>
+            <Link to="/">
+              <Logo src={mainLogo} alt="" />
+            </Link>
 
-          <MainMenu className={showMobileMenu ? "active" : ""}>
-            {mainNavLinks.map(link => (
-              <li key={link.url}>
-                <Link to={link.url} onClick={toggleMobileMenu}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </MainMenu>
+            <MainMenu className={showMobileMenu ? "active" : ""}>
+              {mainNavLinks.map(link => (
+                <li key={link.url}>
+                  <Link to={link.url} onClick={toggleMobileMenu}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </MainMenu>
 
-          <Hamburger className={showMobileMenu ? "active" : ""} onClick={toggleMobileMenu}>
-            <span />
-          </Hamburger>
-        </NavBar>
-      </Container>
+            <Hamburger className={showMobileMenu ? "active" : ""} onClick={toggleMobileMenu}>
+              <span />
+            </Hamburger>
+          </NavBar>
+        </Container>
+      </HeaderInner>
     </HeaderWrapper>
   );
 };

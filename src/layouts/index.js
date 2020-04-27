@@ -1,15 +1,17 @@
 /* global window */
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropType from "prop-types";
 import { MDXProvider } from "@mdx-js/react";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
 import { FiArrowUp } from "react-icons/fi";
+import { Waypoint } from "react-waypoint";
 import theme from "./theme";
 import Transition from "../components/transition";
 
 import Head from "../components/head";
+import TopMsg from "../components/page-top-message";
 import Header from "../components/page-header";
 import Footer from "../components/page-footer";
 import useToTop from "../hooks/useToTop";
@@ -81,20 +83,75 @@ const StandardPage = ({ children, location }) => {
 
   const shortcodes = { InlineMessage };
 
+  const hasTopMessage = !!children.props.pageContext.fields.topMessage;
+  const topMessage = children.props.pageContext.fields.topMessage ? children.props.pageContext.fields.topMessage : null;
+
+  const [scrollState, setScrollState] = useState({
+    stickyMainNav: false,
+    toTopVisible: false,
+  });
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      // check if page is scrolled down after reload and invoke waypoint if necessary
+      const offset = window.pageYOffset;
+      if (offset > 260) {
+        setScrollState({ ...scrollState, toTopVisible: true });
+      }
+      if (offset > 79) {
+        setScrollState({ ...scrollState, stickyMainNav: true });
+      }
+    }, 500);
+
+    return () => window.clearTimeOut(timeout);
+  }, []);
+
+  const hideToTopButton = () => {
+    setScrollState({ ...scrollState, toTopVisible: false });
+  };
+
+  const showToTopButton = () => {
+    setScrollState({ ...scrollState, toTopVisible: true });
+  };
+
+  const makeNavFixed = () => {
+    setScrollState({ ...scrollState, stickyMainNav: true });
+  };
+
+  const makeNavStatic = () => {
+    setScrollState({ ...scrollState, stickyMainNav: false });
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Head metaData={siteMetadata} />
-      <Header siteTitle={siteMetadata.title} />
+
+      {hasTopMessage ? (
+        <>
+          <TopMsg message={topMessage} />
+          <Waypoint onEnter={makeNavStatic} onLeave={makeNavFixed} />
+        </>
+      ) : (
+        <Waypoint onEnter={makeNavStatic} onLeave={makeNavFixed} />
+      )}
+
+      <Header siteTitle={siteMetadata.title} isSticky={scrollState.stickyMainNav} />
 
       <MDXProvider components={shortcodes}>
         <PageBg>
+          {/* waypoint for to top botton */}
+          <Waypoint
+            scrollableAncestor={typeof window === "undefined" ? null : window}
+            onEnter={hideToTopButton}
+            onLeave={showToTopButton}
+          />
           <Transition location={location}>{children}</Transition>
         </PageBg>
       </MDXProvider>
 
       <Footer />
 
-      <ToTop href="#pageTop" className={toTopIsVisible ? "isVisible" : null}>
+      <ToTop href="#pageTop" className={scrollState.toTopVisible ? "isVisible" : null}>
         <FiArrowUp />
       </ToTop>
     </ThemeProvider>
