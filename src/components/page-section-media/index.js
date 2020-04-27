@@ -3,6 +3,7 @@ import React from "react";
 import Img from "gatsby-image";
 import titleCase from "ap-style-title-case";
 import mdStringToHTML from "../../utilities/md-to-html";
+import CTA from "../cta";
 
 import useSiteImage from "../../hooks/useSiteImage";
 import { TextWrapper, ImageWrapper, SectionWrapper } from "./media-component-styles";
@@ -23,12 +24,10 @@ const MediaComponent = ({ info }) => {
     title, // the optional title of the text section
     subtitle, // the optional subtitle of the text section
     content, // the optional content of the text section
-    linkURL, // the CTA link of the text section
-    linkText, // the CTA text of the text section
     image, // the mandatory image... after all this is a media component
     imageLeft, // determines whether image is positioned left or right of the text
-    isExternal, // determines if the CTA links to an internal/external target
     targetID, // add an ID attribute to the section so links can target it
+    cta, // the inevitable call-to-action
   } = info;
 
   const thisImage = useSiteImage(image);
@@ -40,12 +39,7 @@ const MediaComponent = ({ info }) => {
           {title && <h2>{titleCase(title)}</h2>}
           {subtitle && <p>{subtitle}</p>}
           {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
-          {linkURL && !isExternal && <InternalCTA to={linkURL}>{linkText}</InternalCTA>}
-          {linkURL && isExternal && (
-            <ExternalCTA href={linkURL} target="_blank" rel="noopener noreferrer">
-              {linkText}
-            </ExternalCTA>
-          )}
+          {cta.URL && <CTA cta={cta} />}
         </TextWrapper>
         <ImageWrapper>
           <Img fluid={thisImage} />
@@ -60,12 +54,10 @@ MediaComponent.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     content: PropTypes.string,
-    linkURL: PropTypes.string,
-    linkText: PropTypes.string,
     image: PropTypes.string.isRequired,
     imageLeft: PropTypes.bool,
-    isExternal: PropTypes.bool,
     targetID: PropTypes.string,
+    cta: PropTypes.object,
   }),
 };
 
@@ -74,11 +66,9 @@ MediaComponent.defaultProps = {
     title: null,
     subtitle: null,
     content: null,
-    linkURL: null,
-    linkText: null,
     imageLeft: false,
-    isExternal: false,
     targetID: null,
+    cta: null,
   },
 };
 

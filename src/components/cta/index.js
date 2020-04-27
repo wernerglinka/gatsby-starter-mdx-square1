@@ -4,7 +4,8 @@ import { InternalCTALink, ExternalCTALink, ExternalCTAButton, InternalCTAButton 
 
 /** ***************************************************************************
  *  Call-to-Action Component
- *  A CTA may be linked to internal or external pages
+ *  A CTA may be linked to internal or external pages and can be rendered as
+ *  an inline link or a button
  *************************************************************************** */
 const CTA = ({ cta }) => {
   const { URL, text, isExternal, isButton, buttonStyle } = cta;

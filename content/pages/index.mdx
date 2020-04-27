@@ -27,11 +27,14 @@ sections:
     subtitle: Found right on Franklin and Oliver Avenue
     content: |-
       Often you want to list stuff to show your visitors why you and your products make a difference. A pattern that is often used is the media object pattern. This name was coined by Nicole Sullivan in her Stubbornella blogpost [THE MEDIA OBJECT SAVES HUNDREDS OF LINES OF CODE](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/). This section has a h2 header, some prose and a call to action. And, of course, an image on the right side. Note that all section header conform to AP Style Capitalization Rules. I am using the [ap-style-title-case plugin](https://www.npmjs.com/package/ap-style-title-case) by _wooorm_ for that.
-    isExternal: false
-    linkURL: /page3
-    linkText: Try it out
-    imageLeft: false
     image: sample7.jpg
+    imageLeft: false
+    cta:
+      URL: /page3
+      text: Try it out
+      isExternal: false
+      isButton: false
+      buttonStyle:
 
   - type: BlockMediaSection
     template: mediaSectionTemplate
@@ -47,11 +50,14 @@ sections:
     subtitle: This shurly looks like... what. I have no idea.
     content: |-
       This section has the image on the left side. Images may be placed on either side of the section. Here we use an altenating arrangement to arrive at a ZigZag pattern. I coined this name all by myself ;-) And to make it interesting there is an other page link to [scroll to the section above](#elitPorta).
-    isExternal: false
-    linkURL: /page9
-    linkText: Check it out
     imageLeft: true
     image: sample4.jpg
+    cta:
+      URL: /page3
+      text: Check it out
+      isExternal: false
+      isButton: false
+      buttonStyle:
 
   - type: BlockMediaSection
     template: mediaSectionTemplate
@@ -66,11 +72,14 @@ sections:
     title: Alle guten dinge sind drei
     subtitle: Well yeah I do speak German. Bin ja schließlich im Ruhrgebiet geboren.
     content:
-    isExternal: true
-    linkURL: https://de.wikipedia.org/wiki/Ruhrgebiet
-    linkText: What is that?
     imageLeft: false
     image: sample6.jpg
+    cta:
+      URL: https://de.wikipedia.org/wiki/Ruhrgebiet
+      text: What is that?
+      isExternal: true
+      isButton: false
+      buttonStyle:
 
   - type: Block1
     template: blocktemplate

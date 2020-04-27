@@ -18,7 +18,7 @@ const MainPoints = ({ info }) => {
           return <Point key={point.title} info={point} />;
         })}
       </PointsWrapper>
-      {info.cta && <CTA cta={info.cta} btn={info.isButton} />}
+      {info.cta && <CTA cta={info.cta} />}
     </MainPointsSection>
   );
 };
@@ -28,7 +28,7 @@ MainPoints.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     cta: PropTypes.object.isRequired,
-    isButton: PropTypes.bool.isRequired,
+    isButton: PropTypes.bool,
     items: PropTypes.array.isRequired,
   }).isRequired,
 };
