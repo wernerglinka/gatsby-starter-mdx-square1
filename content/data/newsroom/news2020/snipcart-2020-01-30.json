@@ -1,0 +1,12 @@
+{
+  "org": "Snipcart",
+  "logo": "snipcart.jpg",
+  "logo_wide": false,
+  "title": "Pick the Best Static Site Generator for your 2020 Projects",
+  "url": "https://snipcart.com/blog/choose-best-static-site-generator",
+  "isExternal": true,
+  "date": "2020-01-30",
+  "dateLocation": "",
+  "excerpt": "So. Many. Static site generators. Even for us who've done 20+ demos & tutorials with them, it gets overwhelming. I can't imagine what it must be like for a developer just learning about the JAMstack.",
+  "type": "news"
+}

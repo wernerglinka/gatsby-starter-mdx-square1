@@ -1,0 +1,12 @@
+{
+  "org": "Sitepoint",
+  "logo": "sitepoint.jpg",
+  "logo_wide": false,
+  "title": "How to Automatically Optimize Responsive Images in Gatsby",
+  "url": "https://www.sitepoint.com/automatically-optimize-responsive-images-in-gatsby/",
+  "isExternal": true,
+  "date": "2019-09-11",
+  "dateLocation": "",
+  "excerpt": "Image optimization — at least in my experience — has always been a major pain when building speedy websites. Balancing image quality and bandwidth efficiency is a tough act without the right tools.",
+  "type": "news"
+}

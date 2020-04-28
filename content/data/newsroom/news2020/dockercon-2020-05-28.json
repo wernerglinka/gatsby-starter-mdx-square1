@@ -1,0 +1,12 @@
+{
+  "org": "Docker",
+  "logo": "docker.png",
+  "logoWide": false,
+  "title": "Docker Con Live 2020",
+  "url": "https://docker.events.cube365.net/docker/dockercon/",
+  "isExternal": true,
+  "date": "2020-05-28",
+  "dateLocation": "",
+  "excerpt": "DockerCon is going digital with theCUBE! We’ve designed a 1-day conference that’s free and completely online.",
+  "type": "event"
+}

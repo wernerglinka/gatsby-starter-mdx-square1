@@ -1,0 +1,12 @@
+{
+  "org": "Metalsmith IO",
+  "logo": "metalsmith.jpg",
+  "logo_wide": false,
+  "title": "METALSMITH - An extremely simple, pluggable static site generator.",
+  "url": "https://metalsmith.io/",
+  "isExternal": true,
+  "date": "2020-01-01",
+  "dateLocation": "",
+  "excerpt": "The task of a static site generator is to produce static build files that can be deployed to a web server. These files are built from source files. Basically for a static site generator this means:",
+  "type": "news"
+}

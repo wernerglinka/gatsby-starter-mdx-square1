@@ -1,0 +1,12 @@
+{
+  "org": "Smashing Magazine",
+  "logo": "smashing-magazine.png",
+  "logo_wide": false,
+  "title": "How To Make A Dynamic Website Become Static Through A Content CDN",
+  "url": "https://www.smashingmagazine.com/2018/02/dynamic-website-static-content-cdn/",
+  "isExternal": true,
+  "date": "2018-02-02",
+  "dateLocation": "",
+  "excerpt": "What if we could have a WordPress website in which its dynamic content could be exported as static files? ",
+  "type": "news"
+}

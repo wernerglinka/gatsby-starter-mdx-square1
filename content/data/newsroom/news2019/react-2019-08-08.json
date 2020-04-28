@@ -1,0 +1,12 @@
+{
+  "org": "React",
+  "logo": "react.png",
+  "logo_wide": false,
+  "title": "React v16.9.0 and the Roadmap Update",
+  "url": "https://reactjs.org/blog/2019/08/08/react-v16.9.0.html",
+  "isExternal": true,
+  "date": "2019-08-08",
+  "dateLocation": "",
+  "excerpt": "Today we are releasing React 16.9. It contains several new features, bugfixes, and new deprecation warnings to help prepare for a future major release.",
+  "type": "news"
+}
