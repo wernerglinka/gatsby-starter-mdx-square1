@@ -1,7 +1,7 @@
 {
   "org": "Snipcart",
   "logo": "snipcart.jpg",
-  "logo_wide": false,
+  "logoWide": false,
   "title": "Pick the Best Static Site Generator for your 2020 Projects",
   "url": "https://snipcart.com/blog/choose-best-static-site-generator",
   "isExternal": true,

@@ -1,7 +1,7 @@
 {
   "org": "Metalsmith IO",
   "logo": "metalsmith.jpg",
-  "logo_wide": false,
+  "logoWide": false,
   "title": "METALSMITH - An extremely simple, pluggable static site generator.",
   "url": "https://metalsmith.io/",
   "isExternal": true,

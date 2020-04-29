@@ -1,7 +1,7 @@
 {
   "org": "Smashing Magazine",
   "logo": "smashing-magazine.png",
-  "logo_wide": false,
+  "logoWide": false,
   "title": "How To Make A Dynamic Website Become Static Through A Content CDN",
   "url": "https://www.smashingmagazine.com/2018/02/dynamic-website-static-content-cdn/",
   "isExternal": true,

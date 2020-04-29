@@ -1,7 +1,7 @@
 {
   "org": "Sitepoint",
   "logo": "sitepoint.jpg",
-  "logo_wide": false,
+  "logoWide": false,
   "title": "How to Automatically Optimize Responsive Images in Gatsby",
   "url": "https://www.sitepoint.com/automatically-optimize-responsive-images-in-gatsby/",
   "isExternal": true,
