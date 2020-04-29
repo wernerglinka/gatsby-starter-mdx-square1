@@ -78,7 +78,7 @@ const PageBg = styled.div`
  *************************************************************************** */
 
 const StandardPage = ({ children, location }) => {
-  const toTopIsVisible = useToTop();
+  const [showTopbar, hideTopbar] = useState(true);
   const siteMetadata = useSiteMetadata();
 
   const shortcodes = { InlineMessage };
@@ -126,9 +126,9 @@ const StandardPage = ({ children, location }) => {
     <ThemeProvider theme={theme}>
       <Head metaData={siteMetadata} />
 
-      {hasTopMessage ? (
+      {hasTopMessage && showTopbar ? (
         <>
-          <TopMsg message={topMessage} />
+          <TopMsg message={topMessage} hideTopbar={hideTopbar} />
           <Waypoint onEnter={makeNavStatic} onLeave={makeNavFixed} />
         </>
       ) : (

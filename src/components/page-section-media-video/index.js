@@ -48,7 +48,6 @@ MediaInlineVideoComponent.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     content: PropTypes.string,
-    image: PropTypes.string.isRequired,
     imageLeft: PropTypes.bool,
     targetID: PropTypes.string,
     cta: PropTypes.object,

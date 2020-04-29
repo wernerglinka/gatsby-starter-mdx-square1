@@ -12,11 +12,39 @@ pageIntro: |
 
 Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
-## Example of Syntax Highlight
+## Example of Syntax Highlighting
 
 ```javascript
-const text = "world";
-console.log(`Hello ${text}`);
+const components = {
+  pre: props => {
+    const className = props.children.props.className || "";
+    const matches = className.match(/language-(?<lang>.*)/);
+    return (
+      <Highlight
+        {...defaultProps}
+        code={props.children.props.children.trim()}
+        language={matches && matches.groups && matches.groups.lang ? matches.groups.lang : ""}
+        theme={github}
+      >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
+    );
+  },
+};
+
+export const wrapRootElement = ({ element }) => {
+  return <MDXProvider components={components}>{element}</MDXProvider>;
+};
 ```
 
 ## This section containes a shortcode "Hello..."

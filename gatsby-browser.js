@@ -9,9 +9,6 @@ import { MDXProvider } from "@mdx-js/react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import github from "prism-react-renderer/themes/github";
 
-// get shortcodes
-import InlineMessage from "./src/components/shortcodes/inline-message";
-
 export const onRouteUpdate = ({ location, prevLocation }) => {
   // attach scroll library to any anchor link on the page
   // source: https://github.com/cferdinandi/smooth-scroll
@@ -46,8 +43,9 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
   });
 };
 
+// This code is used by page transitions so the user doesn't see the srcoll back to the
+// to before the page transitions
 const transitionDelay = 500;
-
 export const shouldUpdateScroll = ({ routerProps: { location }, getSavedScrollPosition }) => {
   if (location.action === "PUSH") {
     window.setTimeout(() => window.scrollTo(0, 0), transitionDelay);
