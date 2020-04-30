@@ -3,6 +3,7 @@
   "logo": "gatsby.png",
   "logoWide": false,
   "title": "From Static to Real-time: Introducing Incremental Builds in Gatsby Cloud",
+  "linkText": "Read Article",
   "url": "https://www.gatsbyjs.org/blog/2020-04-22-announcing-incremental-builds/",
   "isExternal": true,
   "date": "2020-04-22",

@@ -3,6 +3,7 @@
   "logo": "metalsmith.jpg",
   "logoWide": false,
   "title": "METALSMITH - An extremely simple, pluggable static site generator.",
+  "linkText": "Read Article",
   "url": "https://metalsmith.io/",
   "isExternal": true,
   "date": "2020-01-01",

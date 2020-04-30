@@ -11,6 +11,7 @@ const UseNews = () => {
             logo
             logoWide
             title
+            linkText
             url
             isExternal
             date(formatString: "YYYY-MM-DD")
@@ -27,6 +28,7 @@ const UseNews = () => {
             logo
             logoWide
             title
+            linkText
             url
             isExternal
             date(formatString: "YYYY-MM-DD")
@@ -43,6 +45,7 @@ const UseNews = () => {
             logo
             logoWide
             title
+            linkText
             url
             isExternal
             date(formatString: "YYYY-MM-DD")
@@ -55,7 +58,7 @@ const UseNews = () => {
     }
   `);
 
-  // aggregate all years and take node out
+  // aggregate all years and normalize object - take node out
   const aggregateNews = [
     ...data.allNews2018Json.edges,
     ...data.allNews2019Json.edges,

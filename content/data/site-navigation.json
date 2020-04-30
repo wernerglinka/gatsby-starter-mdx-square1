@@ -9,6 +9,10 @@
       "url": "/about"
     },
     {
+      "label": "Newsroom",
+      "url": "/about/newsroom"
+    },
+    {
       "label": "Team",
       "url": "/about/team"
     },

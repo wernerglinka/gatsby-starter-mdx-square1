@@ -1,8 +1,9 @@
 {
   "org": "AI Tech Awards",
-  "logo": "ai-tech-awards.png",
-  "logo_wide": false,
+  "logo": "ai-dev-world.jpg",
+  "logoWide": false,
   "title": "AI Tech Awards 2019 Winners",
+  "linkText": "Check it Out",
   "url": "https://aidevworld.com/awards/",
   "isExternal": true,
   "date": "2019-10-10",

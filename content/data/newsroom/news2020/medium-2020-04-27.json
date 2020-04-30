@@ -1,8 +1,9 @@
 {
   "org": "Medium",
-  "logo": "medium.jpg",
+  "logo": "medium.png",
   "logoWide": false,
   "title": "How To Put A Custom API Call In Your Gatsby App",
+  "linkText": "Read Article",
   "url": "https://medium.com/javascript-in-plain-english/how-to-put-a-custom-api-call-in-your-gatsby-app-ef7496bc69f2",
   "isExternal": true,
   "date": "2020-04-27",

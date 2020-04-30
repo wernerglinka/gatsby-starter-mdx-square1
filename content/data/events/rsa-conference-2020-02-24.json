@@ -1,12 +1,13 @@
 {
   "org": "RSA Conference",
-  "logo": "rsa.jpg",
+  "logo": "rsa-2020.png",
   "logoWide": false,
   "title": "RSA Conference 2020",
+  "linkText": "Meet with Us",
   "url": "https://www.rsaconference.com/usa",
   "isExternal": true,
   "date": "2020-01-30",
-  "dateLocation": "February 24 — 28 | San Francisco",
-  "excerpt": "Attending RSA 2020 and have a minute? [Meet with us](/contact-us)... will ya?",
+  "dateLocation": "Feb 24 — 28 | San Francisco",
+  "excerpt": "Attending RSA 2020 and have a minute?",
   "type": "event"
 }

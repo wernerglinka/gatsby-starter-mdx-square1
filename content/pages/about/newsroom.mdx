@@ -1,0 +1,37 @@
+---
+template: standard-page
+metaTitle: Newsroom
+metaDescription: Newsroom page specific meta description. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+metaImage:
+pageTitle: Newsroom
+pageIntro: |
+  Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+
+sections:
+  - type: BlockNewsList
+    template: newsListTemplate
+    hasBackground: false
+    bgColor: ""
+    bgIsDark: false
+    bgImage:
+    inContainer: true
+    sectionID: newslistBlock1
+    component: NewsList
+    targetID:
+    title: ""
+    prose: ""
+  - type: Block2
+    template: blocktemplate
+    hasBackground: true
+    bgColor: "#00273B"
+    bgIsDark: true
+    bgImage:
+    inContainer: false
+    title: I am a Call To Action
+    sectionID: home_page_block2
+    component: CTABanner
+    content: |-
+      This is a staple of all marketing sites. It yells at you Click, click, click ME. Can't miss this. _This is also an example of a full-width background._
+
+      [Get a haircut](/get-a-haircut)
+---

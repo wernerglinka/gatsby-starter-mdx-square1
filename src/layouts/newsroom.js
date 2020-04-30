@@ -15,7 +15,9 @@ import { Container } from "../components/common-styles";
 import PageBanner from "../components/page-banner";
 import SectionWrapper from "../components/page-section-wrapper";
 
-import getNews from "../hooks/useNews";
+import InfoCard from "../components/info-card";
+
+import getNewsroomItems from "../hooks/useNewsroom";
 import NewsList from "../components/news-list";
 
 const PageContent = styled.div`
@@ -37,9 +39,7 @@ const PageIntro = styled.div`
 
 const NewsroomPage = ({ pageContext }) => {
   const fields = pageContext.fields;
-  const allNews = getNews();
-
-  console.log(allNews);
+  const newsroomItems = getNewsroomItems();
 
   return (
     <>
@@ -50,7 +50,7 @@ const NewsroomPage = ({ pageContext }) => {
           {!fields.hasBanner && <h1>{titleCase(fields.pageTitle)}</h1>}
           <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntro) }} />
 
-          <NewsList items={allNews} />
+          <NewsList items={newsroomItems} listItemComponent={InfoCard} />
         </Container>
       </PageContent>
     </>

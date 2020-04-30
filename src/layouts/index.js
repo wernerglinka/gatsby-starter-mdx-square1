@@ -103,7 +103,7 @@ const StandardPage = ({ children, location }) => {
       }
     }, 500);
 
-    return () => window.clearTimeOut(timeout);
+    return () => window.clearTimeout(timeout);
   }, []);
 
   const hideToTopButton = () => {

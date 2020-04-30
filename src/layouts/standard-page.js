@@ -39,6 +39,8 @@ const StandardPage = ({ pageContext }) => {
   const fields = pageContext.fields;
   const pageSections = fields.sections;
 
+  console.log(pageSections);
+
   return (
     <>
       <PageContent className={fields.hasBanner ? "hasBanner" : null}>

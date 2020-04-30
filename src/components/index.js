@@ -10,6 +10,7 @@ import CustomerListStatic from "./page-section-customers-list/static";
 import CustomerListSlider from "./page-section-customers-list/slider";
 import TeamList from "./page-section-team-list";
 import MainPoints from "./page-section-main-points";
+import NewsList from "./page-section-news-list";
 
 export {
   Section1,
@@ -21,6 +22,7 @@ export {
   CustomerListStatic,
   CustomerListSlider,
   TeamList,
+  NewsList,
   MainPoints,
   Header,
   Layout,
@@ -36,6 +38,7 @@ export default {
   CustomerListStatic,
   CustomerListSlider,
   TeamList,
+  NewsList,
   MainPoints,
   Header,
   Layout,

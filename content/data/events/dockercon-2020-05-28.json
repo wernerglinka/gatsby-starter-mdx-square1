@@ -3,6 +3,7 @@
   "logo": "docker.png",
   "logoWide": false,
   "title": "Docker Con Live 2020",
+  "linkText": "Join us Online",
   "url": "https://docker.events.cube365.net/docker/dockercon/",
   "isExternal": true,
   "date": "2020-05-28",

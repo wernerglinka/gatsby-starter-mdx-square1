@@ -1,8 +1,9 @@
 {
   "org": "freeCodeCamp",
-  "logo": "freecodecamp.png",
+  "logo": "freecodecamp.jpg",
   "logoWide": false,
   "title": "Why you should use GatsbyJS to build static sites",
+  "linkText": "Read Article",
   "url": "https://www.freecodecamp.org/news/why-you-should-use-gatsbyjs-to-build-static-sites-4f90eb6d1a7b/",
   "isExternal": true,
   "date": "2018-12-04",
