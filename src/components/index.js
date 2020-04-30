@@ -11,6 +11,7 @@ import CustomerListSlider from "./page-section-customers-list/slider";
 import TeamList from "./page-section-team-list";
 import MainPoints from "./page-section-main-points";
 import NewsList from "./page-section-news-list";
+import FilteredNewsList from "./page-section-news-list-with-filter";
 
 export {
   Section1,
@@ -23,6 +24,7 @@ export {
   CustomerListSlider,
   TeamList,
   NewsList,
+  FilteredNewsList,
   MainPoints,
   Header,
   Layout,
@@ -39,6 +41,7 @@ export default {
   CustomerListSlider,
   TeamList,
   NewsList,
+  FilteredNewsList,
   MainPoints,
   Header,
   Layout,

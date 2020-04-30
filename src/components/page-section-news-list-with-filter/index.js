@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import getNewsroomItems from "../../hooks/useNewsroom";
 import InfoCard from "../info-card";
 
-import { List } from "./news-list-styles";
+import { List, FilterList, FilterItem } from "./news-list-styles";
 
 /** ***************************************************************************
  *  News List Component
@@ -13,14 +13,22 @@ import { List } from "./news-list-styles";
  *************************************************************************** */
 
 const NewsList = () => {
-  const [items] = getNewsroomItems();
+  const [filterState, setFilterState] = useState("all");
+  const [items, filters] = getNewsroomItems();
 
   return (
-    <List>
-      {items.map((item, i) => (
-        <InfoCard key={`${item.title}${i}`} items={item} />
-      ))}
-    </List>
+    <>
+      <FilterList>
+        {filters.map(item => (
+          <FilterItem>{item}</FilterItem>
+        ))}
+      </FilterList>
+      <List>
+        {items.map((item, i) => (
+          <InfoCard key={`${item.title}${i}`} items={item} />
+        ))}
+      </List>
+    </>
   );
 };
 

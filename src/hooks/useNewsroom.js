@@ -11,6 +11,10 @@ const useNewsroom = () => {
   // consolidate news, events and awards
   const newsroomItems = [...allNews, ...allEvents, ...allAwards];
 
+  // get all item categories
+  const itemTypes = newsroomItems.map(newsroomItem => newsroomItem.type);
+  const newsCategories = [...new Set(itemTypes)];
+
   // and sort them by date
   const sortedItems = newsroomItems.sort((a, b) => {
     if (a.date < b.date) {
@@ -22,7 +26,7 @@ const useNewsroom = () => {
     return 0;
   });
 
-  return sortedItems;
+  return [sortedItems, newsCategories];
 };
 
 export default useNewsroom;
