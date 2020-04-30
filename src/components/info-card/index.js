@@ -14,17 +14,15 @@ import { Card, ImageWrapper, CardContent, CardType, CardDate, CardExcerpt, CardC
  *  Is either rendered as a
  *************************************************************************** */
 
-const InfoCard = ({ items }) => {
-  const { title, logo, type, date, dateLocation, excerpt, linkText, isExternal, url } = items;
-
+const InfoCard = ({
+  items: { title, logo, logoWide, type, date, dateLocation, excerpt, linkText, isExternal, url },
+}) => {
   const image = getImage(logo);
   const truncatedExcerpt = excerpt.length > 80 ? `${excerpt.substring(0, 80)}...` : excerpt;
 
-  console.log(items);
-
   const InfoCardInner = () => (
     <Card>
-      <ImageWrapper>{image && <Img fluid={getImage(logo)} />}</ImageWrapper>
+      <ImageWrapper logoWide={logoWide}>{image && <Img fluid={getImage(logo)} />}</ImageWrapper>
       <CardContent>
         <CardType>{type}</CardType>
         {dateLocation ? (

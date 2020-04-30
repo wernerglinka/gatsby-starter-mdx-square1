@@ -14,9 +14,13 @@ export const Card = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  width: 100px;
-  height: 100px;
+  width: ${props => (props.logoWide ? "180px" : "100px")};
   margin: 20px auto 0;
+
+  /* overwrite Gatsby's image styling*/
+  > div > div {
+    padding-bottom: 100px !important;
+  }
 `;
 
 export const CardContent = styled.div`
