@@ -45,7 +45,8 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
 
 // This code is used by page transitions so the user doesn't see the srcoll back to the
 // to before the page transitions
-const transitionDelay = 500;
+const transitionDelay = 250;
+
 export const shouldUpdateScroll = ({ routerProps: { location }, getSavedScrollPosition }) => {
   if (location.action === "PUSH") {
     window.setTimeout(() => window.scrollTo(0, 0), transitionDelay);
