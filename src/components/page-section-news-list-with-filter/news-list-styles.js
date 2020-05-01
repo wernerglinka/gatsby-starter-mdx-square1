@@ -1,12 +1,9 @@
 import styled from "@emotion/styled";
 
 export const List = styled.ul`
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
 
   /* 
     In case the <li> is wrapped in a link, the width has to be applied 
@@ -17,7 +14,7 @@ export const List = styled.ul`
 
   li {
     padding: 20px;
-    flex: 0 0 260px;
+    width: 260px;
 
     * {
       color: inherit;
@@ -33,8 +30,37 @@ export const FilterList = styled.ul`
   list-style: none;
 `;
 
+/*
+  filter selection is done via radio buttons
+  the checked state is used to show active state
+  to user
+*/
 export const FilterItem = styled.li`
   display: inline-block;
-  padding: 0 20px;
+  margin: 0 20px;
   text-transform: uppercase;
+  position: relative;
+
+  &:hover {
+    color: red;
+  }
+
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  span {
+    cursor: pointer;
+    display: block;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+
+  input:checked + span {
+    border-bottom-color: red;
+  }
 `;

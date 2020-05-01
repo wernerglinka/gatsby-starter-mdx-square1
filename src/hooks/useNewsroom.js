@@ -13,7 +13,9 @@ const useNewsroom = () => {
 
   // get all item categories
   const itemTypes = newsroomItems.map(newsroomItem => newsroomItem.type);
+  itemTypes.push("all");
   const newsCategories = [...new Set(itemTypes)];
+  newsCategories.sort();
 
   // and sort them by date
   const sortedItems = newsroomItems.sort((a, b) => {

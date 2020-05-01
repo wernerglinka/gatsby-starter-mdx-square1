@@ -38,7 +38,7 @@ const InfoCard = ({
   );
 
   return isExternal ? (
-    <li>
+    <li className={`grid-item ${type}`}>
       <a href={url}>
         <InfoCardInner />
       </a>

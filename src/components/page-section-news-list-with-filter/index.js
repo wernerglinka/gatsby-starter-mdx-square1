@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Isotope from "isotope-layout";
+
 import PropTypes from "prop-types";
 
 import getNewsroomItems from "../../hooks/useNewsroom";
@@ -13,20 +15,47 @@ import { List, FilterList, FilterItem } from "./news-list-styles";
  *************************************************************************** */
 
 const NewsList = () => {
-  const [filterState, setFilterState] = useState("all");
+  const [isotope, setIsotope] = useState(null);
+  const [filterKey, setFilterKey] = useState("all");
   const [items, filters] = getNewsroomItems();
+
+  // initialize an Isotope object with configs
+  React.useEffect(() => {
+    setIsotope(
+      new Isotope(".grid", {
+        itemSelector: ".grid-item",
+        masonry: {
+          columnWidth: 260,
+          isFitWidth: true,
+        },
+      })
+    );
+  }, []);
+
+  // handling filter key change
+  React.useEffect(() => {
+    if (isotope) {
+      filterKey === "all" ? isotope.arrange({ filter: `*` }) : isotope.arrange({ filter: `.${filterKey}` });
+    }
+  }, [isotope, filterKey]);
 
   return (
     <>
       <FilterList>
         {filters.map(item => (
-          <FilterItem>{item}</FilterItem>
+          <FilterItem key={item}>
+            <label htmlFor="filter" onClick={() => setFilterKey(item)}>
+              <input type="radio" name="filter" value={item} defaultChecked={item === "all"} />
+              <span>{item}</span>
+            </label>
+          </FilterItem>
         ))}
       </FilterList>
-      <List>
-        {items.map((item, i) => (
-          <InfoCard key={`${item.title}${i}`} items={item} />
-        ))}
+      <List className="grid">
+        {items.map((item, i) => {
+          console.log(item);
+          return <InfoCard key={`${item.title}${i}`} items={item} />;
+        })}
       </List>
     </>
   );
