@@ -1,57 +1,34 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { TransitionGroup, Transition as ReactTransition } from "react-transition-group";
+import { motion, AnimatePresence } from "framer-motion";
 
-const timeout = 250;
-const getTransitionStyles = {
-  entering: {
-    position: `absolute`,
-    opacity: 0,
-  },
-  entered: {
-    transition: `opacity ${timeout}ms ease-in-out`,
-    opacity: 1,
-  },
-  exiting: {
-    transition: `opacity ${timeout}ms ease-in-out`,
-    opacity: 0,
-  },
-};
+const Transition = ({ children, location }) => {
+  const duration = 0.35;
 
-/** ***************************************************************************
- * Transition component
- * Source: https://github.com/christiannwamba/Gatsby-page-transitions
- **************************************************************************** */
-class Transition extends React.PureComponent {
-  render() {
-    const { children, location } = this.props;
-    return (
-      <TransitionGroup>
-        <ReactTransition
-          key={location.pathname}
-          timeout={{
-            enter: timeout,
-            exit: timeout,
-          }}
-        >
-          {status => (
-            <div
-              style={{
-                ...getTransitionStyles[status],
-              }}
-            >
-              {children}
-            </div>
-          )}
-        </ReactTransition>
-      </TransitionGroup>
-    );
-  }
-}
+  const variants = {
+    initial: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+      transition: {
+        duration,
+        delay: duration,
+        when: "beforeChildren",
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: { duration },
+    },
+  };
 
-Transition.propTypes = {
-  children: PropTypes.node.isRequired,
-  location: PropTypes.shape().isRequired,
+  return (
+    <AnimatePresence>
+      <motion.div key={location.pathname} variants={variants} initial="initial" animate="enter" exit="exit">
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
 };
 
 export default Transition;

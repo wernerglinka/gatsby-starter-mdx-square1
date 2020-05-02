@@ -14,7 +14,6 @@ import Head from "../components/head";
 import TopMsg from "../components/page-top-message";
 import Header from "../components/page-header";
 import Footer from "../components/page-footer";
-import useToTop from "../hooks/useToTop";
 
 // import shortcodes
 import InlineMessage from "../components/shortcodes/inline-message";
@@ -72,12 +71,14 @@ const PageBg = styled.div`
  *
  * - uses ThemeProvider from emotion-theming
  * - uses MDXProvider to allow injection of shortcodes without importing them
+ * - uses page transitions with framer-motion
  *
  *  Notice the PageBg component. This is necessary so the footer is not
  *  shinning through when the page is faded-in
  *************************************************************************** */
 
-const StandardPage = ({ children, location }) => {
+const StandardPage = props => {
+  const { children } = props;
   const [showTopbar, hideTopbar] = useState(true);
   const siteMetadata = useSiteMetadata();
 
@@ -145,7 +146,7 @@ const StandardPage = ({ children, location }) => {
             onEnter={hideToTopButton}
             onLeave={showToTopButton}
           />
-          <Transition location={location}>{children}</Transition>
+          <Transition {...props}>{props.children}</Transition>
         </PageBg>
       </MDXProvider>
 
