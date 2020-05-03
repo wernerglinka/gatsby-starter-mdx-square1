@@ -6,8 +6,9 @@
   "linkText": "Check it Out",
   "url": "https://aidevworld.com/awards/",
   "isExternal": true,
-  "date": "2019-10-10",
-  "dateLocation": "",
+  "startDate": "2019-10-10",
+  "endDate": "",
+  "location": "",
   "excerpt": "The AI TechAwards celebrate technical innovation, adoption and reception in the AI & Machine Learning industry and by the developer community.",
   "type": "awards"
 }

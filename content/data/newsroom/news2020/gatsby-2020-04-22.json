@@ -6,8 +6,9 @@
   "linkText": "Read Article",
   "url": "https://www.gatsbyjs.org/blog/2020-04-22-announcing-incremental-builds/",
   "isExternal": true,
-  "date": "2020-04-22",
-  "dateLocation": "",
+  "startDate": "2020-04-22",
+  "endDate": "",
+  "location": "",
   "excerpt": "Today I’m thrilled to announce the release of Incremental Builds on Gatsby Cloud. In January we announced Gatsby Builds, bringing you up to 60x faster builds for Gatsby sites compared to other solutions.",
   "type": "news"
 }

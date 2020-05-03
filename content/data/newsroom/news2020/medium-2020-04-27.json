@@ -6,8 +6,9 @@
   "linkText": "Read Article",
   "url": "https://medium.com/javascript-in-plain-english/how-to-put-a-custom-api-call-in-your-gatsby-app-ef7496bc69f2",
   "isExternal": true,
-  "date": "2020-04-27",
-  "dateLocation": "",
+  "startDate": "2020-04-27",
+  "endDate": "",
+  "location": "",
   "excerpt": "Recently, I was trying to work on a volunteer project to help people find video therapy during COVID and I’ve been using Gatsby for the project.",
   "type": "news"
 }

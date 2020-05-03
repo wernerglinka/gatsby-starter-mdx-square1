@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 const UseNews = () => {
   const data = useStaticQuery(graphql`
     query getNews {
-      allNews2018Json {
+      allNews2018Json(sort: { order: DESC, fields: startDate }) {
         edges {
           node {
             org
@@ -14,14 +14,15 @@ const UseNews = () => {
             linkText
             url
             isExternal
-            date(formatString: "YYYY-MM-DD")
-            dateLocation
+            startDate
+            endDate
+            location
             excerpt
             type
           }
         }
       }
-      allNews2019Json {
+      allNews2019Json(sort: { order: DESC, fields: startDate }) {
         edges {
           node {
             org
@@ -31,14 +32,15 @@ const UseNews = () => {
             linkText
             url
             isExternal
-            date(formatString: "YYYY-MM-DD")
-            dateLocation
+            startDate
+            endDate
+            location
             excerpt
             type
           }
         }
       }
-      allNews2020Json {
+      allNews2020Json(sort: { order: DESC, fields: startDate }) {
         edges {
           node {
             org
@@ -48,8 +50,9 @@ const UseNews = () => {
             linkText
             url
             isExternal
-            date(formatString: "YYYY-MM-DD")
-            dateLocation
+            startDate
+            endDate
+            location
             excerpt
             type
           }
@@ -59,22 +62,9 @@ const UseNews = () => {
   `);
 
   // aggregate all years and normalize object - take node out
-  const aggregateNews = [
-    ...data.allNews2018Json.edges,
-    ...data.allNews2019Json.edges,
-    ...data.allNews2020Json.edges,
-  ].map(newsItem => newsItem.node);
-
-  // and sort them by date
-  const allNews = aggregateNews.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    }
-    if (a.date > b.date) {
-      return -1;
-    }
-    return 0;
-  });
+  const allNews = [...data.allNews2018Json.edges, ...data.allNews2019Json.edges, ...data.allNews2020Json.edges].map(
+    newsItem => newsItem.node
+  );
 
   return allNews;
 };

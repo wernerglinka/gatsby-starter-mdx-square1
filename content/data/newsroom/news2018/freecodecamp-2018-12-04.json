@@ -6,8 +6,9 @@
   "linkText": "Read Article",
   "url": "https://www.freecodecamp.org/news/why-you-should-use-gatsbyjs-to-build-static-sites-4f90eb6d1a7b/",
   "isExternal": true,
-  "date": "2018-12-04",
-  "dateLocation": "",
+  "startDate": "2018-12-04",
+  "endDate": "",
+  "location": "",
   "excerpt": "Gatsby has been growing over time, and I’m glad to see it in use by a huge number of sites like marketing sites, blogs, and generated static pages.",
   "type": "news"
 }

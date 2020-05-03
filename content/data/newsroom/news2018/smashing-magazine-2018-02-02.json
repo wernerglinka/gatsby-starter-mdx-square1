@@ -6,8 +6,9 @@
   "linkText": "Read Article",
   "url": "https://www.smashingmagazine.com/2018/02/dynamic-website-static-content-cdn/",
   "isExternal": true,
-  "date": "2018-02-02",
-  "dateLocation": "",
+  "startDate": "2018-02-02",
+  "endDate": "",
+  "location": "",
   "excerpt": "What if we could have a WordPress website in which its dynamic content could be exported as static files? ",
   "type": "news"
 }

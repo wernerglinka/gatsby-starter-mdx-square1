@@ -6,8 +6,9 @@
   "linkText": "Read Article",
   "url": "https://reactjs.org/blog/2019/08/08/react-v16.9.0.html",
   "isExternal": true,
-  "date": "2019-08-08",
-  "dateLocation": "",
+  "startDate": "2019-08-08",
+  "endDate": "",
+  "location": "",
   "excerpt": "Today we are releasing React 16.9. It contains several new features, bugfixes, and new deprecation warnings to help prepare for a future major release.",
   "type": "news"
 }

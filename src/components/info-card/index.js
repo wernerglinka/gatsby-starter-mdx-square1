@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import titleCase from "ap-style-title-case";
-import Moment from "moment";
 import Img from "gatsby-image";
 import mdStringToHTML from "../../utilities/md-to-html";
+import EventDate from "../../utilities/event-date";
 import getImage from "../../hooks/useImage";
 
 import { Card, ImageWrapper, CardContent, CardType, CardDate, CardExcerpt, CardCTA } from "./info-card-styles";
@@ -15,7 +15,7 @@ import { Card, ImageWrapper, CardContent, CardType, CardDate, CardExcerpt, CardC
  *************************************************************************** */
 
 const InfoCard = ({
-  items: { title, logo, logoWide, type, date, dateLocation, excerpt, linkText, isExternal, url },
+  items: { title, logo, logoWide, type, startDate, endDate, location, excerpt, linkText, isExternal, url },
 }) => {
   const image = getImage(logo);
   const truncatedExcerpt = excerpt.length > 80 ? `${excerpt.substring(0, 80)}...` : excerpt;
@@ -25,11 +25,11 @@ const InfoCard = ({
       <ImageWrapper logoWide={logoWide}>{image && <Img fluid={getImage(logo)} />}</ImageWrapper>
       <CardContent>
         <CardType>{type}</CardType>
-        {dateLocation ? (
-          <CardDate>{dateLocation}</CardDate>
-        ) : (
-          <CardDate>{Moment(date).format("MMM DD, YYYY")}</CardDate>
-        )}
+
+        <CardDate>
+          <EventDate startDate={startDate} endDate={endDate} location={location} />
+        </CardDate>
+
         <h3>{titleCase(title)}</h3>
         {excerpt && <CardExcerpt dangerouslySetInnerHTML={{ __html: mdStringToHTML(truncatedExcerpt) }} />}
         {linkText && <CardCTA>{linkText}</CardCTA>}

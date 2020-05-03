@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 const useEvents = () => {
   const data = useStaticQuery(graphql`
     query getEvents {
-      allEventsJson {
+      allEventsJson(sort: { order: DESC, fields: startDate }) {
         edges {
           node {
             org
@@ -14,8 +14,9 @@ const useEvents = () => {
             linkText
             url
             isExternal
-            date(formatString: "YYYY-MM-DD")
-            dateLocation
+            startDate
+            endDate
+            location
             excerpt
             type
           }
@@ -25,18 +26,7 @@ const useEvents = () => {
   `);
 
   // normalize object - take node out
-  const events = data.allEventsJson.edges.map(newsItem => newsItem.node);
-
-  // and sort them by date
-  const allEvents = events.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    }
-    if (a.date > b.date) {
-      return -1;
-    }
-    return 0;
-  });
+  const allEvents = data.allEventsJson.edges.map(newsItem => newsItem.node);
 
   return allEvents;
 };

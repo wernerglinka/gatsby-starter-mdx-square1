@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Transition = ({ children, location }) => {
@@ -32,3 +33,8 @@ const Transition = ({ children, location }) => {
 };
 
 export default Transition;
+
+Transition.propTypes = {
+  children: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};

@@ -19,10 +19,10 @@ const useNewsroom = () => {
 
   // and sort them by date
   const sortedItems = newsroomItems.sort((a, b) => {
-    if (a.date < b.date) {
+    if (a.startDate < b.startDate) {
       return 1;
     }
-    if (a.date > b.date) {
+    if (a.startDate > b.startDate) {
       return -1;
     }
     return 0;

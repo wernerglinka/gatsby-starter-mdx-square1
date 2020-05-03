@@ -51,10 +51,9 @@ const NewsList = () => {
         ))}
       </FilterList>
       <List className="grid">
-        {items.map((item, i) => {
-          console.log(item);
-          return <InfoCard key={`${item.title}${i}`} items={item} />;
-        })}
+        {items.map((item, i) => (
+          <InfoCard key={`${item.title}${i}`} items={item} />
+        ))}
       </List>
     </>
   );
