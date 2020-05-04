@@ -27,7 +27,7 @@ export const TopMsg = styled.aside`
       cursor: pointer;
 
       &:hover {
-        color: ${props => props.theme.PXRed};
+        color: red;
       }
 
       @media (max-width: 1200px) {

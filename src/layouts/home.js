@@ -6,9 +6,6 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "@emotion/styled";
 import titleCase from "ap-style-title-case";
 
-import "normalize-scss";
-import "./layout.scss";
-
 import mdStringToHTML from "../utilities/md-to-html";
 
 import allComponents from "../components/index";

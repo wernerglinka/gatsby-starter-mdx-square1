@@ -18,9 +18,6 @@ import Footer from "../components/page-footer";
 // import shortcodes
 import InlineMessage from "../components/shortcodes/inline-message";
 
-import "normalize-scss";
-import "./layout.scss";
-
 import useSiteMetadata from "../hooks/useSiteMetadata";
 
 const ToTop = styled.a`

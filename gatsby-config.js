@@ -7,6 +7,7 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-transformer-json`,
     `gatsby-plugin-mdx`,
+    `gatsby-plugin-theme-ui`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -34,9 +35,19 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        pathToConfigModule: `${__dirname}/src/utilities/typography`,
+        fonts: [
+          {
+            family: `Oswald`,
+            subsets: [`latin`],
+            variants: [`400`, `500`],
+          },
+          {
+            family: `Open Sans`,
+            variants: [`300`, `400`, `500`],
+          },
+        ],
       },
     },
     {
