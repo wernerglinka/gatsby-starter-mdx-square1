@@ -8,7 +8,7 @@ import mdStringToHTML from "../../utilities/md-to-html";
 
 import useCustomers from "../../hooks/useCustomers";
 
-import Container from "../container";
+import { Container } from "../common-styles";
 import { SectionWrapper, List } from "./customers-list-styles";
 
 /** ***************************************************************************

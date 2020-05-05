@@ -5,9 +5,10 @@ import PropType from "prop-types";
 import { MDXProvider } from "@mdx-js/react";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
+import { Global } from "@emotion/core";
 import { FiArrowUp } from "react-icons/fi";
 import { Waypoint } from "react-waypoint";
-import theme from "./theme";
+import theme from "../styles/theme";
 import Transition from "../components/transition";
 
 import Head from "../components/head";
@@ -19,6 +20,8 @@ import Footer from "../components/page-footer";
 import InlineMessage from "../components/shortcodes/inline-message";
 
 import useSiteMetadata from "../hooks/useSiteMetadata";
+
+import { globalStyles } from "../styles/global";
 
 const ToTop = styled.a`
   display: flex;
@@ -152,6 +155,8 @@ const StandardPage = props => {
       <ToTop href="#pageTop" className={scrollState.toTopVisible ? "isVisible" : null}>
         <FiArrowUp />
       </ToTop>
+
+      <Global styles={globalStyles} />
     </ThemeProvider>
   );
 };

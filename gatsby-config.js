@@ -7,7 +7,6 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-transformer-json`,
     `gatsby-plugin-mdx`,
-    `gatsby-plugin-theme-ui`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
