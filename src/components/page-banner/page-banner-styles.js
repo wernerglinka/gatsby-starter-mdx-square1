@@ -5,7 +5,7 @@ import { Container } from "../common-styles";
 export const Banner = styled(BackgroundImage)`
   height: 0;
   padding-bottom: 25%;
-  margin: 0 -${props => props.theme.bodySidePadding} ${props => props.theme.sectionClearance};
+  margin: 0 -${props => props.theme.space.defaultPadding} ${props => props.theme.sections.clearance};
   background-attachment: fixed;
   background-position: center top -80px;
 

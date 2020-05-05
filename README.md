@@ -19,12 +19,14 @@ Install:
 
 ## Styling
 
-### Global styles are defined in SCSS.
+### Global styles
+
+Styling uses gatsby-plugin-global-styles for creating independent **global CSS styles**, and automatically placing them at the top of the <head> element.
 
 Install:
 
-- node-sass
-- gatsby-plugin-scss
+- gatsby-plugin-global-styles
+- @nfront/global-styles
 
 ### Components are styled with Emotion styled
 
@@ -37,11 +39,6 @@ Install:
 - emotion-theming
 
 ### Typography
-
-Using [typography.js](http://kyleamathews.github.io/typography.js/) with Moraga theme
-
-- `npm install gatsby-plugin-typography react-typography typography --save`
-- `npm install typography-theme-moraga --save`
 
 - gatsby-plugin-prefetch-google-fonts
 
@@ -99,13 +96,11 @@ import mdStringToHTML from "../utilities/md-to-html";
 
 ## Page Transitions
 
-Using the react transition group node module.
-
-Source: https://github.com/christiannwamba/Gatsby-page-transitions/blob/master/package.json
+Using implementation from https://github.com/ryanwiemer/gatsby-using-page-transitions
 
 Install:
 
-- react-transition-group
+- framer-motion
 
 ## Smooth scroll to anchor links
 

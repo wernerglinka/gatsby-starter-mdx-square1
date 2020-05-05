@@ -3,10 +3,8 @@ import styled from "@emotion/styled";
 export const SectionWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-
-  &.image-left {
-    flex-direction: row-reverse;
-  }
+  flex-direction: ${props => (props.imageLeft ? "row-reverse" : "row")};
+  margin-bottom: ${props => props.theme.sections.clearance};
 
   > * {
     flex: 0 0 50%;

@@ -6,7 +6,9 @@ metaImage:
 topMessage:
 pageTitle: Home
 pageIntro: |
-  This is a Gatsby starter for a typical marketing/corporate website. Content is created with [MDX](https://www.gatsbyjs.org/docs/mdx/). It lets you write JSX embedded inside Markdown. It’s a great combination because it allows you to use Markdown’s terse syntax (such as # Heading) for your content and JSX for more advanced, or reusable components. I took images during my walks around Lake of the Isles (if you are from Minneapolis you know where that is) to use them to provide some visual interest. This home page features a simple banner and startes with an introduction that features a somewhat larger font size, well, it is an intro after all. Inside this intro you'll find an [in-page link to a section below. Please click it.](#testTarget). Throughout the site smooth scrolling is implemented with [smooth-scroll](https://github.com/cferdinandi/smooth-scroll) a plugin by _cferdinandi_. Once you start scrolling a back-to-top link will appear in the lower right corner of the page, which will scroll the page back to... wait for it... the top of the page.
+  This is a Gatsby starter for a typical marketing/corporate website. Content is created with [MDX](https://www.gatsbyjs.org/docs/mdx/). It lets you write JSX embedded inside Markdown. It’s a great combination because it allows you to use Markdown’s terse syntax (such as # Heading) for your content and JSX for more advanced, or reusable components. This page is using several components and then at the bottom there is also some markdown body text.
+
+  I took images during my walks around Lake of the Isles ( _if you are from Minneapolis you know where that is_ ) to provide some interesting visuals. This home page features a simple banner and startes with an introduction that features a somewhat larger font size, well, it is an intro after all. Inside this intro you'll find an [in-page link to a section below. Please click it.](#testTarget). Throughout the site smooth scrolling is implemented with [smooth-scroll](https://github.com/cferdinandi/smooth-scroll) a plugin by _cferdinandi_. I'd have liked to use `scroll-behavior: smooth;` which is browser native but Safari doesn't support it and a couple of polyfills didn't seem to work. Once you start scrolling a back-to-top link will appear in the lower right corner of the page, which will scroll the page back to... wait for it... the top of the page.
 hasBanner: true
 banner:
   bgImage: home.jpg
@@ -16,6 +18,7 @@ sections:
     template: mediaSectionTemplate
     hasBackground: false
     bgColor:
+    bgPattern:
     bgIsDark: false
     bgImage: ""
     inContainer: true
@@ -39,6 +42,7 @@ sections:
     template: mediaSectionTemplate
     hasBackground: false
     bgColor:
+    bgPattern:
     bgIsDark: false
     bgImage:
     inContainer: true
@@ -48,7 +52,7 @@ sections:
     title: Markings on the sidewalk
     subtitle: This shurly looks like... what. I have no idea.
     content: |-
-      This section has the image on the left side. Images may be placed on either side of the section. Here we use an altenating arrangement to arrive at a ZigZag pattern. I coined this name all by myself ;-) And to make it interesting there is an other page link to [scroll to the section above](#elitPorta).
+      This section has the image on the left side. Images may be placed on either side of the section. Here we use an altenating arrangement to arrive at a ZigZag pattern. I coined this name all by myself ;-) And to make it interesting there is another page link to [scroll to the section above](#elitPorta).
     imageLeft: true
     image: sample4.jpg
     cta:
@@ -62,6 +66,7 @@ sections:
     template: mediaSectionTemplate
     hasBackground: false
     bgColor:
+    bgPattern:
     bgIsDark: false
     bgImage:
     inContainer: true
@@ -80,18 +85,19 @@ sections:
       isButton: false
       buttonStyle:
 
-  - type: Block1
-    template: blocktemplate
+  - type: BlockSimpleText
+    template: simpleTextBlockTemplate
     hasBackground: true
     bgColor:
+    bgPattern: "light"
     bgIsDark: false
     bgImage:
     inContainer: true
     title: Text block with background
     sectionID: home_page_block1
-    component: Section1
+    component: SectionSimpleText
     content: |-
-      Here we have a simple text container with background. A component-only background. Since we are using MDX to author content, this content may also include react components. In this website I am using this capability like Wordpress uses Shortcodes. An example is used down a couple of sections.
+      Here we have a simple text container with background. Background is courtesy of [Gradient Magic](https://www.gradientmagic.com/), a free gallery of fantastic and unique CSS gradients. Since we are using MDX to author content, this content may also include react components. In this website I am using this capability like Wordpress uses Shortcodes. An example is used down a couple of sections.
 
       **Donec id elit non mi porta gravida** at eget metus. _Maecenas faucibus mollis interdum_. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Duis mollis, **est non commodo luctus**, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
 
@@ -99,6 +105,7 @@ sections:
     template: blocktemplate
     hasBackground: true
     bgColor: "#00273B"
+    bgPattern: "dark"
     bgIsDark: true
     bgImage:
     inContainer: false
@@ -110,16 +117,17 @@ sections:
 
       [Get a haircut](/about)
 
-  - type: Block3
-    template: blocktemplate
+  - type: BlockSimpleText
+    template: simpleTextBlockTemplate
     hasBackground: false
     bgColor:
+    bgPattern:
     bgIsDark: false
     bgImage:
     inContainer: true
     title: We are getting close to the bottom of this page
     sectionID: home_page_block3
-    component: Section3
+    component: SectionSimpleText
     content: >-
       This section and all sections above are React components. Their props are defined in the Frontmatter of this page. This section is the last one of these. Nothing special here, just a text-based section.
 
@@ -136,7 +144,7 @@ sections:
 
 ## This is MDX content
 
-Finally, here is the long text of the page. It features a react component aka shortcode. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Finally, here is the long text of the page. It features a react component aka `shortcode`. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 <InlineMessage text={`Look Ma, a shortcode`} />
 

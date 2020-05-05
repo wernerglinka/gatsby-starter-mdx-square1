@@ -1,7 +1,6 @@
 module.exports = {
   siteMetadata: require("./src/settings/site-metadata.json"),
   plugins: [
-    `gatsby-plugin-sass`,
     `gatsby-plugin-layout`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-emotion`,
@@ -44,6 +43,7 @@ module.exports = {
           },
           {
             family: `Open Sans`,
+            subsets: [`latin`],
             variants: [`300`, `400`, `500`],
           },
         ],

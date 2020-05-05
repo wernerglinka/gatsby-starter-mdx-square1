@@ -23,6 +23,8 @@ const PageContent = styled.div`
 
 const PageIntro = styled.div`
   font-size: 1.125rem;
+  line-height: 1.75;
+  margin-bottom: ${props => props.theme.sections.clearance};
 `;
 
 /** ***************************************************************************

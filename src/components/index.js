@@ -1,4 +1,4 @@
-import Section1 from "./page-section1";
+import SectionSimpleText from "./page-section-simple-text";
 import CTABanner from "./page-section-cta-banner";
 import Section3 from "./page-section3";
 import SectionMedia from "./page-section-media";
@@ -14,7 +14,7 @@ import NewsList from "./page-section-news-list";
 import FilteredNewsList from "./page-section-news-list-with-filter";
 
 export {
-  Section1,
+  SectionSimpleText,
   CTABanner,
   Section3,
   SectionMedia,
@@ -31,7 +31,7 @@ export {
 };
 
 export default {
-  Section1,
+  SectionSimpleText,
   CTABanner,
   Section3,
   SectionMedia,

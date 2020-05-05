@@ -34,7 +34,7 @@ const MediaComponent = ({ info }) => {
 
   return (
     <section id={targetID}>
-      <SectionWrapper className={imageLeft ? "image-left" : null}>
+      <SectionWrapper imageLeft={imageLeft}>
         <TextWrapper>
           {title && <h2>{titleCase(title)}</h2>}
           {subtitle && <p>{subtitle}</p>}

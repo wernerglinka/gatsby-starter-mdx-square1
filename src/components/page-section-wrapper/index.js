@@ -15,15 +15,19 @@ import { BackgroundColorAndContainer, WithContainer, BackgroundColorAndFullWidth
 
 const SectionWrapper = ({ children }) => {
   const { info } = children.props;
-  const { hasBackground, inContainer, bgColor } = info;
+  const { hasBackground, inContainer, bgColor, bgPattern } = info;
 
   if (hasBackground && inContainer) {
-    return <BackgroundColorAndContainer backgroundColor={bgColor}>{children}</BackgroundColorAndContainer>;
+    return (
+      <BackgroundColorAndContainer backgroundColor={bgColor} backgroundPattern={bgPattern}>
+        {children}
+      </BackgroundColorAndContainer>
+    );
   }
 
   if (hasBackground && !inContainer) {
     return (
-      <BackgroundColorAndFullWidth backgroundColor={bgColor}>
+      <BackgroundColorAndFullWidth backgroundColor={bgColor} backgroundPattern={bgPattern}>
         <Container>{children}</Container>
       </BackgroundColorAndFullWidth>
     );
