@@ -8,6 +8,13 @@ export const List = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   padding: 0;
+
+  /* overwrite default bullets */
+  li:before {
+    border: none;
+    /* move out of the flow so it doesn't occupy space */
+    position: absolute;
+  }
 `;
 
 export const TeamCard = styled.li`

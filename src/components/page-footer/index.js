@@ -8,7 +8,7 @@ import debounce from "../../utilities/debounce";
 import useMainNav from "../../hooks/useSiteNav";
 
 import { Container } from "../common-styles";
-import { FooterWrapper, Logo } from "./footer-styles";
+import { Wrapper, Logo } from "./footer-styles";
 
 /** ***************************************************************************
  *  Footer Component
@@ -16,7 +16,7 @@ import { FooterWrapper, Logo } from "./footer-styles";
 
 const Footer = () => {
   return (
-    <FooterWrapper>
+    <Wrapper>
       <Container>
         <img src={mainLogo} alt="" />
         <div>
@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
         <div>© {new Date().getFullYear()}</div>
       </Container>
-    </FooterWrapper>
+    </Wrapper>
   );
 };
 

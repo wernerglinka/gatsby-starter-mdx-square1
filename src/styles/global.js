@@ -238,6 +238,21 @@ const globalStyles = css`
   ol {
     padding-left: ${props => props.theme.space.defaultPadding};
   }
+  ul {
+    list-style: none;
+  }
+  /* custom list bullet with css */
+  ul > li:before {
+    display: inline-block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent ${props => props.theme.colors.contrast};
+    padding-right: 5px;
+  }
+
   a {
     color: ${props => props.theme.colors.a};
     text-decoration: none;

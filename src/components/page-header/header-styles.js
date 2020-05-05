@@ -40,6 +40,13 @@ export const MainMenu = styled.ul`
     display: inline-block;
     padding: 0 20px;
 
+    /* overwrite default bullets */
+    &:before {
+      border: none;
+      /* move out of the flow so it doesn't occupy space */
+      position: absolute;
+    }
+
     > a {
       display: block;
       text-transform: uppercase;

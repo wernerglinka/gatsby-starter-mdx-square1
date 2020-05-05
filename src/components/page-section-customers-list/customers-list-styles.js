@@ -68,6 +68,13 @@ export const List = styled.ul`
     flex-direction: column;
     justify-content: center;
 
+    /* overwrite default bullets */
+    &:before {
+      border: none;
+      /* move out of the flow so it doesn't occupy space */
+      position: absolute;
+    }
+
     img {
       filter: grayscale(1);
       opacity: 0.4 !important;
