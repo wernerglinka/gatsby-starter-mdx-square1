@@ -58,5 +58,14 @@ module.exports = {
         icon: `content/images/logo.png`,
       },
     },
+    {
+      resolve: `gatsby-plugin-global-styles`,
+      options: {
+        pathToConfigModule: `src/styles/GlobalStyleComponent`,
+        props: {
+          theme: `src/styles/theme`,
+        },
+      },
+    },
   ],
 };

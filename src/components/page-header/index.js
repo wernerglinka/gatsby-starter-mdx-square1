@@ -52,7 +52,7 @@ const Header = ({ isSticky }) => {
 
   return (
     <HeaderWrapper isFixed={isSticky}>
-      <HeaderInner id="pageTop">
+      <HeaderInner>
         <Container>
           <NavBar>
             <Link to="/">

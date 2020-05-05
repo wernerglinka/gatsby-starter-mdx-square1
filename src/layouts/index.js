@@ -124,40 +124,40 @@ const StandardPage = props => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Head metaData={siteMetadata} />
+    <>
+      <ThemeProvider theme={theme}>
+        <Head metaData={siteMetadata} />
 
-      {hasTopMessage && showTopbar ? (
-        <>
-          <TopMsg message={topMessage} hideTopbar={hideTopbar} />
+        {hasTopMessage && showTopbar ? (
+          <>
+            <TopMsg message={topMessage} hideTopbar={hideTopbar} />
+            <Waypoint onEnter={makeNavStatic} onLeave={makeNavFixed} />
+          </>
+        ) : (
           <Waypoint onEnter={makeNavStatic} onLeave={makeNavFixed} />
-        </>
-      ) : (
-        <Waypoint onEnter={makeNavStatic} onLeave={makeNavFixed} />
-      )}
+        )}
+        <div id="pageTop" />
+        <Header siteTitle={siteMetadata.title} isSticky={scrollState.stickyMainNav} />
 
-      <Header siteTitle={siteMetadata.title} isSticky={scrollState.stickyMainNav} />
+        <MDXProvider components={shortcodes}>
+          <PageBg>
+            {/* waypoint for to top botton */}
+            <Waypoint
+              scrollableAncestor={typeof window === "undefined" ? null : window}
+              onEnter={hideToTopButton}
+              onLeave={showToTopButton}
+            />
+            <Transition {...props}>{props.children}</Transition>
+          </PageBg>
+        </MDXProvider>
 
-      <MDXProvider components={shortcodes}>
-        <PageBg>
-          {/* waypoint for to top botton */}
-          <Waypoint
-            scrollableAncestor={typeof window === "undefined" ? null : window}
-            onEnter={hideToTopButton}
-            onLeave={showToTopButton}
-          />
-          <Transition {...props}>{props.children}</Transition>
-        </PageBg>
-      </MDXProvider>
+        <Footer />
 
-      <Footer />
-
-      <ToTop href="#pageTop" className={scrollState.toTopVisible ? "isVisible" : null}>
-        <FiArrowUp />
-      </ToTop>
-
-      <Global styles={globalStyles} />
-    </ThemeProvider>
+        <ToTop href="#pageTop" className={scrollState.toTopVisible ? "isVisible" : null}>
+          <FiArrowUp />
+        </ToTop>
+      </ThemeProvider>
+    </>
   );
 };
 

@@ -1,9 +1,10 @@
-import { css } from "@emotion/core";
-export const globalStyles = css`
+import { css } from "@nfront/global-styles";
+
+const globalStyles = css`
   /* apply a natural box layout model to all elements, but allowing components to change */
   html {
     box-sizing: border-box;
-    scroll-behavior: smooth;
+    /*scroll-behavior: smooth;*/
   }
   *,
   *:before,
@@ -86,7 +87,7 @@ export const globalStyles = css`
     font-size: 1rem;
     line-height: 1.5;
     font-weight: inherit;
-    color: #222;
+    color: ${props => props.theme.text};
   }
   ul,
   ol {
@@ -96,3 +97,5 @@ export const globalStyles = css`
     font-weight: 700;
   }
 `;
+
+export default globalStyles;
