@@ -9,7 +9,7 @@ export const HeaderInner = styled.header`
   height: 80px;
   background-color: rgba(255, 255, 255, 0.95);
   padding: 0 20px;
-  box-shadow: ${props => props.theme.defaultBoxShadow};
+  box-shadow: ${props => props.theme.boxShadow};
 `;
 
 export const HeaderWrapper = styled.div`

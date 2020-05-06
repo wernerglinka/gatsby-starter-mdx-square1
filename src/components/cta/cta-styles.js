@@ -51,34 +51,27 @@ const buttonStyles = css`
   border-width: 2px;
   border-style: solid;
   transition: all 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #666;
-    border-color: #666;
-    color: #fff;
-    text-decoration: none;
-  }
 `;
 
 export const InternalCTAButton = styled(Link)`
   ${buttonStyles}
   background-color: ${props => {
     if (props.btnStyle === "primary") {
-      return "#000";
+      return props.theme.colors.primary;
     }
     if (props.btnStyle === "secondary") {
-      return "#666";
+      return props.theme.colors.secondary;
     }
-    return "#ccc";
+    return props.theme.colors.tertiary;
   }};
   border-color: ${props => {
     if (props.btnStyle === "primary") {
-      return "#000";
+      return props.theme.colors.primary;
     }
     if (props.btnStyle === "secondary") {
-      return "#666";
+      return props.theme.colors.secondary;
     }
-    return "#ccc";
+    return props.theme.colors.tertiary;
   }};
 `;
 
@@ -86,20 +79,20 @@ export const ExternalCTAButton = styled.a`
   ${buttonStyles}
   background-color: ${props => {
     if (props.btnStyle === "primary") {
-      return "#000";
+      return props.theme.colors.primary;
     }
     if (props.btnStyle === "secondary") {
-      return "#666";
+      return props.theme.colors.secondary;
     }
-    return "#ccc";
+    return props.theme.colors.tertiary;
   }};
   border-color: ${props => {
     if (props.btnStyle === "primary") {
-      return "#000";
+      return props.theme.colors.primary;
     }
     if (props.btnStyle === "secondary") {
-      return "#666";
+      return props.theme.colors.secondary;
     }
-    return "#ccc";
+    return props.theme.colors.tertiary;
   }};
 `;

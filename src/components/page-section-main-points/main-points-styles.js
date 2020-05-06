@@ -23,6 +23,13 @@ export const PointWrapper = styled.li`
   padding: 0 20px;
   flex: 0 0 33%;
 
+  /* overwrite default bullets */
+  &:before {
+    border: none;
+    /* move out of the flow so it doesn't occupy space */
+    position: absolute;
+  }
+
   > div {
     position: relative;
     height: 100%;
