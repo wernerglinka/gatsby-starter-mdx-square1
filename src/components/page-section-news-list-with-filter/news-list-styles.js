@@ -16,6 +16,13 @@ export const List = styled.ul`
     padding: 20px;
     width: 260px;
 
+    /* overwrite default bullets */
+    &:before {
+      border: none;
+      /* move out of the flow so it doesn't occupy space */
+      position: absolute;
+    }
+
     * {
       color: inherit;
 
@@ -28,6 +35,15 @@ export const List = styled.ul`
 
 export const FilterList = styled.ul`
   list-style: none;
+
+  li {
+    /* overwrite default bullets */
+    &:before {
+      border: none;
+      /* move out of the flow so it doesn't occupy space */
+      position: absolute;
+    }
+  }
 `;
 
 /*

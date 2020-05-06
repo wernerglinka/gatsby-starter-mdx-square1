@@ -19,6 +19,13 @@ export const List = styled.ul`
     padding: 20px;
     flex: 0 0 260px;
 
+    /* overwrite default bullets */
+    &:before {
+      border: none;
+      /* move out of the flow so it doesn't occupy space */
+      position: absolute;
+    }
+
     * {
       color: inherit;
 

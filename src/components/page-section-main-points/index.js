@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import titleCase from "ap-style-title-case";
 import mdStringToHTML from "../../utilities/md-to-html";
 import CTA from "../cta";
 import Point from "./point";
@@ -11,7 +12,7 @@ import { MainPointsSection, PointsWrapper } from "./main-points-styles";
 const MainPoints = ({ info }) => {
   return (
     <MainPointsSection>
-      {info.title && <h2>{info.title}</h2>}
+      {info.title && <h2>{titleCase(info.title)}</h2>}
       {info.content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(info.content) }} />}
       <PointsWrapper>
         {info.items.map(point => {

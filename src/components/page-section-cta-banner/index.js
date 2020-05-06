@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "@emotion/styled";
+import titleCase from "ap-style-title-case";
 import mdStringToHTML from "../../utilities/md-to-html";
 import { Container } from "../common-styles";
 
@@ -28,7 +29,7 @@ const CTABanner = ({ info }) => {
 
   return (
     <LocalThemeWrapper bgIsDark={bgIsDark}>
-      <h2>{info.title}</h2>
+      {info.title && <h2>{titleCase(info.title)}</h2>}
       <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(info.content) }} />
     </LocalThemeWrapper>
   );
