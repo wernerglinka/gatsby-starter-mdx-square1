@@ -2,13 +2,14 @@
 
 import { Link } from "gatsby";
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import mainLogo from "../../../content/images/page-logo.svg";
 import debounce from "../../utilities/debounce";
 import useMainNav from "../../hooks/useSiteNav";
 
 import { Container, Hamburger } from "../common-styles";
-import { HeaderInner, HeaderWrapper, NavBar, Logo, MainMenu } from "./header-styles";
+import { HeaderInner, HeaderWrapper, NavBar, Logo, MainMenu, MobileMenu } from "./header-styles";
 
 /** ***************************************************************************
  *  Header Component
@@ -16,13 +17,17 @@ import { HeaderInner, HeaderWrapper, NavBar, Logo, MainMenu } from "./header-sty
 
 const Header = ({ isSticky }) => {
   const [showMobileMenu, setMobileMenu] = useState(false);
+  const [isSmallScreen, updateScreenSize] = useState();
   const mainNavLinks = useMainNav();
   const MOBILE_BP = 767;
 
   const handleResize = () => {
     const windowWidth = window.innerWidth;
     if (windowWidth >= MOBILE_BP) {
+      updateScreenSize(false);
       setMobileMenu(false);
+    } else {
+      updateScreenSize(true);
     }
   };
 
@@ -59,19 +64,35 @@ const Header = ({ isSticky }) => {
               <Logo src={mainLogo} alt="" />
             </Link>
 
-            <MainMenu className={showMobileMenu ? "active" : ""}>
-              {mainNavLinks.map(link => (
-                <li key={link.url}>
-                  <Link to={link.url} onClick={toggleMobileMenu}>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </MainMenu>
+            {!isSmallScreen && (
+              <MainMenu>
+                {mainNavLinks.map(link => (
+                  <li key={link.url}>
+                    <Link to={link.url} onClick={toggleMobileMenu}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </MainMenu>
+            )}
 
-            <Hamburger className={showMobileMenu ? "active" : ""} onClick={toggleMobileMenu}>
+            <Hamburger className={showMobileMenu && "active"} onClick={toggleMobileMenu}>
               <span />
             </Hamburger>
+
+            {isSmallScreen && (
+              <MobileMenu className={showMobileMenu && "active"}>
+                <ul>
+                  {mainNavLinks.map(link => (
+                    <li key={link.url}>
+                      <Link to={link.url} onClick={toggleMobileMenu}>
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </MobileMenu>
+            )}
           </NavBar>
         </Container>
       </HeaderInner>
@@ -80,3 +101,7 @@ const Header = ({ isSticky }) => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  isSticky: PropTypes.bool.isRequired,
+};

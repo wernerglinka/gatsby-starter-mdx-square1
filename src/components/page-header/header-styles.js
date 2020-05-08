@@ -38,7 +38,7 @@ export const MainMenu = styled.ul`
 
   li {
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 15px;
 
     /* overwrite default bullets */
     &:before {
@@ -53,27 +53,31 @@ export const MainMenu = styled.ul`
       font-size: 14px;
     }
   }
+`;
 
-  @media (max-width: ${props => props.theme.tabletBreakpoint}) {
-    position: fixed;
-    top: 80px;
-    right: -330px;
-    width: 320px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.95);
-    transition: all 0.5s ease-in;
+export const MobileMenu = styled.nav`
+  position: fixed;
+  top: 80px;
+  right: -100vw;
+  bottom: 0;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.95);
+  transition: all 0.5s ease-in;
 
-    li {
-      display: block;
-      padding-bottom: 30px;
+  ul {
+    width: 80vw;
+    margin: 50px auto 0;
+  }
 
-      > a {
-        font-size: 16px;
-      }
+  li {
+    padding-bottom: 30px;
+
+    > a {
+      font-size: 18px;
     }
+  }
 
-    &.active {
-      transform: translate(-330px);
-    }
+  &.active {
+    transform: translate(-100vw);
   }
 `;

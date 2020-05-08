@@ -24,12 +24,13 @@ export const TeamCard = styled.li`
 
   .prose {
     position: relative;
-    height: 200px;
+    height: 230px;
     padding: 10px 10px 50px;
 
     h3 {
       margin-bottom: 10px;
       font-size: 1.2rem;
+      height: 50px;
     }
 
     h3 + p + ul {

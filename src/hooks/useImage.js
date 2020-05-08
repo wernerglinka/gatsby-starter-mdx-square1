@@ -21,7 +21,7 @@ const useImage = thisImage => {
     }
   `);
 
-  // Gatsby graphql doesn't accept variables, ergo we get all images in folder banner
+  // Gatsby graphql doesn't accept variables, ergo we get all images
   // and then match the file name.
   // path to folder is determined by gatsby-plugin-filesystem
   let image;

@@ -1,10 +1,6 @@
 {
   "main": [
     {
-      "label": "Home",
-      "url": "/"
-    },
-    {
       "label": "About",
       "url": "/about"
     },
@@ -18,11 +14,11 @@
     },
     {
       "label": "Projects",
-      "url": "/page3"
+      "url": "/projects"
     },
     {
-      "label": "Sample Text",
-      "url": "/page4"
+      "label": "Code Example",
+      "url": "/code"
     }
   ]
 }

@@ -177,6 +177,9 @@ const globalStyles = css`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
+  body.noScroll {
+    overflow: hidden;
+  }
   ol,
   ul,
   li {
@@ -259,6 +262,9 @@ const globalStyles = css`
   }
   a:hover {
     text-decoration: underline;
+  }
+  pre {
+    padding: 30px;
   }
 `;
 

@@ -5,6 +5,7 @@ import titleCase from "ap-style-title-case";
 import Img from "gatsby-image";
 import mdStringToHTML from "../../utilities/md-to-html";
 import EventDate from "../../utilities/event-date";
+import truncate from "../../utilities/truncate";
 import getImage from "../../hooks/useImage";
 
 import { Card, ImageWrapper, CardContent, CardType, CardDate, CardExcerpt, CardCTA } from "./info-card-styles";
@@ -18,7 +19,8 @@ const InfoCard = ({
   items: { title, logo, logoWide, type, startDate, endDate, location, excerpt, linkText, isExternal, url },
 }) => {
   const image = getImage(logo);
-  const truncatedExcerpt = excerpt.length > 80 ? `${excerpt.substring(0, 80)}...` : excerpt;
+  const truncatedTitle = title.length > 40 ? truncate(title, 40, true) : title;
+  const truncatedExcerpt = excerpt.length > 50 ? truncate(excerpt, 50, true) : excerpt;
 
   const InfoCardInner = () => (
     <Card>
@@ -30,8 +32,10 @@ const InfoCard = ({
           <EventDate startDate={startDate} endDate={endDate} location={location} />
         </CardDate>
 
-        <h3>{titleCase(title)}</h3>
-        {excerpt && <CardExcerpt dangerouslySetInnerHTML={{ __html: mdStringToHTML(truncatedExcerpt) }} />}
+        <h3 title={title}>{titleCase(truncatedTitle)}</h3>
+        {excerpt && (
+          <CardExcerpt title={excerpt} dangerouslySetInnerHTML={{ __html: mdStringToHTML(truncatedExcerpt) }} />
+        )}
         {linkText && <CardCTA>{linkText}</CardCTA>}
       </CardContent>
     </Card>
