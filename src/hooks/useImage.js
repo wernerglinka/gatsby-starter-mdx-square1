@@ -2,8 +2,6 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 const useImage = thisImage => {
-  // const relativePath = "banners/home.jpg";
-
   const data = useStaticQuery(graphql`
     query getImage {
       allFile(filter: { extension: { regex: "/(jpg)|(png)/" } }) {
@@ -26,11 +24,10 @@ const useImage = thisImage => {
   // path to folder is determined by gatsby-plugin-filesystem
   let image;
   data.allFile.edges.map(edge => {
-    if (edge.node.childImageSharp.fluid.originalName === thisImage) {
+    if (thisImage.includes(edge.node.childImageSharp.fluid.originalName)) {
       image = edge.node.childImageSharp.fluid;
     }
   });
-
   return image;
 };
 

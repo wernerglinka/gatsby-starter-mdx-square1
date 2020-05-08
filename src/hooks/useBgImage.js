@@ -21,8 +21,15 @@ const useBgImage = thisImage => {
       }
     }
   `);
-  const temp = data.allFile.edges.filter(edge => edge.node.childImageSharp.fluid.originalName === thisImage);
-  return temp[0].node.childImageSharp.fluid;
+  // if the image is located in a folder then Forestry will use /<folder name>/filename.<ext>
+  // so we check if the original name, which is just the filename is included
+  let temp;
+  data.allFile.edges.map(edge => {
+    if (thisImage.includes(edge.node.childImageSharp.fluid.originalName)) {
+      temp = edge.node.childImageSharp.fluid;
+    }
+  });
+  return temp;
 };
 
 export default useBgImage;
