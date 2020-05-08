@@ -157,4 +157,7 @@ fields:
         file: 
         path: 
     label: Button Style
+    showOnly:
+      field: isButton
+      value: true
   label: CTA
