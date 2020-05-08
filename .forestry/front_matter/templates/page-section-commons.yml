@@ -55,11 +55,17 @@ fields:
 - name: bgIsDark
   type: boolean
   label: Background Is Dark
+  showOnly:
+    field: hasBackground
+    value: true
 - name: bgImage
   type: file
   config:
     maxSize: 64
   label: Background Image
+  showOnly:
+    field: hasBackground
+    value: true
 - name: inContainer
   type: boolean
   label: In Container
