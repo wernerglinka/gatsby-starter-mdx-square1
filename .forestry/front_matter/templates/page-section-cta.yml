@@ -1,0 +1,9 @@
+---
+label: Page Section - CTA
+hide_body: false
+fields:
+- name: common_fields
+  type: include
+  config: {}
+  template: page-section-commons
+  label: Common Fields

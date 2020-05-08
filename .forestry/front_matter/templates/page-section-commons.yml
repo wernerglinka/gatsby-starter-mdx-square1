@@ -1,0 +1,163 @@
+---
+label: Page Section - Common Fields
+hide_body: true
+fields:
+- name: type
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - BlockMediaSection
+    - BlockSimpleText
+    - BlockCTA
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Type
+- name: template
+  type: text
+  config:
+    required: false
+  label: Template
+- name: hasBackground
+  type: boolean
+  label: Has Background
+- name: bgColor
+  type: color
+  label: Background Color
+  config:
+    required: false
+    color_format: Hex
+  showOnly:
+    field: hasBackground
+    value: true
+- name: bgPattern
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - light
+    - medium
+    - dark
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Background Pattern
+  showOnly:
+    field: hasBackground
+    value: true
+- name: bgIsDark
+  type: boolean
+  label: Background Is Dark
+  showOnly:
+    field: hasBackground
+    value: true
+- name: bgImage
+  type: file
+  config:
+    maxSize: 64
+  label: Background Image
+  showOnly:
+    field: hasBackground
+    value: true
+- name: inContainer
+  type: boolean
+  label: In Container
+- name: targetID
+  type: text
+  config:
+    required: false
+  label: Target ID
+- name: sectionID
+  type: text
+  config:
+    required: false
+  label: Section ID
+- name: component
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - SectionSimpleText
+    - CTABanner
+    - SectionMedia
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Component
+- name: title
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Title
+- name: subtitle
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Subtitle
+- name: content
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Content
+- name: cta
+  type: field_group
+  config: {}
+  fields:
+  - name: URL
+    type: text
+    config:
+      required: false
+    label: URL
+  - name: text
+    type: text
+    config:
+      required: false
+    label: Text
+  - name: isExternal
+    type: boolean
+    label: Is External
+  - name: isButton
+    type: boolean
+    label: Is Button
+  - name: buttonStyle
+    type: select
+    default: []
+    config:
+      required: false
+      options:
+      - primary
+      - secondary
+      - tertiary
+      - outline
+      source:
+        type: simple
+        section: 
+        file: 
+        path: 
+    label: Button Style
+    showOnly:
+      field: isButton
+      value: true
+  label: CTA
