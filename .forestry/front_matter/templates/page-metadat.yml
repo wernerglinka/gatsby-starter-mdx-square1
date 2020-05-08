@@ -11,11 +11,11 @@ fields:
     config:
       required: false
     label: Page Template
-  - name: metaData
+  - name: metaTitle
     type: text
     config:
       required: false
-    label: Meta Data
+    label: Meta Title
   - name: metaDescription
     type: textarea
     default: ''
