@@ -20,7 +20,7 @@ fields:
   config: {}
   template: page-intro
   label: Page Introduction
-- name: sections
+- name: sections1
   type: blocks
   label: Sections
   template_types:
