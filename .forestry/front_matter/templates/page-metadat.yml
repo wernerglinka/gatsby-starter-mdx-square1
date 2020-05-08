@@ -2,7 +2,7 @@
 label: Page Metadata
 hide_body: false
 fields:
-- name: page_metadata
+- name: pageMetadata
   type: field_group
   config: {}
   fields:
