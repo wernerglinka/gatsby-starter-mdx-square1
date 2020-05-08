@@ -6,14 +6,17 @@ fields:
   type: field_group
   config: {}
   fields:
-  - name: type
-    type: text
+  - name: common_properties
+    type: include
+    config: {}
+    template: page-section-commons
+    label: Common Properties
+  - name: image
+    type: file
     config:
-      required: false
-    label: Type
-  - name: template
-    type: text
-    config:
-      required: false
-    label: Template
+      maxSize: 64
+    label: Image
+  - name: imageLeft
+    type: boolean
+    label: Image is Left
   label: Media Section
