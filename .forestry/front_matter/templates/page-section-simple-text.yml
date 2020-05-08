@@ -2,8 +2,8 @@
 label: Page Section - Simple Text
 hide_body: true
 fields:
-- name: block_simple_text
+- name: common_fields
   type: include
   config: {}
   template: page-section-commons
-  label: Block Simple Text
+  label: Common Fields
