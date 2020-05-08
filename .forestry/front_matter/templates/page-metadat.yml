@@ -6,11 +6,6 @@ fields:
   type: field_group
   config: {}
   fields:
-  - name: template
-    type: text
-    config:
-      required: false
-    label: Page Template
   - name: metaTitle
     type: text
     config:
