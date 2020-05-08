@@ -5,11 +5,11 @@ fields:
 - name: page_metadata
   type: include
   config: {}
-  template: page-meta-data
+  template: page-metadat
   label: Page Metadata
 - type: text
   name: topMessage
-  label: topMessage
+  label: Top Message
 - name: page_introduction
   type: include
   config: {}
