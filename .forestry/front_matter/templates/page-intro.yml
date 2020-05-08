@@ -2,7 +2,7 @@
 label: Page Intro
 hide_body: true
 fields:
-- name: page_introduction
+- name: pageIntroduction
   type: field_group
   config: {}
   fields:
