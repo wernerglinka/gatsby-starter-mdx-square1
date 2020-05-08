@@ -20,9 +20,9 @@ fields:
   config: {}
   template: page-intro
   label: Page Introduction
-- name: sections1
+- name: sections
   type: blocks
-  label: Sections1
+  label: Sections
   template_types:
   - page-section-simple-text
   - mediasection
