@@ -69,15 +69,11 @@ fields:
 - name: inContainer
   type: boolean
   label: In Container
-- name: title
-  type: textarea
-  default: ''
+- name: targetID
+  type: text
   config:
     required: false
-    wysiwyg: true
-    schema:
-      format: markdown
-  label: Title
+  label: Target ID
 - name: sectionID
   type: text
   config:
@@ -98,7 +94,7 @@ fields:
       file: 
       path: 
   label: Component
-- name: content
+- name: title
   type: textarea
   default: ''
   config:
@@ -106,12 +102,7 @@ fields:
     wysiwyg: true
     schema:
       format: markdown
-  label: Content
-- name: targetID
-  type: text
-  config:
-    required: false
-  label: Target ID
+  label: Title
 - name: subtitle
   type: textarea
   default: ''
@@ -121,6 +112,15 @@ fields:
     schema:
       format: markdown
   label: Subtitle
+- name: content
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Content
 - name: cta
   type: field_group
   config: {}
