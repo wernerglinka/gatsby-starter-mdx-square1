@@ -1,4 +1,33 @@
 ---
-label: Page Metadat
+label: Page Metadata
 hide_body: false
-fields: []
+fields:
+- name: page_metadata
+  type: field_group
+  config: {}
+  fields:
+  - name: template
+    type: text
+    config:
+      required: false
+    label: Page Template
+  - name: metaData
+    type: text
+    config:
+      required: false
+    label: Meta Data
+  - name: metaDescription
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: markdown
+    label: Meta Description
+  - name: metaImage
+    type: file
+    config:
+      maxSize: 64
+    label: Meta Image
+  label: Page Metadata
