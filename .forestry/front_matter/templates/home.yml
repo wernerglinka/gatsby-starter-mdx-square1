@@ -86,3 +86,5 @@ fields:
     - type: text
       name: buttonStyle
       label: buttonStyle
+pages:
+- content/pages/index.mdx
