@@ -3,9 +3,19 @@ label: Page Section - Common Fields
 hide_body: true
 fields:
 - name: type
-  type: text
+  type: select
+  default: []
   config:
     required: false
+    options:
+    - BlockMediaSection
+    - BlockSimpleText
+    - BlockCTA
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
   label: Type
 - name: template
   type: text
