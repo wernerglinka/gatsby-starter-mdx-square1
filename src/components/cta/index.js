@@ -10,8 +10,6 @@ import { InternalCTALink, ExternalCTALink, ExternalCTAButton, InternalCTAButton 
 const CTA = ({ cta }) => {
   const { URL, text, isExternal, isButton, buttonStyle } = cta;
 
-  console.log(buttonStyle);
-
   let thisCTA;
   /* eslint-disable */
   isButton &&
@@ -41,7 +39,7 @@ CTA.propTypes = {
     text: PropTypes.string.isRequired,
     isExternal: PropTypes.bool.isRequired,
     isButton: PropTypes.bool,
-    buttonStyle: PropTypes.string,
+    buttonStyle: PropTypes.array,
   }).isRequired,
 };
 

@@ -32,7 +32,7 @@ const MediaComponent = ({ info }) => {
 
   const thisImage = useSiteImage(image);
 
-  console.log(image);
+  console.log(cta);
 
   return (
     <section id={targetID}>
