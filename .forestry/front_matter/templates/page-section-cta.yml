@@ -1,4 +1,9 @@
 ---
 label: Page Section - CTA
 hide_body: false
-fields: []
+fields:
+- name: blockcta
+  type: include
+  config: {}
+  template: page-section-commons
+  label: BlockCTA
