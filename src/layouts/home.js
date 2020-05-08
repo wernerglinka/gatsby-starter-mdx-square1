@@ -38,7 +38,7 @@ const PageIntro = styled.div`
 
 const StandardPage = ({ pageContext }) => {
   const fields = pageContext.fields;
-  const pageSections = fields.sections1;
+  const pageSections = fields.sections;
   const pageBody = pageContext.body;
 
   return (
