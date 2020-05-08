@@ -2,33 +2,33 @@
 label: Home
 hide_body: false
 fields:
-  - name: template
-    type: text
-    config:
-      required: false
-    label: Page Template
-  - name: pageMetadata
-    type: include
-    config: {}
-    template: page-metadat
-    label: Page Metadata
-  - type: text
-    name: topMessage
-    label: Top Message
-  - name: pageIntroduction
-    type: include
-    config: {}
-    template: page-intro
-    label: Page Introduction
-  - name: sections
-    type: blocks
-    label: Sections
-    template_types:
-      - page-section-simple-text
-      - mediasection
-      - page-section-cta
-    config:
-      min:
-      max:
+- name: template
+  type: text
+  config:
+    required: false
+  label: Page Template
+- name: pageMetadata
+  type: include
+  config: {}
+  template: page-metadat
+  label: Page Metadata
+- type: text
+  name: topMessage
+  label: Top Message
+- name: pageIntroduction
+  type: include
+  config: {}
+  template: page-intro
+  label: Page Introduction
+- name: sections
+  type: blocks
+  label: Sections
+  template_types:
+  - page-section-simple-text
+  - mediasection
+  - page-section-cta
+  config:
+    min: 
+    max: 
 pages:
-  - content/pages/index.mdx
+- content/pages/index.mdx
