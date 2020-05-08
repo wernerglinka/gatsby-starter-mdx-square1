@@ -3,6 +3,9 @@ label: Home
 hide_body: false
 fields:
 - type: text
+  name: pageTitle
+  label: pageTitle
+- type: text
   name: template
   label: template
 - type: text
@@ -17,9 +20,6 @@ fields:
 - type: text
   name: topMessage
   label: topMessage
-- type: text
-  name: pageTitle
-  label: pageTitle
 - type: textarea
   name: pageIntro
   label: pageIntro
