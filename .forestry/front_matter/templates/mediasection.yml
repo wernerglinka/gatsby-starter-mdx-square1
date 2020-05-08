@@ -2,21 +2,16 @@
 label: Page Section - Media
 hide_body: true
 fields:
-- name: block_media
-  type: field_group
+- name: common_fields
+  type: include
   config: {}
-  fields:
-  - name: common_properties
-    type: include
-    config: {}
-    template: page-section-commons
-    label: Common Properties
-  - name: image
-    type: file
-    config:
-      maxSize: 64
-    label: Image
-  - name: imageLeft
-    type: boolean
-    label: Image is Left
-  label: Block Media
+  template: page-section-commons
+  label: Common Fields
+- name: image
+  type: file
+  config:
+    maxSize: 64
+  label: Image
+- name: imageLeft
+  type: boolean
+  label: Image is Left
