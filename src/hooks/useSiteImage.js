@@ -26,7 +26,7 @@ const useSiteImage = thisImage => {
   // path to folder is determined by gatsby-plugin-filesystem
   let siteImage;
   data.allFile.edges.map(edge => {
-    if (edge.node.childImageSharp.fluid.originalName === thisImage) {
+    if (thisImage.includes(edge.node.childImageSharp.fluid.originalName)) {
       siteImage = edge.node.childImageSharp.fluid;
     }
   });

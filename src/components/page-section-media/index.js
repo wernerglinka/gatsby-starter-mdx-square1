@@ -32,6 +32,8 @@ const MediaComponent = ({ info }) => {
 
   const thisImage = useSiteImage(image);
 
+  console.log(image);
+
   return (
     <section id={targetID}>
       <SectionWrapper imageLeft={imageLeft}>
