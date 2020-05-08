@@ -1,0 +1,106 @@
+---
+label: Home
+hide_body: false
+fields:
+- type: text
+  name: template
+  label: template
+- type: text
+  name: metaTitle
+  label: metaTitle
+- type: text
+  name: metaDescription
+  label: metaDescription
+- type: text
+  name: metaImage
+  label: metaImage
+- type: text
+  name: topMessage
+  label: topMessage
+- type: text
+  name: pageTitle
+  label: pageTitle
+- type: textarea
+  name: pageIntro
+  label: pageIntro
+- type: boolean
+  name: hasBanner
+  label: hasBanner
+- type: field_group
+  name: banner
+  label: banner
+  fields:
+  - type: file
+    name: bgImage
+    label: bgImage
+- type: field_group_list
+  name: sections
+  label: sections
+  fields:
+  - type: text
+    name: type
+    label: type
+  - type: text
+    name: template
+    label: template
+  - type: boolean
+    name: hasBackground
+    label: hasBackground
+  - type: text
+    name: bgColor
+    label: bgColor
+  - type: text
+    name: bgPattern
+    label: bgPattern
+  - type: boolean
+    name: bgIsDark
+    label: bgIsDark
+  - type: text
+    name: bgImage
+    label: bgImage
+  - type: boolean
+    name: inContainer
+    label: inContainer
+  - type: text
+    name: sectionID
+    label: sectionID
+  - type: text
+    name: component
+    label: component
+  - type: text
+    name: targetID
+    label: targetID
+  - type: text
+    name: title
+    label: title
+  - type: text
+    name: subtitle
+    label: subtitle
+  - type: textarea
+    name: content
+    label: content
+  - type: file
+    name: image
+    label: image
+  - type: boolean
+    name: imageLeft
+    label: imageLeft
+  - type: field_group
+    name: cta
+    label: cta
+    fields:
+    - type: text
+      name: URL
+      label: URL
+    - type: text
+      name: text
+      label: text
+    - type: boolean
+      name: isExternal
+      label: isExternal
+    - type: boolean
+      name: isButton
+      label: isButton
+    - type: text
+      name: buttonStyle
+      label: buttonStyle
