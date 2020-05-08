@@ -2,7 +2,7 @@
 label: Page Section - Media
 hide_body: true
 fields:
-- name: mediaSectionTemplate
+- name: block_media
   type: field_group
   config: {}
   fields:
@@ -19,4 +19,4 @@ fields:
   - name: imageLeft
     type: boolean
     label: Image is Left
-  label: Media Section
+  label: Block Media
