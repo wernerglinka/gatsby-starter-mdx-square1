@@ -43,12 +43,14 @@ const StandardPage = ({ pageContext }) => {
 
   return (
     <>
-      <PageContent className={fields.hasBanner ? "hasBanner" : null}>
-        {fields.hasBanner && <PageBanner properties={fields.banner} title={fields.pageTitle} />}
+      <PageContent className={fields.pageIntroduction.hasBanner ? "hasBanner" : null}>
+        {fields.pageIntroduction.hasBanner && (
+          <PageBanner properties={fields.pageIntroduction.banner} title={fields.pageIntroduction.pageTitle} />
+        )}
 
         <Container>
-          {!fields.hasBanner && <h1>{titleCase(fields.pageTitle)}</h1>}
-          <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntro) }} />
+          {!fields.pageIntroduction.hasBanner && <h1>{titleCase(fields.pageIntroduction.pageTitle)}</h1>}
+          <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntroduction.pageIntro) }} />
         </Container>
 
         {pageSections &&
