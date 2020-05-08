@@ -20,6 +20,16 @@ fields:
   config: {}
   template: page-intro
   label: Page Introduction
+- name: sections1
+  type: blocks
+  label: Sections1
+  template_types:
+  - page-section-simple-text
+  - mediasection
+  - page-section-cta
+  config:
+    min: 
+    max: 
 - type: field_group_list
   name: sections
   label: sections
