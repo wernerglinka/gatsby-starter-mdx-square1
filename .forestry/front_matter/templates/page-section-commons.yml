@@ -11,6 +11,8 @@ fields:
     - BlockMediaSection
     - BlockSimpleText
     - BlockCTA
+    - BlockCustomerList
+    - BlockMediaSectionVideo
     source:
       type: simple
       section: 
