@@ -1,125 +1,182 @@
 ---
 template: standard-page
 metaTitle: About Page
-metaDescription: About page specific meta description. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-metaImage:
+metaDescription: About page specific meta description. Cras justo odio, dapibus ac
+  facilisis in, egestas eget quam.
+metaImage: 
 pageTitle: About
-pageIntro: |
-  This page shows two video approaches. Videos are embedded from YouTube. The first one opens in a modal layer while the second one plays in-situ. The components are an extension of the media component from the home page. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. [Duis mollis](https://ibm.com), est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+pageIntro: 'This page shows two video approaches. Videos are embedded from YouTube.
+  The first one opens in a modal layer while the second one plays in-situ. The components
+  are an extension of the media component from the home page. Vivamus sagittis lacus
+  vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis
+  dapibus posuere velit aliquet. [Duis mollis](https://ibm.com), est non commodo luctus,
+  nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis natoque penatibus
+  et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus
+  vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue
+  laoreet rutrum faucibus dolor auctor.
+
+'
 sections:
-  - type: BlockCustomerList
-    template: page-section-customer-list
-    hasBackground: false
-    bgColor:
-    bgPattern:
-    bgIsDark: false
-    bgImage:
-    inContainer: false
-    sectionID: customerlistBlock1
-    component: CustomerListStatic
-    targetID: OraEtLabora
-    title: Example of a static customer list
-    content: Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.
+- type: BlockCustomerList
+  template: page-section-customer-list
+  hasBackground: false
+  bgColor: ''
+  bgPattern: ''
+  bgIsDark: false
+  bgImage: ''
+  inContainer: false
+  sectionID: customerlistBlock1
+  component: CustomerListStatic
+  targetID: OraEtLabora
+  title: Example of a static customer list
+  content: Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean
+    eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam
+    id dolor id nibh ultricies vehicula ut id elit.
+  subtitle: ''
+  cta:
+    URL: ''
+    text: ''
+    isExternal: false
+    isButton: false
+    buttonStyle: ''
+- type: BlockCustomerList
+  template: page-section-customer-list
+  hasBackground: false
+  bgColor: ''
+  bgPattern: ''
+  bgIsDark: false
+  bgImage: ''
+  inContainer: true
+  sectionID: customerlistBlock2
+  component: CustomerListSlider
+  targetID: OraBenLabora
+  title: Example of a sliding customer list
+  content: The slider uses the [reacht-slick](https://www.npmjs.com/package/react-slick)
+    plugin. It is responsive and can be configured in many different ways. The endless,
+    continues slider is just one of them. Hover over an icon and the icon will change
+    into full color.
+  subtitle: ''
+  cta:
+    URL: ''
+    text: ''
+    isExternal: false
+    isButton: false
+    buttonStyle: ''
+- type: BlockMediaSectionVideo
+  template: page-section-media-with-video
+  hasBackground: false
+  bgColor: ''
+  bgPattern: ''
+  bgIsDark: false
+  bgImage: ''
+  inContainer: true
+  sectionID: mediaSectionBlock1
+  component: SectionMediaVideo
+  targetID: elitPorta
+  title: Is this the real life...
+  subtitle: Nullam id dolor id nibh ultricies vehicula ut id elit.
+  content: Curabitur blandit [tempus porttitor](http://google.com). Donec id elit
+    non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum.
+    Integer posuere erat a ante venenatis dapibus posuere _velit aliquet_. Donec id
+    elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur.
+    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+    mus.
+  imageLeft: false
+  thumbnailImage: placeholder1.jpg
+  videoSource: https://www.youtube.com/watch?v=fJ9rUzIMcZQ"
+  isModal: true
+  cta:
+    URL: "/projects"
+    text: Try it out
+    isExternal: false
+    isButton: false
+    buttonStyle: ''
+- type: BlockMediaSectionVideo
+  template: page-section-media-with-video
+  hasBackground: false
+  bgColor: ''
+  bgPattern: ''
+  bgIsDark: false
+  bgImage: ''
+  inContainer: true
+  sectionID: mediaSectionBlock2
+  component: SectionMediaVideo
+  targetID: adipiscingCondimentum
+  title: Canon... Awesome
+  subtitle: Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+  content: Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+    Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus
+    ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.
+    Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus
+    commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+    Curabitur blandit tempus porttitor.
+  imageLeft: true
+  thumbnailImage: placeholder2.jpg
+  videoSource: https://www.youtube.com/watch?v=TF6cnLnEARo
+  isModal: false
+  cta:
+    URL: "/projects"
+    text: Try it out
+    isExternal: false
+    isButton: false
+    buttonStyle: ''
+- type: BlockSimpleText
+  template: page-section-simple-text
+  hasBackground: true
+  bgColor: ''
+  bgPattern: light
+  bgIsDark: false
+  bgImage: ''
+  inContainer: false
+  title: Let's show a short list on a full width background
+  sectionID: about_page_block1
+  component: SectionSimpleText
+  content: "- Etiam porta sem malesuada magna mollis euismod. \n- Praesent commodo
+    cursus magna, vel scelerisque nisl consectetur et. \n- Nulla vitae elit libero,
+    a pharetra augue. \n- Vestibulum id ligula porta felis euismod semper."
+  targetID: ''
+  subtitle: ''
+  cta:
+    URL: ''
+    text: ''
+    isExternal: false
+    isButton: false
+    buttonStyle: ''
+- type: BlockSimpleText
+  template: page-section-simple-text
+  hasBackground: false
+  bgColor: ''
+  bgPattern: ''
+  bgIsDark: false
+  bgImage: ''
+  inContainer: true
+  title: And a last component to round up the page.
+  sectionID: about_page_block3
+  component: SectionSimpleText
+  content: "### Donec id elit non mi porta gravida at eget metus.\nCurabitur blandit
+    tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus
+    sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Curabitur blandit
+    tempus porttitor.\n### Mattis Bibendum Nibh\n- Donec id elit non mi porta gravida
+    at eget metus. \n- Integer posuere erat a ante venenatis dapibus posuere velit
+    aliquet. \n- Vestibulum id ligula porta felis euismod semper."
+  targetID: ''
+  subtitle: ''
+  cta:
+    URL: ''
+    text: ''
+    isExternal: false
+    isButton: false
+    buttonStyle: ''
+pageMetadata:
+  metaTitle: About Page
+  metaDescription: About page specific meta description. Cras justo odio, dapibus
+    ac facilisis in, egestas eget quam.
+  metaImage: ''
+pageIntroduction:
+  pageTitle: ''
+  pageIntro: ''
+  hasBanner: false
+  banner:
+    bgImage: ''
 
-  - type: BlockCustomerList
-    template: page-section-customer-list
-    hasBackground: false
-    bgColor:
-    bgPattern:
-    bgIsDark: false
-    bgImage:
-    inContainer: true
-    sectionID: customerlistBlock2
-    component: CustomerListSlider
-    targetID: OraBenLabora
-    title: Example of a sliding customer list
-    content: The slider uses the [reacht-slick](https://www.npmjs.com/package/react-slick) plugin. It is responsive and can be configured in many different ways. The endless, continues slider is just one of them. Hover over an icon and the icon will change into full color.
-
-  - type: BlockMediaSectionVideo
-    template: page-section-media-with-video
-    hasBackground: false
-    bgColor:
-    bgPattern:
-    bgIsDark: false
-    bgImage:
-    inContainer: true
-    sectionID: mediaSectionBlock1
-    component: SectionMediaVideo
-    targetID: elitPorta
-    title: Is this the real life...
-    subtitle: Nullam id dolor id nibh ultricies vehicula ut id elit.
-    content: |-
-      Curabitur blandit [tempus porttitor](http://google.com). Donec id elit non mi porta gravida at eget metus. Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere _velit aliquet_. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-    imageLeft: false
-    thumbnailImage: placeholder1.jpg
-    videoSource: https://www.youtube.com/watch?v=fJ9rUzIMcZQ"
-    isModal: true
-    cta:
-      URL: /projects
-      text: Try it out
-      isExternal: false
-      isButton: false
-      buttonStyle:
-
-  - type: BlockMediaSectionVideo
-    template: page-section-media-with-video
-    hasBackground: false
-    bgColor:
-    bgPattern:
-    bgIsDark: false
-    bgImage:
-    inContainer: true
-    sectionID: mediaSectionBlock2
-    component: SectionMediaVideo
-    targetID: adipiscingCondimentum
-    title: Canon... Awesome
-    subtitle: Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
-    content: |-
-      Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Curabitur blandit tempus porttitor.
-    imageLeft: true
-    thumbnailImage: placeholder2.jpg
-    videoSource: https://www.youtube.com/watch?v=TF6cnLnEARo
-    isModal: false
-    cta:
-      URL: /projects
-      text: Try it out
-      isExternal: false
-      isButton: false
-      buttonStyle:
-
-  - type: BlockSimpleText
-    template: page-section-simple-text
-    hasBackground: true
-    bgColor:
-    bgPattern: light
-    bgIsDark: false
-    bgImage:
-    inContainer:
-    title: Let's show a short list on a full width background
-    sectionID: about_page_block1
-    component: SectionSimpleText
-    content: |-
-      - Etiam porta sem malesuada magna mollis euismod. 
-      - Praesent commodo cursus magna, vel scelerisque nisl consectetur et. 
-      - Nulla vitae elit libero, a pharetra augue. 
-      - Vestibulum id ligula porta felis euismod semper.
-
-  - type: BlockSimpleText
-    template: page-section-simple-text
-    hasBackground: false
-    bgColor:
-    bgPattern:
-    bgIsDark: false
-    bgImage:
-    inContainer: true
-    title: And a last component to round up the page.
-    sectionID: about_page_block3
-    component: SectionSimpleText
-    content: |-
-      ### Donec id elit non mi porta gravida at eget metus.
-      Curabitur blandit tempus porttitor. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Curabitur blandit tempus porttitor.
-      ### Mattis Bibendum Nibh
-      - Donec id elit non mi porta gravida at eget metus. 
-      - Integer posuere erat a ante venenatis dapibus posuere velit aliquet. 
-      - Vestibulum id ligula porta felis euismod semper.
 ---

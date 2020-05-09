@@ -27,3 +27,5 @@ fields:
   config:
     min: 
     max: 
+pages:
+- content/pages/about/index.mdx
