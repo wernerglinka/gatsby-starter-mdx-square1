@@ -29,3 +29,4 @@ fields:
     max: 
 pages:
 - content/pages/about/index.mdx
+- content/pages/about/newsroom.mdx
