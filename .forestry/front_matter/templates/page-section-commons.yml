@@ -83,6 +83,9 @@ fields:
     - SectionSimpleText
     - CTABanner
     - SectionMedia
+    - SectionMediaVideo
+    - CustomerListStatic
+    - CustomerListSlider
     source:
       type: simple
       section: 
