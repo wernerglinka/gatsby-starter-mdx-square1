@@ -1,0 +1,65 @@
+---
+label: Page With Sections Only
+hide_body: true
+fields:
+- type: text
+  name: template
+  label: template
+- type: text
+  name: metaTitle
+  label: metaTitle
+- type: text
+  name: metaDescription
+  label: metaDescription
+- type: text
+  name: metaImage
+  label: metaImage
+- type: text
+  name: pageTitle
+  label: pageTitle
+- type: textarea
+  name: pageIntro
+  label: pageIntro
+- type: field_group_list
+  name: sections
+  label: sections
+  fields:
+  - type: text
+    name: type
+    label: type
+  - type: text
+    name: template
+    label: template
+  - type: boolean
+    name: hasBackground
+    label: hasBackground
+  - type: text
+    name: bgColor
+    label: bgColor
+  - type: text
+    name: bgPattern
+    label: bgPattern
+  - type: boolean
+    name: bgIsDark
+    label: bgIsDark
+  - type: text
+    name: bgImage
+    label: bgImage
+  - type: boolean
+    name: inContainer
+    label: inContainer
+  - type: text
+    name: sectionID
+    label: sectionID
+  - type: text
+    name: component
+    label: component
+  - type: text
+    name: targetID
+    label: targetID
+  - type: text
+    name: title
+    label: title
+  - type: textarea
+    name: content
+    label: content
