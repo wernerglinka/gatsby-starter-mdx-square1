@@ -13,6 +13,7 @@ fields:
     - BlockCTA
     - BlockCustomerList
     - BlockMediaSectionVideo
+    - BlockNewsList
     source:
       type: simple
       section: 
@@ -88,6 +89,7 @@ fields:
     - SectionMediaVideo
     - CustomerListStatic
     - CustomerListSlider
+    - FilteredNewsList
     source:
       type: simple
       section: 
