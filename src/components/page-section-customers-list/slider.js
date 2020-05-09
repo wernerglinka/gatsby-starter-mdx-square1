@@ -20,7 +20,7 @@ import { SectionWrapper, SliderWrapper, FadeOutLeft, FadeOutRight, CustomerImage
 const CustomerList = ({ info }) => {
   const customers = useCustomers();
 
-  const { title, prose } = info;
+  const { title, content } = info;
 
   const settings = {
     speed: 5000,
@@ -40,7 +40,7 @@ const CustomerList = ({ info }) => {
   return (
     <SectionWrapper>
       {title && <h2>{titleCase(title)}</h2>}
-      {prose && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(prose) }} />}
+      {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
       <SliderWrapper>
         <FadeOutLeft />
         <Slider {...settings}>
@@ -63,13 +63,13 @@ export default CustomerList;
 CustomerList.propTypes = {
   info: PropTypes.shape({
     title: PropTypes.string,
-    prose: PropTypes.string,
+    content: PropTypes.string,
   }),
 };
 
 CustomerList.defaultProps = {
   info: {
     title: null,
-    prose: null,
+    content: null,
   },
 };

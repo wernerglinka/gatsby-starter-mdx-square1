@@ -18,13 +18,13 @@ import { SectionWrapper, List } from "./customers-list-styles";
 const CustomerList = ({ info }) => {
   const customers = useCustomers();
 
-  const { title, prose } = info;
+  const { title, content } = info;
 
   return (
     <SectionWrapper>
       <Container>
         {title && <h2>{titleCase(title)}</h2>}
-        {prose && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(prose) }} />}
+        {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
       </Container>
 
       <List>
@@ -45,13 +45,13 @@ export default CustomerList;
 CustomerList.propTypes = {
   info: PropTypes.shape({
     title: PropTypes.string,
-    prose: PropTypes.string,
+    content: PropTypes.string,
   }),
 };
 
 CustomerList.defaultProps = {
   info: {
     title: null,
-    prose: null,
+    content: null,
   },
 };
