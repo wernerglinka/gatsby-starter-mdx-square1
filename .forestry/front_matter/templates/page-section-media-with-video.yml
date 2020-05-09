@@ -1,4 +1,8 @@
 ---
 label: Page Section - Media with Video
 hide_body: false
-fields: []
+fields:
+- name: wrapper
+  type: field_group
+  config: {}
+  label: wrapper
