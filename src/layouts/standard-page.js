@@ -49,11 +49,11 @@ const StandardPage = ({ pageContext }) => {
         </Container>
 
         {pageSections &&
-          pageSections.map(section => {
+          pageSections.map((section, i) => {
             const SectionComponent = allComponents[section.component];
 
             return (
-              <SectionWrapper key={section.sectionID}>
+              <SectionWrapper key={`${section.sectionID}${i}`}>
                 <SectionComponent info={section} />
               </SectionWrapper>
             );
