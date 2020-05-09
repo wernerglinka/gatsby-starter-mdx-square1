@@ -5,39 +5,16 @@ fields:
 - type: text
   name: template
   label: template
-- type: field_group
-  name: pageMetadata
-  label: pageMetadata
-  fields:
-  - type: text
-    name: metaTitle
-    label: metaTitle
-  - type: text
-    name: metaDescription
-    label: metaDescription
-  - type: text
-    name: metaImage
-    label: metaImage
+- name: page_meta_data
+  type: include
+  config: {}
+  template: page-metadat
+  label: Page Meta Data
 - type: text
   name: topMessage
   label: topMessage
-- type: field_group
-  name: pageIntroduction
-  label: pageIntroduction
-  fields:
-  - type: text
-    name: pageTitle
-    label: pageTitle
-  - type: text
-    name: pageIntro
-    label: pageIntro
-  - type: boolean
-    name: hasBanner
-    label: hasBanner
-  - type: field_group
-    name: banner
-    label: banner
-    fields:
-    - type: file
-      name: bgImage
-      label: bgImage
+- name: page_introduction
+  type: include
+  config: {}
+  template: page-intro
+  label: Page Introduction
