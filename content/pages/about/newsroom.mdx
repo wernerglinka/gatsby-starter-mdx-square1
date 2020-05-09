@@ -1,15 +1,20 @@
 ---
 template: standard-page
-metaTitle: Newsroom
-metaDescription: Newsroom page specific meta description. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-metaImage:
-pageTitle: Newsroom
-pageIntro: |
-  The newsroom shows all news-worthy items, including articles written by third-parties, relevant events and awards. The list filter mechanism uses isotope.js. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-
+pageMetadata:
+  metaTitle: Newsroom
+  metaDescription: Newsroom page specific meta description. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+  metaImage: ""
+topMessage: ""
+pageIntroduction:
+  pageTitle: Newsroom
+  pageIntro: |-
+    The newsroom shows all news-worthy items, including articles written by third-parties, relevant events and awards. The list filter mechanism uses isotope.js. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+  hasBanner: true
+  banner:
+    bgImage: "/banners/home.jpg"
 sections:
   - type: BlockNewsList
-    template: newsListTemplate
+    template: page-section-news-list
     hasBackground: false
     bgColor: ""
     bgPattern:
@@ -21,18 +26,24 @@ sections:
     targetID:
     title: ""
     prose: ""
-  - type: Block2
-    template: blocktemplate
+  - template: page-section-cta
+    cta:
+      buttonStyle: []
+      URL: "/about"
+      text: Get a Haircut
+      isExternal: false
+      isButton: false
+    type: BlockCTA
     hasBackground: true
     bgColor: "#00273B"
+    bgPattern: dark
     bgIsDark: true
-    bgImage:
-    inContainer: false
-    title: I am a Call To Action
-    sectionID: home_page_block2
     component: CTABanner
-    content: |-
-      This is a staple of all marketing sites. It yells at you Click, click, click ME. Can't miss this. _This is also an example of a full-width background._
-
-      [Get a haircut](/get-a-haircut)
+    title: I am a Call To Action
+    content: This is a staple of all marketing sites. It yells at you Click, click,
+      click ME. Can't miss this. _This is also an example of a full-width background._
+    bgImage: ""
+    inContainer: false
+    targetID: ""
+    subtitle: ""
 ---
