@@ -6,7 +6,7 @@ export const Banner = styled(BackgroundImage)`
   height: 0;
   padding-bottom: 25%;
   margin: 0 -${props => props.theme.space.defaultPadding} ${props => props.theme.sections.clearance};
-  background-attachment: fixed;
+  background-attachment: ${props => (props.bgIsFixed ? "fixed" : "normal")};
   background-position: center top -80px;
 
   @media (max-width: 600px) {

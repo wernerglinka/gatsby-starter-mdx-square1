@@ -8,6 +8,7 @@ import { ThemeProvider } from "emotion-theming";
 import { Global } from "@emotion/core";
 import { FiArrowUp } from "react-icons/fi";
 import { Waypoint } from "react-waypoint";
+import { ParallaxProvider } from "react-scroll-parallax";
 import theme from "../styles/theme";
 import Transition from "../components/transition";
 
@@ -139,17 +140,19 @@ const StandardPage = props => {
         <div id="pageTop" />
         <Header siteTitle={siteMetadata.title} isSticky={scrollState.stickyMainNav} />
 
-        <MDXProvider components={shortcodes}>
-          <PageBg>
-            {/* waypoint for to top botton */}
-            <Waypoint
-              scrollableAncestor={typeof window === "undefined" ? null : window}
-              onEnter={hideToTopButton}
-              onLeave={showToTopButton}
-            />
-            <Transition {...props}>{props.children}</Transition>
-          </PageBg>
-        </MDXProvider>
+        <ParallaxProvider>
+          <MDXProvider components={shortcodes}>
+            <PageBg>
+              {/* waypoint for to top botton */}
+              <Waypoint
+                scrollableAncestor={typeof window === "undefined" ? null : window}
+                onEnter={hideToTopButton}
+                onLeave={showToTopButton}
+              />
+              <Transition {...props}>{props.children}</Transition>
+            </PageBg>
+          </MDXProvider>
+        </ParallaxProvider>
 
         <Footer />
 

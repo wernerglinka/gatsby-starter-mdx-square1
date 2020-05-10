@@ -47,6 +47,7 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",
     "react-player": "^1.15.3",
+    "react-scroll-parallax": "^2.3.2",
     "react-slick": "^0.25.2",
     "react-transition-group": "^4.3.0",
     "react-waypoint": "^9.0.2",

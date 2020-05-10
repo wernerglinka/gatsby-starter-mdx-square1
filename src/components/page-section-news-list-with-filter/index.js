@@ -19,7 +19,7 @@ const NewsList = () => {
   const [items, filters] = getNewsroomItems();
 
   // initialize an Isotope object with configs
-  React.useEffect(() => {
+  useEffect(() => {
     setIsotope(
       new Isotope(".grid", {
         itemSelector: ".grid-item",
