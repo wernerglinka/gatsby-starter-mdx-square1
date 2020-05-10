@@ -3,9 +3,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Slider from "react-slick";
-import titleCase from "ap-style-title-case";
-import mdStringToHTML from "../../utilities/md-to-html";
-
+import SectionIntro from "../section-intro";
 import useCustomers from "../../hooks/useCustomers";
 
 import "slick-carousel/slick/slick.css";
@@ -19,8 +17,6 @@ import { SectionWrapper, SliderWrapper, FadeOutLeft, FadeOutRight, CustomerImage
 
 const CustomerList = ({ info }) => {
   const customers = useCustomers();
-
-  const { title, content } = info;
 
   const settings = {
     speed: 5000,
@@ -39,8 +35,8 @@ const CustomerList = ({ info }) => {
 
   return (
     <SectionWrapper>
-      {title && <h2>{titleCase(title)}</h2>}
-      {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
+      <SectionIntro info={info} />
+
       <SliderWrapper>
         <FadeOutLeft />
         <Slider {...settings}>

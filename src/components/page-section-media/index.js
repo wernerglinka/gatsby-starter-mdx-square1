@@ -4,7 +4,7 @@ import Img from "gatsby-image";
 import titleCase from "ap-style-title-case";
 import mdStringToHTML from "../../utilities/md-to-html";
 import CTA from "../cta";
-
+import SectionIntro from "../section-intro";
 import useSiteImage from "../../hooks/useSiteImage";
 import { TextWrapper, ImageWrapper, SectionWrapper } from "./media-component-styles";
 import { InternalCTA, ExternalCTA } from "../common-styles";
@@ -21,9 +21,6 @@ import { InternalCTA, ExternalCTA } from "../common-styles";
  *************************************************************************** */
 const MediaComponent = ({ info }) => {
   const {
-    title, // the optional title of the text section
-    subtitle, // the optional subtitle of the text section
-    content, // the optional content of the text section
     image, // the mandatory image... after all this is a media component
     imageLeft, // determines whether image is positioned left or right of the text
     targetID, // add an ID attribute to the section so links can target it
@@ -32,15 +29,11 @@ const MediaComponent = ({ info }) => {
 
   const thisImage = useSiteImage(image);
 
-  console.log(cta);
-
   return (
     <section id={targetID}>
       <SectionWrapper imageLeft={imageLeft}>
         <TextWrapper>
-          {title && <h2>{titleCase(title)}</h2>}
-          {subtitle && <p>{subtitle}</p>}
-          {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
+          <SectionIntro info={info} />
           {cta.URL && <CTA cta={cta} />}
         </TextWrapper>
         <ImageWrapper>
@@ -53,9 +46,6 @@ const MediaComponent = ({ info }) => {
 
 MediaComponent.propTypes = {
   info: PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    content: PropTypes.string,
     image: PropTypes.string.isRequired,
     imageLeft: PropTypes.bool,
     targetID: PropTypes.string,
@@ -65,9 +55,6 @@ MediaComponent.propTypes = {
 
 MediaComponent.defaultProps = {
   info: {
-    title: null,
-    subtitle: null,
-    content: null,
     imageLeft: false,
     targetID: null,
     cta: null,

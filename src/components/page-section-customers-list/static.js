@@ -3,9 +3,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
-import titleCase from "ap-style-title-case";
-import mdStringToHTML from "../../utilities/md-to-html";
-
+import SectionIntro from "../section-intro";
 import useCustomers from "../../hooks/useCustomers";
 
 import { Container } from "../common-styles";
@@ -17,14 +15,10 @@ import { SectionWrapper, List } from "./customers-list-styles";
 
 const CustomerList = ({ info }) => {
   const customers = useCustomers();
-
-  const { title, content } = info;
-
   return (
     <SectionWrapper>
       <Container>
-        {title && <h2>{titleCase(title)}</h2>}
-        {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
+        <SectionIntro info={info} />
       </Container>
 
       <List>

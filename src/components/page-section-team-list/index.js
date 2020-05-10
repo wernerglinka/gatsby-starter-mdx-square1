@@ -7,6 +7,7 @@ import Img from "gatsby-image";
 import titleCase from "ap-style-title-case";
 import mdStringToHTML from "../../utilities/md-to-html";
 import TeamMember from "./team-member";
+import SectionIntro from "../section-intro";
 
 import useTeam from "../../hooks/useTeam";
 
@@ -20,13 +21,10 @@ import { SectionWrapper, List } from "./team-list-styles";
 const TeamList = ({ info }) => {
   const teamMembers = useTeam();
 
-  const { title, prose } = info;
-
   return (
     <SectionWrapper>
       <Container>
-        {title && <h2>{titleCase(title)}</h2>}
-        {prose && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(prose) }} />}
+        <SectionIntro info={info} />
       </Container>
 
       <List>
@@ -41,15 +39,9 @@ const TeamList = ({ info }) => {
 export default TeamList;
 
 TeamList.propTypes = {
-  info: PropTypes.shape({
-    title: PropTypes.string,
-    prose: PropTypes.string,
-  }),
+  info: PropTypes.shape(),
 };
 
 TeamList.defaultProps = {
-  info: {
-    title: null,
-    prose: null,
-  },
+  info: {},
 };
