@@ -30,3 +30,4 @@ fields:
 pages:
 - content/pages/about/index.mdx
 - content/pages/about/newsroom.mdx
+- content/pages/about/team.mdx
