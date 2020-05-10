@@ -1,0 +1,45 @@
+---
+label: Page Section - Main Points
+hide_body: true
+fields:
+- name: common_fields
+  type: include
+  config: {}
+  template: page-section-commons
+  label: Common Fields
+- name: items
+  type: field_group_list
+  fields:
+  - name: title
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Title
+  - name: icon
+    type: file
+    config:
+      maxSize: 64
+    label: Icon
+  - name: content
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: markdown
+    label: Content
+  - name: cta
+    type: include
+    config: {}
+    template: cta
+    label: CTA
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Items
