@@ -34,9 +34,14 @@ fields:
         format: markdown
     label: Content
   - name: cta
-    type: include
+    type: field_group
     config: {}
-    template: cta
+    fields:
+    - name: cta_primitive
+      type: include
+      config: {}
+      template: cta
+      label: CTA Primitive
     label: CTA
   config:
     min: 
