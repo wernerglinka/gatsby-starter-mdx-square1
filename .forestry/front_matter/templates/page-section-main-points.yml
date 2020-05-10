@@ -1,5 +1,5 @@
 ---
-label: Page Section Main Points
+label: Page Section - Main Points
 hide_body: true
 fields:
 - name: common_fields
@@ -7,3 +7,34 @@ fields:
   config: {}
   template: page-section-commons
   label: Common Fields
+- name: items
+  type: field_group_list
+  fields:
+  - name: title
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Title
+  - name: content
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: false
+      schema:
+        format: markdown
+    label: Content
+  - name: icon
+    type: file
+    config:
+      maxSize: 64
+    label: Icon
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Items
