@@ -19,11 +19,12 @@ fields:
   type: blocks
   label: Sections
   template_types:
-  - page-section-simple-text
+  - page-section-cta
+  - page-section-customer-list
   - mediasection
   - page-section-media-with-video
-  - page-section-customer-list
-  - page-section-cta
+  - page-section-simple-text
+  - page-section-team-list
   config:
     min: 
     max: 
