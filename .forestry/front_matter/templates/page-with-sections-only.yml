@@ -21,10 +21,12 @@ fields:
   template_types:
   - page-section-cta
   - page-section-customer-list
+  - page-section-main-points
   - mediasection
   - page-section-media-with-video
   - page-section-simple-text
   - page-section-team-list
+  - page-section-video
   config:
     min: 
     max: 
