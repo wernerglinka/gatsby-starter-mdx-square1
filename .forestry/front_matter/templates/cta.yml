@@ -15,3 +15,25 @@ fields:
 - name: isExternal
   type: boolean
   label: Is External
+- name: isButton
+  type: boolean
+  label: Is Button
+- name: buttonStyle
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - primary
+    - secondary
+    - tertiary
+    - outline
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Button Style
+  showOnly:
+    field: isButton
+    value: true
