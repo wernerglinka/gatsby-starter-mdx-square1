@@ -2,24 +2,6 @@
 label: Page Section - Common Fields
 hide_body: true
 fields:
-- name: type
-  type: select
-  default: []
-  config:
-    required: false
-    options:
-    - BlockMediaSection
-    - BlockSimpleText
-    - BlockCTA
-    - BlockCustomerList
-    - BlockMediaSectionVideo
-    - BlockNewsList
-    source:
-      type: simple
-      section: 
-      file: 
-      path: 
-  label: Type
 - name: template
   type: text
   config:
