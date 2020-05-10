@@ -33,6 +33,14 @@ fields:
       schema:
         format: markdown
     label: Content
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Items
+- name: cta
+  type: field_group_list
+  fields:
   - name: cta
     type: include
     config: {}
@@ -42,4 +50,4 @@ fields:
     min: 
     max: 
     labelField: 
-  label: Items
+  label: CTA
