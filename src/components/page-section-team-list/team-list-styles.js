@@ -186,3 +186,33 @@ export const CloseModal = styled.div`
     }
   }
 `;
+
+export const ModalTrigger = styled.a`
+  font-size: 0.875rem;
+
+  &:hover {
+    text-decoration: none;
+
+    &:after {
+      content: ">>>";
+      color: inherit;
+      padding-left: 10px;
+      opacity: 0;
+      animation: in 1s ease-out forwards;
+    }
+  }
+  @keyframes in {
+    0% {
+      letter-spacing: -10px;
+      opacity: 0;
+    }
+    30% {
+      letter-spacing: 4px;
+      opacity: 1;
+    }
+    100% {
+      letter-spacing: 4px;
+      opacity: 1;
+    }
+  }
+`;

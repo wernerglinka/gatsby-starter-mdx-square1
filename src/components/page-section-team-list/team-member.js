@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import Modal from "./modal";
 import SocialLinks from "../social-links";
-import { ExternalCTA } from "../common-styles";
-
-import { TeamCard } from "./team-list-styles";
+import { TeamCard, ModalTrigger } from "./team-list-styles";
 
 /** *******************************************************************************
  * Team member component
@@ -51,9 +49,9 @@ const TeamMember = ({ info }) => {
         <p>{title}</p>
         <SocialLinks social={info.socialLinks} />
 
-        <ExternalCTA className="read-more" onClick={openModal} onKeyDown={openModal} onTouchStart={openModal}>
+        <ModalTrigger className="read-more" onClick={openModal} onKeyDown={openModal} onTouchStart={openModal}>
           Read More
-        </ExternalCTA>
+        </ModalTrigger>
 
         {thisModal && <Modal overlayRef={overlayRef} info={info} closeModal={closeModal} />}
       </div>

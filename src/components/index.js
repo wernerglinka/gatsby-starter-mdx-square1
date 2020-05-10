@@ -1,6 +1,5 @@
 import SectionSimpleText from "./page-section-simple-text";
 import CTABanner from "./page-section-cta-banner";
-import Section3 from "./page-section3";
 import SectionMedia from "./page-section-media";
 import SectionMediaVideo from "./page-section-media-video";
 import Header from "./page-header";
@@ -16,7 +15,6 @@ import FilteredNewsList from "./page-section-news-list-with-filter";
 export {
   SectionSimpleText,
   CTABanner,
-  Section3,
   SectionMedia,
   SectionMediaVideo,
   SectionVideo,
@@ -33,7 +31,6 @@ export {
 export default {
   SectionSimpleText,
   CTABanner,
-  Section3,
   SectionMedia,
   SectionMediaVideo,
   SectionVideo,

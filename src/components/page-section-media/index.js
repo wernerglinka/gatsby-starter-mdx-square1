@@ -5,7 +5,6 @@ import CTA from "../cta";
 import SectionIntro from "../section-intro";
 import useSiteImage from "../../hooks/useSiteImage";
 import { TextWrapper, ImageWrapper, SectionWrapper } from "./media-component-styles";
-import { InternalCTA, ExternalCTA } from "../common-styles";
 
 /** ***************************************************************************
  *  Media component

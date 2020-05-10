@@ -72,7 +72,10 @@ export const InternalCTAButton = styled(Link)`
     if (props.btnStyle === "secondary") {
       return props.theme.colors.secondary;
     }
-    return props.theme.colors.tertiary;
+    if (props.btnStyle === "tertiary") {
+      return props.theme.colors.tertiary;
+    }
+    return props.theme.colors.transparent;
   }};
   border-color: ${props => {
     if (props.btnStyle === "primary") {
@@ -81,8 +84,16 @@ export const InternalCTAButton = styled(Link)`
     if (props.btnStyle === "secondary") {
       return props.theme.colors.secondary;
     }
-    return props.theme.colors.tertiary;
+    if (props.btnStyle === "tertiary") {
+      return props.theme.colors.tertiary;
+    }
+    return props.theme.colors.transparent;
   }};
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
 `;
 
 export const ExternalCTAButton = styled.a`
@@ -94,7 +105,10 @@ export const ExternalCTAButton = styled.a`
     if (props.btnStyle === "secondary") {
       return props.theme.colors.secondary;
     }
-    return props.theme.colors.tertiary;
+    if (props.btnStyle === "tertiary") {
+      return props.theme.colors.tertiary;
+    }
+    return props.theme.colors.transparent;
   }};
   border-color: ${props => {
     if (props.btnStyle === "primary") {
@@ -103,6 +117,14 @@ export const ExternalCTAButton = styled.a`
     if (props.btnStyle === "secondary") {
       return props.theme.colors.secondary;
     }
-    return props.theme.colors.tertiary;
+    if (props.btnStyle === "tertiary") {
+      return props.theme.colors.tertiary;
+    }
+    return props.theme.colors.transparent;
   }};
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
 `;
