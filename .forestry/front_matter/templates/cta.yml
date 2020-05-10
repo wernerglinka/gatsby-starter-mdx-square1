@@ -1,4 +1,9 @@
 ---
 label: CTA
 hide_body: false
-fields: []
+fields:
+- name: url
+  type: text
+  config:
+    required: false
+  label: URL
