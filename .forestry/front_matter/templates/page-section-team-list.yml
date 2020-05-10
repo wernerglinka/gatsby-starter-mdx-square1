@@ -1,4 +1,9 @@
 ---
 label: Page Section - Team List
 hide_body: true
-fields: []
+fields:
+- name: common_fields
+  type: include
+  config: {}
+  template: page-section-commons
+  label: Common Fields
