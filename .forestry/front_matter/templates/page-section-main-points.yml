@@ -33,21 +33,18 @@ fields:
       schema:
         format: markdown
     label: Content
-  config:
-    min: 
-    max: 
-    labelField: 
-  label: Items
-- name: cta
-  type: field_group_list
-  fields:
   - name: cta
-    type: include
+    type: field_group
     config: {}
-    template: cta
+    fields:
+    - name: cta_primitive
+      type: include
+      config: {}
+      template: cta
+      label: CTA Primitive
     label: CTA
   config:
     min: 
     max: 
     labelField: 
-  label: CTA
+  label: Items
