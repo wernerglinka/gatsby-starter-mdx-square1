@@ -17,9 +17,15 @@ const useSVG = thisIcon => {
     }
   `);
 
+  // Forestry will use name /<folder name>/<icon name>.<ext> but
+  // the public URL will not contain the foldername
+  const lastslashindex = thisIcon.lastIndexOf("/");
+  const iconName = thisIcon.substring(lastslashindex + 1);
+
   let icon;
   data.icons.edges.map(edge => {
-    if (edge.node.publicURL.includes(thisIcon)) {
+    console.log(edge.node.publicURL);
+    if (edge.node.publicURL.includes(iconName)) {
       icon = edge.node.publicURL;
     }
   });
