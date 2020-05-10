@@ -19,6 +19,11 @@ fields:
       schema:
         format: markdown
     label: Title
+  - name: icon
+    type: file
+    config:
+      maxSize: 64
+    label: Icon
   - name: content
     type: textarea
     default: ''
@@ -28,13 +33,18 @@ fields:
       schema:
         format: markdown
     label: Content
-  - name: icon
-    type: file
-    config:
-      maxSize: 64
-    label: Icon
+  - name: cta
+    type: include
+    config: {}
+    template: cta
+    label: CTA
   config:
     min: 
     max: 
     labelField: 
   label: Items
+- name: cta
+  type: include
+  config: {}
+  template: cta
+  label: CTA
