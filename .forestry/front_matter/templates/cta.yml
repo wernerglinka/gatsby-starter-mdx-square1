@@ -2,8 +2,16 @@
 label: CTA
 hide_body: false
 fields:
-- name: url
+- name: URL
   type: text
   config:
     required: false
   label: URL
+- name: text
+  type: text
+  config:
+    required: false
+  label: Text
+- name: isExternal
+  type: boolean
+  label: Is External
