@@ -32,6 +32,16 @@ const linkStyles = css`
       opacity: 1;
     }
   }
+  @keyframes out {
+    0% {
+      letter-spacing: 4px;
+      opacity: 1;
+    }
+    100% {
+      letter-spacing: -10px;
+      opacity: 0;
+    }
+  }
 `;
 
 export const InternalCTALink = styled(Link)`
