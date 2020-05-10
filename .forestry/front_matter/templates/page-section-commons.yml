@@ -90,6 +90,7 @@ fields:
     - CustomerListStatic
     - CustomerListSlider
     - FilteredNewsList
+    - TeamList
     source:
       type: simple
       section: 
