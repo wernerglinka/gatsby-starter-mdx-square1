@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
 import React from "react";
-import titleCase from "ap-style-title-case";
-import mdStringToHTML from "../../utilities/md-to-html";
+import CTA from "../cta";
 import SectionIntro from "../section-intro";
 
 import { Wrapper } from "./simple-text-styles";
 
 const SimpleText = ({ info }) => {
+  const { cta } = info;
   return (
     <Wrapper>
       <SectionIntro info={info} />
+      {cta.URL && <CTA cta={cta} />}
     </Wrapper>
   );
 };
