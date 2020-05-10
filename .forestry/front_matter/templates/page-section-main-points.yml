@@ -34,10 +34,15 @@ fields:
         format: markdown
     label: Content
   - name: cta
-    type: include
+    type: field_group
     config: {}
-    template: cta
-    label: CTA
+    fields:
+    - name: cta
+      type: include
+      config: {}
+      template: cta
+      label: CTA
+    label: CTA Wrapper
   config:
     min: 
     max: 
