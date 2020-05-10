@@ -1,4 +1,19 @@
 ---
 label: Page Section - Video
 hide_body: true
-fields: []
+fields:
+- name: common_fields
+  type: include
+  config: {}
+  template: page-section-commons
+  label: Common Fields
+- name: thumbnailImage
+  type: file
+  config:
+    maxSize: 64
+  label: Thumbnail Image
+- name: videoSource
+  type: text
+  config:
+    required: false
+  label: Video Source
