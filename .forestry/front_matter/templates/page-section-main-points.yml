@@ -7,11 +7,6 @@ fields:
   config: {}
   template: page-section-commons
   label: Common Fields
-- name: cta
-  type: include
-  config: {}
-  template: cta
-  label: CTA
 - name: items
   type: field_group_list
   fields:
