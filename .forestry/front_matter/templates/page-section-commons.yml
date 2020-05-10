@@ -91,6 +91,8 @@ fields:
     - CustomerListSlider
     - FilteredNewsList
     - TeamList
+    - SectionVideo
+    - MainPoints
     source:
       type: simple
       section: 
