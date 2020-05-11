@@ -12,7 +12,7 @@ const Point = ({ info }) => (
   <PointWrapper>
     <div>
       {info.icon && <img src={useSVG(info.icon)} alt="" />}
-      {info.title && <h3>{info.title}</h3>}
+      {info.title && <h3 dangerouslySetInnerHTML={{ __html: mdStringToHTML(info.title) }} />}
       {info.content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(info.content) }} />}
       {info.cta && <CTA cta={info.cta} />}
     </div>

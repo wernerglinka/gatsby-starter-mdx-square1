@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import getNewsroomItems from "../../hooks/useNewsroom";
-import InfoCard from "../info-card";
+import NewsCard from "../news-card";
 import { List, FilterList, FilterItem } from "./news-list-styles";
 // Isotope requires window to be present. It is not during site build, ergo:
 // https://www.gatsbyjs.org/docs/debugging-html-builds/#how-to-check-if-window-is-defined
@@ -52,7 +52,7 @@ const NewsList = () => {
       </FilterList>
       <List className="grid">
         {items.map((item, i) => (
-          <InfoCard key={`${item.title}${i}`} items={item} />
+          <NewsCard key={`${item.title}${i}`} items={item} />
         ))}
       </List>
     </>

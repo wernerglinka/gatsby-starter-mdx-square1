@@ -12,7 +12,7 @@ const MainPoints = ({ info }) => {
   return (
     <MainPointsSection>
       <SectionIntro info={info} />
-      <PointsWrapper>
+      <PointsWrapper className={info.wrapperClasses}>
         {info.items.map(point => {
           return <Point key={point.title} info={point} />;
         })}
@@ -24,6 +24,7 @@ const MainPoints = ({ info }) => {
 
 MainPoints.propTypes = {
   info: PropTypes.shape({
+    wrapperClasses: PropTypes.string,
     cta: PropTypes.object,
     isButton: PropTypes.bool,
     items: PropTypes.array.isRequired,
@@ -32,6 +33,7 @@ MainPoints.propTypes = {
 
 MainPoints.defaultProps = {
   info: {
+    wrapperClasses: null,
     cta: null,
     isButton: false,
   },

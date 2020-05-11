@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import getNewsroomItems from "../../hooks/useNewsroom";
-import InfoCard from "../info-card";
+import NewsCard from "../news-card";
 
 import { List } from "./news-list-styles";
 
@@ -18,7 +18,7 @@ const NewsList = () => {
   return (
     <List>
       {items.map((item, i) => (
-        <InfoCard key={`${item.title}${i}`} items={item} />
+        <NewsCard key={`${item.title}${i}`} items={item} />
       ))}
     </List>
   );

@@ -8,7 +8,7 @@ export const Card = styled.div`
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    box-shadow: ${props => props.theme.defaultBoxShadow};
+    box-shadow: ${props => props.theme.boxShadow};
     transform: scale(1.05);
   }
 `;
