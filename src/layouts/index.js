@@ -5,12 +5,11 @@ import PropType from "prop-types";
 import { MDXProvider } from "@mdx-js/react";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
-import { Global } from "@emotion/core";
 import { FiArrowUp } from "react-icons/fi";
 import { Waypoint } from "react-waypoint";
-import { ParallaxProvider } from "react-scroll-parallax";
 import theme from "../styles/theme";
 import Transition from "../components/transition";
+import PageBanner from "../components/page-banner";
 
 import Head from "../components/head";
 import TopMsg from "../components/page-top-message";
@@ -21,8 +20,6 @@ import Footer from "../components/page-footer";
 import InlineMessage from "../components/shortcodes/inline-message";
 
 import useSiteMetadata from "../hooks/useSiteMetadata";
-
-import { globalStyles } from "../styles/global";
 
 const ToTop = styled.a`
   display: flex;
@@ -65,6 +62,10 @@ const PageBg = styled.div`
   background-color: #fff;
   padding: 0 20px 50px;
   margin-bottom: 300px;
+
+  &.hasBanner {
+    margin: 25vw 0 300px;
+  }
 `;
 
 /** ***************************************************************************
@@ -87,6 +88,9 @@ const StandardPage = props => {
 
   const hasTopMessage = !!children.props.pageContext.fields.topMessage;
   const topMessage = children.props.pageContext.fields.topMessage ? children.props.pageContext.fields.topMessage : null;
+
+  // get page banner properties
+  const { hasBanner, banner, pageTitle } = children.props.pageContext.fields.pageIntroduction;
 
   const [scrollState, setScrollState] = useState({
     stickyMainNav: false,
@@ -140,19 +144,19 @@ const StandardPage = props => {
         <div id="pageTop" />
         <Header siteTitle={siteMetadata.title} isSticky={scrollState.stickyMainNav} />
 
-        <ParallaxProvider>
-          <MDXProvider components={shortcodes}>
-            <PageBg>
-              {/* waypoint for to top botton */}
-              <Waypoint
-                scrollableAncestor={typeof window === "undefined" ? null : window}
-                onEnter={hideToTopButton}
-                onLeave={showToTopButton}
-              />
-              <Transition {...props}>{props.children}</Transition>
-            </PageBg>
-          </MDXProvider>
-        </ParallaxProvider>
+        {hasBanner && <PageBanner properties={banner} title={pageTitle} />}
+
+        <MDXProvider components={shortcodes}>
+          <PageBg className={hasBanner ? "hasBanner" : null}>
+            {/* waypoint for to top botton */}
+            <Waypoint
+              scrollableAncestor={typeof window === "undefined" ? null : window}
+              onEnter={hideToTopButton}
+              onLeave={showToTopButton}
+            />
+            <Transition {...props}>{props.children}</Transition>
+          </PageBg>
+        </MDXProvider>
 
         <Footer />
 

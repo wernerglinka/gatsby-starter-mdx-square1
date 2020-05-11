@@ -12,23 +12,9 @@ import { Banner, BannerContent } from "./page-banner-styles";
 
 const PageBanner = ({ properties, title }) => {
   const bgImage = useBgImage(properties.bgImage);
-  const [backgroundIsFixed, setBackgroundIsFixed] = useState();
-
-  // Mobile apple devices do not support backgropund-position: fixed. Since Safari doesn't
-  // indicate device type all apple devices are treated equal
-  const setApple = () => setBackgroundIsFixed(false);
-  const unsetApple = () => setBackgroundIsFixed(true);
-
-  useEffect(() => {
-    if (navigator.vendor.includes("Apple")) {
-      setApple();
-    } else {
-      unsetApple();
-    }
-  }, []);
 
   return (
-    <Banner fluid={bgImage} className={backgroundIsFixed ? null : "isScroll"}>
+    <Banner fluid={bgImage}>
       <BannerContent>
         <h1>{titleCase(title)}</h1>
       </BannerContent>
