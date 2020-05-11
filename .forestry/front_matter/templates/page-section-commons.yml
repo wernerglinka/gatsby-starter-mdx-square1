@@ -59,6 +59,12 @@ fields:
   config:
     required: false
   label: Target ID
+- name: wrapper_classes
+  type: text
+  config:
+    required: false
+  label: Wrapper Classes
+  description: Class(es) which can be used for different styling options
 - name: component
   type: select
   default: ''
