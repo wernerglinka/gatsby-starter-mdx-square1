@@ -12,22 +12,23 @@ import { Banner, BannerContent } from "./page-banner-styles";
 
 const PageBanner = ({ properties, title }) => {
   const bgImage = useBgImage(properties.bgImage);
-  const [backgroundIsFixed, setBackgroundIsFixed] = useState(true);
+  const [backgroundIsFixed, setBackgroundIsFixed] = useState();
+
+  // Mobile apple devices do not support backgropund-position: fixed. Since Safari doesn't
+  // indicate device type all apple devices are treated equal
+  const setApple = () => setBackgroundIsFixed(false);
+  const unsetApple = () => setBackgroundIsFixed(true);
 
   useEffect(() => {
-    const iDevices = ["iPad Simulator", "iPhone Simulator", "iPod Simulator", "iPad", "iPhone", "iPod"];
-
-    if (navigator.platform) {
-      while (iDevices.length) {
-        if (navigator.platform === iDevices.pop()) {
-          setBackgroundIsFixed(false);
-        }
-      }
+    if (navigator.vendor.includes("Apple")) {
+      setApple();
+    } else {
+      unsetApple();
     }
   }, []);
 
   return (
-    <Banner fluid={bgImage} bgIsFixed={backgroundIsFixed}>
+    <Banner fluid={bgImage} className={backgroundIsFixed ? null : "isScroll"}>
       <BannerContent>
         <h1>{titleCase(title)}</h1>
       </BannerContent>
