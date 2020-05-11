@@ -75,6 +75,7 @@ fields:
     - TeamList
     - SectionVideo
     - MainPoints
+    - SingleTestimonial
     source:
       type: simple
       section: 
