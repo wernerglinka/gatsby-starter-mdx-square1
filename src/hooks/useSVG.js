@@ -24,7 +24,6 @@ const useSVG = thisIcon => {
 
   let icon;
   data.icons.edges.map(edge => {
-    console.log(edge.node.publicURL);
     if (edge.node.publicURL.includes(iconName)) {
       icon = edge.node.publicURL;
     }

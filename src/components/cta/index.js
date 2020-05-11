@@ -39,7 +39,7 @@ CTA.propTypes = {
     text: PropTypes.string.isRequired,
     isExternal: PropTypes.bool.isRequired,
     isButton: PropTypes.bool,
-    buttonStyle: PropTypes.array,
+    buttonStyle: PropTypes.string,
   }).isRequired,
 };
 

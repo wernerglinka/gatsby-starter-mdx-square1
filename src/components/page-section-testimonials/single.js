@@ -4,20 +4,31 @@ import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import SectionIntro from "../section-intro";
-import useCustomers from "../../hooks/useCustomers";
+import useTestimonial from "../../hooks/useTestimonial";
 
 import { Container } from "../common-styles";
-import { SectionWrapper } from "./testimonial-styles";
+import { SectionWrapper, Testimonial } from "./testimonial-styles";
 
 /** ***************************************************************************
  *  Testimonial Component
  *************************************************************************** */
 
 const SingleTestimonial = ({ info }) => {
+  const { testimonial } = info;
+  const { quote, quotee, position, affiliation } = useTestimonial(testimonial);
+
   return (
     <SectionWrapper>
       <Container>
-        <SectionIntro info={info} />
+        <Testimonial>
+          <p>{quote}</p>
+          <footer>
+            <p>{quotee}</p>
+            <p>
+              {position}, <span>{affiliation}</span>
+            </p>
+          </footer>
+        </Testimonial>
       </Container>
     </SectionWrapper>
   );
@@ -27,14 +38,12 @@ export default SingleTestimonial;
 
 SingleTestimonial.propTypes = {
   info: PropTypes.shape({
-    title: PropTypes.string,
-    content: PropTypes.string,
+    testimonial: PropTypes.string,
   }),
 };
 
 SingleTestimonial.defaultProps = {
   info: {
-    title: null,
-    content: null,
+    testimonial: null,
   },
 };
