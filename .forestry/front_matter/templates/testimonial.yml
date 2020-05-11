@@ -1,0 +1,16 @@
+---
+label: Testimonial
+hide_body: true
+fields:
+- type: text
+  name: quote
+  label: quote
+- type: text
+  name: quotee
+  label: quotee
+- type: text
+  name: position
+  label: position
+- type: text
+  name: affiliation
+  label: affiliation
