@@ -1,4 +1,21 @@
 ---
 label: Page Section - Testimonial
 hide_body: false
-fields: []
+fields:
+- name: common_fields
+  type: include
+  config: {}
+  template: page-section-commons
+  label: Common Fields
+- name: testimonial
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: data
+      file: 
+      path: 
+  label: Testimonial
