@@ -11,6 +11,11 @@ export const MainPointsSection = styled.section`
   h2 + div > p {
     font-size: 20px;
   }
+
+  /* the minimal version of a points wrapper */
+  &.minimal {
+    padding: 0;
+  }
 `;
 
 export const PointsWrapper = styled.ul`
@@ -18,6 +23,11 @@ export const PointsWrapper = styled.ul`
   justify-content: center;
   list-style: none;
   padding-bottom: 50px;
+
+  /* the minimal version of a points wrapper */
+  &.minimal {
+    padding: 0;
+  }
 `;
 export const PointWrapper = styled.li`
   padding: 0 20px;
@@ -61,6 +71,42 @@ export const PointWrapper = styled.li`
       position: absolute;
       left: 20px;
       bottom: 10px;
+    }
+  }
+
+  /* the minimal version of a point */
+  &.minimal {
+    flex: 0 0 50%;
+
+    > div {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    img {
+      display: none;
+    }
+
+    h3 {
+      margin-top: 0;
+      color: #f5f5f5;
+
+      strong {
+        font-weight: inherit;
+        color: #cf0000;
+      }
+    }
+
+    p {
+      color: #f5f5f5;
+      margin: 30px 0;
+    }
+
+    a {
+      align-self: center;
     }
   }
 `;

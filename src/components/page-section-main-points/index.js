@@ -10,11 +10,11 @@ import { MainPointsSection, PointsWrapper } from "./main-points-styles";
  *************************************************************************** */
 const MainPoints = ({ info }) => {
   return (
-    <MainPointsSection>
+    <MainPointsSection className={info.wrapperClasses}>
       <SectionIntro info={info} />
       <PointsWrapper className={info.wrapperClasses}>
         {info.items.map(point => {
-          return <Point key={point.title} info={point} />;
+          return <Point key={point.title} info={point} wrapperClasses={info.wrapperClasses} />;
         })}
       </PointsWrapper>
       {info.cta && <CTA cta={info.cta} />}
