@@ -11,6 +11,7 @@ import TeamList from "./page-section-team-list";
 import MainPoints from "./page-section-main-points";
 import NewsList from "./page-section-news-list";
 import FilteredNewsList from "./page-section-news-list-with-filter";
+import SingleTestimonial from "./page-section-testimonials/single";
 
 export {
   SectionSimpleText,
@@ -24,6 +25,7 @@ export {
   NewsList,
   FilteredNewsList,
   MainPoints,
+  SingleTestimonial,
   Header,
   Layout,
 };
@@ -40,6 +42,7 @@ export default {
   NewsList,
   FilteredNewsList,
   MainPoints,
+  SingleTestimonial,
   Header,
   Layout,
 };
