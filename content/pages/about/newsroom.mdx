@@ -4,8 +4,8 @@ pageMetadata:
   metaTitle: Newsroom
   metaDescription: Newsroom page specific meta description. Cras justo odio, dapibus
     ac facilisis in, egestas eget quam.
-  metaImage: ""
-topMessage: ""
+  metaImage: ''
+topMessage: ''
 pageIntroduction:
   pageTitle: Newsroom
   pageIntro: The newsroom shows all news-worthy items, including articles written
@@ -17,43 +17,80 @@ pageIntroduction:
   banner:
     bgImage: "/banners/home.jpg"
 sections:
-  - template: page-section-news-list
-    hasBackground: false
-    bgColor: ""
-    bgPattern: ""
-    bgIsDark: false
-    bgImage: ""
-    inContainer: true
-    sectionID: newslistBlock1
-    component: FilteredNewsList
-    targetID: ""
-    title: ""
-    prose: ""
-    subtitle: ""
-    content: ""
+- template: page-section-news-list
+  hasBackground: false
+  bgColor: ''
+  bgPattern: ''
+  bgIsDark: false
+  bgImage: ''
+  inContainer: true
+  sectionID: newslistBlock1
+  component: FilteredNewsList
+  targetID: ''
+  title: ''
+  prose: ''
+  subtitle: ''
+  content: ''
+  cta:
+    URL: ''
+    text: ''
+    isExternal: false
+    isButton: false
+    buttonStyle: ''
+  wrapper_classes: ''
+- template: page-section-cta
+  cta:
+    buttonStyle: []
+    URL: "/about"
+    text: Get a Haircut
+    isExternal: false
+    isButton: false
+  hasBackground: true
+  bgColor: "#00273B"
+  bgPattern: dark
+  bgIsDark: true
+  component: CTABanner
+  title: I am a Call To Action
+  content: This is a staple of all marketing sites. It yells at you Click, click,
+    click ME. Can't miss this. _This is also an example of a full-width background._
+  bgImage: ''
+  inContainer: false
+  targetID: ''
+  subtitle: ''
+  wrapper_classes: ''
+- template: page-section-main-points
+  cta:
+    buttonStyle: []
+    URL: ''
+    text: ''
+    isExternal: false
+    isButton: false
+  component: MainPoints
+  hasBackground: true
+  bgPattern: medium
+  bgIsDark: true
+  wrapper_classes: minimal
+  items:
+  - title: "### Cum sociis natoque penatibus **et magnis dis parturient montes**"
+    icon: ''
+    content: Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+      ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula
+      ut id elit. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus
+      et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus
+      ac facilisis in, egestas eget quam. Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit.
     cta:
-      URL: ""
-      text: ""
-      isExternal: false
-      isButton: false
-      buttonStyle: ""
-  - template: page-section-cta
-    cta:
-      buttonStyle: []
       URL: "/about"
-      text: Get a Haircut
+      text: Follow Me
+      isButton: true
+      buttonStyle: primary
       isExternal: false
-      isButton: false
-    hasBackground: true
-    bgColor: "#00273B"
-    bgPattern: dark
-    bgIsDark: true
-    component: CTABanner
-    title: I am a Call To Action
-    content: |-
-      This is a staple of all marketing sites. It yells at you Click, click, click ME. Can't miss this. _This is also an example of a full-width background._
-    bgImage: ""
-    inContainer: false
-    targetID: ""
-    subtitle: ""
+  bgColor: ''
+  bgImage: ''
+  inContainer: false
+  targetID: ''
+  title: ''
+  subtitle: ''
+  content: ''
+
 ---
