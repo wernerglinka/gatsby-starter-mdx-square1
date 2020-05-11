@@ -59,7 +59,7 @@ fields:
   config:
     required: false
   label: Target ID
-- name: wrapper_classes
+- name: wrapperClasses
   type: text
   config:
     required: false
