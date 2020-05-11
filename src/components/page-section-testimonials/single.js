@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import SectionIntro from "../section-intro";
 import useTestimonial from "../../hooks/useTestimonial";
+import useImage from "../../hooks/useImage";
 
 import { Container } from "../common-styles";
 import { SectionWrapper, Testimonial } from "./testimonial-styles";
@@ -15,7 +16,8 @@ import { SectionWrapper, Testimonial } from "./testimonial-styles";
 
 const SingleTestimonial = ({ info }) => {
   const { testimonial } = info;
-  const { quote, quotee, position, affiliation } = useTestimonial(testimonial);
+  const { quote, quotee, position, affiliation, logo } = useTestimonial(testimonial);
+  const quoteLogo = useImage(logo);
 
   return (
     <SectionWrapper>
@@ -27,6 +29,7 @@ const SingleTestimonial = ({ info }) => {
             <p>
               {position}, <span>{affiliation}</span>
             </p>
+            <Img fluid={quoteLogo} />
           </footer>
         </Testimonial>
       </Container>

@@ -16,6 +16,7 @@ const useTestimonial = thisTestimonial => {
             quotee
             quote
             position
+            logo
           }
         }
       }
@@ -30,6 +31,7 @@ const useTestimonial = thisTestimonial => {
     quotee: temp[0].node.quotee,
     position: temp[0].node.position,
     affiliation: temp[0].node.affiliation,
+    logo: temp[0].node.logo,
   };
 
   return testimonial;
