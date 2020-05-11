@@ -20,6 +20,7 @@ fields:
     maxSize: 64
   label: Logo
 pages:
+- content/data/testimonials/yogiberra2.json
 - content/data/testimonials/yogiberra3.json
 - content/data/testimonials/yogiberra4.json
 - content/data/testimonials/yogiberra5.json
