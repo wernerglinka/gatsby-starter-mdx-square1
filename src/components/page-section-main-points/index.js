@@ -7,6 +7,10 @@ import { MainPointsSection, PointsWrapper } from "./main-points-styles";
 
 /** ***************************************************************************
  *  Main Points Component
+ *
+ *  the visuals may be completely changed by adding a wrapper class and adding
+ *  the respective styles in "./main-points-styles"
+ *
  *************************************************************************** */
 const MainPoints = ({ info }) => {
   return (

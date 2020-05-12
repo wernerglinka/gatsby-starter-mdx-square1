@@ -91,3 +91,7 @@ const components = {
 export const wrapRootElement = ({ element }) => {
   return <MDXProvider components={components}>{element}</MDXProvider>;
 };
+
+// Fixing site being non-responsive until page is hard reloaded
+// source:  https://github.com/gatsbyjs/gatsby/issues/9087
+export const onServiceWorkerUpdateReady = () => window.location.reload(true);
