@@ -1,4 +1,3 @@
-import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 const useCloudinaryImage = image => {
@@ -13,11 +12,10 @@ const useCloudinaryImage = image => {
       }
     }
   `);
-  const clImages = data.allCloudinaryMedia.edges;
 
-  console.log(clImages);
+  const clImage = data.allCloudinaryMedia.edges.filter(edge => edge.node.secure_url.includes(image));
 
-  return clImages;
+  return clImage[0].node.secure_url;
 };
 
 export default useCloudinaryImage;

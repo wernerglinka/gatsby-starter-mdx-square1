@@ -27,8 +27,6 @@ const MediaComponent = ({ info }) => {
     cta, // the inevitable call-to-action
   } = info;
 
-  console.log(useCloudinaryImage());
-
   const thisImage = useSiteImage(image);
 
   return (

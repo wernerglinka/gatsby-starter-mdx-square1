@@ -1,8 +1,8 @@
 /* global navigator */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import titleCase from "ap-style-title-case";
-import useBgImage from "../../hooks/useBgImage";
+import useCloudinaryImage from "../../hooks/useCloudinaryImage";
 
 import { Banner, BannerContent } from "./page-banner-styles";
 
@@ -11,10 +11,10 @@ import { Banner, BannerContent } from "./page-banner-styles";
  *************************************************************************** */
 
 const PageBanner = ({ properties, title }) => {
-  const bgImage = useBgImage(properties.bgImage);
+  const clImage = useCloudinaryImage(properties.bgImage);
 
   return (
-    <Banner fluid={bgImage}>
+    <Banner style={{ backgroundImage: `url(${clImage})` }}>
       <BannerContent>
         <h1>{titleCase(title)}</h1>
       </BannerContent>
