@@ -61,6 +61,7 @@ fields:
   label: Type
 pages:
 - content/data/awards/ai-tech-awards-2019-10-10.json
+- content/data/events/dockercon-2020-05-28.json
 - content/data/events/gartner-it-2020-11-08.json
 - content/data/events/rsa-conference-2020-02-24.json
 - content/data/newsroom/news2018/freecodecamp-2018-12-04.json
