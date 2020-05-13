@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: require("./src/settings/site-metadata.json"),
   plugins: [
@@ -27,6 +29,16 @@ module.exports = {
       options: {
         path: `${__dirname}/content/pages`,
         name: "pages",
+      },
+    },
+    {
+      resolve: `gatsby-source-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        resourceType: `image`,
+        prefix: `gatsby-square1/`,
       },
     },
     `gatsby-background-image`,

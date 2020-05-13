@@ -4,6 +4,9 @@ import Img from "gatsby-image";
 import CTA from "../cta";
 import SectionIntro from "../section-intro";
 import useSiteImage from "../../hooks/useSiteImage";
+
+import useCloudinaryImage from "../../hooks/useCloudinaryImage";
+
 import { TextWrapper, ImageWrapper, SectionWrapper } from "./media-component-styles";
 
 /** ***************************************************************************
@@ -23,6 +26,8 @@ const MediaComponent = ({ info }) => {
     targetID, // add an ID attribute to the section so links can target it
     cta, // the inevitable call-to-action
   } = info;
+
+  console.log(useCloudinaryImage());
 
   const thisImage = useSiteImage(image);
 
