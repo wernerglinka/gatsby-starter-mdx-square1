@@ -8,10 +8,11 @@ fields:
   fields:
   - type: text
     name: name
-    label: name
+    label: Customer Name
   - type: text
     name: url
-    label: url
+    label: URL
+    description: Customers website URL
   - type: file
     name: logo
-    label: logo
+    label: Customer Logo
