@@ -4,37 +4,52 @@ hide_body: true
 fields:
 - type: text
   name: org
-  label: org
+  label: News Organization
 - type: file
   name: logo
-  label: logo
+  label: News Logo
 - type: boolean
   name: logoWide
-  label: logoWide
+  label: Logo is Wide
 - type: text
   name: title
-  label: title
+  label: News Title
 - type: text
   name: linkText
-  label: linkText
+  label: Link Text
 - type: text
   name: url
-  label: url
+  label: Link URL
 - type: boolean
   name: isExternal
-  label: isExternal
+  label: Is External
 - type: datetime
   name: startDate
-  label: startDate
+  label: Start Date
+  description: This is the News Date but it is also used for events, etc...
 - type: text
   name: endDate
-  label: endDate
+  label: End Date
+  description: Only used for multi-days events
 - type: text
   name: location
-  label: location
+  label: Location
+  description: Only used for events
 - type: textarea
   name: excerpt
-  label: excerpt
-- type: text
-  name: type
-  label: type
+  label: Excerpt
+- name: type
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - news
+    - events
+    - awards
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Type
