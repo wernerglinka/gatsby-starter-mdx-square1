@@ -1,10 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
-import Img from "gatsby-image";
 import CTA from "../cta";
 import SectionIntro from "../section-intro";
-import useSiteImage from "../../hooks/useSiteImage";
-
 import useCloudinaryImage from "../../hooks/useCloudinaryImage";
 
 import { TextWrapper, ImageWrapper, SectionWrapper } from "./media-component-styles";

@@ -7,6 +7,7 @@ import mdStringToHTML from "../../utilities/md-to-html";
 import EventDate from "../../utilities/event-date";
 import truncate from "../../utilities/truncate";
 import getImage from "../../hooks/useImage";
+import useCloudinaryImage from "../../hooks/useCloudinaryImage";
 
 import { Card, ImageWrapper, CardContent, CardType, CardDate, CardExcerpt, CardCTA } from "./news-card-styles";
 
@@ -18,13 +19,13 @@ import { Card, ImageWrapper, CardContent, CardType, CardDate, CardExcerpt, CardC
 const NewsCard = ({
   items: { title, logo, logoWide, type, startDate, endDate, location, excerpt, linkText, isExternal, url },
 }) => {
-  const image = getImage(logo);
+  const image = useCloudinaryImage(logo);
   const truncatedTitle = title.length > 40 ? truncate(title, 40, true) : title;
   const truncatedExcerpt = excerpt.length > 50 ? truncate(excerpt, 50, true) : excerpt;
 
   const NewsCardInner = () => (
     <Card>
-      <ImageWrapper logoWide={logoWide}>{image && <Img fluid={getImage(logo)} />}</ImageWrapper>
+      <ImageWrapper logoWide={logoWide}>{image && <img src={image} alt="" />}</ImageWrapper>
       <CardContent>
         <CardType>{type}</CardType>
 

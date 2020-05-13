@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React from "react";
 import SectionIntro from "../section-intro";
 import VideoPlayer from "../video-player";
 import CTA from "../cta";

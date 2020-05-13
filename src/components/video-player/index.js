@@ -6,6 +6,8 @@ import { FiX } from "react-icons/fi";
 import Fade from "../fade";
 import Modal from "./modal";
 
+import useCloudinaryImage from "../../hooks/useCloudinaryImage";
+
 import useVideoThumbnail from "../../hooks/useVideoThumbnail";
 
 import { ImageWrapper, Inner, PlayButton, VideoWrapper } from "./video-player-styles";
@@ -18,7 +20,7 @@ import { ImageWrapper, Inner, PlayButton, VideoWrapper } from "./video-player-st
 const VideoPlayer = ({ info }) => {
   const { thumbnailImage, videoSource, isModal } = info;
 
-  const videoThumbnail = useVideoThumbnail(thumbnailImage);
+  const videoThumbnail = useCloudinaryImage(thumbnailImage);
 
   const [videoState, setVideoState] = useState({
     source: null,
@@ -42,7 +44,7 @@ const VideoPlayer = ({ info }) => {
       <Inner>
         {/* video thumbnail */}
         <button type="button" onClick={() => showVideo(videoSource)}>
-          <Img fluid={videoThumbnail} />
+          <img src={videoThumbnail} alt="" />
           <PlayButton />
         </button>
 
