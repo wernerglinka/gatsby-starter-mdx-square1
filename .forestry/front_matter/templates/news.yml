@@ -31,10 +31,16 @@ fields:
   name: endDate
   label: End Date
   description: Only used for multi-days events
+  showOnly:
+    field: type
+    value: events
 - type: text
   name: location
   label: Location
   description: Only used for events
+  showOnly:
+    field: type
+    value: events
 - type: textarea
   name: excerpt
   label: Excerpt
