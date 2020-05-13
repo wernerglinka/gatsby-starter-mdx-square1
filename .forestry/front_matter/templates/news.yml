@@ -1,0 +1,40 @@
+---
+label: News
+hide_body: true
+fields:
+- type: text
+  name: org
+  label: org
+- type: file
+  name: logo
+  label: logo
+- type: boolean
+  name: logoWide
+  label: logoWide
+- type: text
+  name: title
+  label: title
+- type: text
+  name: linkText
+  label: linkText
+- type: text
+  name: url
+  label: url
+- type: boolean
+  name: isExternal
+  label: isExternal
+- type: datetime
+  name: startDate
+  label: startDate
+- type: text
+  name: endDate
+  label: endDate
+- type: text
+  name: location
+  label: location
+- type: textarea
+  name: excerpt
+  label: excerpt
+- type: text
+  name: type
+  label: type
