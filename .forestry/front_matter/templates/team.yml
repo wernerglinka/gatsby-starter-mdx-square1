@@ -37,4 +37,5 @@ fields:
     name: linkedIn
     label: LinkedIn
 pages:
+- content/data/team/albert-einstein.json
 - content/data/team/alexandria-ocasio-cortez.json
