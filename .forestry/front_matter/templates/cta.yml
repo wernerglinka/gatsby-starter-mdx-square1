@@ -20,7 +20,7 @@ fields:
   label: Is Button
 - name: buttonStyle
   type: select
-  default: []
+  default: none
   config:
     required: false
     options:
@@ -28,6 +28,7 @@ fields:
     - secondary
     - tertiary
     - outline
+    - none
     source:
       type: simple
       section: 
