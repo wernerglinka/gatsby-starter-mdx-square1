@@ -1,6 +1,6 @@
 {
   "org": "RSA Conference",
-  "logo": "rsa-2020.png",
+  "logo": "/v1589395418/gatsby-square1/news-logos/rsa-2020_zp8lb4.png",
   "logoWide": false,
   "title": "RSA Conference 2020",
   "linkText": "Meet with Us",
@@ -10,5 +10,6 @@
   "endDate": "2020-01-28",
   "dateLocation": "San Francisco",
   "excerpt": "Attending RSA 2020 and have a minute?",
-  "type": "events"
+  "type": "events",
+  "location": ""
 }
