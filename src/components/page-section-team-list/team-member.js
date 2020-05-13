@@ -43,7 +43,7 @@ const TeamMember = ({ info }) => {
 
   return (
     <TeamCard>
-      <Img fluid={image} />
+      <img src={image} alt={name} />
       <div className="prose">
         <h3>{name}</h3>
         <p>{title}</p>

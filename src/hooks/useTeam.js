@@ -1,20 +1,9 @@
 import { useStaticQuery, graphql } from "gatsby";
+import useCloudinaryImage from "./useCloudinaryImage";
 
 const useTeam = () => {
   const data = useStaticQuery(graphql`
     {
-      teamPictures: allFile(filter: { relativeDirectory: { eq: "team-avatars" } }) {
-        edges {
-          node {
-            childImageSharp {
-              fluid(quality: 90, maxWidth: 1600) {
-                originalName
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-        }
-      }
       teamData: allFile(filter: { relativeDirectory: { eq: "team" } }) {
         edges {
           node {
@@ -36,7 +25,7 @@ const useTeam = () => {
     }
   `);
   const allTeamMembers = [];
-  const allImages = data.teamPictures.edges.map(edge => edge.node.childImageSharp.fluid);
+  const allImages = useCloudinaryImage("*");
 
   // normalize team member array
   data.teamData.edges.forEach(edge => {
@@ -48,7 +37,7 @@ const useTeam = () => {
   // add image data to customer data
   allTeamMembers.map(teamMember => {
     allImages.map(image => {
-      if (image.originalName === teamMember.avatar) {
+      if (image.includes(teamMember.avatar)) {
         teamMember.image = image;
       }
     });

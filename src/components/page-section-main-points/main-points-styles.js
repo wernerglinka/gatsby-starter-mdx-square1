@@ -51,22 +51,20 @@ export const PointWrapper = styled.li`
       width: 120px;
       margin: 0 auto;
     }
-
-    h3 {
-      height: 60px;
-      padding-top: 20px;
-      text-align: center;
-    }
-
     div {
       text-align: left;
     }
-
+    .pointHeader {
+      height: 60px;
+      padding-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
     p {
       margin: 0;
     }
 
-    h3 + div + a {
+    .pointHeader + div + a {
       display: block;
       position: absolute;
       left: 20px;
