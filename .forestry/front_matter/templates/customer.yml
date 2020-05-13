@@ -16,3 +16,5 @@ fields:
   - type: file
     name: logo
     label: Customer Logo
+pages:
+- content/data/customers.json

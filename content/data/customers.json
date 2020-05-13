@@ -3,47 +3,47 @@
     {
       "name": "The Boston Museum",
       "url": "http://bostonmuseum.org/",
-      "logo": "bomu.jpg"
+      "logo": "/v1589395364/gatsby-square1/customer-logos/bomu_yn1dlq.jpg"
     },
     {
       "name": "De Young Museum",
       "url": "https://deyoung.famsf.org/",
-      "logo": "deyoung.jpg"
+      "logo": "/v1589395364/gatsby-square1/customer-logos/deyoung_f7sc6k.jpg"
     },
     {
       "name": "The Met",
       "url": "https://www.metmuseum.org/",
-      "logo": "met.jpg"
+      "logo": "/v1589395365/gatsby-square1/customer-logos/met_hgld3k.jpg"
     },
     {
       "name": "Museum of Contemporary Art",
       "url": "https://www.moca.org/",
-      "logo": "moca.jpg"
+      "logo": "/v1589395365/gatsby-square1/customer-logos/moca_fu7jnl.jpg"
     },
     {
       "name": "Museum of Modern Art",
       "url": "https://www.moma.org/",
-      "logo": "moma.jpg"
+      "logo": "/v1589395365/gatsby-square1/customer-logos/moma_l5ei5p.jpg"
     },
     {
       "name": "Seattle Art Museum",
       "url": "http://seattleartmuseum.org/",
-      "logo": "sam.jpg"
+      "logo": "/v1589395365/gatsby-square1/customer-logos/sam_j4y76i.jpg"
     },
     {
       "name": "San Francisco Museum of Modern Art",
       "url": "https://www.sfmoma.org/",
-      "logo": "sfmoma.jpg"
+      "logo": "/v1589395365/gatsby-square1/customer-logos/sfmoma_wtgzme.jpg"
     },
     {
       "name": "Tate Modern",
       "url": "https://www.tate.org.uk/visit/tate-modern",
-      "logo": "tate.jpg"
+      "logo": "/v1589395365/gatsby-square1/customer-logos/tate_rwte06.jpg"
     },
     {
       "name": "Victoria and Albert Museum",
       "url": "https://www.vam.ac.uk/",
-      "logo": "va.jpg"
+      "logo": "/v1589395365/gatsby-square1/customer-logos/va_bek85u.jpg"
     }
   ]
 }
