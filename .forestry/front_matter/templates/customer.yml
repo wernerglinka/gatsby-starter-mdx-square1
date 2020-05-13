@@ -1,0 +1,17 @@
+---
+label: Customer
+hide_body: true
+fields:
+- type: field_group_list
+  name: customers
+  label: customers
+  fields:
+  - type: text
+    name: name
+    label: name
+  - type: text
+    name: url
+    label: url
+  - type: file
+    name: logo
+    label: logo
