@@ -59,3 +59,5 @@ fields:
       file: 
       path: 
   label: Type
+pages:
+- content/data/newsroom/news2018/freecodecamp-2018-12-04.json
