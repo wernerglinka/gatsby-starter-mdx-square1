@@ -17,7 +17,6 @@ import { SectionWrapper, Testimonial } from "./testimonial-styles";
 const SingleTestimonial = ({ info }) => {
   const { testimonial } = info;
   const { quote, quotee, position, affiliation, logo } = useTestimonial(testimonial);
-  const quoteLogo = useImage(logo);
 
   return (
     <SectionWrapper>
@@ -29,7 +28,7 @@ const SingleTestimonial = ({ info }) => {
             <p>
               {position}, <span>{affiliation}</span>
             </p>
-            <Img fluid={quoteLogo} />
+            <img src={logo} alt={affiliation} />
           </footer>
         </Testimonial>
       </Container>

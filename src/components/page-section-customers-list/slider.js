@@ -43,7 +43,7 @@ const CustomerList = ({ info }) => {
           {customers.map(customer => (
             <div key={customer.url}>
               <a href={customer.url} target="_blank" rel="noopener noreferrer">
-                <CustomerImage fluid={customer.image} />
+                <CustomerImage src={customer.image} alt={customer.name} />
               </a>
             </div>
           ))}

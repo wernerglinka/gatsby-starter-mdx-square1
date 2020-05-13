@@ -13,9 +13,15 @@ const useCloudinaryImage = image => {
     }
   `);
 
-  const clImage = data.allCloudinaryMedia.edges.filter(edge => edge.node.secure_url.includes(image));
+  const allImages = [];
+  data.allCloudinaryMedia.edges.map(edge => allImages.push(edge.node.secure_url));
 
-  return clImage[0].node.secure_url;
+  // "*" is for return all images
+  if (image === "*") {
+    return allImages;
+  }
+  // and here we only return the one requested in "image"
+  return allImages.filter(item => item.includes(image));
 };
 
 export default useCloudinaryImage;

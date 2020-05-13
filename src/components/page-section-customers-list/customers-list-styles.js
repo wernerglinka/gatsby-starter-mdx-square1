@@ -38,7 +38,7 @@ export const FadeOutRight = styled.div`
   );
 `;
 
-export const CustomerImage = styled(Img)`
+export const CustomerImage = styled.img`
   width: 100px;
   margin: 0 40px;
   filter: grayscale(1);
