@@ -4,29 +4,35 @@ hide_body: true
 fields:
 - type: text
   name: name
-  label: name
+  label: Name
 - type: text
   name: title
-  label: title
+  label: Title
 - type: file
   name: avatar
-  label: avatar
+  label: Portrait
 - type: textarea
   name: bio
-  label: bio
+  label: Bio
+  config:
+    wysiwyg: true
+    schema:
+      format: markdown
 - type: number
   name: weight
-  label: weight
+  label: Weight
+  description: Determines the order in which all team members are displayed. 1 is
+    the first.
 - type: field_group
   name: socialLinks
-  label: socialLinks
+  label: Social Links
   fields:
   - type: text
     name: twitter
-    label: twitter
+    label: Twitter
   - type: text
     name: facebook
-    label: facebook
+    label: Facebook
   - type: text
     name: linkedIn
-    label: linkedIn
+    label: LinkedIn
