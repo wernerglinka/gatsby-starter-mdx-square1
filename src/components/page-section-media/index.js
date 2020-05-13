@@ -27,7 +27,9 @@ const MediaComponent = ({ info }) => {
     cta, // the inevitable call-to-action
   } = info;
 
-  const thisImage = useSiteImage(image);
+  // const thisImage = useSiteImage(image);
+
+  const thisImage = useCloudinaryImage(image);
 
   return (
     <section id={targetID}>
@@ -37,7 +39,7 @@ const MediaComponent = ({ info }) => {
           {cta.URL && <CTA cta={cta} />}
         </TextWrapper>
         <ImageWrapper>
-          <Img fluid={thisImage} />
+          <img src={thisImage} alt="" />
         </ImageWrapper>
       </SectionWrapper>
     </section>
