@@ -29,7 +29,7 @@ fields:
     options: []
     source:
       type: pages
-      section: pages
+      section: data
       file: 
       path: 
   label: Author

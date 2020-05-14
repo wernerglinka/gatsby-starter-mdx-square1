@@ -21,5 +21,8 @@ fields:
   label: Social Links
 pages:
 - content/data/authors/albert-einstein.json
+- content/data/authors/albert-einstein.json
 - content/data/authors/alexandria-ocasio-cortez.json
+- content/data/authors/alexandria-ocasio-cortez.json
+- content/data/authors/angela-merkel.json
 - content/data/authors/angela-merkel.json
