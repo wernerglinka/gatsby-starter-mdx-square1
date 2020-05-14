@@ -17,7 +17,7 @@ sections:
   match: "**/*"
   new_doc_ext: mdx
 upload_dir: ''
-public_path: https://res.cloudinary.com/glinkaco/image/upload/v1565289208
+public_path: https://res.cloudinary.com/glinkaco/image/upload
 front_matter_path: ''
 use_front_matter_path: true
 file_template: ":filename:"
