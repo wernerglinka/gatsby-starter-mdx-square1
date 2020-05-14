@@ -2,69 +2,70 @@
 label: Blogpost
 hide_body: false
 fields:
-- type: text
-  name: draft
-  label: draft
-- type: text
-  name: template
-  label: template
-- type: field_group
-  name: pageMetadata
-  label: pageMetadata
-  fields:
-  - type: text
-    name: metaTitle
-    label: metaTitle
-  - type: textarea
-    name: metaDescription
-    label: metaDescription
-  - type: text
-    name: metaImage
-    label: metaImage
-- type: text
-  name: date
-  label: date
-- type: text
-  name: author
-  label: author
-- type: text
-  name: category
-  label: category
-- type: text
-  name: tags
-  label: tags
+- name: page_meta_data
+  type: include
+  config: {}
+  template: page-metadat
+  label: Page Meta Data
 - type: text
   name: topMessage
   label: topMessage
-- type: field_group
-  name: pageIntroduction
-  label: pageIntroduction
-  fields:
-  - type: text
-    name: pageTitle
-    label: pageTitle
-  - type: textarea
-    name: pageIntro
-    label: pageIntro
-  - type: boolean
-    name: hasBanner
-    label: hasBanner
-  - type: field_group
-    name: banner
-    label: banner
-    fields:
-    - type: text
-      name: bgImage
-      label: bgImage
+- name: page_introduction
+  type: include
+  config: {}
+  template: page-intro
+  label: Page Introduction
 - type: text
-  name: thumbnail
-  label: thumbnail
+  name: template
+  label: Template
+- name: draft
+  type: boolean
+  label: Draft
+- name: date
+  type: datetime
+  label: Date
+  description: ''
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
 - type: text
-  name: featuredImage
-  label: featuredImage
+  name: author
+  label: author
+- name: category
+  type: select
+  default: category1
+  config:
+    required: false
+    options:
+    - category1
+    - category2
+    - category3
+    - category4
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Category
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+- name: thumbnail
+  type: file
+  config:
+    maxSize: 64
+  label: Thumbnail
+- name: featuredImage
+  type: file
+  config:
+    maxSize: 64
+  label: Featured Image
 - type: text
-  name: canonical_overwrite
-  label: canonical_overwrite
+  name: canonicalOverwrite
+  label: Canonical Overwrite
 - type: text
-  name: canonical_note
-  label: canonical_note
+  name: canonicalNote
+  label: Canonical Note
