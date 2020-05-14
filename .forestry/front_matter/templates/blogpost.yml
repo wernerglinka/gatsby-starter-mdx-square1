@@ -70,5 +70,6 @@ fields:
   name: canonicalNote
   label: Canonical Note
 pages:
+- content/pages/blog/2019/dapibus-elit-amet.mdx
 - content/pages/blog/2020/adipiscing-ridiculus-pharetra-fusce.mdx
 - content/pages/blog/2020/tellusr-idiculus-mattis.mdx
