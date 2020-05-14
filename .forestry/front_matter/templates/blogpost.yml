@@ -21,6 +21,18 @@ fields:
 - name: draft
   type: boolean
   label: Draft
+- name: author
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: pages
+      file: 
+      path: 
+  label: Author
 - name: date
   type: datetime
   label: Date
@@ -30,9 +42,6 @@ fields:
     date_format: 
     time_format: 
     display_utc: false
-- type: text
-  name: author
-  label: author
 - name: category
   type: select
   default: category1
