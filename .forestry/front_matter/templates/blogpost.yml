@@ -21,18 +21,6 @@ fields:
 - name: draft
   type: boolean
   label: Draft
-- name: author
-  type: select
-  default: []
-  config:
-    required: false
-    options: []
-    source:
-      type: pages
-      section: data
-      file: 
-      path: 
-  label: Author
 - name: date
   type: datetime
   label: Date
