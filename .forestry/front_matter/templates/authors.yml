@@ -4,26 +4,18 @@ hide_body: true
 fields:
 - type: text
   name: name
-  label: name
+  label: Name
 - type: text
   name: title
-  label: title
+  label: Title
 - type: file
   name: avatar
-  label: avatar
+  label: Portrait
 - type: textarea
   name: bio
-  label: bio
-- type: field_group
-  name: socialLinks
-  label: socialLinks
-  fields:
-  - type: text
-    name: twitter
-    label: twitter
-  - type: text
-    name: facebook
-    label: facebook
-  - type: text
-    name: linkedIn
-    label: linkedIn
+  label: Biography
+- name: socialLinks
+  type: include
+  config: {}
+  template: social-links
+  label: Social Links
