@@ -13,7 +13,7 @@ fields:
   label: Portrait
 - type: textarea
   name: bio
-  label: Bio
+  label: Biography
   config:
     wysiwyg: true
     schema:
@@ -23,19 +23,11 @@ fields:
   label: Weight
   description: Determines the order in which all team members are displayed. 1 is
     the first.
-- type: field_group
-  name: socialLinks
+- name: socialLinks
+  type: include
+  config: {}
+  template: social-links
   label: Social Links
-  fields:
-  - type: text
-    name: twitter
-    label: Twitter
-  - type: text
-    name: facebook
-    label: Facebook
-  - type: text
-    name: linkedIn
-    label: LinkedIn
 pages:
 - content/data/team/albert-einstein.json
 - content/data/team/alexandria-ocasio-cortez.json
