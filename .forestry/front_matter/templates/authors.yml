@@ -20,4 +20,5 @@ fields:
   template: social-links
   label: Social Links
 pages:
+- content/data/authors/albert-einstein.json
 - content/data/authors/alexandria-ocasio-cortez.json
