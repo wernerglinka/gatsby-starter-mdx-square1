@@ -1,4 +1,24 @@
 ---
 label: Social Links
 hide_body: true
-fields: []
+fields:
+- name: socialLinks
+  type: field_group
+  config: {}
+  fields:
+  - name: twitter
+    type: text
+    config:
+      required: false
+    label: Twitter
+  - name: facebook
+    type: text
+    config:
+      required: false
+    label: Facebook
+  - name: linkedIn
+    type: text
+    config:
+      required: false
+    label: LinkedIn
+  label: Social Links
