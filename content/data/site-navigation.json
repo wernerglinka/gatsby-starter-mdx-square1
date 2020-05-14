@@ -19,6 +19,10 @@
     {
       "label": "Code Example",
       "url": "/code"
+    },
+    {
+      "label": "Blog",
+      "url": "/blog"
     }
   ]
 }

@@ -91,10 +91,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       frontmatter: Frontmatter
     }
     type Frontmatter {
-      tags: [String!]!
-      category: String!
-      data: Date!
-      author: [String!]!
+      tags: [String]
+      category: String
+      data: Date
+      author: [String]
     }
   `;
   createTypes(typeDefs);
