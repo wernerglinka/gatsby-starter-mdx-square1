@@ -2,17 +2,13 @@
 
 import React from "react";
 import PropType from "prop-types";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import titleCase from "ap-style-title-case";
 import mdStringToHTML from "../utilities/md-to-html";
-import allComponents from "../components/index";
 import { Container } from "../components/common-styles";
-import SectionWrapper from "../components/page-section-wrapper";
 import useBlogposts from "../hooks/useBlogposts";
 import { PageContent, PageIntro } from "./layout-styles";
 
 /** ***************************************************************************
- *  Blog Post Template
+ *  Blog Categories Template
  *  This page layout renders:
  *  - banner
  *  - header/intro
@@ -21,23 +17,29 @@ import { PageContent, PageIntro } from "./layout-styles";
  *************************************************************************** */
 
 const BlogPost = ({ pageContext }) => {
+  const blogCategories = pageContext.blogCategories;
   const { pageTitle, pageIntro, hasBanner } = pageContext.fields.pageIntroduction;
-
-  const allBlogposts = useBlogposts("*");
-
-  console.log(useBlogposts());
+  const thisCategory = pageContext.fields.category || "all";
+  const allBlogposts = useBlogposts("all", thisCategory);
 
   return (
     <>
       <PageContent>
         <Container>
           {!hasBanner && <h1>{pageTitle}</h1>}
-          <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(pageIntro) }} />
+          {pageIntro && <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(pageIntro) }} />}
         </Container>
 
         <ul>
+          {blogCategories.map(category => (
+            <li key={category} className={thisCategory === category ? "active" : null}>
+              {category}
+            </li>
+          ))}
+        </ul>
+
+        <ul>
           {allBlogposts.map(post => {
-            console.log(post);
             return (
               <li key={post.title}>
                 <h3>{post.title}</h3>

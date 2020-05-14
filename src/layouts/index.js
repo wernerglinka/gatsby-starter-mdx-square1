@@ -86,8 +86,8 @@ const StandardPage = props => {
 
   const shortcodes = { InlineMessage };
 
-  const hasTopMessage = !!children.props.pageContext.fields.topMessage;
-  const topMessage = children.props.pageContext.fields.topMessage ? children.props.pageContext.fields.topMessage : null;
+  const topMessage = children.props.pageContext.fields.topMessage || null;
+  const hasTopMessage = !!topMessage;
 
   // get page banner properties
   const { hasBanner, banner, pageTitle } = children.props.pageContext.fields.pageIntroduction;
@@ -169,7 +169,7 @@ const StandardPage = props => {
 };
 
 StandardPage.propTypes = {
-  children: PropType.node.isRequired,
+  children: PropType.shape().isRequired,
   location: PropType.shape().isRequired,
 };
 

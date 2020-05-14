@@ -35,12 +35,12 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
           }
         }
       }
-      blogTags: allMdx(filter: { fileAbsolutePath: { glob: "**/src/pages/resources/blog/**/*.md" } }) {
+      blogTags: allMdx(filter: { fileAbsolutePath: { glob: "**/content/pages/blog/**/*.mdx" } }) {
         group(field: frontmatter___tags) {
           fieldValue
         }
       }
-      blogCategories: allMdx(filter: { fileAbsolutePath: { glob: "**/src/pages/resources/blog/**/*.md" } }) {
+      blogCategories: allMdx(filter: { fileAbsolutePath: { glob: "**/content/pages/blog/**/*.mdx" } }) {
         group(field: frontmatter___category) {
           fieldValue
         }
@@ -79,6 +79,27 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
         id: node.id,
         fields: nodeContent.frontmatter,
         body: node.body,
+        blogCategories: allCategories,
+        blogTags: allTags,
+      },
+    });
+  });
+
+  allCategories.forEach((category, i) => {
+    const fields = {
+      pageIntroduction: {
+        pageTitle: `Blogposts of type: ${category}`,
+      },
+      category,
+    };
+
+    createPage({
+      path: `/blog/${category.replace(/\s+/g, "-")}`,
+      component: path.resolve("./src/layouts/blog.js"),
+      context: {
+        fields,
+        blogCategories: allCategories,
+        blogTags: allTags,
       },
     });
   });
