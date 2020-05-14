@@ -1,0 +1,70 @@
+---
+label: Blogpost
+hide_body: false
+fields:
+- type: text
+  name: draft
+  label: draft
+- type: text
+  name: template
+  label: template
+- type: field_group
+  name: pageMetadata
+  label: pageMetadata
+  fields:
+  - type: text
+    name: metaTitle
+    label: metaTitle
+  - type: textarea
+    name: metaDescription
+    label: metaDescription
+  - type: text
+    name: metaImage
+    label: metaImage
+- type: text
+  name: date
+  label: date
+- type: text
+  name: author
+  label: author
+- type: text
+  name: category
+  label: category
+- type: text
+  name: tags
+  label: tags
+- type: text
+  name: topMessage
+  label: topMessage
+- type: field_group
+  name: pageIntroduction
+  label: pageIntroduction
+  fields:
+  - type: text
+    name: pageTitle
+    label: pageTitle
+  - type: textarea
+    name: pageIntro
+    label: pageIntro
+  - type: boolean
+    name: hasBanner
+    label: hasBanner
+  - type: field_group
+    name: banner
+    label: banner
+    fields:
+    - type: text
+      name: bgImage
+      label: bgImage
+- type: text
+  name: thumbnail
+  label: thumbnail
+- type: text
+  name: featuredImage
+  label: featuredImage
+- type: text
+  name: canonical_overwrite
+  label: canonical_overwrite
+- type: text
+  name: canonical_note
+  label: canonical_note
