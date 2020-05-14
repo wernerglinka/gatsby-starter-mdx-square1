@@ -69,3 +69,5 @@ fields:
 - type: text
   name: canonicalNote
   label: Canonical Note
+pages:
+- content/pages/blog/2020/tellusr-idiculus-mattis.mdx
