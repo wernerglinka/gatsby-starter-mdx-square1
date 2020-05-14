@@ -4,9 +4,14 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
-- type: document
-  path: content/data/authors/**/*
+- type: directory
+  path: content/data/authors
   label: Authors
+  create: documents
+  match: "**/*"
+  new_doc_ext: ".json"
+  templates:
+  - authors
 - type: directory
   path: content/data
   label: Data
