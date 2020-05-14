@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import mdStringToHTML from "../../utilities/md-to-html";
 import CTA from "../cta";
-import useSVG from "../../hooks/useSVG";
 import useCloudinaryImage from "../../hooks/useCloudinaryImage";
 import { PointWrapper } from "./main-points-styles";
 

@@ -24,7 +24,7 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
   const { createPage } = actions;
   const result = await graphql(`
     query {
-      allMdx {
+      allPages: allMdx {
         edges {
           node {
             id
@@ -35,28 +35,46 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
           }
         }
       }
+      blogTags: allMdx(filter: { fileAbsolutePath: { glob: "**/src/pages/resources/blog/**/*.md" } }) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
+      blogCategories: allMdx(filter: { fileAbsolutePath: { glob: "**/src/pages/resources/blog/**/*.md" } }) {
+        group(field: frontmatter___category) {
+          fieldValue
+        }
+      }
     }
   `);
   if (result.errors) {
     reporter.panicOnBuild('ERROR: Loading "createPages" query');
   }
-  // Create blog post pages.
-  const pages = result.data.allMdx.edges;
-  // you'll call `createPage` for each result
+
+  // build the blog categories array
+  const blogCategories = [];
+  result.data.blogCategories.group.forEach(category => blogCategories.push(category.fieldValue));
+  // remove category duplication from list
+  const allCategories = [...new Set(blogCategories)];
+
+  // build the blog tags array
+  const blogTags = [];
+  result.data.blogTags.group.forEach(tag => blogTags.push(tag.fieldValue));
+  // remove tag duplications from list
+  const allTags = [...new Set(blogTags)];
+
+  // Create all pages
+  const pages = result.data.allPages.edges;
+
   pages.forEach(({ node }, index) => {
     // deliver frontmatter fields via the page context
-    // will save long repetitive graphql queries in page tmeplates
+    // will save long repetitive graphql queries in page templates
     // EXPERIMENTAL what are the implications?
     const nodeContent = getNode(node.id);
 
     createPage({
-      // This is the slug you created before
-      // (or `node.frontmatter.slug`)
       path: node.fields.slug,
-      // This component will wrap our MDX content
       component: path.resolve(`./src/layouts/${String(nodeContent.frontmatter.template)}.js`),
-      // You can use the values in this context in
-      // our page layout component
       context: {
         id: node.id,
         fields: nodeContent.frontmatter,
@@ -64,4 +82,20 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
       },
     });
   });
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type Mdx implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      tags: [String!]!
+      category: String!
+      data: Date!
+      author: [String!]!
+    }
+  `;
+  createTypes(typeDefs);
 };
