@@ -5,9 +5,8 @@ admin_path:
 webhook_url: 
 sections:
 - type: document
-  path: data/authors
+  path: content/data/authors/**/*
   label: Authors
-  match: "**/*"
 - type: directory
   path: content/data
   label: Data
