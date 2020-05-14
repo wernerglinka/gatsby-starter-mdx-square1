@@ -1,0 +1,71 @@
+---
+label: Blogpost
+hide_body: false
+fields:
+- name: page_meta_data
+  type: include
+  config: {}
+  template: page-metadat
+  label: Page Meta Data
+- type: text
+  name: topMessage
+  label: topMessage
+- name: page_introduction
+  type: include
+  config: {}
+  template: page-intro
+  label: Page Introduction
+- type: text
+  name: template
+  label: Template
+- name: draft
+  type: boolean
+  label: Draft
+- name: date
+  type: datetime
+  label: Date
+  description: ''
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
+- type: text
+  name: author
+  label: author
+- name: category
+  type: select
+  default: category1
+  config:
+    required: false
+    options:
+    - category1
+    - category2
+    - category3
+    - category4
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Category
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+- name: thumbnail
+  type: file
+  config:
+    maxSize: 64
+  label: Thumbnail
+- name: featuredImage
+  type: file
+  config:
+    maxSize: 64
+  label: Featured Image
+- type: text
+  name: canonicalOverwrite
+  label: Canonical Overwrite
+- type: text
+  name: canonicalNote
+  label: Canonical Note
