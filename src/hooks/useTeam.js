@@ -9,7 +9,7 @@ const useTeam = () => {
           node {
             childTeamJson {
               name
-              title
+              position
               avatar
               bio
               weight
@@ -25,7 +25,7 @@ const useTeam = () => {
     }
   `);
   const allTeamMembers = [];
-  const allImages = useCloudinaryImage("*");
+  const allImages = useCloudinaryImage("all");
 
   // normalize team member array
   data.teamData.edges.forEach(edge => {

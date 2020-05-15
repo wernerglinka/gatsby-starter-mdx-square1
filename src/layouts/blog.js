@@ -5,6 +5,7 @@ import PropType from "prop-types";
 import mdStringToHTML from "../utilities/md-to-html";
 import { Container } from "../components/common-styles";
 import useBlogposts from "../hooks/useBlogposts";
+import useAuthors from "../hooks/useAuthors";
 import { PageContent, PageIntro } from "./layout-styles";
 
 /** ***************************************************************************
@@ -43,7 +44,11 @@ const BlogPost = ({ pageContext }) => {
             return (
               <li key={post.title}>
                 <h3>{post.title}</h3>
-                <p>{post.author}</p>
+                <p>
+                  {post.author.map(single => (
+                    <span key={single}>{single}</span>
+                  ))}
+                </p>
                 <p>{post.category}</p>
               </li>
             );
