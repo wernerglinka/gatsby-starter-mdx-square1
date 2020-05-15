@@ -77,6 +77,7 @@ fields:
   name: canonicalNote
   label: Canonical Note
 pages:
+- content/pages/blog/2017/cras-justo-odio-dapibus.mdx
 - content/pages/blog/2019/condimentum-porta-pharetra-cursus.mdx
 - content/pages/blog/2019/dapibus-elit-amet.mdx
 - content/pages/blog/2020/adipiscing-ridiculus-pharetra-fusce.mdx
