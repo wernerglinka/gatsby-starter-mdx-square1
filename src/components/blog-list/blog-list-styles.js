@@ -46,13 +46,13 @@ export const BlogCard = styled.div`
 `;
 
 export const Authors = styled.p`
-  span {
+  a {
     &:after {
       content: ",";
       padding-right: 5px;
     }
   }
-  span:last-child:after {
+  a:last-child:after {
     content: "";
   }
 `;

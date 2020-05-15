@@ -7,28 +7,25 @@ import styled from "@emotion/styled";
 import mdStringToHTML from "../utilities/md-to-html";
 import { Container } from "../components/common-styles";
 import useBlogposts from "../hooks/useBlogposts";
-import useAuthors from "../hooks/useAuthors";
 import { PageContent, PageIntro } from "./layout-styles";
 import BlogCategoriesList from "../components/blog-categories-list";
 import BlogList from "../components/blog-list";
-import CTA from "../components/cta";
 
 /** ***************************************************************************
- *  Blog Categories Template
- *  This page layout renders:
- *  - banner
- *  - header/intro
- *  - sections of components that are defined in the frontmatter
- *  - the page body
+ *  Blog List Template
+ *  This template is used to list blogposts by:
+ *  - Category
+ *  - Author
+ *  - ToDo Year
  *************************************************************************** */
 
 const BlogPost = ({ pageContext }) => {
   const blogCategories = pageContext.blogCategories;
   const { pageTitle, pageIntro, hasBanner } = pageContext.fields.pageIntroduction;
   const thisCategory = pageContext.fields.category || "all";
-  const allBlogposts = useBlogposts("all", thisCategory);
+  const thisAuthor = pageContext.fields.author || "all";
 
-  console.log("I am here.....");
+  const allBlogposts = useBlogposts("all", thisCategory, thisAuthor);
 
   return (
     <>

@@ -120,6 +120,7 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
         fields,
         blogCategories: allCategories,
         blogTags: allTags,
+        pageType: "blogCategory",
       },
     });
   });
@@ -132,15 +133,17 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
       pageIntroduction: {
         pageTitle: `Blogposts by: ${author.name}`,
       },
+      author: author.name,
     };
 
     createPage({
       path: `/blog/${author.name.replace(/\s+/g, "-").toLowerCase()}`,
-      component: path.resolve("./src/layouts/blog-authors.js"),
+      component: path.resolve("./src/layouts/blog.js"),
       context: {
         fields,
         blogCategories: allCategories,
         blogTags: allTags,
+        pageType: "blogAuthor",
       },
     });
   });

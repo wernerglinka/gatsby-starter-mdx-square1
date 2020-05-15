@@ -18,7 +18,7 @@ import useSiteMetadata from "./useSiteMetadata";
  *    file name reflects the name that is used in the file name. For example:
  *    "Barack Obama" =>  "/content/data/authors/barack-obama.json"
  *************************************************************************** */
-const useBlogposts = (year = "all", category) => {
+const useBlogposts = (byYear = "all", byCategory = "all", byAuthor = "all") => {
   const data = useStaticQuery(graphql`
     query getBlogposts {
       allBlogposts: allMdx(
@@ -77,15 +77,20 @@ const useBlogposts = (year = "all", category) => {
   // filter out the blog landing page
   const allBlogposts = temp.filter(post => post.template !== "blog");
 
-  // filter by category
-  const blogpostsByCategory = allBlogposts.filter(blogpost => blogpost.category === category || category === "all");
+  console.log(allBlogposts);
 
-  // return a year if not "*"
-  if (year !== "all") {
-    return blogpostsByCategory.filter(post => post.link.includes(year));
-  }
-  // default return all
-  return blogpostsByCategory;
+  // filter by category
+  const blogpostsByCategory = allBlogposts.filter(blogpost => blogpost.category === byCategory || byCategory === "all");
+
+  // filter by authors
+  const blogpostByAuthor = blogpostsByCategory.filter(
+    blogpost => blogpost.author.includes(byAuthor) || byAuthor === "all"
+  );
+
+  // filter by year
+  const blogpostByYear = blogpostByAuthor.filter(blogpost => byYear === "all");
+
+  return blogpostByYear;
 };
 
 export default useBlogposts;

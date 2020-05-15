@@ -28,6 +28,7 @@ const BlogList = ({ posts }) => (
                 );
               })}
             </Authors>
+            <p>{post.category}</p>
             <CTA cta={post.cta} />
           </BlogCard>
         </li>
