@@ -5,9 +5,11 @@ fields:
 - type: text
   name: name
   label: Name
-- type: text
-  name: title
-  label: Title
+- name: position
+  type: text
+  config:
+    required: false
+  label: Position
 - type: file
   name: avatar
   label: Portrait
