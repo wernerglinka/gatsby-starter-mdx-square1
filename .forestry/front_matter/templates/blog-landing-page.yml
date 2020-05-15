@@ -15,3 +15,5 @@ fields:
   config: {}
   template: page-intro
   label: Page Introduction
+pages:
+- content/pages/blog/index.mdx
