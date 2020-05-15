@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Link } from "gatsby";
 
 export const Container = styled.div`
-  max-width: 960px;
+  max-width: ${props => props.theme.content.maxWidth};
   width: 100%;
   margin: 0 auto;
 `;

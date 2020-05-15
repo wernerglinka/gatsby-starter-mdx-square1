@@ -42,7 +42,6 @@ module.exports = {
         prefix: `gatsby-square1/`,
       },
     },
-    `gatsby-background-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

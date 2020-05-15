@@ -37,7 +37,7 @@ const Theme = {
     defaultPadding: "20px",
   },
   content: {
-    maxWidth: "960px",
+    maxWidth: "1024px",
   },
   boxShadow: "0px 0px 20px 0px rgba(84,86,90,0.17)",
   backgroundPattern: {

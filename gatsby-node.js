@@ -45,11 +45,26 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
           fieldValue
         }
       }
+      allAuthorsJson {
+        edges {
+          node {
+            name
+            parent {
+              ... on File {
+                relativePath
+              }
+            }
+          }
+        }
+      }
     }
   `);
   if (result.errors) {
     reporter.panicOnBuild('ERROR: Loading "createPages" query');
   }
+
+  // build the allAuthors array
+  const allAuthors = result.data.allAuthorsJson.edges.map(edge => edge.node);
 
   // build the blog categories array
   const blogCategories = [];
@@ -63,7 +78,9 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
   // remove tag duplications from list
   const allTags = [...new Set(blogTags)];
 
-  // Create all pages
+  /** ***************************************************************************
+   *  Create all pages
+   *************************************************************************** */
   const pages = result.data.allPages.edges;
 
   pages.forEach(({ node }, index) => {
@@ -85,7 +102,10 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
     });
   });
 
-  allCategories.forEach((category, i) => {
+  /** ***************************************************************************
+   *  Create a page per blog category
+   *************************************************************************** */
+  allCategories.forEach(category => {
     const fields = {
       pageIntroduction: {
         pageTitle: `Blogposts of type: ${category}`,
@@ -96,6 +116,27 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
     createPage({
       path: `/blog/${category.replace(/\s+/g, "-")}`,
       component: path.resolve("./src/layouts/blog.js"),
+      context: {
+        fields,
+        blogCategories: allCategories,
+        blogTags: allTags,
+      },
+    });
+  });
+
+  /** ***************************************************************************
+   *  Create a page per author
+   *************************************************************************** */
+  allAuthors.forEach(author => {
+    const fields = {
+      pageIntroduction: {
+        pageTitle: `Blogposts by: ${author.name}`,
+      },
+    };
+
+    createPage({
+      path: `/blog/${author.name.replace(/\s+/g, "-").toLowerCase()}`,
+      component: path.resolve("./src/layouts/blog-authors.js"),
       context: {
         fields,
         blogCategories: allCategories,

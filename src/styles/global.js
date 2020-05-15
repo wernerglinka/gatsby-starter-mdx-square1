@@ -206,6 +206,9 @@ const globalStyles = css`
       font-size: 32px;
     }
   }
+  .pageTitle {
+    margin-bottom: ${props => props.theme.sections.clearance};
+  }
   h2 {
     font-size: 32px;
     line-height: ${props => props.theme.header.lineHeight};

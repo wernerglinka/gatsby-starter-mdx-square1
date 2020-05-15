@@ -28,8 +28,6 @@ const BlogPost = ({ pageContext }) => {
   const thisCategory = pageContext.fields.category || "all";
   const allBlogposts = useBlogposts("all", thisCategory);
 
-  console.log("I am here.....");
-
   return (
     <>
       <PageContent>

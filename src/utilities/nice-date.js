@@ -8,7 +8,7 @@ const getDate = (date, { day = true, month = true, year = true } = {}) =>
     year: year ? "numeric" : undefined,
   });
 
-const EventDate = ({ startDate, endDate, location }) => {
+const NiceDate = ({ startDate, endDate, location }) => {
   const start = new Date(startDate);
   // if no endDate we set it to startDate
   const end = endDate ? new Date(endDate) : new Date(startDate);
@@ -27,14 +27,14 @@ const EventDate = ({ startDate, endDate, location }) => {
   );
 };
 
-export default EventDate;
+export default NiceDate;
 
-EventDate.defaultProps = {
+NiceDate.defaultProps = {
   endDate: null,
   location: null,
 };
 
-EventDate.propTypes = {
+NiceDate.propTypes = {
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string,
   location: PropTypes.string,

@@ -29,9 +29,19 @@ const useAuthors = (thisAuthor = "all") => {
 
   // normalize authors array
   data.authorsData.edges.forEach(edge => {
-    if (edge.node.childAuthorsJson) {
-      allAuthors.push(edge.node.childAuthorsJson);
-    }
+    const temp = {
+      name: edge.node.childAuthorsJson.name,
+      position: edge.node.childAuthorsJson.position,
+      avatar: edge.node.childAuthorsJson.avatar,
+      bio: edge.node.childAuthorsJson.bio,
+      socialLinks: {
+        twitter: edge.node.childAuthorsJson.twitter,
+        facebook: edge.node.childAuthorsJson.facebook,
+        linkedIn: edge.node.childAuthorsJson.linkedIn,
+      },
+      filePath: edge.node.relativePath,
+    };
+    allAuthors.push(temp);
   });
 
   // add image data to customer data
@@ -44,13 +54,11 @@ const useAuthors = (thisAuthor = "all") => {
   });
 
   if (thisAuthor !== "all") {
-    // make names comparable
-
-    // compare and build new array
-
-    console.log(thisAuthor);
-    console.log(allAuthors);
-    // get specific authors
+    // thisAutor is a string with the path the author file, e.g.: content/data/authors/alexandria-ocasio-cortez.json
+    // authors in allAuthors have a relative file path, e.g.: authors/alexandria-ocasio-cortez.json
+    // if thisAuthor includes the authors relative path the authors file has been found
+    const author = allAuthors.filter(oneAuthor => thisAuthor.includes(oneAuthor.filePath));
+    return author;
   }
 
   return allAuthors;

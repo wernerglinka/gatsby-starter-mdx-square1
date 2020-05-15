@@ -7,5 +7,6 @@
     "siteOwner": "Site Owner",
     "twitter": "twitter",
     "linkedIn": "linkedin"
-  }
+  },
+  "imagePrefix": "https://res.cloudinary.com/glinkaco/image/upload"
 }

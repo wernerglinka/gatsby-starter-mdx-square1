@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import titleCase from "ap-style-title-case";
 import Img from "gatsby-image";
 import mdStringToHTML from "../../utilities/md-to-html";
-import EventDate from "../../utilities/event-date";
+import NiceDate from "../../utilities/nice-date";
 import truncate from "../../utilities/truncate";
 import getImage from "../../hooks/useImage";
 import useCloudinaryImage from "../../hooks/useCloudinaryImage";
@@ -30,7 +30,7 @@ const NewsCard = ({
         <CardType>{type}</CardType>
 
         <CardDate>
-          <EventDate startDate={startDate} endDate={endDate} location={location} />
+          <NiceDate startDate={startDate} endDate={endDate} location={location} />
         </CardDate>
 
         <h3 title={title}>{titleCase(truncatedTitle)}</h3>

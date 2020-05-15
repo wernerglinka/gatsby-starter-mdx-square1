@@ -1,10 +1,10 @@
 /* global document */
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import Img from "gatsby-image";
 import Modal from "./modal";
 import SocialLinks from "../social-links";
 import { TeamCard, ModalTrigger } from "./team-list-styles";
+import useSiteMetadata from "../../hooks/useSiteMetadata";
 
 /** *******************************************************************************
  * Team member component
@@ -16,7 +16,12 @@ const TeamMember = ({ info }) => {
   const [thisModal, toggleThisModal] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const overlayRef = useRef(null);
-  const { image, name, title, social } = info;
+  const { avatar, name, position } = info;
+
+  // get image prefix and transfor string so we can return a fully formed image src
+  const { imagePrefix } = useSiteMetadata();
+  const imageTransform = `/c_scale,f_auto,q_auto:best,w_300`;
+  const portrait = `${imagePrefix}${imageTransform}${avatar}`;
 
   const openModal = () => {
     toggleThisModal(true);
@@ -43,10 +48,10 @@ const TeamMember = ({ info }) => {
 
   return (
     <TeamCard>
-      <img src={image} alt={name} />
+      <img src={portrait} alt={name} />
       <div className="prose">
         <h3>{name}</h3>
-        <p>{title}</p>
+        <p>{position}</p>
         <SocialLinks social={info.socialLinks} />
 
         <ModalTrigger className="read-more" onClick={openModal} onKeyDown={openModal} onTouchStart={openModal}>
