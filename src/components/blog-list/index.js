@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import CTA from "../cta";
 import NiceDate from "../../utilities/nice-date";
 
-import { Wrapper, BlogCard, Authors } from "./blog-list-styles";
+import { ImageWrapper, Wrapper, BlogCard, Authors } from "./blog-list-styles";
 
 const BlogList = ({ posts }) => (
   <Wrapper>
@@ -12,11 +12,11 @@ const BlogList = ({ posts }) => (
       return (
         <li key={post.title}>
           <BlogCard>
-            <div>
+            <ImageWrapper>
               <img src={post.thumbnail} alt="" />
               <h3>{post.title}</h3>
               <NiceDate startDate={post.date} />
-            </div>
+            </ImageWrapper>
 
             <Authors>
               {post.author.map(single => {

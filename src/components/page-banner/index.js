@@ -9,10 +9,10 @@ import { Banner, BannerContent } from "./page-banner-styles";
 /** ***************************************************************************
  *  Page Banner Component
  *************************************************************************** */
-
 const PageBanner = ({ properties, title }) => {
   const clImage = useCloudinaryImage(properties.bgImage);
-
+  console.log(properties.bgImage);
+  console.log(clImage);
   return (
     <Banner style={{ backgroundImage: `url(${clImage})` }}>
       <BannerContent>

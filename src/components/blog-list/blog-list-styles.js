@@ -16,14 +16,15 @@ export const Wrapper = styled.ul`
       /* move out of the flow so it doesn't occupy space */
       position: absolute;
     }
+
+    > div {
+      /* needed so child can have height in % */
+      height: 100%;
+    }
   }
 `;
 
 export const BlogCard = styled.div`
-  > div {
-    position: relative;
-  }
-
   h3 {
     position: absolute;
     top: 20%;
@@ -54,5 +55,18 @@ export const Authors = styled.p`
   }
   a:last-child:after {
     content: "";
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  /* needs a 100% set on parent */
+  height: 60%;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+    object-fit: cover;
   }
 `;
