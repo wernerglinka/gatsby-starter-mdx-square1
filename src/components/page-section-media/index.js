@@ -3,6 +3,7 @@ import React from "react";
 import CTA from "../cta";
 import SectionIntro from "../section-intro";
 import useCloudinaryImage from "../../hooks/useCloudinaryImage";
+import useSiteMetadata from "../../hooks/useSiteMetadata";
 
 import { TextWrapper, ImageWrapper, SectionWrapper } from "./media-component-styles";
 
@@ -25,8 +26,12 @@ const MediaComponent = ({ info }) => {
   } = info;
 
   // const thisImage = useSiteImage(image);
+  // get image prefix and transfor string so we can return a fully formed image src
+  const { imagePrefix } = useSiteMetadata();
+  const imageTransform = `/c_scale,f_auto,q_60,w_420`;
 
-  const thisImage = useCloudinaryImage(image);
+  const thisImage = `${imagePrefix}${imageTransform}${image}`;
+  // const thisImage = useCloudinaryImage(image);
 
   return (
     <section id={targetID}>

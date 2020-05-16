@@ -20,6 +20,7 @@ plugins:[
         cloudName: process.env.CLOUDINARY_CLOUD_NAME,
         apiKey: process.env.CLOUDINARY_API_KEY,
         apiSecret: process.env.CLOUDINARY_API_SECRET,
+        type: `upload`,
         resourceType: `image`,
         prefix: `gatsby-source-cloudinary/` 
       }
@@ -35,3 +36,12 @@ CLOUDINARY_CLOUD_NAME=xxxxx
 ```
 
 The `dotenv` package exposes those environment variables in the project.
+
+
+Forestry is setup to serve images in content with a max width of 1024px as that is the max content width. Example:
+
+`https://res.cloudinary.com/glinkaco/image/upload/w_auto:200:1024,dpr_auto,f_auto/v1565045655/Industrial/image2_yx7xdd.jpg`
+
+Images in frontmatter fields can be fetched in two ways.
+
+1. Using useCloudinaryImage(). Not the best approach as it delivers original images via the gatsby-source-cloudinary plug in. Images in Cloudinary are supposed to be large so all transformations can be done without quality loss.
