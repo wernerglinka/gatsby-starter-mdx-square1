@@ -144,8 +144,6 @@ const StandardPage = props => {
         <div id="pageTop" />
         <Header siteTitle={siteMetadata.title} isSticky={scrollState.stickyMainNav} />
 
-        {hasBanner && <PageBanner properties={banner} title={pageTitle} />}
-
         <MDXProvider components={shortcodes}>
           <PageBg className={hasBanner ? "hasBanner" : null}>
             {/* waypoint for to top botton */}

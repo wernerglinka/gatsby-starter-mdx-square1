@@ -8,6 +8,7 @@ import allComponents from "../components/index";
 import { Container } from "../components/common-styles";
 import SectionWrapper from "../components/page-section-wrapper";
 import { PageContent, PageIntro } from "./layout-styles";
+import PageBanner from "../components/page-banner";
 
 /** ***************************************************************************
  *  Standard Page Template
@@ -18,11 +19,13 @@ import { PageContent, PageIntro } from "./layout-styles";
  *************************************************************************** */
 
 const StandardPage = ({ pageContext }) => {
-  const { hasBanner, pageTitle, pageIntro } = pageContext.fields.pageIntroduction;
+  const { hasBanner, banner, pageTitle, pageIntro } = pageContext.fields.pageIntroduction;
   const pageSections = pageContext.fields.sections;
+  // get page banner properties
 
   return (
     <>
+      {hasBanner && <PageBanner properties={banner} title={pageTitle} />}
       <PageContent>
         <Container>
           {!hasBanner && <h1>{pageTitle}</h1>}

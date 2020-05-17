@@ -4,6 +4,7 @@ import CTA from "../cta";
 import SectionIntro from "../section-intro";
 import useCloudinaryImage from "../../hooks/useCloudinaryImage";
 import useSiteMetadata from "../../hooks/useSiteMetadata";
+import ClImage from "../cl-image";
 
 import { TextWrapper, ImageWrapper, SectionWrapper } from "./media-component-styles";
 
@@ -20,18 +21,13 @@ import { TextWrapper, ImageWrapper, SectionWrapper } from "./media-component-sty
 const MediaComponent = ({ info }) => {
   const {
     image, // the mandatory image... after all this is a media component
+    imageMaxWidth,
+    sizes,
     imageLeft, // determines whether image is positioned left or right of the text
+    alt, // to be used as the alt text of the image
     targetID, // add an ID attribute to the section so links can target it
     cta, // the inevitable call-to-action
   } = info;
-
-  // const thisImage = useSiteImage(image);
-  // get image prefix and transfor string so we can return a fully formed image src
-  const { imagePrefix } = useSiteMetadata();
-  const imageTransform = `/c_scale,f_auto,q_60,w_420`;
-
-  const thisImage = `${imagePrefix}${imageTransform}${image}`;
-  // const thisImage = useCloudinaryImage(image);
 
   return (
     <section id={targetID}>
@@ -41,7 +37,7 @@ const MediaComponent = ({ info }) => {
           {cta.URL && <CTA cta={cta} />}
         </TextWrapper>
         <ImageWrapper>
-          <img src={thisImage} alt="" />
+          <ClImage imageName={image} maxWidth={imageMaxWidth} sizes={sizes} alt={alt} />
         </ImageWrapper>
       </SectionWrapper>
     </section>
@@ -50,7 +46,10 @@ const MediaComponent = ({ info }) => {
 
 MediaComponent.propTypes = {
   info: PropTypes.shape({
+    alt: PropTypes.string,
     image: PropTypes.string.isRequired,
+    imageMaxWidth: PropTypes.number.isRequired,
+    sizes: PropTypes.string.isRequired,
     imageLeft: PropTypes.bool,
     targetID: PropTypes.string,
     cta: PropTypes.object,
@@ -59,6 +58,7 @@ MediaComponent.propTypes = {
 
 MediaComponent.defaultProps = {
   info: {
+    alt: "",
     imageLeft: false,
     targetID: null,
     cta: null,

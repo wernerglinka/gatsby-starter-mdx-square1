@@ -12,6 +12,7 @@ import { PageContent, PageIntro } from "./layout-styles";
 import BlogCategoriesList from "../components/blog-categories-list";
 import BlogList from "../components/blog-list";
 import CTA from "../components/cta";
+import PageBanner from "../components/page-banner";
 
 /** ***************************************************************************
  *  Blog Categories Template
@@ -24,12 +25,13 @@ import CTA from "../components/cta";
 
 const BlogPost = ({ pageContext }) => {
   const blogCategories = pageContext.blogCategories;
-  const { pageTitle, pageIntro, hasBanner } = pageContext.fields.pageIntroduction;
+  const { pageTitle, pageIntro, hasBanner, banner } = pageContext.fields.pageIntroduction;
   const thisCategory = pageContext.fields.category || "all";
   const allBlogposts = useBlogposts("all", thisCategory);
 
   return (
     <>
+      {hasBanner && <PageBanner properties={banner} title={pageTitle} />}
       <PageContent>
         <Container>
           {!hasBanner && <h1 className="pageTitle">{pageTitle}</h1>}

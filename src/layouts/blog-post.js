@@ -9,6 +9,7 @@ import allComponents from "../components/index";
 import { Container } from "../components/common-styles";
 import SectionWrapper from "../components/page-section-wrapper";
 import { PageContent, PageIntro } from "./layout-styles";
+import PageBanner from "../components/page-banner";
 
 /** ***************************************************************************
  *  Blog Post Template
@@ -21,14 +22,16 @@ import { PageContent, PageIntro } from "./layout-styles";
 
 const BlogPost = ({ pageContext }) => {
   const fields = pageContext.fields;
+  const { pageTitle, pageIntro, hasBanner, banner } = fields.pageIntroduction;
   const pageSections = fields.sections;
   const pageBody = pageContext.body;
 
   return (
     <>
+      {hasBanner && <PageBanner properties={banner} title={pageTitle} />}
       <PageContent>
         <Container>
-          <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntroduction.pageIntro) }} />
+          <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(pageIntro) }} />
         </Container>
 
         {pageSections &&

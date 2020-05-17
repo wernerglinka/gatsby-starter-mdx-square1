@@ -9,6 +9,7 @@ import allComponents from "../components/index";
 import { Container } from "../components/common-styles";
 import SectionWrapper from "../components/page-section-wrapper";
 import { PageContent, PageIntro } from "./layout-styles";
+import PageBanner from "../components/page-banner";
 
 /** ***************************************************************************
  *  Home Page Template
@@ -23,9 +24,12 @@ const StandardPage = ({ pageContext }) => {
   const fields = pageContext.fields;
   const pageSections = fields.sections;
   const pageBody = pageContext.body;
+  // get page banner properties
+  const { hasBanner, banner, pageTitle } = fields.pageIntroduction;
 
   return (
     <>
+      {hasBanner && <PageBanner properties={banner} title={pageTitle} />}
       <PageContent>
         <Container>
           <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(fields.pageIntroduction.pageIntro) }} />

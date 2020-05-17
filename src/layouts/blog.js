@@ -10,6 +10,7 @@ import useBlogposts from "../hooks/useBlogposts";
 import { PageContent, PageIntro } from "./layout-styles";
 import BlogCategoriesList from "../components/blog-categories-list";
 import BlogList from "../components/blog-list";
+import PageBanner from "../components/page-banner";
 
 /** ***************************************************************************
  *  Blog List Template
@@ -21,7 +22,7 @@ import BlogList from "../components/blog-list";
 
 const BlogPost = ({ pageContext }) => {
   const blogCategories = pageContext.blogCategories;
-  const { pageTitle, pageIntro, hasBanner } = pageContext.fields.pageIntroduction;
+  const { pageTitle, pageIntro, hasBanner, banner } = pageContext.fields.pageIntroduction;
   const thisCategory = pageContext.fields.category || "all";
   const thisAuthor = pageContext.fields.author || "all";
 
@@ -29,6 +30,7 @@ const BlogPost = ({ pageContext }) => {
 
   return (
     <>
+      {hasBanner && <PageBanner properties={banner} title={pageTitle} />}
       <PageContent>
         <Container>
           {!hasBanner && <h1 className="pageTitle">{pageTitle}</h1>}

@@ -5,6 +5,7 @@ import ReactPlayer from "react-player";
 import { FiX } from "react-icons/fi";
 import Fade from "../fade";
 import Modal from "./modal";
+import ClImage from "../cl-image";
 
 import useCloudinaryImage from "../../hooks/useCloudinaryImage";
 
@@ -18,9 +19,7 @@ import { ImageWrapper, Inner, PlayButton, VideoWrapper } from "./video-player-st
  *  boolean isModal.
  *************************************************************************** */
 const VideoPlayer = ({ info }) => {
-  const { thumbnailImage, videoSource, isModal } = info;
-
-  const videoThumbnail = useCloudinaryImage(thumbnailImage);
+  const { thumbnailImage, imageMaxWidth, sizes, videoSource, isModal, alt } = info;
 
   const [videoState, setVideoState] = useState({
     source: null,
@@ -44,7 +43,7 @@ const VideoPlayer = ({ info }) => {
       <Inner>
         {/* video thumbnail */}
         <button type="button" onClick={() => showVideo(videoSource)}>
-          <img src={videoThumbnail} alt="" />
+          <ClImage imageName={thumbnailImage} maxWidth={imageMaxWidth} sizes={sizes} alt={alt} />
           <PlayButton />
         </button>
 

@@ -44,4 +44,11 @@ Forestry is setup to serve images in content with a max width of 1024px as that 
 
 Images in frontmatter fields can be fetched in two ways.
 
-1. Using useCloudinaryImage(). Not the best approach as it delivers original images via the gatsby-source-cloudinary plug in. Images in Cloudinary are supposed to be large so all transformations can be done without quality loss.
+Source: https://cloudinary.com/blog/automatic_responsive_images_with_client_hints
+
+1. useCloundinaryImage() - Delivers images with q_auto and w_auto as transformations but no upper limit.
+2. Manual inserting a transform string in component. This allows insertion of a max width parameter.
+
+Note: 
+- Browser hints are available for all Cromium based browsers, e.g. Chrome, Edge and Opera
+- Browser hints to third-parties are currently disabled so using Cloundinary URLs don't work. However, using home domain URL and redirect them at Netlify will do the trick
