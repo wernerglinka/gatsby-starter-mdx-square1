@@ -22,9 +22,11 @@ const BlogPost = ({ pageContext }) => {
   const fields = pageContext.fields;
   const { pageTitle, pageIntro, hasBanner, banner } = fields.pageIntroduction;
   const pageBody = pageContext.body;
+
+  // get the latest 3 blogpost but exclude the current blogpost if it happens
+  // to be among the latest
   const numberPosts = 3;
   const excludePost = pageTitle;
-
   const latestPosts = useBlogposts({ numberPosts, excludePost });
 
   return (

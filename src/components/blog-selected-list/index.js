@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import CTA from "../cta";
 import NiceDate from "../../utilities/nice-date";
 import { SelectedBlogList } from "./selected-blogpost-list-styles";
 
