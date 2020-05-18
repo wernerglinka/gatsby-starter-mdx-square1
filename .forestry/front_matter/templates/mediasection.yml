@@ -12,6 +12,21 @@ fields:
   config:
     maxSize: 64
   label: Image
+- name: imageMaxWidth
+  type: number
+  label: Image Max Width
+  description: ''
+  default: 0
+  required: true
+  config:
+    min: 
+    max: 
+    step: 
+- name: sizes
+  type: text
+  config:
+    required: false
+  label: Sizes
 - name: imageLeft
   type: boolean
   label: Image is Left
