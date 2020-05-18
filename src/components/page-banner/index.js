@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import titleCase from "ap-style-title-case";
-import useCloudinaryImage from "../../hooks/useCloudinaryImage";
+import ClImage from "../cl-image";
 
 import { Banner, BannerContent } from "./page-banner-styles";
 
@@ -10,9 +10,10 @@ import { Banner, BannerContent } from "./page-banner-styles";
  *  Page Banner Component
  *************************************************************************** */
 const PageBanner = ({ properties, title }) => {
-  const clImage = useCloudinaryImage(properties.bgImage);
+  const { bgImage, imageMaxWidth, sizes, alt } = properties;
   return (
-    <Banner style={{ backgroundImage: `url(${clImage})` }}>
+    <Banner>
+      <ClImage imageName={bgImage} maxWidth={imageMaxWidth} sizes={sizes} alt={alt} />
       <BannerContent>
         <h1>{titleCase(title)}</h1>
       </BannerContent>

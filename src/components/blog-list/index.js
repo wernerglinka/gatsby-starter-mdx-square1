@@ -9,6 +9,7 @@ import { ImageWrapper, Wrapper, BlogCard, Authors } from "./blog-list-styles";
 const BlogList = ({ posts }) => (
   <Wrapper>
     {posts.map(post => {
+      const categoryPage = `blog/${post.category.replace(/\s+/g, "-").toLowerCase()}`;
       return (
         <li key={post.title}>
           <BlogCard>
@@ -28,7 +29,9 @@ const BlogList = ({ posts }) => (
                 );
               })}
             </Authors>
-            <p>{post.category}</p>
+            <p>
+              <Link to={categoryPage}>{post.category.toUpperCase()}</Link>
+            </p>
             <CTA cta={post.cta} />
           </BlogCard>
         </li>

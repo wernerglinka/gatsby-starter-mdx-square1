@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Transition = ({ children, location }) => {
-  const duration = 0.4;
+  const duration = 0.5;
 
   const variants = {
     initial: {

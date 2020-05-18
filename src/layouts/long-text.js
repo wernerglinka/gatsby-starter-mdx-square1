@@ -6,6 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import mdStringToHTML from "../utilities/md-to-html";
 import { Container } from "../components/common-styles";
 import { PageContent, PageIntro } from "./layout-styles";
+import PageBanner from "../components/page-banner";
 
 /** ***************************************************************************
  *  Long Text Template
@@ -15,12 +16,13 @@ import { PageContent, PageIntro } from "./layout-styles";
  *  - the page body
  *************************************************************************** */
 
-const StandardPage = ({ pageContext }) => {
-  const { hasBanner, pageTitle, pageIntro } = pageContext.fields.pageIntroduction;
+const LongTextPage = ({ pageContext }) => {
+  const { hasBanner, banner, pageTitle, pageIntro } = pageContext.fields.pageIntroduction;
   const pageBody = pageContext.body;
 
   return (
     <>
+      {hasBanner && <PageBanner properties={banner} title={pageTitle} />}
       <PageContent>
         <Container>
           {!hasBanner && <h1>{pageTitle}</h1>}
@@ -33,8 +35,8 @@ const StandardPage = ({ pageContext }) => {
   );
 };
 
-StandardPage.propTypes = {
+LongTextPage.propTypes = {
   pageContext: PropType.shape().isRequired,
 };
 
-export default StandardPage;
+export default LongTextPage;

@@ -5,7 +5,7 @@ import useSiteMetadata from "../hooks/useSiteMetadata";
 const ClImage = ({ imageName, maxWidth, sizes, alt }) => {
   // get image prefix and transfor string so we can return a fully formed image src
   const { imagePrefix } = useSiteMetadata();
-  const imageTransform = `/c_scale,f_auto,q_auto,w_auto:${maxWidth}`;
+  const imageTransform = `/c_scale,f_auto,q_auto,w_auto:200:${maxWidth}`;
   const thisImage = `${imagePrefix}${imageTransform}${imageName}`;
 
   console.log(maxWidth);
