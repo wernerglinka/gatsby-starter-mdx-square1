@@ -6,6 +6,7 @@ import { FiX } from "react-icons/fi";
 import Img from "gatsby-image";
 import { Overlay, ModalContent, CloseModal } from "./team-list-styles";
 import SocialLinks from "../social-links";
+import useSiteMetadata from "../../hooks/useSiteMetadata";
 
 /** *******************************************************************************
  * Modal box for team members
@@ -15,7 +16,12 @@ import SocialLinks from "../social-links";
  ******************************************************************************** */
 
 const ModalTeam = ({ info, closeModal, overlayRef }) => {
-  const { image, name, title, bio } = info;
+  const { avatar, name, position, bio } = info;
+
+  // get image prefix and transfor string so we can return a fully formed image src
+  const { imagePrefix } = useSiteMetadata();
+  const imageTransform = `/c_scale,f_auto,q_auto:best,w_300`;
+  const portrait = `${imagePrefix}${imageTransform}${avatar}`;
 
   // don't close when clicked inside modal content
   const handleClick = e => {
@@ -46,11 +52,11 @@ const ModalTeam = ({ info, closeModal, overlayRef }) => {
         </CloseModal>
 
         <div className="header">
-          <Img fluid={image} />
+          <img src={portrait} alt={name} />
 
           <div className="prose">
             <h2>{name}</h2>
-            <p>{title}</p>
+            <p>{position}</p>
             <SocialLinks social={info.socialLinks} />
           </div>
         </div>
@@ -64,8 +70,8 @@ const ModalTeam = ({ info, closeModal, overlayRef }) => {
 ModalTeam.propTypes = {
   info: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    image: PropTypes.object.isRequired,
-    title: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    position: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
     socialLinks: PropTypes.object,
   }).isRequired,
