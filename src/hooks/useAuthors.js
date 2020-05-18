@@ -44,7 +44,7 @@ const useAuthors = (thisAuthor = "all") => {
     allAuthors.push(temp);
   });
 
-  // add image data to customer data
+  // add image data to author data
   allAuthors.map(author => {
     allImages.map(image => {
       if (image.includes(author.avatar)) {

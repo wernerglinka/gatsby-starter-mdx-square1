@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import CTA from "../cta";
 import NiceDate from "../../utilities/nice-date";
+import Authors from "../authors";
 
-import { ImageWrapper, Wrapper, BlogCard, Authors } from "./blog-list-styles";
+import { ImageWrapper, Wrapper, BlogCard } from "./blog-list-styles";
 
 const BlogList = ({ posts }) => (
   <Wrapper>
@@ -19,16 +20,7 @@ const BlogList = ({ posts }) => (
               <NiceDate startDate={post.date} />
             </ImageWrapper>
 
-            <Authors>
-              {post.author.map(single => {
-                const authorPage = `blog/${single.replace(/\s+/g, "-").toLowerCase()}`;
-                return (
-                  <Link key={single} to={authorPage}>
-                    {single}
-                  </Link>
-                );
-              })}
-            </Authors>
+            <Authors post={post.author} />
             <p>
               <Link to={categoryPage}>{post.category.toUpperCase()}</Link>
             </p>

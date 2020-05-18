@@ -74,7 +74,6 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
 
   transitionElement.addEventListener(animationEvent, function(e) {
     transitionElement.classList.remove("transitionIn");
-    console.log(e);
   });
 };
 

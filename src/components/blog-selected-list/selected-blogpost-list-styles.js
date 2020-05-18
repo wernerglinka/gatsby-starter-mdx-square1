@@ -20,8 +20,5 @@ export const SelectedBlogList = styled.ul`
       display: block;
       font-size: 14px;
     }
-    a {
-      display: block;
-    }
   }
 `;

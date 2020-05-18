@@ -26,7 +26,7 @@ const BlogPost = ({ pageContext }) => {
   const thisCategory = pageContext.fields.category || "all";
   const thisAuthor = pageContext.fields.author || "all";
 
-  const allBlogposts = useBlogposts("all", thisCategory, thisAuthor);
+  const allBlogposts = useBlogposts({ thisCategory, thisAuthor });
 
   return (
     <>

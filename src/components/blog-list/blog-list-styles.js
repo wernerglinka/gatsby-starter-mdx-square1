@@ -46,18 +46,6 @@ export const BlogCard = styled.div`
   }
 `;
 
-export const Authors = styled.p`
-  a {
-    &:after {
-      content: ",";
-      padding-right: 5px;
-    }
-  }
-  a:last-child:after {
-    content: "";
-  }
-`;
-
 export const ImageWrapper = styled.div`
   position: relative;
   width: 100%;

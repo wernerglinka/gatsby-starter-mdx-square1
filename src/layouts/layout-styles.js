@@ -25,11 +25,11 @@ export const TwoColumns = styled.section`
 `;
 
 export const Main = styled.main`
-  flex: 0 0 75%;
+  flex: 0 0 70%;
 `;
 
 export const Sidebar = styled.aside`
-  flex: 0 0 25%;
+  flex: 0 0 30%;
   padding-left: 25px;
   border-left: 1px solid #f0f0f0;
   margin-left: 25px;

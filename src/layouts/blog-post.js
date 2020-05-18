@@ -7,7 +7,9 @@ import { Container } from "../components/common-styles";
 import { PageContent, TwoColumns, Main, Sidebar } from "./layout-styles";
 import PageBanner from "../components/page-banner";
 import useBlogposts from "../hooks/useBlogposts";
+import useAuthors from "../hooks/useAuthors";
 import SelectedBlogposts from "../components/blog-selected-list";
+import Authors from "../components/authors";
 
 /** ***************************************************************************
  *  Blog Post Template
@@ -29,12 +31,17 @@ const BlogPost = ({ pageContext }) => {
   const excludePost = pageTitle;
   const latestPosts = useBlogposts({ numberPosts, excludePost });
 
+  // get the author name from the author file reference
+  const authors = fields.author.map(author => useAuthors(author)[0].name);
+
   return (
     <>
       {hasBanner && <PageBanner properties={banner} title={pageTitle} />}
       <PageContent>
         <Container>
           {!hasBanner && <h1>{pageTitle}</h1>}
+
+          <Authors post={authors} />
 
           <TwoColumns>
             <Main>
