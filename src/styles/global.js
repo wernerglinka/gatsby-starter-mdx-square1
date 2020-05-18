@@ -269,6 +269,19 @@ const globalStyles = css`
   pre {
     padding: 30px;
   }
+
+  .hasTransition.transitionIn {
+    animation-duration: 0.5s;
+    animation-name: transitionIn;
+  }
+  @keyframes transitionIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 export default globalStyles;

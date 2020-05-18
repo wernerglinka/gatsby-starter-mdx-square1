@@ -8,8 +8,6 @@ import { ThemeProvider } from "emotion-theming";
 import { FiArrowUp } from "react-icons/fi";
 import { Waypoint } from "react-waypoint";
 import theme from "../styles/theme";
-import Transition from "../components/transition";
-import PageBanner from "../components/page-banner";
 
 import Head from "../components/head";
 import TopMsg from "../components/page-top-message";
@@ -64,7 +62,11 @@ const PageBg = styled.div`
   margin-bottom: 300px;
 
   &.hasBanner {
-    margin: 25vw 0 300px;
+    margin: 400px 0 300px;
+
+    @media (max-width: 1600px) {
+      margin-top: 25vw;
+    }
   }
 `;
 
@@ -152,7 +154,7 @@ const StandardPage = props => {
               onEnter={hideToTopButton}
               onLeave={showToTopButton}
             />
-            <Transition {...props}>{props.children}</Transition>
+            <div className="hasTransition">{props.children}</div>
           </PageBg>
         </MDXProvider>
 

@@ -9,6 +9,30 @@ import { MDXProvider } from "@mdx-js/react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import github from "prism-react-renderer/themes/github";
 
+// from Modernizer
+// source: https://davidwalsh.name/css-animation-callback
+function whichAnimationEvent() {
+  let animation;
+  const element = document.createElement("fakeelement");
+  let supportedAnimation;
+
+  const animations = {
+    animation: "animationend",
+    OAnimation: "oAnimationEnd",
+    MozAnimation: "animationend",
+    WebkitAnimation: "webkitAnimationEnd",
+  };
+
+  // get the animation that the browser supports
+  for (animation in animations) {
+    if (element.style[animation] !== undefined) {
+      supportedAnimation = animations[animation];
+    }
+  }
+
+  return supportedAnimation;
+}
+
 export const onRouteUpdate = ({ location, prevLocation }) => {
   // attach scroll library to any anchor link on the page
   // source: https://github.com/cferdinandi/smooth-scroll
@@ -40,6 +64,17 @@ export const onRouteUpdate = ({ location, prevLocation }) => {
         thisLink.setAttribute("rel", "noopener noreferrer");
       }
     }
+  });
+
+  const transitionElement = document.querySelector(".hasTransition");
+  if (transitionElement) {
+    transitionElement.classList.add("transitionIn");
+  }
+  const animationEvent = whichAnimationEvent();
+
+  transitionElement.addEventListener(animationEvent, function(e) {
+    transitionElement.classList.remove("transitionIn");
+    console.log(e);
   });
 };
 
