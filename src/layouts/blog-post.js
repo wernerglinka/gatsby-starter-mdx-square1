@@ -10,6 +10,7 @@ import useBlogposts from "../hooks/useBlogposts";
 import useAuthors from "../hooks/useAuthors";
 import SelectedBlogposts from "../components/blog-selected-list";
 import Authors from "../components/authors";
+import ShareLinks from "../components/share-links";
 
 /** ***************************************************************************
  *  Blog Post Template
@@ -20,10 +21,12 @@ import Authors from "../components/authors";
  *  - the page body
  *************************************************************************** */
 
-const BlogPost = ({ pageContext }) => {
-  const fields = pageContext.fields;
-  const { pageTitle, pageIntro, hasBanner, banner } = fields.pageIntroduction;
-  const pageBody = pageContext.body;
+const BlogPost = props => {
+  const { pageContext, location } = props;
+  const { fields } = pageContext;
+  const { pageTitle, hasBanner, banner } = fields.pageIntroduction;
+  const { href } = location;
+  const { body: pageBody } = pageContext;
 
   // get the latest 3 blogpost but exclude the current blogpost if it happens
   // to be among the latest
@@ -31,7 +34,7 @@ const BlogPost = ({ pageContext }) => {
   const excludePost = pageTitle;
   const latestPosts = useBlogposts({ numberPosts, excludePost });
 
-  // get the author name from the author file reference
+  // get the author name from the author file reference to use <Authors />
   const authors = fields.author.map(author => useAuthors(author)[0].name);
 
   return (
@@ -50,6 +53,8 @@ const BlogPost = ({ pageContext }) => {
             <Sidebar>
               <h2>Latest Blogposts</h2>
               <SelectedBlogposts posts={latestPosts} />
+
+              <ShareLinks pageURL={href} title={pageTitle} description={fields.pageMetadata.metaDescription} />
             </Sidebar>
           </TwoColumns>
         </Container>
@@ -60,6 +65,7 @@ const BlogPost = ({ pageContext }) => {
 
 BlogPost.propTypes = {
   pageContext: PropType.shape().isRequired,
+  location: PropType.shape().isRequired,
 };
 
 export default BlogPost;
