@@ -7,8 +7,11 @@ import useSiteMetadata from "./useSiteMetadata";
  *
  *  Get all blogposts filter out the blog landing page and return a normalized
  *  array of blogposts.
- *  Blogposts may be filtered for a single categoy or "all"
- *  Blogposts may be returned for a specific year or "all"
+ *  Blogposts may be filtered for a
+ *  - single categoy or "all"
+ *  - single author or "all"
+ *  - quantity
+ *  - specific year or "all"
  *
  *  Notes:
  *  - filter-out the file with template set to "blog" as that is the blog
@@ -18,7 +21,11 @@ import useSiteMetadata from "./useSiteMetadata";
  *    file name reflects the name that is used in the file name. For example:
  *    "Barack Obama" =>  "/content/data/authors/barack-obama.json"
  *************************************************************************** */
-const useBlogposts = (byYear = "all", byCategory = "all", byAuthor = "all") => {
+const useBlogposts = props => {
+  const { numberPosts = "all", byCategory = "all", byAuthor = "all", byYear = "all", excludePost = "" } = props;
+
+  console.log(numberPosts);
+
   const data = useStaticQuery(graphql`
     query getBlogposts {
       allBlogposts: allMdx(
@@ -77,8 +84,6 @@ const useBlogposts = (byYear = "all", byCategory = "all", byAuthor = "all") => {
   // filter out the blog landing page
   const allBlogposts = temp.filter(post => post.template !== "blog");
 
-  console.log(allBlogposts);
-
   // filter by category
   const blogpostsByCategory = allBlogposts.filter(blogpost => blogpost.category === byCategory || byCategory === "all");
 
@@ -87,10 +92,18 @@ const useBlogposts = (byYear = "all", byCategory = "all", byAuthor = "all") => {
     blogpost => blogpost.author.includes(byAuthor) || byAuthor === "all"
   );
 
-  // filter by year
-  const blogpostByYear = blogpostByAuthor.filter(blogpost => byYear === "all");
+  // filter by number
+  let blogpostByQuantity;
+  let finalDelivery;
+  if (numberPosts === "all") {
+    finalDelivery = blogpostByAuthor;
+  } else {
+    blogpostByQuantity = blogpostByAuthor.filter(blogpost => blogpost.title !== excludePost);
+    finalDelivery = blogpostByQuantity.slice(0, numberPosts);
+  }
 
-  return blogpostByYear;
+  console.log(finalDelivery);
+  return finalDelivery;
 };
 
 export default useBlogposts;

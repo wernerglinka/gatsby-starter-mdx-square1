@@ -3,13 +3,11 @@
 import React from "react";
 import PropType from "prop-types";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import titleCase from "ap-style-title-case";
-import mdStringToHTML from "../utilities/md-to-html";
-import allComponents from "../components/index";
 import { Container } from "../components/common-styles";
-import SectionWrapper from "../components/page-section-wrapper";
-import { PageContent, PageIntro } from "./layout-styles";
+import { PageContent, TwoColumns, Main, Sidebar } from "./layout-styles";
 import PageBanner from "../components/page-banner";
+import useBlogposts from "../hooks/useBlogposts";
+import SelectedBlogposts from "../components/blog-selected-list";
 
 /** ***************************************************************************
  *  Blog Post Template
@@ -23,31 +21,30 @@ import PageBanner from "../components/page-banner";
 const BlogPost = ({ pageContext }) => {
   const fields = pageContext.fields;
   const { pageTitle, pageIntro, hasBanner, banner } = fields.pageIntroduction;
-  const pageSections = fields.sections;
   const pageBody = pageContext.body;
+  const numberPosts = 3;
+  const excludePost = pageTitle;
+
+  const latestPosts = useBlogposts({ numberPosts, excludePost });
 
   return (
     <>
       {hasBanner && <PageBanner properties={banner} title={pageTitle} />}
       <PageContent>
         <Container>
-          <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(pageIntro) }} />
+          {!hasBanner && <h1>{pageTitle}</h1>}
+
+          <TwoColumns>
+            <Main>
+              <MDXRenderer>{pageBody}</MDXRenderer>
+            </Main>
+            <Sidebar>
+              <h2>Latest Blogposts</h2>
+              <SelectedBlogposts posts={latestPosts} />
+            </Sidebar>
+          </TwoColumns>
         </Container>
-
-        {pageSections &&
-          pageSections.map((section, i) => {
-            const SectionComponent = allComponents[section.component];
-
-            return (
-              <SectionWrapper key={`${section.sectionID}${i}`}>
-                <SectionComponent info={section} />
-              </SectionWrapper>
-            );
-          })}
       </PageContent>
-      <Container>
-        <MDXRenderer>{pageBody}</MDXRenderer>
-      </Container>
     </>
   );
 };
