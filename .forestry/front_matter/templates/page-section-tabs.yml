@@ -7,7 +7,7 @@ fields:
   config: {}
   template: page-section-commons
   label: Common Fields
-- name: single_item
+- name: tabs
   type: field_group_list
   fields:
   - name: header
@@ -28,4 +28,4 @@ fields:
     min: 
     max: 
     labelField: 
-  label: Single Item
+  label: Tabs
