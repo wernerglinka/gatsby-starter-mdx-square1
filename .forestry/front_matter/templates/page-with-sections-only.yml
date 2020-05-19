@@ -25,6 +25,7 @@ fields:
   - mediasection
   - page-section-media-with-video
   - page-section-simple-text
+  - page-section-tabs
   - page-section-team-list
   - page-section-testimonial
   - page-section-video
