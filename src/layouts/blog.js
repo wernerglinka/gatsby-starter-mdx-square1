@@ -23,10 +23,10 @@ import PageBanner from "../components/page-banner";
 const BlogPost = ({ pageContext }) => {
   const blogCategories = pageContext.blogCategories;
   const { pageTitle, pageIntro, hasBanner, banner } = pageContext.fields.pageIntroduction;
-  const thisCategory = pageContext.fields.category || "all";
-  const thisAuthor = pageContext.fields.author || "all";
+  const byCategory = pageContext.fields.category || "all";
+  const byAuthor = pageContext.fields.author || "all";
 
-  const allBlogposts = useBlogposts({ thisCategory, thisAuthor });
+  const allBlogposts = useBlogposts({ byCategory, byAuthor });
 
   return (
     <>
@@ -36,7 +36,7 @@ const BlogPost = ({ pageContext }) => {
           {!hasBanner && <h1 className="pageTitle">{pageTitle}</h1>}
           {pageIntro && <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(pageIntro) }} />}
 
-          <BlogCategoriesList categories={blogCategories} thisCategory={thisCategory} />
+          <BlogCategoriesList categories={blogCategories} thisCategory={byCategory} />
 
           <BlogList posts={allBlogposts} />
         </Container>

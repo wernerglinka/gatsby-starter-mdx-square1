@@ -8,8 +8,6 @@ const ClImage = ({ imageName, maxWidth, sizes, alt }) => {
   const imageTransform = `/c_scale,f_auto,q_auto,w_auto:200:${maxWidth}`;
   const thisImage = `${imagePrefix}${imageTransform}${imageName}`;
 
-  console.log(maxWidth);
-
   return <img sizes={sizes} src={thisImage} alt={alt} />;
 };
 

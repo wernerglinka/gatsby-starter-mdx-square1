@@ -22,8 +22,9 @@ import useSiteMetadata from "./useSiteMetadata";
  *    "Barack Obama" =>  "/content/data/authors/barack-obama.json"
  *************************************************************************** */
 const useBlogposts = props => {
-  const { numberPosts = "all", byCategory = "all", byAuthor = "all", byYear = "all", excludePost = "" } = props;
+  const { numberPosts, byCategory, byAuthor, byYear, excludePost } = props;
 
+  console.log(byCategory);
   const data = useStaticQuery(graphql`
     query getBlogposts {
       allBlogposts: allMdx(
