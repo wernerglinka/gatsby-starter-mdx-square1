@@ -1,4 +1,31 @@
 ---
 label: Page Section - Tabs
 hide_body: true
-fields: []
+fields:
+- name: common_fields
+  type: include
+  config: {}
+  template: page-section-commons
+  label: Common Fields
+- name: single_item
+  type: field_group_list
+  fields:
+  - name: header
+    type: text
+    config:
+      required: false
+    label: Header
+  - name: content
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Content
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Single Item
