@@ -82,6 +82,7 @@ fields:
     - SectionVideo
     - MainPoints
     - SingleTestimonial
+    - SectionTabs
     source:
       type: simple
       section: 
