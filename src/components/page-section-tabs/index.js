@@ -11,23 +11,27 @@ import { TabsContainer, TabsHeader, TabsContent } from "./tabs-styles";
  *  Component will switch to accordion on small screen and can also be forced
  *  to render as an Accordion with isAccordion === true
  *************************************************************************** */
-const Tabs = props => {
-  const { title, intro, header, content, isAccordion } = props;
-  console.log(props);
+const Tabs = ({ info }) => {
+  const { title, content, tabs } = info;
+
   return (
     <TabsContainer>
       {title && <h2>{titleCase(title)}</h2>}
-      {intro && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(intro) }} />}
+      {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
       <TabsHeader>
-        {header.map(item => (
+        {tabs.map(item => (
           <li>
-            <button type="button">{item.name}</button>
+            <button type="button">{item.header}</button>
           </li>
         ))}
       </TabsHeader>
       <TabsContent>
-        {content.map(item => (
-          <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />
+        {tabs.map(item => (
+          <div
+            id={item.tabID}
+            className={item.openOnLoad && "active"}
+            dangerouslySetInnerHTML={{ __html: mdStringToHTML(item.content) }}
+          />
         ))}
       </TabsContent>
     </TabsContainer>
@@ -37,14 +41,7 @@ const Tabs = props => {
 export default Tabs;
 
 Tabs.propTypes = {
-  title: PropTypes.string,
-  intro: PropTypes.string,
-  header: PropTypes.shape().isRequired,
-  content: PropTypes.shape().isRequired,
-  isAccordion: PropTypes.bool.isRequired,
+  info: PropTypes.shape().isRequired,
 };
 
-Tabs.defaultProps = {
-  title: null,
-  intro: null,
-};
+Tabs.defaultProps = {};
