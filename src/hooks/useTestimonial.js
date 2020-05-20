@@ -27,8 +27,6 @@ const useTestimonial = thisTestimonial => {
   // filter out thisTestimonial fro all testimonials
   const temp = data.allTestimonialsJson.edges.filter(edge => thisTestimonial.includes(edge.node.parent.relativePath));
 
-  console.log(temp);
-
   const testimonial = {
     quote: temp[0].node.quote,
     quotee: temp[0].node.quotee,

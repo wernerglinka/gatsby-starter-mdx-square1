@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import titleCase from "ap-style-title-case";
 import mdStringToHTML from "../../utilities/md-to-html";
@@ -13,6 +13,8 @@ import { TabsContainer, TabsHeader, TabsContent } from "./tabs-styles";
  *************************************************************************** */
 const Tabs = ({ info }) => {
   const { title, content, tabs } = info;
+  const initialOpenTab = tabs.filter(tab => tab.openOnLoad === true);
+  const [openTab, setTab] = useState(initialOpenTab[0].tabID);
 
   return (
     <TabsContainer>
@@ -20,8 +22,15 @@ const Tabs = ({ info }) => {
       {content && <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(content) }} />}
       <TabsHeader>
         {tabs.map(item => (
-          <li>
-            <button type="button">{item.header}</button>
+          <li className={item.tabID === openTab && "active"}>
+            <button
+              type="button"
+              onClick={() => {
+                setTab(item.tabID);
+              }}
+            >
+              {item.header}
+            </button>
           </li>
         ))}
       </TabsHeader>
@@ -29,7 +38,7 @@ const Tabs = ({ info }) => {
         {tabs.map(item => (
           <div
             id={item.tabID}
-            className={item.openOnLoad && "active"}
+            className={item.tabID === openTab && "active"}
             dangerouslySetInnerHTML={{ __html: mdStringToHTML(item.content) }}
           />
         ))}

@@ -35,7 +35,7 @@ const globalStyles = css`
   }
   b,
   strong {
-    font-weight: bolder;
+    font-weight: bold;
   }
   code,
   kbd,
