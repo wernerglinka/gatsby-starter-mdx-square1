@@ -32,6 +32,9 @@ fields:
       schema:
         format: markdown
     label: Content
+  - name: openOnLoad
+    type: boolean
+    label: Open On Load
   config:
     min: 
     max: 
