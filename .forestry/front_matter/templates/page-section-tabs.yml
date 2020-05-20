@@ -7,6 +7,9 @@ fields:
   config: {}
   template: page-section-commons
   label: Common Fields
+- name: isAccordion
+  type: boolean
+  label: Is Accordion
 - name: tabs
   type: field_group_list
   fields:
@@ -15,6 +18,11 @@ fields:
     config:
       required: false
     label: Header
+  - name: tabID
+    type: text
+    config:
+      required: false
+    label: Tab ID
   - name: content
     type: textarea
     default: ''
