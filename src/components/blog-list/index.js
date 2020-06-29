@@ -10,7 +10,7 @@ import { ImageWrapper, Wrapper, BlogCard } from "./blog-list-styles";
 const BlogList = ({ posts }) => (
   <Wrapper>
     {posts.map(post => {
-      const categoryPage = `blog/${post.category.replace(/\s+/g, "-").toLowerCase()}`;
+      const categoryPage = `/blog/${post.category.replace(/\s+/g, "-").toLowerCase()}`;
       return (
         <li key={post.title}>
           <BlogCard>

@@ -23,7 +23,7 @@ const Authors = ({ post }) => {
     <Wrapper>
       <span>by</span>
       {post.map(single => {
-        const authorPage = `blog/${single.replace(/\s+/g, "-").toLowerCase()}`;
+        const authorPage = `/blog/${single.replace(/\s+/g, "-").toLowerCase()}`;
         return (
           <Link key={single} to={authorPage}>
             {single}
