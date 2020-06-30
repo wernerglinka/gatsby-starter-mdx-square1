@@ -12,7 +12,7 @@ import MainPoints from "./page-section-main-points";
 import NewsList from "./page-section-news-list";
 import FilteredNewsList from "./page-section-news-list-with-filter";
 import SingleTestimonial from "./page-section-testimonials/single";
-import SectionTabs from "./page-section-tabs";
+import SectionTabsHorizontal from "./page-section-tabs-horizontal";
 
 export {
   SectionSimpleText,
@@ -27,7 +27,7 @@ export {
   FilteredNewsList,
   MainPoints,
   SingleTestimonial,
-  SectionTabs,
+  SectionTabsHorizontal,
   Header,
   Layout,
 };
@@ -45,7 +45,7 @@ export default {
   FilteredNewsList,
   MainPoints,
   SingleTestimonial,
-  SectionTabs,
+  SectionTabsHorizontal,
   Header,
   Layout,
 };

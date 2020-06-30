@@ -33,11 +33,18 @@ export const TabsHeader = styled.ul`
 `;
 
 export const TabsContent = styled.div`
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+
   > div {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 
     &.active {
-      display: block;
+      z-index: 1;
+      opacity: 1;
     }
   }
 `;
