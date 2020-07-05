@@ -49,11 +49,13 @@ export const MenuColumn = styled.div`
 
     > a {
       display: block;
+      padding-left: 20px;
+      position: relative;
 
       svg {
-        position: relative;
+        position: absolute;
         top: 3px;
-        left: -3px;
+        left: 0;
         width: 18px;
         height: 18px;
 

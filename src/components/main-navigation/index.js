@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
-import styled from "@emotion/styled";
 import { Link } from "gatsby";
+
 import useSiteNav from "../../hooks/useSiteNav";
+
 import SubMenuPane from "./submenu-pane";
 
 import { MainMenu } from "./main-navigation-styles";

@@ -1,11 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
-import styled from "@emotion/styled";
 import useSiteNav from "../../hooks/useSiteNav";
-import Promo from "./promo";
-import { Container } from "../common-styles";
 
+import { Container } from "../common-styles";
+import Promo from "./promo";
 import LinkLists from "./link-lists";
 
 import { MenuPane, DropShadowMask, MenuColumns, MenuColumn, TitleWrapper, ListsWrapper } from "./submenu-pane-styles";
@@ -18,7 +16,7 @@ const SubMenuPane = ({ itemID }) => {
   const allNavLinks = useSiteNav();
   const subMenus = allNavLinks.subLevel;
 
-  const LIST_LENGTH_LIMIT = 6;
+  const LIST_LENGTH_LIMIT = 4;
 
   // look for the nav object that matches the itemID of the parent link
   const thisSubMenu = subMenus.filter(subMenu => subMenu.childOf === itemID);

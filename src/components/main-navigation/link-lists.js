@@ -15,19 +15,19 @@ import Icons from "../site-icons/index";
 const LinkLists = ({ links, maxLength }) => {
   // divide links into groups of same size, except last one
   // will be used to build link columns
-  const arrayGroup = links.reduce((resultArray, item, index) => {
+  const listGroup = links.reduce((allLists, item, index) => {
     const chunkIndex = Math.floor(index / maxLength);
 
-    if (!resultArray[chunkIndex]) {
-      resultArray[chunkIndex] = []; // start a new chunk
+    if (!allLists[chunkIndex]) {
+      allLists[chunkIndex] = []; // start a new chunk
     }
 
-    resultArray[chunkIndex].push(item);
+    allLists[chunkIndex].push(item);
 
-    return resultArray;
+    return allLists;
   }, []);
 
-  return arrayGroup.map(linkColumn => (
+  return listGroup.map(linkColumn => (
     <ul>
       {linkColumn.map(menuItem => {
         // get icon for this link via site icons index file
