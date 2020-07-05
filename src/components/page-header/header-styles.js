@@ -6,7 +6,7 @@ export const HeaderInner = styled.header`
   left: 0;
   z-index: 1000;
   width: 100%;
-  height: 80px;
+  height: ${props => props.theme.header.height};
   background-color: rgba(255, 255, 255, 0.95);
   padding: 0 20px;
   box-shadow: ${props => props.theme.boxShadow};
@@ -15,18 +15,18 @@ export const HeaderInner = styled.header`
 export const HeaderWrapper = styled.div`
   position: relative;
   z-index: 2;
-  height: 80px;
+  height: ${props => props.theme.header.height};
 
   & > ${HeaderInner} {
     position: ${props => (props.isFixed ? "fixed" : "static")};
   }
 `;
 
-export const NavBar = styled.div`
+export const NavBar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: ${props => props.theme.header.height};
 `;
 
 export const Logo = styled.img`

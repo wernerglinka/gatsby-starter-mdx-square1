@@ -1,7 +1,7 @@
 {
   "childOf": "projects",
   "hasPromo": true,
-  "promoID": "FirstPromo",
+  "promoID": "firstPromo",
   "linkGroup": [
     {
       "title": "Group Title1",

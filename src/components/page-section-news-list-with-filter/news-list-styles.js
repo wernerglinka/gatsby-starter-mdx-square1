@@ -18,9 +18,7 @@ export const List = styled.ul`
 
     /* overwrite default bullets */
     &:before {
-      border: none;
-      /* move out of the flow so it doesn't occupy space */
-      position: absolute;
+      display: none;
     }
 
     * {

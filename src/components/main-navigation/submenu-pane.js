@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import useSiteNav from "../../hooks/useSiteNav";
+import Promo from "./promo";
+import { Container } from "../common-styles";
 
-const MenuPane = styled.div``;
+import LinkLists from "./link-lists";
 
-const MenuColumn = styled.div``;
-
-const TitleWrapper = styled.div``;
+import { MenuPane, DropShadowMask, MenuColumns, MenuColumn, TitleWrapper, ListsWrapper } from "./submenu-pane-styles";
 
 /** ***************************************************************************
  *  SubMenuPane Component
@@ -18,26 +18,34 @@ const SubMenuPane = ({ itemID }) => {
   const allNavLinks = useSiteNav();
   const subMenus = allNavLinks.subLevel;
 
+  const LIST_LENGTH_LIMIT = 6;
+
   // look for the nav object that matches the itemID of the parent link
   const thisSubMenu = subMenus.filter(subMenu => subMenu.childOf === itemID);
 
-  console.log(thisSubMenu[0]);
-
   return (
-    <MenuPane>
-      {thisSubMenu[0].linkGroup.map(column => (
-        <MenuColumn key={column.title}>
-          <TitleWrapper>{column.title}</TitleWrapper>
-          <ul>
-            {column.links.map(menuItem => (
-              <li key={menuItem.label}>
-                <Link to={menuItem.url}>{menuItem.label}</Link>
-              </li>
+    <DropShadowMask>
+      <MenuPane>
+        <Container>
+          <MenuColumns>
+            {thisSubMenu[0].linkGroup.map(column => (
+              <MenuColumn key={column.title}>
+                <TitleWrapper>{column.title}</TitleWrapper>
+                <ListsWrapper>
+                  <LinkLists links={column.links} maxLength={LIST_LENGTH_LIMIT} />
+                </ListsWrapper>
+              </MenuColumn>
             ))}
-          </ul>
-        </MenuColumn>
-      ))}
-    </MenuPane>
+
+            {thisSubMenu[0].hasPromo && (
+              <MenuColumn>
+                <Promo promoID={thisSubMenu[0].promoID} />
+              </MenuColumn>
+            )}
+          </MenuColumns>
+        </Container>
+      </MenuPane>
+    </DropShadowMask>
   );
 };
 

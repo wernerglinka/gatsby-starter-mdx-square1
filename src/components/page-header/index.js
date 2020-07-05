@@ -8,6 +8,8 @@ import mainLogo from "../../../content/images/page-logo.svg";
 import debounce from "../../utilities/debounce";
 import useMainNav from "../../hooks/useSiteNav";
 
+import MainNavDesktop from "../main-navigation";
+
 import { Container, Hamburger } from "../common-styles";
 import { HeaderInner, HeaderWrapper, NavBar, Logo, MainMenu, MobileMenu } from "./header-styles";
 
@@ -65,17 +67,7 @@ const Header = ({ isSticky }) => {
               <Logo src={mainLogo} alt="" />
             </Link>
 
-            {!isSmallScreen && (
-              <MainMenu>
-                {mainNavLinks.topLevel.map(link => (
-                  <li key={link.url}>
-                    <Link to={link.url} onClick={toggleMobileMenu}>
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </MainMenu>
-            )}
+            {!isSmallScreen && <MainNavDesktop />}
 
             <Hamburger className={showMobileMenu && "active"} onClick={toggleMobileMenu}>
               <span />

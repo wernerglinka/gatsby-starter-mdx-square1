@@ -9,7 +9,6 @@ import { Container } from "../components/common-styles";
 import SectionWrapper from "../components/page-section-wrapper";
 import { PageContent, PageIntro } from "./layout-styles";
 import PageBanner from "../components/page-banner";
-import MainNav from "../components/main-navigation";
 
 /** ***************************************************************************
  *  Standard Page Template
@@ -32,8 +31,6 @@ const StandardPage = ({ pageContext }) => {
           {!hasBanner && <h1>{pageTitle}</h1>}
           <PageIntro dangerouslySetInnerHTML={{ __html: mdStringToHTML(pageIntro) }} />
         </Container>
-
-        <MainNav />
 
         {pageSections &&
           pageSections.map((section, i) => {

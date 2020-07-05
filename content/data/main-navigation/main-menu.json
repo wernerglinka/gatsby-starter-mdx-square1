@@ -7,18 +7,6 @@
       "hasSubMenu": true
     },
     {
-      "label": "Newsroom",
-      "url": "/about/newsroom",
-      "itemID": "newsroom",
-      "hasSubMenu": false
-    },
-    {
-      "label": "Team",
-      "url": "/about/team",
-      "itemID": "team",
-      "hasSubMenu": false
-    },
-    {
       "label": "Projects",
       "url": "/projects",
       "itemID": "projects",

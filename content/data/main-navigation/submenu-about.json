@@ -8,14 +8,14 @@
       "links": [
         {
           "icon": "",
-          "label": "Nibh Ridiculus",
-          "url": "/",
+          "label": "Newsroom",
+          "url": "/about/newsroom/",
           "linkClass": ""
         },
         {
-          "icon": "",
-          "label": "Mattis Bibendum",
-          "url": "/",
+          "icon": "Feather",
+          "label": "Team",
+          "url": "/about/team",
           "linkClass": ""
         },
         {
@@ -31,7 +31,67 @@
           "linkClass": ""
         },
         {
+          "icon": "Coffee",
+          "label": "Pellentesque",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
           "icon": "",
+          "label": "Sollicitudin",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Newsroom",
+          "url": "/about/newsroom/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Team",
+          "url": "/about/team",
+          "linkClass": ""
+        },
+        {
+          "icon": "Feather",
+          "label": "Dapibus",
+          "url": "/",
+          "linkClass": "hasFlag"
+        },
+        {
+          "icon": "",
+          "label": "Malesuada",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Pellentesque",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Sollicitudin",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Dapibus",
+          "url": "/",
+          "linkClass": "hasFlag"
+        },
+        {
+          "icon": "Database",
+          "label": "Malesuada",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "Coffee",
           "label": "Pellentesque",
           "url": "/",
           "linkClass": ""
@@ -65,6 +125,12 @@
           "label": "Dapibus",
           "url": "/",
           "linkClass": "hasFlag"
+        },
+        {
+          "icon": "",
+          "label": "Amet Justo",
+          "url": "/",
+          "linkClass": ""
         }
       ]
     }
