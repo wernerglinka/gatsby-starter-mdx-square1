@@ -19,6 +19,7 @@ const Header = ({ isSticky }) => {
   const [showMobileMenu, setMobileMenu] = useState(false);
   const [isSmallScreen, updateScreenSize] = useState();
   const mainNavLinks = useMainNav();
+
   const MOBILE_BP = 767;
 
   const handleResize = () => {
@@ -66,7 +67,7 @@ const Header = ({ isSticky }) => {
 
             {!isSmallScreen && (
               <MainMenu>
-                {mainNavLinks.map(link => (
+                {mainNavLinks.topLevel.map(link => (
                   <li key={link.url}>
                     <Link to={link.url} onClick={toggleMobileMenu}>
                       {link.label}

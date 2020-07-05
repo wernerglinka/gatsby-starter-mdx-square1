@@ -1,0 +1,40 @@
+{
+  "main": [
+    {
+      "label": "About",
+      "url": "/about",
+      "itemID": "about",
+      "hasSubMenu": true
+    },
+    {
+      "label": "Newsroom",
+      "url": "/about/newsroom",
+      "itemID": "newsroom",
+      "hasSubMenu": false
+    },
+    {
+      "label": "Team",
+      "url": "/about/team",
+      "itemID": "team",
+      "hasSubMenu": false
+    },
+    {
+      "label": "Projects",
+      "url": "/projects",
+      "itemID": "projects",
+      "hasSubMenu": true
+    },
+    {
+      "label": "Code Example",
+      "url": "/code",
+      "itemID": "code-example",
+      "hasSubMenu": false
+    },
+    {
+      "label": "Blog",
+      "url": "/blog",
+      "itemID": "blog",
+      "hasSubMenu": false
+    }
+  ]
+}

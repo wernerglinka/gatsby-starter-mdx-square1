@@ -3,17 +3,43 @@ import { useStaticQuery, graphql } from "gatsby";
 const useSiteMainNav = () => {
   const data = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "site-navigation.json" }) {
-        childDataJson {
+      topLevel: file(relativePath: { eq: "main-navigation/main-menu.json" }) {
+        childMainNavigationJson {
           main {
             label
             url
+            itemID
+            hasSubMenu
+          }
+        }
+      }
+      subLevel: allMainNavigationJson {
+        nodes {
+          childOf
+          hasPromo
+          promoID
+          linkGroup {
+            title
+            titleClass
+            links {
+              icon
+              label
+              linkClass
+              url
+            }
           }
         }
       }
     }
   `);
-  return data.file.childDataJson.main;
+
+  const topLevel = data.topLevel.childMainNavigationJson.main;
+  const subLevel = data.subLevel.nodes;
+
+  return {
+    topLevel,
+    subLevel,
+  };
 };
 
 export default useSiteMainNav;

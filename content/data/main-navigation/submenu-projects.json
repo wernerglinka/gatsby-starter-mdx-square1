@@ -1,0 +1,55 @@
+{
+  "childOf": "projects",
+  "hasPromo": true,
+  "promoID": "FirstPromo",
+  "linkGroup": [
+    {
+      "title": "Group Title1",
+      "titleClass": "has-title",
+      "links": [
+        {
+          "icon": "",
+          "label": "Ornare",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Consectetur Lorem",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Etiam",
+          "url": "/",
+          "linkClass": "hasFlag"
+        },
+        {
+          "icon": "",
+          "label": "Nibh Inceptos",
+          "url": "/",
+          "linkClass": ""
+        }
+      ]
+    },
+    {
+      "title": "Group Title2",
+      "titleClass": "no-title",
+      "links": [
+        {
+          "icon": "",
+          "label": "Ullamcorper Purus",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Condimentum",
+          "url": "/",
+          "linkClass": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# Constructing a Mega Menu
+
+Menu will contain columns of link groups and an optional promo. 
+- The promo with may be set to fixed values, e.g. one third or half, the link groups will be placed in the remaining space.
+- Promos will not be shown on narrow screens when the desktop navigation has been replaced by a Hamburger
+

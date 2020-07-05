@@ -1,0 +1,72 @@
+{
+  "childOf": "about",
+  "hasPromo": false,
+  "linkGroup": [
+    {
+      "title": "Group Title1",
+      "titleClass": "has-title",
+      "links": [
+        {
+          "icon": "",
+          "label": "Nibh Ridiculus",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Mattis Bibendum",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Dapibus",
+          "url": "/",
+          "linkClass": "hasFlag"
+        },
+        {
+          "icon": "",
+          "label": "Malesuada",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Pellentesque",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Sollicitudin",
+          "url": "/",
+          "linkClass": ""
+        }
+      ]
+    },
+    {
+      "title": "Group Title2",
+      "titleClass": "no-title",
+      "links": [
+        {
+          "icon": "",
+          "label": "Venenatis",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Egestas",
+          "url": "/",
+          "linkClass": ""
+        },
+        {
+          "icon": "",
+          "label": "Dapibus",
+          "url": "/",
+          "linkClass": "hasFlag"
+        }
+      ]
+    }
+  ]
+}
