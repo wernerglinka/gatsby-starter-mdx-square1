@@ -50,7 +50,7 @@ const Head = ({ metaData, form, bodyClasses }) => {
       <meta charset="utf-8" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       {/* needed for browser hints to work for cloudinary images */}
-      <meta httpEquiv="Accept-CH" content="DPR, Width" />
+      <meta httpEquiv="Accept-CH" content="DPR, Viewport-Width, Width" />
       <meta name="HandheldFriendly" content="True" />
       <meta name="MobileOptimized" content="320" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />

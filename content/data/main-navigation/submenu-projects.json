@@ -20,7 +20,7 @@
           "linkClass": ""
         },
         {
-          "icon": "",
+          "icon": "Send",
           "label": "Etiam",
           "url": "/",
           "linkClass": "hasFlag"

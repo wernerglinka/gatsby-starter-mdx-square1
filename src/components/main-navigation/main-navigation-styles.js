@@ -24,9 +24,5 @@ export const MainMenu = styled.ul`
         background-color: #f8f8f8;
       }
     }
-
-    &.projects > div {
-      display: block;
-    }
   }
 `;

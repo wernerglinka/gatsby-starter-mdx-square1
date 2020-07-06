@@ -12,7 +12,7 @@ import Icons from "../site-icons/index";
  *  By injecting empty list items create spaing is desired
  *************************************************************************** */
 
-const LinkLists = ({ links, maxLength }) => {
+const LinkLists = ({ links, maxLength, setMenuPaneOpen }) => {
   // divide links into groups of same size, except last one
   // will be used to build link columns
   const listGroup = links.reduce((allLists, item, index) => {
@@ -36,7 +36,7 @@ const LinkLists = ({ links, maxLength }) => {
         return (
           <li key={menuItem.label} className={menuItem.linkClass}>
             {menuItem.linkClass !== "empty" && (
-              <Link to={menuItem.url}>
+              <Link to={menuItem.url} onClick={() => setMenuPaneOpen("")}>
                 {Icon && <Icon />}
                 <span>{menuItem.label}</span>
               </Link>
@@ -51,6 +51,7 @@ const LinkLists = ({ links, maxLength }) => {
 LinkLists.propTypes = {
   links: PropTypes.shape().isRequired,
   maxLength: PropTypes.number.isRequired,
+  setMenuPaneOpen: PropTypes.func.isRequired,
 };
 
 export default LinkLists;

@@ -2,8 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import CTA from "../cta";
 import SectionIntro from "../section-intro";
-import useCloudinaryImage from "../../hooks/useCloudinaryImage";
-import useSiteMetadata from "../../hooks/useSiteMetadata";
 import ClImage from "../cl-image";
 
 import { TextWrapper, ImageWrapper, SectionWrapper } from "./media-component-styles";

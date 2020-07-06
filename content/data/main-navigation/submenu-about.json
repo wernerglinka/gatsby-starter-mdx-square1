@@ -79,7 +79,7 @@
           "linkClass": ""
         },
         {
-          "icon": "",
+          "icon": "Send",
           "label": "Dapibus",
           "url": "/",
           "linkClass": "hasFlag"

@@ -12,17 +12,28 @@ import { MenuPane, DropShadowMask, MenuColumns, MenuColumn, TitleWrapper, ListsW
  *  SubMenuPane Component
  *  Builds a sub menu pane for the main menu
  *************************************************************************** */
-const SubMenuPane = ({ itemID }) => {
+const SubMenuPane = ({ itemID, menuPaneOpen, setMenuPaneOpen }) => {
   const allNavLinks = useSiteNav();
   const subMenus = allNavLinks.subLevel;
 
-  const LIST_LENGTH_LIMIT = 4;
+  const LIST_LENGTH_LIMIT = 6;
 
   // look for the nav object that matches the itemID of the parent link
   const thisSubMenu = subMenus.filter(subMenu => subMenu.childOf === itemID);
 
+  // define animation properties for the menu pane
+  const menuPaneState = {
+    open: { height: "auto", opacity: 1 },
+    closed: { height: 0, opacity: 0 },
+  };
+
   return (
-    <DropShadowMask>
+    <DropShadowMask
+      variants={menuPaneState}
+      initial="closed"
+      animate={itemID === menuPaneOpen ? "open" : "closed"}
+      transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
+    >
       <MenuPane>
         <Container>
           <MenuColumns>
@@ -30,7 +41,7 @@ const SubMenuPane = ({ itemID }) => {
               <MenuColumn key={column.title}>
                 <TitleWrapper>{column.title}</TitleWrapper>
                 <ListsWrapper>
-                  <LinkLists links={column.links} maxLength={LIST_LENGTH_LIMIT} />
+                  <LinkLists links={column.links} maxLength={LIST_LENGTH_LIMIT} setMenuPaneOpen={setMenuPaneOpen} />
                 </ListsWrapper>
               </MenuColumn>
             ))}
@@ -49,6 +60,8 @@ const SubMenuPane = ({ itemID }) => {
 
 SubMenuPane.propTypes = {
   itemID: PropTypes.string.isRequired,
+  menuPaneOpen: PropTypes.string.isRequired,
+  setMenuPaneOpen: PropTypes.func.isRequired,
 };
 
 export default SubMenuPane;

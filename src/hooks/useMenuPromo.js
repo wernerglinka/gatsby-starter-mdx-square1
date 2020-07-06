@@ -1,5 +1,4 @@
 import { useStaticQuery, graphql } from "gatsby";
-import useCloudinaryImage from "./useCloudinaryImage";
 
 const useMenuPromo = thisPromo => {
   const data = useStaticQuery(graphql`

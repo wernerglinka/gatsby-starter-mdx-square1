@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
-export const DropShadowMask = styled.div`
+export const DropShadowMask = styled(motion.div)`
   position: fixed;
   top: ${props => props.theme.header.height};
   left: 0;
@@ -8,7 +9,7 @@ export const DropShadowMask = styled.div`
   z-index: 1000;
   overflow: hidden;
   margin-bottom: 10px;
-  display: none;
+  //display: none;
 `;
 
 export const MenuPane = styled.div`
