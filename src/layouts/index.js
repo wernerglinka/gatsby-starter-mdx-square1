@@ -3,68 +3,20 @@
 import React, { useState, useEffect } from "react";
 import PropType from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
-
 import { MDXProvider } from "@mdx-js/react";
-import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
 import { FiArrowUp } from "react-icons/fi";
 import { Waypoint } from "react-waypoint";
 import theme from "../styles/theme";
-
 import Head from "../components/head";
 import TopMsg from "../components/page-top-message";
 import Header from "../components/page-header";
 import Footer from "../components/page-footer";
-
-import TopbarContext from "../contexts/topbar-context";
-
 // import shortcodes
 import InlineMessage from "../components/shortcodes/inline-message";
-
+import TopbarContext from "../contexts/topbar-context";
 import useSiteMetadata from "../hooks/useSiteMetadata";
-
-const ToTop = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 10px;
-  right: 20px;
-  z-index: 1;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  border-color: transparent;
-  padding: 0;
-  cursor: pointer;
-  background-color: #000;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-
-  &.isVisible {
-    opacity: 1;
-
-    &:hover {
-      opacity: 0.6;
-    }
-  }
-
-  svg {
-    display: block;
-    position: relative;
-    top: 0;
-    width: 24px;
-    height: auto;
-    color: #fff;
-    margin: 0 auto;
-  }
-`;
-
-const PageBg = styled.div`
-  background-color: #fff;
-  padding: 0 20px 50px;
-  margin-bottom: 300px;
-`;
+import { ToTop, PageBg } from "./layout-styles";
 
 const pageTransition = {
   initial: {
@@ -73,14 +25,12 @@ const pageTransition = {
   enter: {
     opacity: 1,
     transition: {
-      duration: 0.5,
-      delay: 0.5,
-      when: "beforeChildren",
+      duration: 0.3,
     },
   },
   exit: {
     opacity: 0,
-    transition: { duration: 0.5 },
+    transition: { duration: 0.3 },
   },
 };
 
@@ -116,11 +66,11 @@ const topbarTransition = {
  *  shinning through when the page is faded-in
  *************************************************************************** */
 
-const StandardPage = props => {
-  const { children, location } = props;
+const StandardPage = ({ children, location }) => {
   const siteMetadata = useSiteMetadata();
   const shortcodes = { InlineMessage };
   const topMessage = children.props.pageContext.fields.topMessage || null;
+  // current page slug/path
   const pageSlug = children.props.path;
 
   // manage topbars for all pages that have one
@@ -129,12 +79,14 @@ const StandardPage = props => {
   const removeTopbar = slug => {
     setTopbarsList(topbarsList.filter(topbar => topbar !== slug));
   };
+
   // if the current page slug is not in the list no top message
   const showTopbar = children.props.pageContext.allTopbarPages ? topbarsList.includes(pageSlug) : false;
 
   // get page banner properties
   const { hasBanner, banner, pageTitle } = children.props.pageContext.fields.pageIntroduction;
 
+  // manage scroll state, stickyness of the main nav and visibility of the to top button
   const [scrollState, setScrollState] = useState({
     stickyMainNav: false,
     toTopVisible: false,
@@ -208,7 +160,7 @@ const StandardPage = props => {
                   animate="enter"
                   exit="exit"
                 >
-                  {props.children}
+                  {children}
                 </motion.main>
               </AnimatePresence>
             </PageBg>
