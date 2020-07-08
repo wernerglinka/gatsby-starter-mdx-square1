@@ -28,7 +28,7 @@ const MainNav = props => {
     <MainMenu>
       {topLevelItems.map(link => (
         <li key={link.url} menuid={link.itemID} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <Link to={link.url} activeClassName="active" partiallyActive>
+          <Link to={link.url} activeClassName="active" partiallyActive onClick={() => setMenuPaneOpen("")}>
             {link.label}
           </Link>
           {link.hasSubMenu && (

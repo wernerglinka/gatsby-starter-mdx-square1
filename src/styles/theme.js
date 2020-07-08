@@ -26,8 +26,12 @@ const Theme = {
   breakPoints: {
     tablet: "767px",
   },
+  topbar: {
+    height: "60px",
+  },
   header: {
     height: "80px",
+    heightWithTopbar: "140px",
     lineHeight: "1.2",
   },
   sections: {

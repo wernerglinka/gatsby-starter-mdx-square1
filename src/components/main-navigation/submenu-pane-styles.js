@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const DropShadowMask = styled(motion.div)`
   position: fixed;
-  top: ${props => props.theme.header.height};
+  top: ${props => (props.hasTopbar ? props.theme.header.heightWithTopbar : props.theme.header.height)};
   left: 0;
   right: 0;
   z-index: 1000;

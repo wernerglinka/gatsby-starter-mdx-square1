@@ -17,7 +17,7 @@ import { HeaderInner, HeaderWrapper, NavBar, Logo, MainMenu, MobileMenu } from "
  *  Header Component
  *************************************************************************** */
 
-const Header = ({ isSticky }) => {
+const Header = ({ isSticky, hasOffset }) => {
   const [showMobileMenu, setMobileMenu] = useState(false);
   const [isSmallScreen, updateScreenSize] = useState();
   const mainNavLinks = useMainNav();
@@ -97,4 +97,5 @@ export default Header;
 
 Header.propTypes = {
   isSticky: PropTypes.bool.isRequired,
+  hasOffset: PropTypes.bool.isRequired,
 };

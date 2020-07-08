@@ -2,10 +2,7 @@ import styled from "@emotion/styled";
 import { Container } from "../common-styles";
 
 export const Banner = styled.div`
-  position: fixed !important;
-  top: ${props => props.theme.header.height};
-  left: 0;
-  z-index: -1;
+  position: relative;
   width: 100vw;
 
   img {

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 import { Container } from "../common-styles";
 
 export const TopMsg = styled.aside`
@@ -48,6 +49,16 @@ export const TopMsg = styled.aside`
     color: #fff;
     text-align: center;
     margin: 0;
+    animation: fadeIn 0.3s ease-in-out;
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
     a {
       white-space: nowrap;

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import useSiteNav from "../../hooks/useSiteNav";
 
 import { Container } from "../common-styles";
 import Promo from "./promo";
 import LinkLists from "./link-lists";
+
+import TopbarContext from "../../contexts/topbar-context";
 
 import { MenuPane, DropShadowMask, MenuColumns, MenuColumn, TitleWrapper, ListsWrapper } from "./submenu-pane-styles";
 
@@ -15,6 +17,10 @@ import { MenuPane, DropShadowMask, MenuColumns, MenuColumn, TitleWrapper, ListsW
 const SubMenuPane = ({ itemID, menuPaneOpen, setMenuPaneOpen }) => {
   const allNavLinks = useSiteNav();
   const subMenus = allNavLinks.subLevel;
+
+  const hasTopbar = useContext(TopbarContext);
+
+  console.log(hasTopbar);
 
   const LIST_LENGTH_LIMIT = 6;
 
@@ -33,6 +39,7 @@ const SubMenuPane = ({ itemID, menuPaneOpen, setMenuPaneOpen }) => {
       initial="closed"
       animate={itemID === menuPaneOpen ? "open" : "closed"}
       transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
+      hasTopbar={hasTopbar}
     >
       <MenuPane>
         <Container>

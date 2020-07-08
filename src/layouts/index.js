@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import PropType from "prop-types";
+import { motion, AnimatePresence } from "framer-motion";
+
 import { MDXProvider } from "@mdx-js/react";
 import styled from "@emotion/styled";
 import { ThemeProvider } from "emotion-theming";
@@ -13,6 +15,8 @@ import Head from "../components/head";
 import TopMsg from "../components/page-top-message";
 import Header from "../components/page-header";
 import Footer from "../components/page-footer";
+
+import TopbarContext from "../contexts/topbar-context";
 
 // import shortcodes
 import InlineMessage from "../components/shortcodes/inline-message";
@@ -60,15 +64,46 @@ const PageBg = styled.div`
   background-color: #fff;
   padding: 0 20px 50px;
   margin-bottom: 300px;
-
-  &.hasBanner {
-    margin: 400px 0 300px;
-
-    @media (max-width: 1600px) {
-      margin-top: 25vw;
-    }
-  }
 `;
+
+const pageTransition = {
+  initial: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      delay: 0.5,
+      when: "beforeChildren",
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
+const topbarTransition = {
+  hidden: {
+    opacity: 0,
+    height: 0,
+  },
+  visible: {
+    opacity: 1,
+    height: "auto",
+    transition: {
+      duration: 0.3,
+    },
+  },
+  exit: {
+    opacity: 0,
+    height: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 
 /** ***************************************************************************
  *  Default Page Layout
@@ -82,7 +117,7 @@ const PageBg = styled.div`
  *************************************************************************** */
 
 const StandardPage = props => {
-  const { children } = props;
+  const { children, location } = props;
   const [showTopbar, hideTopbar] = useState(true);
   const siteMetadata = useSiteMetadata();
 
@@ -111,6 +146,8 @@ const StandardPage = props => {
       }
     }, 500);
 
+    hideTopbar(true);
+
     return () => window.clearTimeout(timeout);
   }, []);
 
@@ -133,36 +170,48 @@ const StandardPage = props => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Head metaData={siteMetadata} />
+        <TopbarContext.Provider value={hasTopMessage && showTopbar}>
+          <Head metaData={siteMetadata} />
 
-        {hasTopMessage && showTopbar ? (
-          <>
-            <TopMsg message={topMessage} hideTopbar={hideTopbar} />
-            <Waypoint onEnter={makeNavStatic} onLeave={makeNavFixed} />
-          </>
-        ) : (
+          <AnimatePresence>
+            {hasTopMessage && showTopbar && (
+              <motion.div variants={topbarTransition} initial="hidden" animate="visible" exit="exit">
+                <TopMsg message={topMessage} hideTopbar={hideTopbar} showTopbar={showTopbar} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           <Waypoint onEnter={makeNavStatic} onLeave={makeNavFixed} />
-        )}
-        <div id="pageTop" />
-        <Header siteTitle={siteMetadata.title} isSticky={scrollState.stickyMainNav} />
 
-        <MDXProvider components={shortcodes}>
-          <PageBg className={hasBanner ? "hasBanner" : null}>
-            {/* waypoint for to top botton */}
-            <Waypoint
-              scrollableAncestor={typeof window === "undefined" ? null : window}
-              onEnter={hideToTopButton}
-              onLeave={showToTopButton}
-            />
-            <div className="hasTransition">{props.children}</div>
-          </PageBg>
-        </MDXProvider>
+          <div id="pageTop" />
 
-        <Footer />
-
-        <ToTop href="#pageTop" className={scrollState.toTopVisible ? "isVisible" : null}>
-          <FiArrowUp />
-        </ToTop>
+          <Header siteTitle={siteMetadata.title} isSticky={scrollState.stickyMainNav} />
+          <MDXProvider components={shortcodes}>
+            <PageBg className={hasBanner ? "hasBanner" : null}>
+              {/* waypoint for to top botton */}
+              <Waypoint
+                scrollableAncestor={typeof window === "undefined" ? null : window}
+                onEnter={hideToTopButton}
+                onLeave={showToTopButton}
+              />
+              <AnimatePresence>
+                <motion.main
+                  key={location.pathname}
+                  variants={pageTransition}
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                >
+                  {props.children}
+                </motion.main>
+              </AnimatePresence>
+            </PageBg>
+          </MDXProvider>
+          <Footer />
+          <ToTop href="#pageTop" className={scrollState.toTopVisible ? "isVisible" : null}>
+            <FiArrowUp />
+          </ToTop>
+        </TopbarContext.Provider>
       </ThemeProvider>
     </>
   );

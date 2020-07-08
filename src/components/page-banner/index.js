@@ -1,8 +1,10 @@
 /* global navigator */
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import titleCase from "ap-style-title-case";
 import ClImage from "../cl-image";
+
+import TopbarContext from "../../contexts/topbar-context";
 
 import { Banner, BannerContent } from "./page-banner-styles";
 
@@ -11,8 +13,10 @@ import { Banner, BannerContent } from "./page-banner-styles";
  *************************************************************************** */
 const PageBanner = ({ properties, title }) => {
   const { bgImage, imageMaxWidth, sizes, alt } = properties;
+  const hasTopbar = useContext(TopbarContext);
+
   return (
-    <Banner>
+    <Banner hasTopbar={hasTopbar}>
       <ClImage imageName={bgImage} maxWidth={imageMaxWidth} sizes={sizes} alt={alt} />
       <BannerContent>
         <h1>{titleCase(title)}</h1>
