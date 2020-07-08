@@ -17,11 +17,7 @@ import { MenuPane, DropShadowMask, MenuColumns, MenuColumn, TitleWrapper, ListsW
 const SubMenuPane = ({ itemID, menuPaneOpen, setMenuPaneOpen }) => {
   const allNavLinks = useSiteNav();
   const subMenus = allNavLinks.subLevel;
-
   const hasTopbar = useContext(TopbarContext);
-
-  console.log(hasTopbar);
-
   const LIST_LENGTH_LIMIT = 6;
 
   // look for the nav object that matches the itemID of the parent link

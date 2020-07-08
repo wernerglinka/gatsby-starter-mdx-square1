@@ -78,11 +78,24 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
   // remove tag duplications from list
   const allTags = [...new Set(blogTags)];
 
+  const pages = result.data.allPages.edges;
+
+  /** ***************************************************************************
+   *  Build a list of all pages with a topbar
+   *  This is used to manage individual show/dismissal per topbar message
+   *************************************************************************** */
+  const allPagesWithTopbar = [];
+
+  pages.forEach(({ node }) => {
+    const nodeContent = getNode(node.id);
+    if (nodeContent.frontmatter.topMessage) {
+      allPagesWithTopbar.push(node.fields.slug);
+    }
+  });
+
   /** ***************************************************************************
    *  Create all pages
    *************************************************************************** */
-  const pages = result.data.allPages.edges;
-
   pages.forEach(({ node }, index) => {
     // deliver frontmatter fields via the page context
     // will save long repetitive graphql queries in page templates
@@ -98,6 +111,7 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
         body: node.body,
         blogCategories: allCategories,
         blogTags: allTags,
+        allTopbarPages: allPagesWithTopbar,
       },
     });
   });

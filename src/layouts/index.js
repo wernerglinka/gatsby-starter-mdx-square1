@@ -118,13 +118,19 @@ const topbarTransition = {
 
 const StandardPage = props => {
   const { children, location } = props;
-  const [showTopbar, hideTopbar] = useState(true);
   const siteMetadata = useSiteMetadata();
-
   const shortcodes = { InlineMessage };
-
   const topMessage = children.props.pageContext.fields.topMessage || null;
-  const hasTopMessage = !!topMessage;
+  const pageSlug = children.props.path;
+
+  // manage topbars for all pages that have one
+  const [topbarsList, setTopbarsList] = useState(children.props.pageContext.allTopbarPages);
+
+  const removeTopbar = slug => {
+    setTopbarsList(topbarsList.filter(topbar => topbar !== slug));
+  };
+  // if the current page slug is not in the list no top message
+  const showTopbar = children.props.pageContext.allTopbarPages ? topbarsList.includes(pageSlug) : false;
 
   // get page banner properties
   const { hasBanner, banner, pageTitle } = children.props.pageContext.fields.pageIntroduction;
@@ -146,7 +152,7 @@ const StandardPage = props => {
       }
     }, 500);
 
-    hideTopbar(true);
+    // hideTopbar(true);
 
     return () => window.clearTimeout(timeout);
   }, []);
@@ -170,13 +176,13 @@ const StandardPage = props => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <TopbarContext.Provider value={hasTopMessage && showTopbar}>
+        <TopbarContext.Provider value={showTopbar}>
           <Head metaData={siteMetadata} />
 
           <AnimatePresence>
-            {hasTopMessage && showTopbar && (
+            {showTopbar && (
               <motion.div variants={topbarTransition} initial="hidden" animate="visible" exit="exit">
-                <TopMsg message={topMessage} hideTopbar={hideTopbar} showTopbar={showTopbar} />
+                <TopMsg message={topMessage} removeTopbar={removeTopbar} slug={pageSlug} />
               </motion.div>
             )}
           </AnimatePresence>

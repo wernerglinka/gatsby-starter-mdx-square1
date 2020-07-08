@@ -10,13 +10,11 @@ import mdStringToHTML from "../../utilities/md-to-html";
 /** ***************************************************************************
  *  Top message component
  *  renders a narrow banner on the very top of the page
- *  A top message will inserted if "topMessage: | some text" is present in 
- *  the page frontmatter
-  
  *************************************************************************** */
-const topMessage = ({ message, hideTopbar }) => {
+
+const topMessage = ({ message, removeTopbar, slug }) => {
   const handleClick = () => {
-    hideTopbar(false);
+    removeTopbar(slug);
   };
 
   return (
@@ -31,7 +29,8 @@ const topMessage = ({ message, hideTopbar }) => {
 
 topMessage.propTypes = {
   message: PropTypes.string,
-  hideTopbar: PropTypes.func.isRequired,
+  removeTopbar: PropTypes.func.isRequired,
+  slug: PropTypes.string.isRequired, // tells us what page to remove the topbar from
 };
 
 topMessage.defaultProps = {
