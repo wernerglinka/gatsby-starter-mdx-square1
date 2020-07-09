@@ -24,7 +24,6 @@ import { FormInfo, FormWrapper, SectionWrapper } from "./form-component-styles";
  *
  *************************************************************************** */
 const MktoFormComponent = ({ info }) => {
-  console.log(info);
   const {
     image, // the mandatory image... after all this is a media component
     imageMaxWidth,

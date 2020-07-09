@@ -67,7 +67,6 @@ const topbarTransition = {
  *************************************************************************** */
 
 const DefaultLayout = ({ children, location }) => {
-  console.log(children);
   const siteMetadata = useSiteMetadata();
   const shortcodes = { InlineMessage };
   const topMessage = children.props.pageContext.fields.topMessage || null;

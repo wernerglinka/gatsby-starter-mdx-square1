@@ -17,8 +17,7 @@ const PromoWrapper = styled.div`
  *************************************************************************** */
 const MenuPromo = ({ promoID }) => {
   const thisPromo = useMenuPromo(promoID);
-
-  const sizes = "(max-width: 300px) 100vw, 300px";
+  const sizes = "300px";
 
   return (
     <PromoWrapper>

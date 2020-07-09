@@ -23,8 +23,6 @@ import useSiteMetadata from "./useSiteMetadata";
  *************************************************************************** */
 const useBlogposts = props => {
   const { numberPosts, byCategory, byAuthor, byYear, excludePost } = props;
-
-  console.log(byCategory);
   const data = useStaticQuery(graphql`
     query getBlogposts {
       allBlogposts: allMdx(

@@ -23,7 +23,6 @@ import blockedEmails from "../../content/data/blocked-email";
  *************************************************************************** */
 
 const StandardPage = props => {
-  console.log(props);
   const { hasBanner, banner, pageTitle, pageIntro } = props.pageContext.fields.pageIntroduction;
   const fields = props.pageContext.fields;
   const pageSections = props.pageContext.fields.sections;
