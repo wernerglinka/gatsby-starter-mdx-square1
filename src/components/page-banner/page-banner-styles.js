@@ -30,7 +30,8 @@ export const BannerContent = styled(Container)`
   h1 {
     margin: 0;
     padding: 40px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: red;
+    color: #fff;
+    font-size: 60px;
+    text-shadow: ${props => props.theme.textShadow};
   }
 `;

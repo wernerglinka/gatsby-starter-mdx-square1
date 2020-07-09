@@ -66,7 +66,8 @@ const topbarTransition = {
  *  shinning through when the page is faded-in
  *************************************************************************** */
 
-const StandardPage = ({ children, location }) => {
+const DefaultLayout = ({ children, location }) => {
+  console.log(children);
   const siteMetadata = useSiteMetadata();
   const shortcodes = { InlineMessage };
   const topMessage = children.props.pageContext.fields.topMessage || null;
@@ -175,9 +176,9 @@ const StandardPage = ({ children, location }) => {
   );
 };
 
-StandardPage.propTypes = {
+DefaultLayout.propTypes = {
   children: PropType.shape().isRequired,
   location: PropType.shape().isRequired,
 };
 
-export default StandardPage;
+export default DefaultLayout;

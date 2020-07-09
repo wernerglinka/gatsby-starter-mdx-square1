@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 
 import useSiteNav from "../../hooks/useSiteNav";
 
+import Button from "../button";
+
 import SubMenuPane from "./submenu-pane";
 
 import { MainMenu } from "./main-navigation-styles";
@@ -27,12 +29,24 @@ const MainNav = props => {
   return (
     <MainMenu>
       {topLevelItems.map(link => (
-        <li key={link.url} menuid={link.itemID} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <Link to={link.url} activeClassName="active" partiallyActive onClick={() => setMenuPaneOpen("")}>
-            {link.label}
-          </Link>
-          {link.hasSubMenu && (
-            <SubMenuPane itemID={link.itemID} menuPaneOpen={menuPaneOpen} setMenuPaneOpen={setMenuPaneOpen} />
+        <li
+          key={link.url}
+          menuid={link.itemID}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className={link.itemClass || null}
+        >
+          {link.buttonAttr ? (
+            <Button buttonAttr={link.buttonAttr} to={link.url} buttonText={link.label} />
+          ) : (
+            <>
+              <Link to={link.url} activeClassName="active" partiallyActive onClick={() => setMenuPaneOpen("")}>
+                {link.label}
+              </Link>
+              {link.hasSubMenu && (
+                <SubMenuPane itemID={link.itemID} menuPaneOpen={menuPaneOpen} setMenuPaneOpen={setMenuPaneOpen} />
+              )}
+            </>
           )}
         </li>
       ))}

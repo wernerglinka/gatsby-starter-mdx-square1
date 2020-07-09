@@ -4,25 +4,42 @@
       "label": "About",
       "url": "/about",
       "itemID": "about",
-      "hasSubMenu": true
+      "hasSubMenu": true,
+      "itemClass": "",
+      "isButton": false,
+      "buttonAttr": ""
     },
     {
       "label": "Projects",
       "url": "/projects",
       "itemID": "projects",
-      "hasSubMenu": true
+      "hasSubMenu": true,
+      "itemClass": "",
+      "buttonAttr": ""
     },
     {
       "label": "Code Example",
       "url": "/code",
       "itemID": "code-example",
-      "hasSubMenu": false
+      "hasSubMenu": false,
+      "itemClass": "",
+      "buttonAttr": ""
     },
     {
       "label": "Blog",
       "url": "/blog",
       "itemID": "blog",
-      "hasSubMenu": false
+      "hasSubMenu": false,
+      "itemClass": "",
+      "buttonAttr": ""
+    },
+    {
+      "label": "Request Demo",
+      "url": "/request-demo",
+      "itemID": "request-demo",
+      "hasSubMenu": false,
+      "itemClass": "",
+      "buttonAttr": "primary"
     }
   ]
 }

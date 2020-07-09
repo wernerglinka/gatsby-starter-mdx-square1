@@ -14,6 +14,7 @@ const useSiteMetadata = () => {
             linkedIn
           }
           imagePrefix
+          munchkinId
         }
       }
     }

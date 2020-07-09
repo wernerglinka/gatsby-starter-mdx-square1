@@ -3,11 +3,11 @@ const Theme = {
     body: {
       fontFamily: "'Open Sans', san-serif",
       fontWeight: "300",
-      fontSize: "16px",
-      lineHeight: "1.5",
+      fontSize: "18px",
+      lineHeight: "1.6",
     },
     heading: {
-      fontFamily: "Oswald, 'Helvetica Neue', sans-serif",
+      fontFamily: "Lato, 'Helvetica Neue', sans-serif",
       fontWeight: "400",
     },
   },
@@ -44,6 +44,7 @@ const Theme = {
     maxWidth: "1024px",
   },
   boxShadow: "0px 0px 20px 0px rgba(84,86,90,0.17)",
+  textShadow: "2px 0px 8px rgba(0, 0, 0, 0.8)",
   defaultBorder: "1px solid #999",
   backgroundPattern: {
     light: `linear-gradient(

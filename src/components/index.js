@@ -13,6 +13,7 @@ import NewsList from "./page-section-news-list";
 import FilteredNewsList from "./page-section-news-list-with-filter";
 import SingleTestimonial from "./page-section-testimonials/single";
 import SectionTabsHorizontal from "./page-section-tabs-horizontal";
+import SectionMktoForm from "./page-section-mkto-form";
 
 export {
   SectionSimpleText,
@@ -28,6 +29,7 @@ export {
   MainPoints,
   SingleTestimonial,
   SectionTabsHorizontal,
+  SectionMktoForm,
   Header,
   Layout,
 };
@@ -46,6 +48,7 @@ export default {
   MainPoints,
   SingleTestimonial,
   SectionTabsHorizontal,
+  SectionMktoForm,
   Header,
   Layout,
 };

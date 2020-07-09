@@ -10,6 +10,8 @@ const useSiteMainNav = () => {
             url
             itemID
             hasSubMenu
+            itemClass
+            buttonAttr
           }
         }
       }

@@ -46,20 +46,10 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: `Oswald`,
-            subsets: [`latin`],
-            variants: [`400`, `500`],
-          },
-          {
-            family: `Open Sans`,
-            subsets: [`latin`],
-            variants: [`300`, `400`, `500`],
-          },
-        ],
+        fonts: [`Open Sans:300,400,500`, `Lato:300, 400`],
+        display: "swap",
       },
     },
     {

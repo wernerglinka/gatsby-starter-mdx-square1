@@ -3,6 +3,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FiX } from "react-icons/fi";
+import titleCase from "ap-style-title-case";
 import { TopMsg } from "./top-message-styles";
 import { Container } from "../common-styles";
 import mdStringToHTML from "../../utilities/md-to-html";
@@ -21,7 +22,7 @@ const topMessage = ({ message, removeTopbar, slug }) => {
     <TopMsg>
       <Container>
         <FiX onClick={handleClick} />
-        <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(message) }} />
+        <div dangerouslySetInnerHTML={{ __html: mdStringToHTML(titleCase(message)) }} />
       </Container>
     </TopMsg>
   );
