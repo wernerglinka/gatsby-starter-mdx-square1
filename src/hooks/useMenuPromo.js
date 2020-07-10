@@ -30,7 +30,7 @@ const useMenuPromo = thisPromo => {
   // simplify data structure
   const menuPromo = temp.map(item => item.node.childPromotionsJson);
 
-  console.log(`in useMenuPromo hook. menuPromo[0].title: ${menuPromo[0].title}`);
+  console.log(`in useMenuPromo hook. menuPromo[0].title: ${menuPromo[0]}`);
 
   return menuPromo[0];
 };
