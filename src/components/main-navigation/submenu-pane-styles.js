@@ -7,15 +7,30 @@ export const DropShadowMask = styled.div`
   left: 0;
   right: 0;
   z-index: 1000;
-  overflow: hidden;
-  margin-bottom: 10px;
 `;
 
 export const MenuPane = styled.div`
   box-shadow: ${props => props.theme.boxShadow};
-  padding: 40px;
   background-color: #fafafa;
-  margin-bottom: 40px;
+  max-height: 0;
+  overflow: hidden;
+
+  &.open {
+    max-height: 400px;
+    padding: 40px;
+    animation: slideDown 0.4s ease-in-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      max-height: 0;
+      padding: 0 40px;
+    }
+    to {
+      max-height: 400px;
+      padding: 40px;
+    }
+  }
 `;
 
 export const MenuColumns = styled.div`

@@ -24,57 +24,28 @@ const SubMenuPane = ({ itemID, menuPaneOpen, setMenuPaneOpen }) => {
   // look for the nav object that matches the itemID of the parent link
   const thisSubMenu = subMenus.filter(subMenu => subMenu.childOf === itemID);
 
-  // define animation properties for the menu pane
-  const menuPaneState = {
-    closed: {
-      height: 0,
-    },
-    open: {
-      height: "auto",
-    },
-    exit: {
-      height: 0,
-    },
-  };
-
   return (
     <DropShadowMask hasTopbar={hasTopbar}>
-      <AnimatePresence>
-        {itemID === menuPaneOpen && (
-          <motion.div
-            key={itemID}
-            variants={menuPaneState}
-            initial="closed"
-            animate={itemID === menuPaneOpen ? "open" : "closed"}
-            exit="exit"
-          >
-            <MenuPane>
-              <Container>
-                <MenuColumns>
-                  {thisSubMenu[0].linkGroup.map(column => (
-                    <MenuColumn key={column.title}>
-                      <TitleWrapper>{column.title}</TitleWrapper>
-                      <ListsWrapper>
-                        <LinkLists
-                          links={column.links}
-                          maxLength={LIST_LENGTH_LIMIT}
-                          setMenuPaneOpen={setMenuPaneOpen}
-                        />
-                      </ListsWrapper>
-                    </MenuColumn>
-                  ))}
+      <MenuPane className={itemID === menuPaneOpen ? "open" : null}>
+        <Container>
+          <MenuColumns>
+            {thisSubMenu[0].linkGroup.map(column => (
+              <MenuColumn key={column.title}>
+                <TitleWrapper>{column.title}</TitleWrapper>
+                <ListsWrapper>
+                  <LinkLists links={column.links} maxLength={LIST_LENGTH_LIMIT} setMenuPaneOpen={setMenuPaneOpen} />
+                </ListsWrapper>
+              </MenuColumn>
+            ))}
 
-                  {thisSubMenu[0].hasPromo && (
-                    <MenuColumn>
-                      <Promo promoID={thisSubMenu[0].promoID} />
-                    </MenuColumn>
-                  )}
-                </MenuColumns>
-              </Container>
-            </MenuPane>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {thisSubMenu[0].hasPromo && (
+              <MenuColumn>
+                <Promo promoID={thisSubMenu[0].promoID} />
+              </MenuColumn>
+            )}
+          </MenuColumns>
+        </Container>
+      </MenuPane>
     </DropShadowMask>
   );
 };

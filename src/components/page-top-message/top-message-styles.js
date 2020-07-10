@@ -1,17 +1,9 @@
 import styled from "@emotion/styled";
-import { motion } from "framer-motion";
 import { Container } from "../common-styles";
 
 export const TopMsg = styled.aside`
-  position: relative;
-  top: ${props => (props.inTransition ? "-100px" : "0")};
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  min-height: ${props => (props.inTransition ? "0" : "60px")};
-  height: ${props => (props.inTransition ? "0" : "auto")};
   background-color: #54565a;
-  transition: all 0.5s ease-in-out;
+  height: ${props => props.theme.topbar.height};
 
   ${Container} {
     position: relative;
