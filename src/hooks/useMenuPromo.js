@@ -7,7 +7,7 @@ const useMenuPromo = thisPromo => {
         edges {
           node {
             id
-            childPromotionsJson {
+            childPromosJson {
               promoID
               title
               image
@@ -26,9 +26,9 @@ const useMenuPromo = thisPromo => {
 
   console.log(`in useMenuPromo hook. data: ${JSON.stringify(data, null, 4)}`);
 
-  const temp = data.allFile.edges.filter(edge => edge.node.childPromotionsJson.promoID === thisPromo);
+  const temp = data.allFile.edges.filter(edge => edge.node.childPromosJson.promoID === thisPromo);
   // simplify data structure
-  const menuPromo = temp.map(item => item.node.childPromotionsJson);
+  const menuPromo = temp.map(item => item.node.childProm0sJson);
 
   console.log(`in useMenuPromo hook. menuPromo[0].title: ${menuPromo[0]}`);
 
