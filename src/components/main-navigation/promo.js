@@ -21,14 +21,20 @@ const MenuPromo = ({ promoID }) => {
 
   return (
     <PromoWrapper>
-      <div>
-        <h3>{thisPromo.title}</h3>
-        <Link to={thisPromo.cta.url}>{thisPromo.cta.text}</Link>
-      </div>
+      {thisPromo ? (
+        <>
+          <div>
+            <h3>{thisPromo.title}</h3>
+            <Link to={thisPromo.cta.url}>{thisPromo.cta.text}</Link>
+          </div>
 
-      <div>
-        <ClImage imageName={thisPromo.image} maxWidth={300} sizes={sizes} alt={thisPromo.title} />
-      </div>
+          <div>
+            <ClImage imageName={thisPromo.image} maxWidth={300} sizes={sizes} alt={thisPromo.title} />
+          </div>
+        </>
+      ) : (
+        <p>No promo was found</p>
+      )}
     </PromoWrapper>
   );
 };

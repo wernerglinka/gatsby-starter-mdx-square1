@@ -48,13 +48,12 @@ const SubMenuPane = ({ itemID, menuPaneOpen, setMenuPaneOpen }) => {
                 </ListsWrapper>
               </MenuColumn>
             ))}
-            {/*
+
             {thisSubMenu[0].hasPromo && (
               <MenuColumn>
                 <Promo promoID={thisSubMenu[0].promoID} />
               </MenuColumn>
             )}
-            */}
           </MenuColumns>
         </Container>
       </MenuPane>
