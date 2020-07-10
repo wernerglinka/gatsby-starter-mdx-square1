@@ -19,6 +19,8 @@ const MenuPromo = ({ promoID }) => {
   const thisPromo = useMenuPromo(promoID);
   const sizes = "300px";
 
+  console.log(`in Promo component. promoID: ${promoID}`);
+
   return (
     <PromoWrapper>
       {thisPromo ? (
