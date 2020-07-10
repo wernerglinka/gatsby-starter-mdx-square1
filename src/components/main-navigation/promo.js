@@ -23,7 +23,7 @@ const MenuPromo = ({ promoID }) => {
   const thisPromo = useMenuPromo(promoID);
   const sizes = "300px";
 
-  console.log(`in Promo component. thisPromo.title: ${thisPromo.title}`);
+  console.log(`in Promo component. thisPromo: ${thisPromo}`);
 
   return (
     <PromoWrapper>
