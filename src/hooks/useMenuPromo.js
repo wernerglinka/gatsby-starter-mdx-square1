@@ -24,7 +24,7 @@ const useMenuPromo = thisPromo => {
 
   console.log(`in useMenuPromo hook. thisPromo: ${thisPromo}`);
 
-  console.log(`in useMenuPromo hook. data: ${data}`);
+  console.log(`in useMenuPromo hook. data: ${JSON.stringify(data, null, 4)}`);
 
   const temp = data.allFile.edges.filter(edge => edge.node.childPromotionsJson.promoID === thisPromo);
   // simplify data structure
