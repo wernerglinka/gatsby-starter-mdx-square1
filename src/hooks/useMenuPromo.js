@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 const useMenuPromo = thisPromo => {
   const data = useStaticQuery(graphql`
     {
-      promoData: allFile(filter: { relativeDirectory: { eq: "promotions" } }) {
+      allFile(filter: { relativeDirectory: { eq: "promotions" } }) {
         edges {
           node {
             id
@@ -24,9 +24,9 @@ const useMenuPromo = thisPromo => {
 
   console.log(`in useMenuPromo hook. thisPromo: ${thisPromo}`);
 
-  console.log(`in useMenuPromo hook. data.promoData.edges: ${data.promoData.edges}`);
+  console.log(`in useMenuPromo hook. data.promoData.edges: ${data.allFile.edges}`);
 
-  const temp = data.promoData.edges.filter(edge => edge.node.childPromotionsJson.promoID === thisPromo);
+  const temp = data.allFile.edges.filter(edge => edge.node.childPromotionsJson.promoID === thisPromo);
   // simplify data structure
   const menuPromo = temp.map(item => item.node.childPromotionsJson);
 
