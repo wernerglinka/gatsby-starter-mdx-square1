@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import { AnimatePresence, motion } from "framer-motion";
 import useSiteNav from "../../hooks/useSiteNav";
 
 import { Container } from "../common-styles";
@@ -25,38 +26,55 @@ const SubMenuPane = ({ itemID, menuPaneOpen, setMenuPaneOpen }) => {
 
   // define animation properties for the menu pane
   const menuPaneState = {
-    open: { height: "auto", opacity: 1 },
-    closed: { height: 0, opacity: 0 },
+    closed: {
+      height: 0,
+    },
+    open: {
+      height: "auto",
+    },
+    exit: {
+      height: 0,
+    },
   };
 
   return (
-    <DropShadowMask
-      variants={menuPaneState}
-      initial="closed"
-      animate={itemID === menuPaneOpen ? "open" : "closed"}
-      transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
-      hasTopbar={hasTopbar}
-    >
-      <MenuPane>
-        <Container>
-          <MenuColumns>
-            {thisSubMenu[0].linkGroup.map(column => (
-              <MenuColumn key={column.title}>
-                <TitleWrapper>{column.title}</TitleWrapper>
-                <ListsWrapper>
-                  <LinkLists links={column.links} maxLength={LIST_LENGTH_LIMIT} setMenuPaneOpen={setMenuPaneOpen} />
-                </ListsWrapper>
-              </MenuColumn>
-            ))}
+    <DropShadowMask hasTopbar={hasTopbar}>
+      <AnimatePresence>
+        {itemID === menuPaneOpen && (
+          <motion.div
+            key={itemID}
+            variants={menuPaneState}
+            initial="closed"
+            animate={itemID === menuPaneOpen ? "open" : "closed"}
+            exit="exit"
+          >
+            <MenuPane>
+              <Container>
+                <MenuColumns>
+                  {thisSubMenu[0].linkGroup.map(column => (
+                    <MenuColumn key={column.title}>
+                      <TitleWrapper>{column.title}</TitleWrapper>
+                      <ListsWrapper>
+                        <LinkLists
+                          links={column.links}
+                          maxLength={LIST_LENGTH_LIMIT}
+                          setMenuPaneOpen={setMenuPaneOpen}
+                        />
+                      </ListsWrapper>
+                    </MenuColumn>
+                  ))}
 
-            {thisSubMenu[0].hasPromo && (
-              <MenuColumn>
-                <Promo promoID={thisSubMenu[0].promoID} />
-              </MenuColumn>
-            )}
-          </MenuColumns>
-        </Container>
-      </MenuPane>
+                  {thisSubMenu[0].hasPromo && (
+                    <MenuColumn>
+                      <Promo promoID={thisSubMenu[0].promoID} />
+                    </MenuColumn>
+                  )}
+                </MenuColumns>
+              </Container>
+            </MenuPane>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </DropShadowMask>
   );
 };

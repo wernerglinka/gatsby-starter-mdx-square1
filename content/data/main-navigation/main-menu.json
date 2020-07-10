@@ -39,7 +39,7 @@
       "itemID": "request-demo",
       "hasSubMenu": false,
       "itemClass": "",
-      "buttonAttr": "primary"
+      "buttonAttr": "contrast"
     }
   ]
 }
