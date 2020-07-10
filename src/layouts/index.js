@@ -131,13 +131,7 @@ const DefaultLayout = ({ children, location }) => {
         <TopbarContext.Provider value={showTopbar}>
           <Head metaData={siteMetadata} />
 
-          <AnimatePresence>
-            {showTopbar && (
-              <motion.div variants={topbarTransition} initial="hidden" animate="visible" exit="exit">
-                <TopMsg message={topMessage} removeTopbar={removeTopbar} slug={pageSlug} />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {showTopbar && <TopMsg message={topMessage} removeTopbar={removeTopbar} slug={pageSlug} />}
 
           <Waypoint onEnter={makeNavStatic} onLeave={makeNavFixed} />
 
