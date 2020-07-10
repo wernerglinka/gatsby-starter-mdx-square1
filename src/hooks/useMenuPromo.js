@@ -22,9 +22,16 @@ const useMenuPromo = thisPromo => {
     }
   `);
 
+  console.log(`in useMenuPromo hook. thisPromo: ${thisPromo}`);
+
+  console.log(`in useMenuPromo hook. data.promoData.edges: ${data.promoData.edges}`);
+
   const temp = data.promoData.edges.filter(edge => edge.node.childPromotionsJson.promoID === thisPromo);
   // simplify data structure
   const menuPromo = temp.map(item => item.node.childPromotionsJson);
+
+  console.log(`in useMenuPromo hook. menuPromo[0].title: ${menuPromo[0].title}`);
+
   return menuPromo[0];
 };
 

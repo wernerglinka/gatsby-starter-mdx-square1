@@ -30,7 +30,13 @@ const SubMenuPane = ({ itemID, menuPaneOpen, setMenuPaneOpen }) => {
   };
 
   return (
-    <DropShadowMask hasTopbar={hasTopbar}>
+    <DropShadowMask
+      variants={menuPaneState}
+      initial="closed"
+      animate={itemID === menuPaneOpen ? "open" : "closed"}
+      transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
+      hasTopbar={hasTopbar}
+    >
       <MenuPane>
         <Container>
           <MenuColumns>

@@ -16,10 +16,14 @@ const PromoWrapper = styled.div`
  *  Builds a promo for the main menu pane
  *************************************************************************** */
 const MenuPromo = ({ promoID }) => {
+  console.log(`in Promo component. ********************************`);
+
+  console.log(`in Promo component. promoID: ${promoID}`);
+
   const thisPromo = useMenuPromo(promoID);
   const sizes = "300px";
 
-  console.log(`in Promo component. promoID: ${promoID}`);
+  console.log(`in Promo component. thisPromo.title: ${thisPromo.title}`);
 
   return (
     <PromoWrapper>
