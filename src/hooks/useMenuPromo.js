@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 const useMenuPromo = thisPromo => {
   const data = useStaticQuery(graphql`
     {
-      allFile(filter: { relativeDirectory: { eq: "promotions" } }) {
+      allFile(filter: { relativeDirectory: { eq: "promos" } }) {
         edges {
           node {
             id
