@@ -1,6 +1,7 @@
 /* global document */
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
+import { CSSTransition } from "react-transition-group";
 import Modal from "./modal";
 import SocialLinks from "../social-links";
 import { TeamCard, ModalTrigger } from "./team-list-styles";
@@ -14,7 +15,6 @@ import useSiteMetadata from "../../hooks/useSiteMetadata";
 
 const TeamMember = ({ info }) => {
   const [thisModal, toggleThisModal] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
   const overlayRef = useRef(null);
   const { avatar, name, position } = info;
 
@@ -27,28 +27,9 @@ const TeamMember = ({ info }) => {
     toggleThisModal(true);
   };
 
-  // modal is not closed immediately. isClosing is set, which adds class "isClosing"
-  // to the overlay, which starts a fade out.
-  // at the end of the animation the modal is closed.
   const closeModal = () => {
-    setIsClosing(true);
+    toggleThisModal(false);
   };
-
-  // when closeModal is called, it sets "isClosing" which activates this
-  // useEffect function
-  useEffect(() => {
-    function closeIt() {
-      overlayRef.current.classList.remove("isClosing");
-      setIsClosing(false);
-      toggleThisModal(false);
-    }
-    // add a class "isClosing" which starts a fadeout animation in CSS
-    // and add an "animationend" eventlistener which closes the overlay after fadeout
-    if (overlayRef.current) {
-      overlayRef.current.classList.add("isClosing");
-      overlayRef.current.addEventListener("animationend", closeIt);
-    }
-  }, [isClosing]);
 
   return (
     <TeamCard>
@@ -58,11 +39,13 @@ const TeamMember = ({ info }) => {
         <p>{position}</p>
         <SocialLinks social={info.socialLinks} />
 
-        <ModalTrigger className="read-more" onClick={openModal} onKeyDown={openModal} onTouchStart={openModal}>
+        <ModalTrigger className="read-more" onClick={openModal}>
           Read More
         </ModalTrigger>
 
-        {thisModal && <Modal overlayRef={overlayRef} info={info} closeModal={closeModal} />}
+        <CSSTransition in={thisModal} timeout={300} classNames="show-modal" unmountOnExit>
+          <Modal overlayRef={overlayRef} info={info} closeModal={closeModal} />
+        </CSSTransition>
       </div>
     </TeamCard>
   );

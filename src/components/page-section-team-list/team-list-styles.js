@@ -61,26 +61,22 @@ export const Overlay = styled.div`
   animation-duration: 0.5s;
   animation-name: fadeIn;
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  &.show-modal-enter {
+    opacity: 0;
   }
-
-  &.isClosing {
-    animation-name: fadeOut;
-
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      }
-    }
+  &.show-modal-enter-active {
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+  }
+  &.show-modal-enter-done {
+    opacity: 1;
+  }
+  &.show-modal-exit {
+    opacity: 1;
+  }
+  &.show-modal-exit-active {
+    opacity: 0;
+    transition: all 300ms ease-in-out;
   }
 `;
 
