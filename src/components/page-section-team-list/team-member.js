@@ -34,12 +34,16 @@ const TeamMember = ({ info }) => {
     setIsClosing(true);
   };
 
+  // when closeModal is called, it sets "isClosing" which activates this
+  // useEffect function
   useEffect(() => {
     function closeIt() {
       overlayRef.current.classList.remove("isClosing");
       setIsClosing(false);
       toggleThisModal(false);
     }
+    // add a class "isClosing" which starts a fadeout animation in CSS
+    // and add an "animationend" eventlistener which closes the overlay after fadeout
     if (overlayRef.current) {
       overlayRef.current.classList.add("isClosing");
       overlayRef.current.addEventListener("animationend", closeIt);

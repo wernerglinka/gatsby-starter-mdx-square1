@@ -5,6 +5,36 @@ export const TopMsg = styled.aside`
   background-color: #54565a;
   height: ${props => props.theme.topbar.height};
 
+  &.message-appear {
+    max-height: 0;
+    overflow: hidden;
+  }
+  &.message-appear-active {
+    max-height: 60px;
+    transition: all 300ms ease-in-out;
+  }
+  &.message-appear-done {
+    max-height: 60px;
+  }
+  &.message-enter {
+    max-height: 0;
+    overflow: hidden;
+  }
+  &.message-enter-active {
+    max-height: 60px;
+    transition: all 300ms ease-in-out;
+  }
+  &.message-enter-done {
+    max-height: 60px;
+  }
+  &.message-exit {
+    max-height: 60px;
+  }
+  &.message-exit-active {
+    max-height: 0;
+    transition: all 300ms ease-in-out;
+  }
+
   ${Container} {
     position: relative;
     height: 100%;

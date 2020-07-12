@@ -3,12 +3,16 @@ import { Container } from "../common-styles";
 
 export const Banner = styled.div`
   position: relative;
-  width: 100vw;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ccc;
+`;
 
-  img {
-    display: block;
-    margin: 0 auto;
-  }
+export const BackgroundImage = styled.div`
+  width: 100%;
+  height: 0;
+  padding-bottom: 25%;
 `;
 
 export const BannerContent = styled(Container)`

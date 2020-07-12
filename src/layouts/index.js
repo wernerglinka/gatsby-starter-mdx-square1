@@ -7,6 +7,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { ThemeProvider } from "emotion-theming";
 import { FiArrowUp } from "react-icons/fi";
 import { Waypoint } from "react-waypoint";
+import { CSSTransition } from "react-transition-group";
 import theme from "../styles/theme";
 import Head from "../components/head";
 import TopMsg from "../components/page-top-message";
@@ -17,43 +18,7 @@ import InlineMessage from "../components/shortcodes/inline-message";
 import TopbarContext from "../contexts/topbar-context";
 import useSiteMetadata from "../hooks/useSiteMetadata";
 import { ToTop, PageBg } from "./layout-styles";
-
-const pageTransition = {
-  initial: {
-    opacity: 0,
-  },
-  enter: {
-    opacity: 1,
-    transition: {
-      duration: 0.3,
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: { duration: 0.3 },
-  },
-};
-
-const topbarTransition = {
-  hidden: {
-    opacity: 0,
-    height: 0,
-  },
-  visible: {
-    opacity: 1,
-    height: "auto",
-    transition: {
-      duration: 0.3,
-    },
-  },
-  exit: {
-    opacity: 0,
-    height: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
+import PageTransition from "../components/page-transition";
 
 /** ***************************************************************************
  *  Default Page Layout
@@ -74,7 +39,12 @@ const DefaultLayout = ({ children, location }) => {
   const pageSlug = children.props.path;
 
   // manage topbars for all pages that have one
-  const [topbarsList, setTopbarsList] = useState(children.props.pageContext.allTopbarPages);
+  const [topbarsList, setTopbarsList] = useState([]);
+
+  // set list after first render
+  useEffect(() => {
+    setTopbarsList(children.props.pageContext.allTopbarPages);
+  }, []);
 
   const removeTopbar = slug => {
     setTopbarsList(topbarsList.filter(topbar => topbar !== slug));
@@ -131,7 +101,9 @@ const DefaultLayout = ({ children, location }) => {
         <TopbarContext.Provider value={showTopbar}>
           <Head metaData={siteMetadata} />
 
-          {showTopbar && <TopMsg message={topMessage} removeTopbar={removeTopbar} slug={pageSlug} />}
+          <CSSTransition in={showTopbar} appear timeout={300} classNames="message" unmountOnExit>
+            <TopMsg message={topMessage} removeTopbar={removeTopbar} slug={pageSlug} />
+          </CSSTransition>
 
           <Waypoint onEnter={makeNavStatic} onLeave={makeNavFixed} />
 
@@ -146,17 +118,8 @@ const DefaultLayout = ({ children, location }) => {
                 onEnter={hideToTopButton}
                 onLeave={showToTopButton}
               />
-              <AnimatePresence>
-                <motion.main
-                  key={location.pathname}
-                  variants={pageTransition}
-                  initial="initial"
-                  animate="enter"
-                  exit="exit"
-                >
-                  {children}
-                </motion.main>
-              </AnimatePresence>
+
+              <PageTransition location={location}>{children}</PageTransition>
             </PageBg>
           </MDXProvider>
           <Footer />

@@ -2,11 +2,11 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import titleCase from "ap-style-title-case";
-import ClImage from "../cl-image";
+import clImagePath from "../../utilities/cl-image-path";
 
 import TopbarContext from "../../contexts/topbar-context";
 
-import { Banner, BannerContent } from "./page-banner-styles";
+import { Banner, BackgroundImage, BannerContent } from "./page-banner-styles";
 
 /** ***************************************************************************
  *  Page Banner Component
@@ -17,10 +17,11 @@ const PageBanner = ({ properties, title }) => {
 
   return (
     <Banner hasTopbar={hasTopbar}>
-      <ClImage imageName={bgImage} maxWidth={imageMaxWidth} sizes={sizes} alt={alt} />
-      <BannerContent>
-        <h1>{titleCase(title)}</h1>
-      </BannerContent>
+      <BackgroundImage style={{ backgroundImage: `url('${clImagePath(bgImage, imageMaxWidth)}')` }}>
+        <BannerContent>
+          <h1>{titleCase(title)}</h1>
+        </BannerContent>
+      </BackgroundImage>
     </Banner>
   );
 };

@@ -7,29 +7,36 @@ export const DropShadowMask = styled.div`
   left: 0;
   right: 0;
   z-index: 1000;
+  overflow: hidden;
 `;
 
 export const MenuPane = styled.div`
   box-shadow: ${props => props.theme.boxShadow};
   background-color: #fafafa;
   max-height: 0;
-  overflow: hidden;
+  margin-bottom: 20px;
 
-  &.open {
+  &.show-menu-enter {
+    max-height: 0;
+    padding: 0 40px;
+  }
+  &.show-menu-enter-active {
     max-height: 400px;
     padding: 40px;
-    animation: slideDown 0.4s ease-in-out;
+    transition: all 300ms ease-in-out;
   }
-
-  @keyframes slideDown {
-    from {
-      max-height: 0;
-      padding: 0 40px;
-    }
-    to {
-      max-height: 400px;
-      padding: 40px;
-    }
+  &.show-menu-enter-done {
+    max-height: 400px;
+    padding: 40px;
+  }
+  &.show-menu-exit {
+    max-height: 400px;
+    padding: 40px;
+  }
+  &.show-menu-exit-active {
+    max-height: 0;
+    padding: 0 40px;
+    transition: all 300ms ease-in-out;
   }
 `;
 

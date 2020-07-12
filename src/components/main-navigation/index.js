@@ -13,7 +13,7 @@ import { MainMenu } from "./main-navigation-styles";
  *  Main menu Component
  *  Builds the main navigation menu
  *************************************************************************** */
-const MainNav = props => {
+const MainNav = () => {
   const [menuPaneOpen, setMenuPaneOpen] = useState("");
   const allNavLinks = useSiteNav();
   const topLevelItems = allNavLinks.topLevel;

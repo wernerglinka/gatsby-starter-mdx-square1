@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { AnimatePresence, motion } from "framer-motion";
+import { CSSTransition } from "react-transition-group";
 import useSiteNav from "../../hooks/useSiteNav";
 
 import { Container } from "../common-styles";
@@ -26,26 +27,28 @@ const SubMenuPane = ({ itemID, menuPaneOpen, setMenuPaneOpen }) => {
 
   return (
     <DropShadowMask hasTopbar={hasTopbar}>
-      <MenuPane className={itemID === menuPaneOpen ? "open" : null}>
-        <Container>
-          <MenuColumns>
-            {thisSubMenu[0].linkGroup.map(column => (
-              <MenuColumn key={column.title}>
-                <TitleWrapper>{column.title}</TitleWrapper>
-                <ListsWrapper>
-                  <LinkLists links={column.links} maxLength={LIST_LENGTH_LIMIT} setMenuPaneOpen={setMenuPaneOpen} />
-                </ListsWrapper>
-              </MenuColumn>
-            ))}
+      <CSSTransition in={itemID === menuPaneOpen} appear timeout={300} classNames="show-menu" unmountOnExit>
+        <MenuPane>
+          <Container>
+            <MenuColumns>
+              {thisSubMenu[0].linkGroup.map(column => (
+                <MenuColumn key={column.title}>
+                  <TitleWrapper>{column.title}</TitleWrapper>
+                  <ListsWrapper>
+                    <LinkLists links={column.links} maxLength={LIST_LENGTH_LIMIT} setMenuPaneOpen={setMenuPaneOpen} />
+                  </ListsWrapper>
+                </MenuColumn>
+              ))}
 
-            {thisSubMenu[0].hasPromo && (
-              <MenuColumn>
-                <Promo promoID={thisSubMenu[0].promoID} />
-              </MenuColumn>
-            )}
-          </MenuColumns>
-        </Container>
-      </MenuPane>
+              {thisSubMenu[0].hasPromo && (
+                <MenuColumn>
+                  <Promo promoID={thisSubMenu[0].promoID} />
+                </MenuColumn>
+              )}
+            </MenuColumns>
+          </Container>
+        </MenuPane>
+      </CSSTransition>
     </DropShadowMask>
   );
 };

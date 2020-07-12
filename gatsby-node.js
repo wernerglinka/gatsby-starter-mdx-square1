@@ -66,8 +66,6 @@ exports.createPages = async ({ graphql, actions, reporter, getNode }) => {
   // build the allAuthors array
   const allAuthors = result.data.allAuthorsJson.edges.map(edge => edge.node);
 
-  console.log(allAuthors);
-
   // build the blog categories array
   const blogCategories = [];
   result.data.blogCategories.group.forEach(category => blogCategories.push(category.fieldValue));
