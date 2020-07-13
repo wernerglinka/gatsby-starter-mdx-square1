@@ -25,7 +25,7 @@ import PageTransition from "../components/page-transition";
  *
  * - uses ThemeProvider from emotion-theming
  * - uses MDXProvider to allow injection of shortcodes without importing them
- * - uses page transitions with framer-motion
+ * - uses page transitions CSSTransition from react-transitions
  *
  *  Notice the PageBg component. This is necessary so the footer is not
  *  shinning through when the page is faded-in
@@ -50,6 +50,44 @@ const DefaultLayout = ({ children, location }) => {
     setTopbarsList(topbarsList.filter(topbar => topbar !== slug));
   };
 
+  // hide topbar when user scrolls down the page
+  const [hideTopbar, setHideTopbar] = useState(false);
+  const [activeSlug, setActiveSlug] = useState("");
+
+  const tempShowTopbar = () => {
+    setHideTopbar(false);
+  };
+
+  const tempHideTopbar = () => {
+    setHideTopbar(true);
+  };
+
+  // hideTopbar is set/unset with the page scrolling down and Waypoint sets "makeNavFixed"
+  // If a topbar exists, that mean that the topbar has scrolled out of the viewport.
+  // This means that the fixed top position of the mega menu panes needs adjustment as the
+  // topbar is not there anymore.
+  // 1 If "hideTopbar", check is the page has a topbar
+  // 2 if a Topbar exists cache the page slug
+  // 3 remove the slug from the topbarsList. This will temporarily reset "showTopbar"
+  // since "showTopbar is only used to calculate the top position of the mega menu panes
+  // this is ok
+  // 1 if "!hideTopbar" and we have a pageslug cached we add the pageslug back to the
+  // topbarsList
+
+  useEffect(() => {
+    if (hideTopbar) {
+      if (topbarsList.includes(pageSlug)) {
+        // store active slug temporarily
+        setActiveSlug(pageSlug);
+        // remove slug from list
+        removeTopbar(pageSlug);
+      }
+    } else if (activeSlug) {
+      // add slug back to list'
+      setTopbarsList([...topbarsList, activeSlug]);
+    }
+  }, [hideTopbar]);
+
   // if the current page slug is not in the list no top message
   const showTopbar = children.props.pageContext.allTopbarPages ? topbarsList.includes(pageSlug) : false;
 
@@ -62,23 +100,6 @@ const DefaultLayout = ({ children, location }) => {
     toTopVisible: false,
   });
 
-  useEffect(() => {
-    const timeout = window.setTimeout(() => {
-      // check if page is scrolled down after reload and invoke waypoint if necessary
-      const offset = window.pageYOffset;
-      if (offset > 260) {
-        setScrollState({ ...scrollState, toTopVisible: true });
-      }
-      if (offset > 79) {
-        setScrollState({ ...scrollState, stickyMainNav: true });
-      }
-    }, 500);
-
-    // hideTopbar(true);
-
-    return () => window.clearTimeout(timeout);
-  }, []);
-
   const hideToTopButton = () => {
     setScrollState({ ...scrollState, toTopVisible: false });
   };
@@ -89,10 +110,12 @@ const DefaultLayout = ({ children, location }) => {
 
   const makeNavFixed = () => {
     setScrollState({ ...scrollState, stickyMainNav: true });
+    tempHideTopbar();
   };
 
   const makeNavStatic = () => {
     setScrollState({ ...scrollState, stickyMainNav: false });
+    tempShowTopbar();
   };
 
   return (
