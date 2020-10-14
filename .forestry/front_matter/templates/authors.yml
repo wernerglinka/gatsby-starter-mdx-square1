@@ -2,26 +2,29 @@
 label: Authors
 hide_body: true
 fields:
-  - type: text
-    name: name
-    label: Name
-  - name: position
-    type: text
-    config:
-      required: false
-    label: Position
-  - type: file
-    name: avatar
-    label: Portrait
-  - type: textarea
-    name: bio
-    label: Biography
-  - name: socialLinks
-    type: include
-    config: {}
-    template: social-links
-    label: Social Links
+- type: text
+  name: name
+  label: Name
+- name: position
+  type: text
+  config:
+    required: false
+  label: Position
+- type: file
+  name: avatar
+  label: Portrait
+- type: textarea
+  name: bio
+  label: Biography
+- name: socialLinks
+  type: include
+  config: {}
+  template: social-links
+  label: Social Links
 pages:
-  - content/data/authors/albert-einstein.json
-  - content/data/authors/alexandria-ocasio-cortez.json
-  - content/data/authors/angela-merkel.json
+- content/data/authors/albert-einstein.json
+- content/data/authors/albert-einstein.json
+- content/data/authors/alexandria-ocasio-cortez.json
+- content/data/authors/alexandria-ocasio-cortez.json
+- content/data/authors/angela-merkel.json
+- content/data/authors/angela-merkel.json
