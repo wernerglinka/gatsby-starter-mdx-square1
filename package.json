@@ -58,7 +58,7 @@
     "react-transition-group": "^4.4.1",
     "react-waypoint": "^9.0.2",
     "remark": "^11.0.2",
-    "remark-html": "^10.0.0",
+    "remark-html": "^13.0.2",
     "remark-preset-lint-recommended": "^3.0.4",
     "slick-carousel": "^1.8.1",
     "smooth-scroll": "^16.1.3"
